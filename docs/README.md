@@ -2,13 +2,18 @@
 
 Informações básicas do projeto.
 
-* **Projeto:** [NOME DO PROJETO]
-* **Repositório GitHub:** [LINK PARA O REPOSITÓRIO NO GITHUB]
+* **Projeto:** [Alimento para todos]
+* **Repositório GitHub:** [Repositorio](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2401100-nutritech)
 * **Membros da equipe:**
 
-  * [Fulano](https://github.com/fulano) ⚠️ EXEMPLO ⚠️
-  * [Beltrano](https://github.com/beltrano) ⚠️ EXEMPLO ⚠️
-  * [Cicrano](https://github.com/cicrano) ⚠️ EXEMPLO ⚠️
+  * [Artur Neves](https://github.com/Nevez6)
+  * [Arthur Vieira](https://github.com/arthurvieiralopes)
+  * [Guilherme Pereira](https://github.com/GuilhermePBittencourt)
+  * [Kathleen Lorrayne](https://github.com/KathleenLorrayne01)
+  * [Larissa Monção](https://github.com/LarissaMoncao)
+  * [Matheus Figueiredo](https://github.com/matheusfigueiredo12)
+  * [Lucas Duarte](https://github.com/caslulu)
+  * [Raphael Thierry](https://github.com/Thierry07)
 
 A documentação do projeto é estruturada da seguinte forma:
 
@@ -28,73 +33,40 @@ Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa
 
 ## Problema
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
->
-> **Orientações**:
->
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+**A insegurança alimentar afeta muitas comunidades em Belo Horizonte, e a distribuição de alimentos pelas ONGs enfrenta desafios logísticos. Além disso, a complexidade do processo de doação desmotiva muitas pessoas a contribuírem, reduzindo o alcance das iniciativas de ajuda.A insegurança alimentar presente em muitas comunidades de Belo Horizonte, a dificuldade em relação a distribuição de alimentos das ONGs e a dificuldade para realizar as Doações, que faz com que muitas pessoas desistam de ajudar o proximo.**
 
 ## Objetivos
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+**Objetivo Geral**: Desenvolver uma aplicação que facilite a conexão entre doadores e ONGs, tornando o processo de doação mais acessível e eficiente para reduzir a insegurança alimentar em comunidades de Belo Horizonte.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
->
-> **Orientações**:
->
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+**Objetivos Específicos:**
+
+* Criar uma funcionalidade que exiba ONGs confiáveis próximas ao doador, incentivando doações.
+
+* Desenvolver um sistema de geolocalização que permita que pessoas em situação de vulnerabilidade encontrem facilmente ONGs próximas para buscar auxílio.
+
+* Aumentar a quantidade de doações realizadas, contribuindo para minimizar a insegurança alimentar na região.
+
 
 ## Justificativa
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
->
-> O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
->
-> **Orientações**:
->
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+**A insegurança alimentar é uma realidade para muitas comunidades de Belo Horizonte, e embora existam ONGs dedicadas a minimizar esse problema, as mesmas possuem problemas em relação a distribuição de alimentos. Além disso, muitas pessoas que desejam doar encontram dificuldades para localizar instituições confiáveis, o que acaba desmotivando.  \
+Diante disso, este projeto busca desenvolver uma aplicação que simplifique essa conexão, permitindo que doadores encontrem ONGs próximas e que pessoas em situação de vulnerabilidade localizem pontos de apoio. Utilizando geolocalização e dados reais, a proposta visa tornar o processo mais acessível, eficiente e com maior impacto na luta contra a fome.**
 
 ## Público-Alvo
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva quais são as pessoas que usarão a sua aplicação indicando os diferentes perfis. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
->
-> Adicione informações sobre o público-alvo por meio de uma descrição textual, ou diagramas de personas, mapa de stakeholders, ou como o grupo achar mais conveniente.
->
-> **Orientações**:
->
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+ **O Publico-Alvo da aplicação são:**  
+ * **Doadores:** Pessoas que desejam contribuir com doações de alimentos, mas enfrentam dificuldades no processo, seja por falta de tempo, desconhecimento sobre ONGs confiáveis ou insegurança quanto ao impacto de suas doações.
+ * **ONGs:** ONGs que buscam otimizar a captação de doações, ampliar seu alcance e melhorar a logística da distribuição de alimentos para atender mais pessoas em situação de vulnerabilidade.
+ * **Necessitados:** Pessoas que necessitam de doações de alimentos e precisam de uma maneira mais acessível e rápida de encontrar ONGs próximas que possam oferecer assistência.
 
 # Product Discovery
 
 ## Etapa de Entendimento
 
-**✳️✳️✳️ APRESENTE OS ARTEFATOS DA ETAPA  ✳️✳️✳️**
+**✳️✳️✳️![Matriz de alinhamento e Stakeholders](images/matriz-stake.jpg)  ✳️✳️✳️**
+**✳️✳️✳️![Matriz de alinhamento e Stakeholders](images/entrevista-highlight.jpg)✳️✳️✳️**
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nessa etapa, vamos trabalhar com a metdologia de Design Thinking para compreender com maior profundidade o problema a ser tratado. Nesse processo, vamos elaborar:
->
-> * **Matriz CSD**: também conhecida por Matriz de Alinhamento, é uma ferramenta utilizada no Design Thinking para organizar informações e facilitar o processo de tomada de decisão e solução de problemas;
-> * **Mapa de stakeholders**: ferramenta que nos permite compreender o grupo de pessoas e entidades que devemos estudar e conversar para entender mais sobre o problema
-> * **Entrevistas qualitativas**: série de entrevistas qualitativas para validar suposições e solucionar as dúvidas com as principais pessoas envolvidas;
-> * **Highlights de pesquisa**: um compilado do levantamento realizado por meio das entrevistas.
 
 ## Etapa de Definição
 
