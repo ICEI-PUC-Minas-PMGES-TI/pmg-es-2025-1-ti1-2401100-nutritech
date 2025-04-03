@@ -87,10 +87,6 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 
 ## Proposta de Valor
 
-**✳️✳️✳️ APRESENTE O DIAGRAMA DA PROPOSTA DE VALOR PARA CADA PERSONA ✳️✳️✳️**
-
-##### Proposta para Persona XPTO ⚠️ EXEMPLO ⚠️
-
 ![Proposta de valor](images/proposta-de-valor.jpg)
 
 
@@ -100,11 +96,35 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-![Requisitos Funcionais](images/RF.jpg)
+| ID      | Requisitos Funcionais                                | Prioridade |
+|---------|------------------------------------------------------|------------|
+| RF-001  | O sistema deve cadastrar os Doadores               | Alta       |
+| RF-002  | O sistema deve cadastrar as Ongs                   | Alta       |
+| RF-003  | O sistema deve ter um Feed para a Ong              | Média      |
+| RF-004  | O sistema deve permitir filtrar pesquisas          | Média      |
+| RF-005  | O Sistema deve ter um mapa com as Ongs de BH       | Alta       |
+| RF-006  | Deve ter um sistema de Avaliação de ONGs           | Média      |
+| RF-007  | Deve ter uma opção de receber emails               | Baixa      |
+| RF-008  | O sistema deve cadastrar as Pessoas Necessitadas   | Baixa      |
+| RF-009  | O sistema tem que ter uma opção de Doação Recorrente | Baixa   |
+| RF-010  | O sistema deve ter Dashboard para ONGs             | Baixa      |
 
 ### Requisitos não Funcionais
 
-![Requisitos Não Funcionais](images/RNF.jpg)
+| ID      | Requisitos Não Funcionais                                          | Prioridade |
+|---------|--------------------------------------------------------------------|------------|
+| RNF-001 | O Layout do sistema deve ser responsivo, principalmente para mobile | Alta       |
+| RNF-002 | O sistema deve processar Requests de maneira rápida               | Média      |
+| RNF-003 | O sistema tem que garantir a segurança de dados dos usuários      | Alta       |
+| RNF-004 | O sistema tem que ser fácil de escalar                            | Média      |
+| RNF-005 | O sistema tem que ter uma interface fácil de compreender          | Alta       |
+
+### Restrições do Projeto  
+
+| ID    | Restrições do Projeto                                      | Categoria    |
+|-------|------------------------------------------------------------|-------------|
+| R-001 | O processo deve utilizar HTML, CSS, JavaScript para desenvolvimento | Linguagens  |
+| R-002 | O sistema deve utilizar Heroku como ambiente              | Ambiente    |
 
 ## Projeto de Interface
 
@@ -169,8 +189,8 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 | Ambiente                    | Plataforma | Link de acesso                                     |
 | --------------------------- | ---------- | -------------------------------------------------- |
-| Processo de Design Thinking | Miro       | https://miro.com/XXXXXXX ⚠️ EXEMPLO ⚠️        |
-| Repositório de código     | GitHub     | https://github.com/XXXXXXX ⚠️ EXEMPLO ⚠️      |
+| Processo de Design Thinking | Miro       | [Miro](https://miro.com/app/board/uXjVIaSTdXg=/) |
+| Repositório de código     | GitHub     | [Github](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2401100-nutritech)      |
 | Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
 | Protótipo Interativo       | MarvelApp  | https://marvelapp.com/XXXXXXX ⚠️ EXEMPLO ⚠️   |
 |                             |            |                                                    |
