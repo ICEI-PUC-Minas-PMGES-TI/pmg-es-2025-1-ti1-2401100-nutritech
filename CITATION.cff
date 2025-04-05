@@ -2,26 +2,30 @@ cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: 
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - Vieira-Lopes: 
+    Arthur: 
+  - de-figueiredo-neves: 
+    Artur: 
+  - Pereira-Bittencourt: 
+    Guilherme: 
+  - Almeida-Reis: 
+    Kathleen-Lorrayne: 
+  - Monção-de-Oliveira: 
+    Larissa: 
+  - Batista-Duarte: 
+    Lucas:
+  - Figueiredo: 
+    Matheus: 
+  - Thierry-Coelho: 
+    Raphael:  
+  - name-suffix: Professor 
+    affiliation: PUC Minas
+    de Farias-Bastos: 
+    Diego Augusto: 
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    Hanne-Soares-de-Andrade: 
+    Michelle: 
 keywords:
   - 
   - 
