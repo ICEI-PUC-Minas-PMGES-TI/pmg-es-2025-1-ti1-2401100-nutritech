@@ -183,13 +183,13 @@ A tela que contem as informações necessarias para realizar a doação por pix
 
 
 
-![Exemplo de fluxo de telas](images/workflow.png)
+![Fluxo de Telas](images/workflow.png)
 
 
 ### Protótipo Interativo
 
 
-✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/adb7bg6/screen/96997443)
+![Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/adb7bg6/screen/96997443)
 
 # Metodologia
 
@@ -203,28 +203,31 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 | --------------------------- | ---------- | -------------------------------------------------- | ------------------------------------------------------------------------|
 | Processo de Design Thinking | Miro       | [Miro](https://miro.com/app/board/uXjVIaSTdXg=/) | Ja possui modelos prontos para design thinking, Possibilita Colaboração em tempo real
 | Repositório de código     | GitHub     | [Github](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2401100-nutritech)  | O site mais famoso para hospedagem de repositorio e tambem utilizado para gerenciamento de projeto (Kanban)|
-| Protótipo Interativo       | MarvelApp  | [MarvelApp]https://marvelapp.com/project/7283316   | Possivel transformar rapidamente os Wireframes em prototipos interativos |
+| Protótipo Interativo       | MarvelApp  | [MarvelApp](https://marvelapp.com/project/7283316)   | Possivel transformar rapidamente os Wireframes em prototipos interativos |
 |                             |            |                                                    |
 
 ## Gerenciamento do Projeto
 
 Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
 
-![Kanban](images/exemplo-kanban.png)
+![Kanban](images/kanban.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesta parte do documento, você deve apresentar  o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada a gestão de configuração do projeto via GitHub.
->
-> Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
->
-> **Orientações**:
->
-> - [Sobre Projects - GitHub Docs](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-> - [Gestão de projetos com GitHub | balta.io](https://balta.io/blog/gestao-de-projetos-com-github)
-> - [(460) GitHub Projects - YouTube](https://www.youtube.com/playlist?list=PLiO7XHcmTsldZR93nkTFmmWbCEVF_8F5H)
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+* Metodologias Ágeis Utilizadas
+  Para a organização e desenvolvimento do projeto, utilizamos abordagens ágeis, combinando Kanban, Design Thinking e Scrum. O Kanban foi adotado para gerenciar o fluxo de trabalho, enquanto o Design Thinking foi utilizado para criação da solução juntamente com o Scrum.
+
+* Divisão de Papéis e Tarefas
+  * Fase de Design Thinking:
+    Cada participante identificou com quem tinha maior facilidade para entrar em contato para realizar asentrevistas. Isso garantiu maior eficiência na coleta de informações relevantes para a solução, assim, preenchendo o design thinking.
+* Ferramentas Empregadas
+  * Miro para design Thinking
+  * MarvelApp para o prototipo interativo
+  * Github para hospedagem do codigo e do Kanban
+  * Figma para criação dos prototipos
+  * Google Meet para reuniões
+
+* Gestão de Configuração do Projeto via GitHub
+  Foi utilizado o kanban disponibilizado pelo Github para a gestão do Projeto.
+
 
 # Solução Implementada
 
