@@ -218,6 +218,8 @@ Divisão de papéis no grupo e apresentação da estrutura da ferramenta de cont
 * Divisão de Papéis e Tarefas
   * Fase de Design Thinking:
     Cada participante identificou com quem tinha maior facilidade para entrar em contato para realizar asentrevistas. Isso garantiu maior eficiência na coleta de informações relevantes para a solução, assim, preenchendo o design thinking.
+  * Fase de Criação de Telas:
+    A maior parte dos integrantes se concentrou na criação das telas e no desenvolvimento do protótipo, enquanto apenas 3 pessoas focaram no desenvolvimento da apresentação.
 * Ferramentas Empregadas
   * Miro para design Thinking
   * MarvelApp para o prototipo interativo
