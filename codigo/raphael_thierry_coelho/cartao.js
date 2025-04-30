@@ -11,7 +11,7 @@ document.getElementById('form-cartao').addEventListener('submit', function (e) {
     });
 
     if (todosPreenchidos) {
-        alert('Doação enviada!');
+        alert('Doação Realizada!');
         this.reset();
     } else {
         alert('Por favor, preencha todos os campos.');

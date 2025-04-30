@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; 
+    font-family: Arial, sans-serif;
+}
+
+.container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+#form-cartao{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px; 
+}
+input{
+    border-bottom-left-
+}
+input, button {
+    padding: 10px;
+    font-size: 14px;
+}

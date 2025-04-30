@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pagamento com Cartão</h1>
-    <form id="form-cartao">
-        <input type="number" name="valor" required placeholder="Valor"><br>
-        <input type="text" name="titular" required placeholder="Titular"><br>
-        <input type="number" name="cpf" required placeholder="CPF"><br>
-        <input type="number" name="num-cartao" required placeholder="Número do Cartão"><br>
-        <input type="number" name="validade" required placeholder="Validade"><br>
-        <input type="number" name="cvv" required placeholder="CVV"><br>
-        <button type="submit">Realizar Doação</button>
-    </form>
+    <div class="container">
+        <h1>Pagamento com Cartão</h1>
+        <form id="form-cartao">
+            <input type="text" name="valor" required placeholder="Valor" oninput="this.value = this.value.replace(/[^0-9.,\-\s]/g, '')"><br>
+            <input type="text" name="titular" required placeholder="Titular"><br>
+            <input type="text" name="cpf" required placeholder="CPF" maxlength="14" oninput="this.value = this.value.replace(/[^0-9.\-\s]/g, '')"><br>
+            <input type="text" name="num-cartao" required placeholder="Número do Cartão" maxlength="19" oninput="this.value = this.value.replace(/[^0-9.\-\s]/g, '')"><br>
+            <input type="text" name="validade" required placeholder="Validade" maxlength="7" oninput="this.value = this.value.replace(/[^0-9.\-\s\/]/g, '')"><br>
+            <input type="text" name="cvv" required placeholder="CVV" maxlength="3" oninput="this.value = this.value.replace(/[^0-9.\-\s]/g, '')"><br>
+            <button type="submit">Realizar Doação</button>
+        </form>
+    </div>
     <script src="cartao.js"></script>
 </body>
 </html>
