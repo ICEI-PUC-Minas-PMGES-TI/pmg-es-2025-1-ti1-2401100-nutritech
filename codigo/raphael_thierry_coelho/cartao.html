@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagamento Cartão</title>
+    <title>Pagamento com Cartão</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<header>
+    <img src="imgs/forma1.png" alt="decoracao-cabecalho" id="forma1">
+    <div id="logo">
+        <img src="imgs/logo.png" alt="Logo"  id="img-logo">
+        <h1>Alimentação<br>Para<br>Todos</h1>
+    </div>
+
+    <a href="https://example.com" class="usuario">
+            <h2>Usuário</h2>
+            <img src="imgs/usuario.png" alt="Usuario" id="img-usuario">
+    </a>
+</header>
 <body>
+    <img src="imgs/forma2.png" alt="decoracao-lateral" id="forma2">
+    <img src="imgs/" alt="">
+    <div id="pagina">
     <div class="container">
-        <h1>Pagamento com Cartão</h1>
+        <h3>Pagamento com Cartão</h3>
         <form id="form-cartao">
             <input type="text" name="valor" required placeholder="Valor" oninput="this.value = this.value.replace(/[^0-9.,\-\s]/g, '')"><br>
             <input type="text" name="titular" required placeholder="Titular"><br>
@@ -16,9 +31,44 @@
             <input type="text" name="num-cartao" required placeholder="Número do Cartão" maxlength="19" oninput="this.value = this.value.replace(/[^0-9.\-\s]/g, '')"><br>
             <input type="text" name="validade" required placeholder="Validade" maxlength="7" oninput="this.value = this.value.replace(/[^0-9.\-\s\/]/g, '')"><br>
             <input type="text" name="cvv" required placeholder="CVV" maxlength="3" oninput="this.value = this.value.replace(/[^0-9.\-\s]/g, '')"><br>
-            <button type="submit">Realizar Doação</button>
+
+            <div class="tipo-cartao">
+                <div>
+                    <input type="radio" name="buttonGroup" id="button1" class="toggle-btn">
+                    <label for="button1">Débito</label>
+                </div>
+        
+                <div>
+                    <input type="radio" name="buttonGroup" id="button2" class="toggle-btn">
+                    <label for="button2">Crédito</label>
+                </div>
+            </div>
+            <button id="btn-submit" type="submit">Realizar Doação</button>
         </form>
     </div>
     <script src="cartao.js"></script>
+</div>
 </body>
+<footer>
+    <img src="imgs/forma3.png" alt="decoracao-rodape1" id="forma3">
+    <img src="imgs/forma4.png" alt="decoracao-rodape2" id="forma4">
+
+    <div id="informacoes">
+
+        <div id="inf-contato">
+            <h4>Contato</h4>
+            <p>(31) 9999-6666<br>
+            nutritech@pucminas.com.br
+            </p>
+        </div>
+
+        <div id="inf-local">
+            <h5>Local</h5>
+            <p>Belo Horizonte - MG   
+            </p>
+        </div>
+        
+    </div>
+
+</footer>
 </html>
