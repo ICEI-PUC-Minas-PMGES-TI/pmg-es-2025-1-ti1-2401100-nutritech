@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center; 
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 #logo{
     display: flex;
@@ -162,18 +162,29 @@ label:hover {
     margin-right: auto;
   }
   
-  .foto-redonda {
+  .anel-story {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #a8e063, #56ab2f, #379237, #1e5631, #114e1d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px; /* espaço entre o anel e a imagem */
+    box-sizing: border-box;
+    margin-left: -450px;
+}
+
+.foto-redonda {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-image: url('imgs/fotoong.png'); /* coloque o caminho certo aqui */
+    background-image: url('imgs/fotoong.png');
     background-size: cover;
     background-position: center;
-    border: 4px solid #4CAF50;
-    flex-shrink: 0;
-    margin-left: -700px;
-    margin-top: -100px;
-  }
+}
+
+
   
   .info-ong h3 {
     font-size: 28px;
@@ -181,10 +192,45 @@ label:hover {
     color: #333;
   }
   
-  .info-ong p {
+  .info-ong {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* Centraliza horizontalmente */
+    text-align: center;      /* Centraliza o texto */
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;          /* Garante centralização no container */
+}
+
+.bio {
     font-size: 18px;
-    color: #555;
-  }
+    color: #444;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.detalhes-perfil {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+}
+
+.detalhes-perfil li {
+    margin-bottom: 10px;
+}
+
+.detalhes-perfil a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.detalhes-perfil a:hover {
+    text-decoration: underline;
+}
+
 
 
   
