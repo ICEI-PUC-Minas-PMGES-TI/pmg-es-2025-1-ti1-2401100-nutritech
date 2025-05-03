@@ -25,7 +25,7 @@ A documentação do projeto é estruturada da seguinte forma:
 6. Solução
 7. Referências Bibliográficas
 
-✅ [Documentação de Design Thinking (MIRO)](files/processo-dt.pdf)
+✅ [Documentação de Design Thinking (MIRO)](files/design-thinking.pdf)
 
 # Contexto
 
@@ -87,11 +87,7 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 
 ## Proposta de Valor
 
-**✳️✳️✳️ APRESENTE O DIAGRAMA DA PROPOSTA DE VALOR PARA CADA PERSONA ✳️✳️✳️**
-
-##### Proposta para Persona XPTO ⚠️ EXEMPLO ⚠️
-
-![Proposta de valor](images/proposta-de-valor.jpg)
+**![Proposta de valor](images/proposta-de-valor.jpg)**
 
 
 ## Requisitos
@@ -100,11 +96,38 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-![Requisitos Funcionais](images/RF.jpg)
+| ID      | Requisitos Funcionais                                | Prioridade |
+|---------|------------------------------------------------------|------------|
+| RF-001  | O sistema deve cadastrar os Doadores               | Alta       |
+| RF-002  | O sistema deve cadastrar as Ongs                   | Alta       |
+| RF-003  | O sistema deve ter um Feed para a Ong              | Média      |
+| RF-004  | O sistema deve permitir filtrar pesquisas          | Média      |
+| RF-005  | O Sistema deve ter um mapa com as Ongs de BH       | Alta       |
+| RF-006  | Deve ter um sistema de Avaliação de ONGs           | Média      |
+| RF-007  | Deve ter uma opção de receber emails               | Baixa      |
+| RF-008  | O sistema deve cadastrar as Pessoas Necessitadas   | Baixa      |
+| RF-009  | O sistema tem que ter uma opção de Doação Recorrente | Baixa   |
+| RF-010  | O sistema deve ter Dashboard para ONGs             | Baixa      |
+| RF-011  | O sistema deve ter um ranking de doações             | Baixa      |
+| RF-012  | O sistema deve utilizar APIs        | Media     |
+
 
 ### Requisitos não Funcionais
 
-![Requisitos Não Funcionais](images/RNF.jpg)
+| ID      | Requisitos Não Funcionais                                          | Prioridade |
+|---------|--------------------------------------------------------------------|------------|
+| RNF-001 | O Layout do sistema deve ser responsivo, principalmente para mobile | Alta       |
+| RNF-002 | O sistema deve processar Requests de maneira rápida               | Média      |
+| RNF-003 | O sistema tem que garantir a segurança de dados dos usuários      | Alta       |
+| RNF-004 | O sistema tem que ser fácil de escalar                            | Média      |
+| RNF-005 | O sistema tem que ter uma interface fácil de compreender          | Alta       |
+
+### Restrições do Projeto  
+
+| ID    | Restrições do Projeto                                      | Categoria    |
+|-------|------------------------------------------------------------|-------------|
+| R-001 | O processo deve utilizar HTML, CSS, JavaScript para desenvolvimento | Linguagens  |
+| R-002 | O sistema deve utilizar Heroku como ambiente              | Ambiente    |
 
 ## Projeto de Interface
 
@@ -114,50 +137,59 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 
 Estes são os protótipos de telas do sistema.
 
-**✳️✳️✳️ COLOQUE AQUI OS PROTÓTIPOS DE TELAS COM TÍTULO E DESCRIÇÃO ✳️✳️✳️**
+##### TELA INICIAL
 
-##### TELA XPTO ⚠️ EXEMPLO ⚠️
+A tela que aparece assim que o usuario entra no sistema
 
-Descrição para a tela XPTO
+![Tela Inicial](images/wireframe-inicial.png)
 
-![Exemplo de wireframe](images/exemplo-wireframe.png)
+##### Tela Cadastro
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface.
->
-> **Orientações**:
->
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
+A tela para o usuario realizar o cadastro
+
+![Tela Cadastro](images/wireframe-cadastro.png)
+
+##### Tela Login
+
+A tela para o usuario realizar o login
+
+![Tela Login](images/wireframe-login.png)
+
+##### Tela da ONG
+
+A tela que contem algumas informações da ONG para o Doador/Necessitado
+
+![Tela ONG](images/wireframe-paginaong.png)
+
+##### Tela do Dashboard da ONG
+
+A tela que contem algumas informações da ONG para o funcionario da ONG
+
+![Tela Dashboard](images/wireframe-dashboard.png)
+
+##### Tela da Doação
+
+A tela para realizar a doação, contendo opções do que doar
+
+![Tela Doação](images/wireframe-doacao.png)
+
+##### Tela para Doação Pix
+
+A tela que contem as informações necessarias para realizar a doação por pix
+
+![Tela do Pix](images/wireframe-pix.png)
 
 ### User Flow
 
-**✳️✳️✳️ COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS ✳️✳️✳️**
 
-![Exemplo de fluxo de telas](images/exemplo-userflow.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
->
-> **Orientações**:
->
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools &amp; Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
+![Fluxo de Telas](images/workflow.png)
+
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ COLOQUE AQUI UM IFRAME COM SEU PROTÓTIPO INTERATIVO ✳️✳️✳️**
 
-✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Utilize as mesmas ferramentas de construção de wireframes para montagem do seu protótipo interativo. Inclua o link para o protótipo interativo do projeto.
+[Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/adb7bg6/screen/96997443)
 
 # Metodologia
 
@@ -167,37 +199,37 @@ Detalhes sobre a organização do grupo e o ferramental empregado.
 
 Relação de ferramentas empregadas pelo grupo durante o projeto.
 
-| Ambiente                    | Plataforma | Link de acesso                                     |
-| --------------------------- | ---------- | -------------------------------------------------- |
-| Processo de Design Thinking | Miro       | https://miro.com/XXXXXXX ⚠️ EXEMPLO ⚠️        |
-| Repositório de código     | GitHub     | https://github.com/XXXXXXX ⚠️ EXEMPLO ⚠️      |
-| Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
-| Protótipo Interativo       | MarvelApp  | https://marvelapp.com/XXXXXXX ⚠️ EXEMPLO ⚠️   |
+| Ambiente                    | Plataforma | Link de acesso                                     |      Motivo                                          
+| --------------------------- | ---------- | -------------------------------------------------- | ------------------------------------------------------------------------|
+| Processo de Design Thinking | Miro       | [Miro](https://miro.com/app/board/uXjVIaSTdXg=/) | Ja possui modelos prontos para design thinking, Possibilita Colaboração em tempo real
+| Repositório de código     | GitHub     | [Github](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2401100-nutritech)  | O site mais famoso para hospedagem de repositorio e tambem utilizado para gerenciamento de projeto (Kanban)|
+| Protótipo Interativo       | MarvelApp  | [MarvelApp](https://marvelapp.com/project/7283316)   | Possivel transformar rapidamente os Wireframes em prototipos interativos |
 |                             |            |                                                    |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, (2) )ferramentas de comunicação, (3) )ferramentas de diagramação, (4) )plataformas de hospedagem, entre outras.
 
 ## Gerenciamento do Projeto
 
 Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
 
-![Exemplo de Kanban](images/exemplo-kanban.png)
+![Kanban](images/kanban.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesta parte do documento, você deve apresentar  o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada a gestão de configuração do projeto via GitHub.
->
-> Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
->
-> **Orientações**:
->
-> - [Sobre Projects - GitHub Docs](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-> - [Gestão de projetos com GitHub | balta.io](https://balta.io/blog/gestao-de-projetos-com-github)
-> - [(460) GitHub Projects - YouTube](https://www.youtube.com/playlist?list=PLiO7XHcmTsldZR93nkTFmmWbCEVF_8F5H)
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+* Metodologias Ágeis Utilizadas
+  Para a organização e desenvolvimento do projeto, utilizamos abordagens ágeis, combinando Kanban, Design Thinking e Scrum. O Kanban foi adotado para gerenciar o fluxo de trabalho, enquanto o Design Thinking foi utilizado para criação da solução juntamente com o Scrum.
+
+* Divisão de Papéis e Tarefas
+  * Fase de Design Thinking:
+    Cada participante identificou com quem tinha maior facilidade para entrar em contato para realizar asentrevistas. Isso garantiu maior eficiência na coleta de informações relevantes para a solução, assim, preenchendo o design thinking.
+  * Fase de Criação de Telas:
+    A maior parte dos integrantes se concentrou na criação das telas e no desenvolvimento do protótipo, enquanto apenas 3 pessoas focaram no desenvolvimento da apresentação.
+* Ferramentas Empregadas
+  * Miro para design Thinking
+  * MarvelApp para o prototipo interativo
+  * Github para hospedagem do codigo e do Kanban
+  * Figma para criação dos prototipos
+  * Google Meet para reuniões
+
+* Gestão de Configuração do Projeto via GitHub
+  Foi utilizado o kanban disponibilizado pelo Github para a gestão do Projeto.
+
 
 # Solução Implementada
 
