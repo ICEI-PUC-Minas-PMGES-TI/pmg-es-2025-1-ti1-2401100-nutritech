@@ -1,0 +1,12 @@
+[
+    {"posicao": 1, "nome": "Ana Oliveira", "valor": 1200},
+    {"posicao": 2, "nome": "Lucas Ferreira", "valor": 980},
+    {"posicao": 3, "nome": "Mariana Souza", "valor": 850},
+    {"posicao": 4, "nome": "João Pedro Lima", "valor": 720},
+    {"posicao": 5, "nome": "Beatriz Santos", "valor": 650},
+    {"posicao": 6, "nome": "Rafael Costa", "valor": 600},
+    {"posicao": 7, "nome": "Carla Menezes", "valor": 530},
+    {"posicao": 8, "nome": "Bruno Almeida", "valor": 470},
+    {"posicao": 9, "nome": "Júlia Ribeiro", "valor": 400},
+    {"posicao": 10, "nome": "Pedro Henrique", "valor": 380}
+]
