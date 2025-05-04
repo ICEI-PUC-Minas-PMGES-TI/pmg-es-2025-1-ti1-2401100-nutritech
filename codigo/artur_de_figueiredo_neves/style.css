@@ -1,6 +1,203 @@
-#pagina{
+body {
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  #img-logo {
+    width: 100px;
+  }
+  
+  #logo h1 {
+    font-size: 24px;
+    margin: 0;
+    color: white;
+  }
+  
+  #img-usuario {
+    width: 60px;
+  }
+  
+  main {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 80px; 
+  }
+  
+  #ranking-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 22px;
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
+  }
+  
+  #ranking-list li {
+    display: flex;
+    justify-content: space-between;
+    background-color: #a8dba8;
+    margin-bottom: 10px;
+    padding: 20px 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+  
+  #ranking-list li strong {
+    color: #004400;
+    margin-right: 10px;
+  }
+  
+  footer {
+    position: relative;
+    background-color: transparent;
+    color: white;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+  
+  footer .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  footer .container h4,
+  footer .container h5 {
+    font-size: 1.2rem;
+  }
+  
+  footer .container p {
+    font-size: 1rem;
+  }
+  
+  #forma3 {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    #logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+    }
+  
+    #logo h1 {
+      font-size: 18px;
+      margin-left: 10px;
+      line-height: 1.2;
+    }
+  
+    #img-logo {
+      width: 60px;
+    }
+  
+    a[href*="example.com"] {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: black;
+    }
+  
+    h2 {
+      font-size: 16px;
+      margin: 0;
+    }
+  
+    #img-usuario {
+      width: 40px;
+      margin-left: 10px;
+    }
+  
+    main {
+      padding: 0 10px 80px 10px;
+    }
+  
+    #ranking-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 16px;
+      padding: 15px 20px;
+    }
+  
+    footer {
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+    }
+  
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #a8dba8;
+      z-index: -1;
+    }
+  
+    footer .container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+      z-index: 1;
+    }
+  
+    footer .container h4,
+    footer .container h5 {
+      font-size: 1rem;
+    }
+  
+    footer .container p {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+        footer img[alt="decoracao-rodape1"] {
+          display: none;
+        }
+      }
+  }
+  
+  
+/*#pagina{
+    margin: 0;
+    height: 160vh;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -64,12 +261,13 @@ h2{
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-top: -100px;
     background-color: #d1f0d1; 
-    padding: 60px;
+    padding: 40px 20px;
     border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
 }
 h3{
     font-size: 50px;
@@ -154,8 +352,8 @@ label:hover {
     padding: 0;
     margin-top: 30px;
     width: 100%;
-    max-width: 500px;
-    font-size: 20px;
+    max-width: 1800px;
+    font-size: 22px;
     font-family: 'Quicksand', sans-serif;
     color: #ffffff;
 }
@@ -165,11 +363,11 @@ label:hover {
     justify-content: space-between;
     background-color: #a8dba8;
     margin-bottom: 10px;
-    padding: 20px 40px;
-    border-radius: 25px;
-    font-size: 22px;
+    padding: 30px 70px;
+    border-radius: 30px;
+    font-size: 24px;
     color: #ffffff;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 #ranking-list li strong {
@@ -180,13 +378,17 @@ label:hover {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 40px;
+    gap: 10px;
+    flex-wrap: wrap;
+    
 }
 
 #forma4 {
     width: 220px;
     height: auto;
-    margin-top: 80px;
-    position: static; 
+    position: absolute; 
+    left: 250px; 
+    top: 50%; 
+    transform: translateY(-50%); 
     z-index: 0;
 }
