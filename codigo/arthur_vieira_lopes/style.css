@@ -1,4 +1,4 @@
-#pagina{
+#pagina {
     margin: 0;
     height: 100vh;
     display: flex;
@@ -6,6 +6,7 @@
     align-items: center; 
     font-family: 'Poppins', sans-serif;
 }
+
 #logo{
     display: flex;
     position: relative;
@@ -170,9 +171,8 @@ label:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4px; /* espaço entre o anel e a imagem */
+    padding: 15px; /* espaço entre o anel e a imagem */
     box-sizing: border-box;
-    margin-left: -450px;
 }
 
 .foto-redonda {
@@ -230,6 +230,7 @@ label:hover {
 .detalhes-perfil a:hover {
     text-decoration: underline;
 }
+
 
 
 
