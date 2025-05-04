@@ -71,3 +71,5 @@ document.addEventListener('click', function (e) {
     document.getElementById('gerenciar-recorrencia').addEventListener('click', function () {
         window.location.href = 'recorrencia.html';
 });
+
+
