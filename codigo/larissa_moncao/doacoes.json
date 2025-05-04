@@ -1,16 +1,24 @@
-{ 
+{
   "doacoes_alimentos": [
     {
+      "id_doacao": "ALIM-20250410-001",
       "doacao": {
         "nome": "Larissa Monção",
         "CPF": "123.456.789-00",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "email": "larissa.oliveira@example.com",
         "telefone": "(38) 99815-4188"
       },
       "data": "2025-04-10",
+      "instituicao": "Comida que Abraça",
       "descricao": "Arroz",
+      "categoria": "Grão",
       "quantidade": "10 Unidades",
-      "valor": 88.00
+      "valor": 88.00,
+      "entrega": "Entregue pessoalmente",
+      "status": "Entregue",
+      "comprovante_url": "https://meusite.com/comprovantes/doacao123.pdf"
     }
   ]
 }
