@@ -8,8 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     
-    <!-- Script para Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=3e7c5b6a2d9949b1a091e13a32e2f0f6&callback=initMap" async defer></script>
+    <!-- Script para Geoapify -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <style>
+        /* Garantindo que o mapa tenha o tamanho adequado */
+        #map {
+            height: 400px;  /* Altura ajustada para o mapa */
+            width: 80%;     /* Largura ajustada para o mapa */
+            margin: 0 auto; /* Centralizar o mapa */
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,7 +29,7 @@
             <h2>Alimentação <br> Para <br> Todos</h2>
         </a>
         <a href="#" class="usuario-container">
-            <h3>usuario</h3>
+            <h3>usuário</h3>
             <img src="imgs/usuario.png" alt="Usuário" class="usuario px-3">
         </a>
     </header>
@@ -45,7 +56,7 @@
         </div>
 
         <!-- Mapa -->
-        <div id="map" style="height: 500px; width: 100%;"></div>
+        <div id="map"></div>
     </main>
 
     <footer>
@@ -64,61 +75,52 @@
     </footer>
 
     <script>
+        const API_KEY = '5c44b3606f0c4083a694018d9e277792'; // Sua chave de API do Geoapify
         let map;
         let userLocation;
         let markers = [];
 
-        // Função que inicializa o mapa e posiciona as ONGs
+        // Função para inicializar o mapa usando a API do Geoapify
         function initMap() {
-            // Mapa centralizado em Belo Horizonte
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: -19.8191, lng: -43.9378 },
-                zoom: 12
+            map = new window.L.Map("map", {
+                center: [ -19.8191, -43.9378 ], // Belo Horizonte
+                zoom: 12,
+                zoomControl: true,
             });
+
+            // Usando a URL fornecida para o estilo carto
+            window.L.tileLayer(
+                `https://maps.geoapify.com/v1/tile/carto/{z}/{x}/{y}.png?&apiKey=${API_KEY}`,
+                {
+                    maxZoom: 19,
+                    attribution: "© OpenStreetMap contributors"
+                }
+            ).addTo(map);
 
             // Definindo as ONGs com suas localizações (latitude e longitude)
             const ongs = [
-                {
-                    name: "Comida que Abraça",
-                    lat: -19.9191,
-                    lng: -43.9378,
-                    tipo: "alimentos",
-                },
-                {
-                    name: "ONG Verde",
-                    lat: -19.8300,
-                    lng: -43.9200,
-                    tipo: "voluntariado",
-                },
-                {
-                    name: "Fundação Dom Bosco",
-                    lat: -19.8320,
-                    lng: -43.9320,
-                    tipo: "dinheiro",
-                },
+                { name: "Comida que Abraça", lat: -19.9191, lng: -43.9378, tipo: "alimentos" },
+                { name: "ONG Verde", lat: -19.8300, lng: -43.9200, tipo: "voluntariado" },
+                { name: "Fundação Dom Bosco", lat: -19.8320, lng: -43.9320, tipo: "dinheiro" },
             ];
 
             // Adicionando os marcadores para as ONGs
             ongs.forEach((ong) => {
-                const marker = new google.maps.Marker({
-                    position: { lat: ong.lat, lng: ong.lng },
-                    map: map,
-                    title: ong.name,
-                });
+                const marker = window.L.marker([ong.lat, ong.lng])
+                    .addTo(map)
+                    .bindPopup(ong.name); // O nome da ONG está em português
                 markers.push({ ...ong, marker });
             });
 
             // Obtendo a localização do usuário
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
-                    userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    userLocation = [position.coords.latitude, position.coords.longitude];
 
                     // Adicionando um marcador para a posição do usuário
-                    new google.maps.Marker({
-                        position: userLocation,
-                        map: map,
-                        title: "Sua localização",
-                    });
+                    window.L.marker(userLocation)
+                        .addTo(map)
+                        .bindPopup("Sua localização");
 
                     // Atualizar os filtros quando o mapa estiver pronto
                     updateFilters();
@@ -126,7 +128,7 @@
             }
         }
 
-        // Função para atualizar a lista de ONGs com base no filtro
+        // Função para atualizar os marcadores das ONGs com base no filtro
         function updateFilters() {
             const typeFilter = document.getElementById("filterType").value;
             const distanceFilter = document.getElementById("filterDistance").checked;
@@ -142,20 +144,44 @@
             // Ordenando as ONGs por distância
             if (distanceFilter && userLocation) {
                 filteredOngs.sort((a, b) => {
-                    const distanceA = google.maps.geometry.spherical.computeDistanceBetween(userLocation, new google.maps.LatLng(a.lat, a.lng));
-                    const distanceB = google.maps.geometry.spherical.computeDistanceBetween(userLocation, new google.maps.LatLng(b.lat, b.lng));
+                    const distanceA = getDistance(userLocation, [a.lat, a.lng]);
+                    const distanceB = getDistance(userLocation, [b.lat, b.lng]);
                     return distanceA - distanceB;
                 });
             }
 
             // Remover os marcadores antigos
-            markers.forEach((markerObj) => markerObj.marker.setMap(null));
+            markers.forEach((markerObj) => markerObj.marker.remove());
 
             // Adicionar os marcadores filtrados
             filteredOngs.forEach((ong) => {
-                ong.marker.setMap(map);
+                ong.marker.addTo(map);
             });
         }
+
+        // Função para calcular a distância entre duas coordenadas
+        function getDistance(coord1, coord2) {
+            const lat1 = coord1[0];
+            const lon1 = coord1[1];
+            const lat2 = coord2[0];
+            const lon2 = coord2[1];
+            
+            const R = 6371; // Raio da Terra em km
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            const distance = R * c; // Resultado em km
+            return distance;
+        }
+
+        // Inicializar o mapa ao carregar a página
+        window.onload = initMap;
     </script>
 </body>
 </html>
+
+
+
