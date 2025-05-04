@@ -56,7 +56,6 @@ fetch('doacoes.json')
     console.error('Erro ao carregar JSON:', error);
   });
 
-// Aciona o botão por meio do click
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('btn-doar-novamente')) {
     const doacao = JSON.parse(e.target.getAttribute('data-doacao'));
@@ -67,7 +66,7 @@ document.addEventListener('click', function (e) {
     // Ideia de levar para um formulário de doação ainda não implementado
   }
 });
-    // Botão de gerencia recorrência que deverá levar a uma nova página
+    // Botão de gerenciar doações com recorrência. Ideia de levar para uma página de gerenciamento de doações recorrentes
     document.getElementById('gerenciar-recorrencia').addEventListener('click', function () {
         window.location.href = 'recorrencia.html';
 });
