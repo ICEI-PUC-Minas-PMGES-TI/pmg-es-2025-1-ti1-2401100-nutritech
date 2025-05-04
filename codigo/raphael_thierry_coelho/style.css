@@ -63,8 +63,9 @@ h2{
 #forma4{
     position: absolute;
     z-index: -1;
-    width: 500px;
-    bottom: -550px;
+    width: 400px;
+    bottom: -490px;
+    left: 90px;
 }
 
 .container{
@@ -150,4 +151,11 @@ label:hover {
 }
 #inf-local{
     font-size: 30px;
+}
+
+#logo-footer{
+    width: 150px;
+    height: 150px;
+    padding-left: 200px;
+    margin-top: 30px;
 }
