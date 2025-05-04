@@ -33,21 +33,30 @@ fetch('doacoes.json')
 
       // Exibe as doações
       doacoesFiltradas.forEach(item => {
-        const div = document.createElement('div');
-        div.classList.add('doacao');
-        div.innerHTML = `
-          <strong>Data:</strong> ${item.data}<br>
-          <strong>Instituição:</strong> ${item.instituicao}<br>
-          <strong>Descrição:</strong> ${item.descricao}<br>
-          <strong>Categoria:</strong> ${item.categoria || 'Alimento'}<br>
-          <strong>Quantidade:</strong> ${item.quantidade}<br>
-          <strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(2)}<br>
-          <strong>Entrega:</strong> ${item.entrega || 'Não informado'}<br>
-          <strong>Status:</strong> ${item.status || 'Concluído'}<br>
-          <strong>Comprovante:</strong> <a href="${item.comprovante || '#'}" target="_blank">Ver Comprovante</a><br><br>
-          <button class="btn-doar-novamente" data-doacao='${JSON.stringify(item)}'>Doar novamente</button>
-        `;
-        lista.appendChild(div);
+        const card = document.createElement('div');
+card.className = 'card mb-3';
+
+card.innerHTML = `
+  <div class="card-body">
+    <h5 class="card-title">${item.instituicao}</h5>
+    <p class="card-text">
+      <strong>Data:</strong> ${item.data}<br>
+      <strong>Descrição:</strong> ${item.descricao}<br>
+      <strong>Categoria:</strong> ${item.categoria || 'Alimento'}<br>
+      <strong>Quantidade:</strong> ${item.quantidade}<br>
+      <strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(2)}<br>
+      <strong>Entrega:</strong> ${item.entrega || 'Não informado'}<br>
+      <strong>Status:</strong> ${item.status || 'Concluído'}<br>
+      <strong>Comprovante:</strong> <a href="${item.comprovante || '#'}" target="_blank" >Ver Comprovante</a>
+    </p>
+    <button class="btn btn-outline-success rounded-pill btn-doar-novamente" data-doacao='${JSON.stringify(item)}'>
+      Doar novamente
+    </button>
+  </div>
+`;
+
+lista.appendChild(card);
+
       });
     }
   })
