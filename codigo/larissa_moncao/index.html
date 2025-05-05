@@ -9,7 +9,7 @@
 </head>
 <body class="bg-white text-black">
     
-  <header class="bg-verde-fundo">
+  <header class="bg-fundos">
     
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-4">
       <div class="container-fluid">
@@ -18,11 +18,15 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <img src="/codigo/larissa_moncao/img/TODOS (1).png" alt="logo" class="img-fluid ms-3 d-block mt-1" style="max-width: 100px;">
+        <h1 class="text-success fw-bold display-4 text-start mb-4 fs-3 ms-3 mt-1">
+          Alimentação para Todos
+        </h1>
+        
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto fw-bold">
             <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Instituições</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Doações</a></li>
           </ul>
         </div>
       </div>
@@ -31,22 +35,24 @@
 
 
 
-
-
-
+  
   <div class="container py-5">
-    <h1 class="mb-4 text-right ">Perfil do Doador</h1>
+    <div class=" d-flex justify-content-center align-items-center flex-column mb-4">
+      <img id="foto-doador" src="/codigo/larissa_moncao/img/foto_perfil.jpg" alt="Foto do Doador" class="rounded-circle mb-4 img-fluid ms-3 d-block mt-6 d p-6" style="width: 90px;">
+      <h1 class="mb-4 text-right ">Perfil do Doador</h1>
+  </div>
+  
   
     <!-- Linha com colunas lado a lado -->
     <div class="row mb-5">
       <div class="row mb-5">
         <!-- Dados Pessoais -->
-        <div class="col-md-4">
+        <div class="col-md-4 ">
           <section id="dados-pessoais" class="border rounded p-3 mb-4 bg-fundos">
-            <h2 class="h4">Dados Pessoais</h2>
+            <h2 class="h4 border-bottom border-success">Dados Pessoais</h2>
             <div id="info-doador" class="p-3 rounded">Carregando...</div>
             <div class="mt-3">
-              <button id="editar" class="btn btn-verde me-2 rounded-pill px-4 py-2 shadow">Editar</button>
+              <button id="editar" class="btn btn-verde rounded-pill px-4 py-2 shadow">Editar</button>
               <button id="logout" class="btn btn-verde rounded-pill px-4 py-2 shadow">Logout</button>
             </div>
           </section>
@@ -55,22 +61,21 @@
         <!-- Lista Doações -->
         <div class="col-md-8">
           <section id="doacoes">
-            <h2 class="h4 text-center">Doações já realizadas por você</h2>
+            <h2 class="h4 text-center border-bottom border-success pb-2 mb-4 ">Doações já realizadas por você</h2>
             <div id="lista-doacoes" class="p-3 rounded">Carregando...</div>
           </section>
         </div>
       </div>
-      <section>
-        <h2 class="h4">Instituições Favoritas</h2>
-        <div id="lista-instituicoes-doadas" class="p-3 rounded">Carregando...</div>
-      </section>
         <!-- Botão de gerenciar recorrência-->
-        <section id="doacoes-recorrentes" class="mb-4 px-4 py-2">
-          <button id="gerenciar-recorrencia" class="btn bg-verde-fundo rounded-pill px-4 py-2 shadow">Gerenciar Doações Recorrentes</button>
+        <section id="doacoes-recorrentes" class="mb-4">
+          
+          <p class="h5 text-center pb-2 mb-4">Veja aqui sobre suas doações recorrentes</p>
+          <button id="gerenciar-recorrencia" class="btn bg-verde-fundo rounded-pill px-4 py-2 shadow w-100 text-light">Gerenciar Doações Recorrentes</button>
         </section>
         <!--Botão nova doação-->
         <section id="doar">
-          <button id="nova-doacao" class="btn bg-verde-fundo w-100 rounded-pill px-4 py-9 shadow">Nova Doação</button>
+          <p class="h5 text-center pb-2 mb-4">Faça uma nova doação aqui e ajude uma várias pessoas necessitadas</p>
+          <button id="nova-doacao" class="btn bg-verde-fundo w-100 rounded-pill px-3 py-6 shadow text-light">Nova Doação</button>
         </section>
       </div>
       </div>
@@ -78,8 +83,9 @@
     </div>
   </div>
 
-  <footer class="text-center py-4 bg-dark text-light">
-    <small>© 2025 NutriTech</small>
+  <footer class="text-center py-4 bg-fundos text-dark">
+    <p>© 2025 NutriTech</p>
+    <p>Projeto Alimentação para Todos</p>
   </footer>
 
   <script src="app.js"></script>

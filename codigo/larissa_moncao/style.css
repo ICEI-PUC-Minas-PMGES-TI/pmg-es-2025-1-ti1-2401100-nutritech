@@ -24,3 +24,6 @@ a{
 .bg-link {
     color: #2E8B57;
 }
+.bg-verde-fundo:hover {
+    background-color: #c4f7c4;
+}
