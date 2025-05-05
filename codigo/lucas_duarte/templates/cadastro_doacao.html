@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Doação</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <a href="#">
+            <img src="../imgs/logo.png" alt="" class="px-3 logo">
+            <h2>Alimentação <br> Para <br> Todos</h2>
+        </a>
+        <a href="#" class="usuario-container">
+            <h3>usuario</h3>
+            <img src="../imgs/usuario.png" alt="" class="usuario px-3">
+        </a>
+    </header>
+
+     <main>
+        <h1>Cadastro de Doação</h1>
+        <form action="">
+            <label for="alimento">Tipo de Alimento:</label>
+            <select name="alimento" id="alimento" required>
+                <option value="" disabled selected>Selecione o tipo de alimento</option>
+                <option value="macarrao">Macarrão</option>
+                <option value="arroz">Arroz</option>
+                <option value="feijao">Feijão</option>
+                <option value="enlatados">Enlatados</option>
+                <option value="outros">Outros</option>
+            </select>
+            <select name="quantidade" id="quantidade" required>
+                <option value="" disabled selected>Selecione a quantidade</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <p>Valor do(s) produto(s):</p>
+            <p id="valorDoacao">R$0</p>
+            <input type="submit">
+        </form>
+
+
+
+     </main>
+
+     <footer>
+        <div class="footer-info px-5">
+            <div>
+                <h3>Contato</h3>
+                <p>(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
+            <div class="px-5">
+                <h3>Local</h3>
+                <p>Belo Horizonte</p>
+            </div>
+        </div>
+        <img src="../imgs/logo.png" alt="" class="logo">
+    </footer>
+
+
+    <script src="../script/script.js"></script>
+    
+</body>
+</html>

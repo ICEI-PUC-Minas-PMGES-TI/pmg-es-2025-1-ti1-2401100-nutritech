@@ -1,0 +1,138 @@
+/* header */
+header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #5D8736, #A9C46C);
+    padding: 10px;
+}
+
+header .logo {
+    width: auto;
+    max-height: 100px;
+    margin: 10px;
+}
+
+header h2 {
+    font-size: 2.5em;
+    color: #fff;
+    margin: 0;
+    padding: 10px;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+header .usuario-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+header .usuario {
+    max-height: 100px;
+    margin-left: 10px;
+}
+
+header h3 {
+    font-size: 1.5em;
+    color: #555353;
+    opacity: 0.8;
+    font-family: 'ABeeZee', sans-serif;
+    margin: 0;
+}
+
+
+header a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Main Content */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+    text-align: center;
+}
+
+main h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #368758;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+form input[type="text"],
+form input[type="submit"] {
+    padding: 10px; 
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #368758;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2a6b46;
+}
+
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #368758, #8EC46C);
+    height: 120px;
+    padding: 10px 20px;
+    color: #fff;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+footer .footer-info {
+    display: flex;
+    gap: 20px;
+}
+
+footer h3 {
+    margin: 0;
+    text-align: left;
+}
+
+footer p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+footer .logo {
+    width: auto;
+    max-height: 100px;
+    margin: 0 auto;
+}
