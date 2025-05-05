@@ -27,3 +27,7 @@ a{
 .bg-verde-fundo:hover {
     background-color: #c4f7c4;
 }
+
+.navbar-rounded-bottom-right {
+    border-bottom-right-radius: 80px;
+}
