@@ -1,0 +1,33 @@
+[
+    {
+      "nome": "Comida que Abraça",
+      "sede": "Belo Horizonte - Sede",
+      "logo": "img/cqa.png",
+      "rating": 4
+    },
+    {
+      "nome": "ONG Verde",
+      "sede": "Belo Horizonte",
+      "logo": "img/ov.png",
+      "rating": 5
+    },
+    {
+      "nome": "Fundação Dom Bosco",
+      "sede": "Belo Horizonte",
+      "logo": "img/fdb.png",
+      "rating": 3
+    },
+    {
+      "nome": "Ajuda Solidária",
+      "sede": "Contagem",
+      "logo": "img/as.png",
+      "rating": 4
+    },
+    {
+      "nome": "Amigos do Bem",
+      "sede": "Sabará",
+      "logo": "img/adb.png",
+      "rating": 2
+    }
+  ]
+  
