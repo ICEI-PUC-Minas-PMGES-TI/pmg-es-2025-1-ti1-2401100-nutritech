@@ -171,7 +171,7 @@ label:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px; /* espaço entre o anel e a imagem */
+    padding: 4px; 
     box-sizing: border-box;
 }
 
@@ -195,11 +195,11 @@ label:hover {
   .info-ong {
     display: flex;
     flex-direction: column;
-    align-items: center;     /* Centraliza horizontalmente */
-    text-align: center;      /* Centraliza o texto */
+    align-items: center;     
+    text-align: center;      
     max-width: 600px;
     width: 100%;
-    margin: 0 auto;          /* Garante centralização no container */
+    margin: 0 auto;          
 }
 
 .bio {
