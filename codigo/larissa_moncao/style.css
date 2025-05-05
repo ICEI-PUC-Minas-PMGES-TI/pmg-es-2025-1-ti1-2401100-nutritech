@@ -7,3 +7,20 @@ a{
     color: rgb(27, 221, 85);
     text-decoration: none;
 }
+
+.bg-verde-fundo {
+    background-color: #2E8B57;
+}
+
+.bg-fundos {
+    background-color: #c4f7c4;
+}
+
+.btn-verde {
+    background-color: #2E8B57;
+    color: white;
+}
+
+.bg-link {
+    color: #2E8B57;
+}
