@@ -37,7 +37,7 @@ fetch('doacoes.json')
 card.className = 'card mb-3';
 
 card.innerHTML = `
-  <div class="card-body">
+  <div class="card-body bg-fundos shadow">
     <h5 class="card-title">${item.instituicao}</h5>
     <p class="card-text">
       <strong>Data:</strong> ${item.data}<br>
@@ -49,7 +49,7 @@ card.innerHTML = `
       <strong>Status:</strong> ${item.status || 'Concluído'}<br>
       <strong>Comprovante:</strong> <a href="${item.comprovante || '#'}" target="_blank" >Ver Comprovante</a>
     </p>
-    <button class="btn btn-outline-success rounded-pill btn-doar-novamente" data-doacao='${JSON.stringify(item)}'>
+    <button class="btn btn-doar-novamente btn-verde rounded-pill px-4 py-2 shadow" data-doacao='${JSON.stringify(item)}'>
       Doar novamente
     </button>
   </div>
@@ -79,5 +79,5 @@ document.addEventListener('click', function (e) {
     document.getElementById('gerenciar-recorrencia').addEventListener('click', function () {
         window.location.href = 'recorrencia.html';
 });
-
+document.getElementById('foto-doador').src = dadosPessoais.foto || 'default.jpg';
 
