@@ -104,35 +104,39 @@ form input[type="submit"]:hover {
 }
 
 
+
+
 /* Footer */
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background: linear-gradient(to right, #368758, #8EC46C);
-    height: 120px;
-    padding: 10px 20px;
+    padding: 15px 20px; 
     color: #fff;
     font-family: 'ABeeZee', sans-serif;
 }
 
-footer .footer-info {
-    display: flex;
-    gap: 20px;
+footer .container {
+    max-width: 100%;
 }
 
 footer h3 {
-    margin: 0;
-    text-align: left;
+    margin-bottom: 10px; 
+    font-size: 1.1rem;
 }
 
 footer p {
-    margin: 5px 0;
-    text-align: left;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+footer .row {
+    margin: 0;
 }
 
 footer .logo {
-    width: auto;
-    max-height: 100px;
-    margin: 0 auto;
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
