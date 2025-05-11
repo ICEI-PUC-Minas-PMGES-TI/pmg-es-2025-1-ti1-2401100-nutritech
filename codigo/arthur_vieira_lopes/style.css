@@ -130,6 +130,7 @@ label:hover {
     background-color: green;
     border-style: none;
     cursor: pointer;
+
 }
 #btn-submit:hover {
     background: none;
@@ -229,6 +230,23 @@ label:hover {
 
 .detalhes-perfil a:hover {
     text-decoration: underline;
+}
+#btn-submit-2 {
+    border-radius: 100px;
+    padding: 25px;
+    font-size: 20px;
+    width: 200px;
+    color: whitesmoke;
+    background: linear-gradient(to right, rgb(114, 212, 114), rgb(67, 126, 67));
+    border-style: none;
+    cursor: pointer;
+    margin-left: 20px; /* espaçamento entre os botões */
+}
+
+#btn-submit-2:hover {
+    background: none;
+    background-color: #3e8e41;
+    transition: 0.5s;
 }
 
 
