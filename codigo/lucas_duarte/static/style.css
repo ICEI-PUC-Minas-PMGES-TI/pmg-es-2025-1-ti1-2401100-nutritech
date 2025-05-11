@@ -2,9 +2,10 @@
 /* Main Content */
 main {
     display: block;
-    height: auto;
+    height: 715px;
     text-align: left;
     padding: 0;
+
 }
 
 main .row {

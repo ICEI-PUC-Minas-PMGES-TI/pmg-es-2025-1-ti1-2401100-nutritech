@@ -101,10 +101,9 @@ document.querySelector("form").addEventListener("submit", function (event) {
 document.addEventListener("DOMContentLoaded", function () {
     const cardsContainer = document.getElementById("cards-container");
 
-    // Função para criar um card
     function createCard(doacao) {
         const card = document.createElement("div");
-        card.className = "col-md-4";
+        card.className = "col-md-4 py-3";
         card.innerHTML = `
             <div class="card" style="width: 100%;">
                 <div class="card-body">
@@ -121,22 +120,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return card;
     }
 
-    // Carrega os dados do JSON e cria os cards
-    fetch('../database/cadastro_doacoes.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao carregar o arquivo JSON de doações');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const doacoes = data.doacoes_alimentos;
-            doacoes.forEach(doacao => {
-                const card = createCard(doacao);
-                cardsContainer.appendChild(card);
-            });
-        })
-        .catch(error => {
-            console.error('Erro ao carregar os dados de doações:', error);
+    
+    const cadastroDoacoes = JSON.parse(localStorage.getItem("cadastro_doacoes"));
+
+    if (cadastroDoacoes && cadastroDoacoes.doacoes_alimentos) {
+        const doacoes = cadastroDoacoes.doacoes_alimentos;
+        doacoes.forEach(doacao => {
+            const card = createCard(doacao);
+            cardsContainer.appendChild(card);
         });
+    } else {
+        console.error("Nenhuma doação encontrada no localStorage.");
+    }
 });
