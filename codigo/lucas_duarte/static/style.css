@@ -1,80 +1,33 @@
-/* header */
-header {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #5D8736, #A9C46C);
-    padding: 10px;
-}
-
-header .logo {
-    width: auto;
-    max-height: 100px;
-    margin: 10px;
-}
-
-header h2 {
-    font-size: 2.5em;
-    color: #fff;
-    margin: 0;
-    padding: 10px;
-    font-family: 'ABeeZee', sans-serif;
-}
-
-header .usuario-container {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-header .usuario {
-    max-height: 100px;
-    margin-left: 10px;
-}
-
-header h3 {
-    font-size: 1.5em;
-    color: #555353;
-    opacity: 0.8;
-    font-family: 'ABeeZee', sans-serif;
-    margin: 0;
-}
-
-
-header a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-
 
 /* Main Content */
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh;
-    text-align: center;
+    display: block;
+    height: auto; /* Ajusta a altura para o conteúdo */
+    text-align: left;
+    padding: 0; /* Remove qualquer padding adicional */
+}
+
+main .row {
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    margin-left: 0; /* Remove margens extras da row */
+}
+
+main .col-md-6 {
+    padding-left: 0; /* Remove padding à esquerda da coluna */
+    margin-left: 0; /* Remove margens à esquerda da coluna */
 }
 
 main h1 {
-    margin-bottom: 20px;
+    text-align: left; /* Alinha o título à esquerda */
     font-size: 2rem;
     color: #368758;
     font-family: 'ABeeZee', sans-serif;
 }
 
-
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 300px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Garante que o formulário ocupe toda a largura da coluna */
+    max-width: 400px; /* Define uma largura máxima para o formulário */
+    margin-left: 0; /* Remove margens extras do formulário */
 }
 
 form select {
@@ -101,42 +54,4 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: #2a6b46;
-}
-
-
-
-
-/* Footer */
-footer {
-    background: linear-gradient(to right, #368758, #8EC46C);
-    padding: 15px 20px; 
-    color: #fff;
-    font-family: 'ABeeZee', sans-serif;
-}
-
-footer .container {
-    max-width: 100%;
-}
-
-footer h3 {
-    margin-bottom: 10px; 
-    font-size: 1.1rem;
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.95rem;
-}
-
-footer .row {
-    margin: 0;
-}
-
-footer .logo {
-    max-height: 80px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
