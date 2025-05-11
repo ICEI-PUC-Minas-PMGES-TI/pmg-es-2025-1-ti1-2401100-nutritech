@@ -96,3 +96,47 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
     console.log("JSON atualizado:", cadastroDoacoes);
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cardsContainer = document.getElementById("cards-container");
+
+    // Função para criar um card
+    function createCard(doacao) {
+        const card = document.createElement("div");
+        card.className = "col-md-4";
+        card.innerHTML = `
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">${doacao.doador.nome}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">${doacao.data}</h6>
+                    <p class="card-text">
+                        <strong>Descrição:</strong> ${doacao.descricao}<br>
+                        <strong>Quantidade:</strong> ${doacao.quantidade}<br>
+                        <strong>Valor:</strong> R$${doacao.valor.toFixed(2)}
+                    </p>
+                </div>
+            </div>
+        `;
+        return card;
+    }
+
+    // Carrega os dados do JSON e cria os cards
+    fetch('../database/cadastro_doacoes.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao carregar o arquivo JSON de doações');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const doacoes = data.doacoes_alimentos;
+            doacoes.forEach(doacao => {
+                const card = createCard(doacao);
+                cardsContainer.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao carregar os dados de doações:', error);
+        });
+});

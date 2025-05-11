@@ -2,32 +2,32 @@
 /* Main Content */
 main {
     display: block;
-    height: auto; /* Ajusta a altura para o conteúdo */
+    height: auto;
     text-align: left;
-    padding: 0; /* Remove qualquer padding adicional */
+    padding: 0;
 }
 
 main .row {
-    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
-    margin-left: 0; /* Remove margens extras da row */
+    justify-content: flex-start;
+    margin-left: 0;
 }
 
 main .col-md-6 {
-    padding-left: 0; /* Remove padding à esquerda da coluna */
-    margin-left: 0; /* Remove margens à esquerda da coluna */
+    padding-left: 0;
+    margin-left: 0; 
 }
 
 main h1 {
-    text-align: left; /* Alinha o título à esquerda */
+    text-align: left;
     font-size: 2rem;
     color: #368758;
     font-family: 'ABeeZee', sans-serif;
 }
 
 form {
-    width: 100%; /* Garante que o formulário ocupe toda a largura da coluna */
-    max-width: 400px; /* Define uma largura máxima para o formulário */
-    margin-left: 0; /* Remove margens extras do formulário */
+    width: 100%;
+    max-width: 400px; 
+    margin-left: 0; 
 }
 
 form select {
