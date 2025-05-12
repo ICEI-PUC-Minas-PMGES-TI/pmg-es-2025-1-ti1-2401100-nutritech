@@ -35,29 +35,40 @@
     </header>
 
     <main>
-        <h1>Localização das Instituições</h1>
-        
-        <!-- Filtros -->
+  <h1>Localização das Instituições</h1>
+
+  <!-- Layout com Bootstrap - Filtros à esquerda e Mapa à direita -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Coluna dos Filtros -->
+      <div class="col-md-4 mb-4 mb-md-0">
         <div class="filters">
-            <div>
-                <label for="filterType">Filtrar por tipo de doação:</label>
-                <select id="filterType" onchange="updateFilters()">
-                    <option value="all">Todos</option>
-                    <option value="alimentos">Alimentos</option>
-                    <option value="dinheiro">Dinheiro</option>
-                    <option value="voluntariado">Voluntariado</option>
-                </select>
-            </div>
+          <div>
+            <label for="filterType">Filtrar por tipo de doação:</label>
+            <select id="filterType" onchange="updateFilters()">
+              <option value="all">Todos</option>
+              <option value="alimentos">Alimentos</option>
+              <option value="dinheiro">Dinheiro</option>
+              <option value="voluntariado">Voluntariado</option>
+            </select>
+          </div>
 
-            <div>
-                <label for="filterDistance">Ordenar por distância:</label>
-                <input type="checkbox" id="filterDistance" onchange="updateFilters()">
-            </div>
+          <div>
+            <label for="filterDistance">Ordenar por distância:</label>
+            <input type="checkbox" id="filterDistance" onchange="updateFilters()">
+          </div>
         </div>
+      </div>
 
-        <!-- Mapa -->
+      <!-- Coluna do Mapa -->
+      <div class="col-md-8">
         <div id="map"></div>
-    </main>
+      </div>
+
+    </div>
+  </div>
+</main>
 
     <footer class="bg-light py-4">
         <div class="container d-flex justify-content-between align-items-center">
