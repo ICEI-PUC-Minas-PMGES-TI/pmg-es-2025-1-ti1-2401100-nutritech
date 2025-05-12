@@ -3,20 +3,21 @@ header {
     display: flex;
     align-items: center;
     background: linear-gradient(to right, #5D8736, #A9C46C);
-    padding: 10px;
+    padding: 5px; /* Ajustado para reduzir o padding */
+    height: 75px; /* Altura ajustada */
 }
 
 header .logo {
     width: auto;
-    max-height: 100px;
-    margin: 10px;
+    max-height: 70px; /* Reduzido o tamanho da imagem */
+    margin: 5px; /* Ajustado para reduzir o espaçamento */
 }
 
 header h2 {
-    font-size: 2.5em;
+    font-size: 1.0em; /* Reduzido o tamanho da fonte */
     color: #fff;
     margin: 0;
-    padding: 10px;
+    padding: 5px; /* Ajustado para reduzir o espaçamento */
     font-family: 'ABeeZee', sans-serif;
 }
 
@@ -27,18 +28,17 @@ header .usuario-container {
 }
 
 header .usuario {
-    max-height: 100px;
-    margin-left: 10px;
+    max-height: 30px; /* Reduzido o tamanho da imagem */
+    margin-left: 5px; /* Ajustado para reduzir o espaçamento */
 }
 
 header h3 {
-    font-size: 1.5em;
+    font-size: 1em; /* Reduzido o tamanho da fonte */
     color: #555353;
     opacity: 0.8;
     font-family: 'ABeeZee', sans-serif;
     margin: 0;
 }
-
 
 header a {
     text-decoration: none;
@@ -47,93 +47,104 @@ header a {
 }
 
 
+/* Garantir que o layout ocupe toda a tela */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'ABeeZee', sans-serif;
+}
 
-/* Main Content */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh;
-    text-align: center;
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-main h1 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #368758;
-    font-family: 'ABeeZee', sans-serif;
+/* Estilo da seção de filtros */
+.filters {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 }
 
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 300px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.filters label,
+.filters select,
+.filters input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-form select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-form input[type="text"],
-form input[type="submit"] {
-    padding: 10px; 
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.filters select {
+  padding: 8px;
+  font-size: 0.9em;
 }
 
-form input[type="submit"] {
-    background-color: #368758;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s;
-}
-
-form input[type="submit"]:hover {
-    background-color: #2a6b46;
+/* Ajuste do mapa */
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 
 /* Footer */
+/* Footer */
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background: linear-gradient(to right, #368758, #8EC46C);
-    height: 120px;
-    padding: 10px 20px;
+    height: 80px; /* Mantém a altura fixa do footer */
     color: #fff;
     font-family: 'ABeeZee', sans-serif;
-}
-
-footer .footer-info {
     display: flex;
-    gap: 20px;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
+    box-sizing: border-box; /* Garante que o padding não afete a altura */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
 }
 
-footer h3 {
+footer .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Ajusta o espaçamento entre os elementos */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Centraliza o texto */
+    flex-wrap: wrap; /* Garante que o conteúdo se ajuste ao tamanho do footer */
+    padding: 0 10px; /* Adiciona espaçamento interno horizontal */
+    box-sizing: border-box; /* Garante que o padding não afete o layout */
+}
+
+footer h3, footer p {
+    margin: 0; /* Remove margens extras */
+    font-size: 0.7rem; /* Reduz o tamanho da fonte para caber no footer */
+    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    text-align: center;
+}
+
+footer .row {
     margin: 0;
-    text-align: left;
-}
-
-footer p {
-    margin: 5px 0;
-    text-align: left;
 }
 
 footer .logo {
-    width: auto;
-    max-height: 100px;
-    margin: 0 auto;
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+main{
+    height: 525px;
+}

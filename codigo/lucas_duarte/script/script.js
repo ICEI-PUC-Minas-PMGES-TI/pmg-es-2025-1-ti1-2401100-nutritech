@@ -96,3 +96,40 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
     console.log("JSON atualizado:", cadastroDoacoes);
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cardsContainer = document.getElementById("cards-container");
+
+    function createCard(doacao) {
+        const card = document.createElement("div");
+        card.className = "col-md-4 py-3";
+        card.innerHTML = `
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">${doacao.doador.nome}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">${doacao.data}</h6>
+                    <p class="card-text">
+                        <strong>Descrição:</strong> ${doacao.descricao}<br>
+                        <strong>Quantidade:</strong> ${doacao.quantidade}<br>
+                        <strong>Valor:</strong> R$${doacao.valor.toFixed(2)}
+                    </p>
+                </div>
+            </div>
+        `;
+        return card;
+    }
+
+    
+    const cadastroDoacoes = JSON.parse(localStorage.getItem("cadastro_doacoes"));
+
+    if (cadastroDoacoes && cadastroDoacoes.doacoes_alimentos) {
+        const doacoes = cadastroDoacoes.doacoes_alimentos;
+        doacoes.forEach(doacao => {
+            const card = createCard(doacao);
+            cardsContainer.appendChild(card);
+        });
+    } else {
+        console.error("Nenhuma doação encontrada no localStorage.");
+    }
+});

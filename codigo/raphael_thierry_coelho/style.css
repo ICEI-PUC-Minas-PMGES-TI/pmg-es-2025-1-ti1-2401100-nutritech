@@ -1,84 +1,16 @@
-#pagina{
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    font-family: Arial, sans-serif;
-}
-#logo{
-    display: flex;
-    position: relative;
-    align-items: center;
-    z-index: 1;
-    font-family: Arial, Helvetica, sans-serif;
-    color: whitesmoke;
-}
-#img-logo{
-    width: 200px;
-    margin: 40px;
-}
 
-.usuario{
-    z-index: 999;
-    display: flex;
-    position: absolute;
-    align-items: center;
-    padding: 20px;
-    top: 0;
-    right: 0;
-    text-decoration: none;
-    cursor: pointer;
-    color: black;
-}
-h2{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-}
-#img-usuario{
-    width: 90px;
-    padding-left: 30px;
-}
+/*MINHAS ALTERAÇÕES FORA DO TEMPLATE BASE*/
 
-#forma1{
-    position: absolute;
-    z-index: -1;
-    width: 1000px;
-    top: 0;
-    left: 0;
-}
-#forma2{
-    position: absolute;
-    z-index: -1;
-    width: 1000px;
-    right: 0px;
-    
-}
-#forma3{
-    position: absolute;
-    z-index: -1;
-    width: 1700px;
-    left: 0;
-}
-#forma4{
-    position: absolute;
-    z-index: -1;
-    width: 400px;
-    bottom: -490px;
-    left: 90px;
-}
-
-.container{
+.container-pagina{
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-top: -200px;
 }
-h3{
-    font-size: 50px;
+#titulo-pagina{
+    font-size: 40px;
+    padding-bottom: 20px;
 }
 #form-cartao{
-    padding: 0px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -97,6 +29,7 @@ input{
 .tipo-cartao{
     display: flex;
     padding-bottom: 20px;
+    
 }
 input[type="radio"] {
     display: none;
@@ -108,13 +41,14 @@ label {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
-    border-radius: 100px; 
+    border-radius: 100px;
+    border: 3px solid transparent;
 }
 input[type="radio"]:checked + label {
     background-color: #45a049;
     border-style: solid;
     border-color: black;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 label:hover {
     background-color: #3e8e41;
@@ -137,25 +71,117 @@ label:hover {
     transition: 0.5s;
 }
 
-#informacoes{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    color: whitesmoke;
+#pagina{
+    margin: 0;
+    height: 100vh;
     display: flex;
-    position: relative;
-    padding: 50px;
-}
-#inf-contato{
-    padding-right: 300px;
-    font-size: 30px;
-}
-#inf-local{
-    font-size: 30px;
+    justify-content: center;
+    align-items: center; 
+    font-family: Arial, sans-serif;
+    
 }
 
-#logo-footer{
-    width: 150px;
-    height: 150px;
-    padding-left: 200px;
-    margin-top: 30px;
+
+/*TEMPLATE BASE*/
+
+/* header */
+header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #5D8736, #A9C46C);
+    padding: 5px; /* Ajustado para reduzir o padding */
+    height: 75px; /* Altura ajustada */
+}
+
+header .logo {
+    width: auto;
+    max-height: 70px; /* Reduzido o tamanho da imagem */
+    margin: 5px; /* Ajustado para reduzir o espaçamento */
+}
+
+header h2 {
+    font-size: 1.0em; /* Reduzido o tamanho da fonte */
+    color: #fff;
+    margin: 0;
+    padding: 5px; /* Ajustado para reduzir o espaçamento */
+    font-family: 'ABeeZee', sans-serif;
+}
+
+header .usuario-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+header .usuario {
+    max-height: 30px; /* Reduzido o tamanho da imagem */
+    margin-left: 5px; /* Ajustado para reduzir o espaçamento */
+}
+
+header h3 {
+    font-size: 1em; /* Reduzido o tamanho da fonte */
+    color: #555353;
+    opacity: 0.8;
+    font-family: 'ABeeZee', sans-serif;
+    margin: 0;
+}
+
+header a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+/* Footer */
+/* Footer */
+footer {
+    background: linear-gradient(to right, #368758, #8EC46C);
+    height: 80px; /* Mantém a altura fixa do footer */
+    color: #fff;
+    font-family: 'ABeeZee', sans-serif;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
+    box-sizing: border-box; /* Garante que o padding não afete a altura */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
+}
+
+footer .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Ajusta o espaçamento entre os elementos */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Centraliza o texto */
+    flex-wrap: wrap; /* Garante que o conteúdo se ajuste ao tamanho do footer */
+    padding: 0 10px; /* Adiciona espaçamento interno horizontal */
+    box-sizing: border-box; /* Garante que o padding não afete o layout */
+}
+
+footer h3, footer p {
+    margin: 0; /* Remove margens extras */
+    font-size: 0.7rem; /* Reduz o tamanho da fonte para caber no footer */
+    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    text-align: center;
+}
+
+footer .row {
+    margin: 0;
+}
+
+footer .logo {
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main{
+    height: auto;
 }
