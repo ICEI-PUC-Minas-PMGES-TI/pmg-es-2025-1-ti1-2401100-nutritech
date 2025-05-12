@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #3db7c6, #6cbf6d);
+  background: white
   margin: 0;
   padding: 20px;
   color: #333;
@@ -49,6 +49,7 @@ h1 {
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 15px;
+  margin-left: 70px;
 }
 
 .details table {
@@ -129,26 +130,25 @@ header a {
 /* Footer */
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
-    height: 80px; /* Mantém a altura fixa do footer */
+    padding: 10px 0; /* Substitui a altura fixa por padding */
     color: #fff;
     font-family: 'ABeeZee', sans-serif;
     display: flex;
-    align-items: center; /* Centraliza verticalmente o conteúdo */
-    justify-content: center; /* Centraliza horizontalmente o conteúdo */
-    padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
-    box-sizing: border-box; /* Garante que o padding não afete a altura */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 footer .container {
+    max-width: 900px;
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Ajusta o espaçamento entre os elementos */
-    align-items: center; /* Centraliza verticalmente */
-    text-align: center; /* Centraliza o texto */
-    flex-wrap: wrap; /* Garante que o conteúdo se ajuste ao tamanho do footer */
-    padding: 0 10px; /* Adiciona espaçamento interno horizontal */
-    box-sizing: border-box; /* Garante que o padding não afete o layout */
+    justify-content: space-between; /* Espaço entre colunas */
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebra em telas pequenas */
+    gap: 10px; /* Espaço entre blocos */
+    padding: 0 20px; /* Espaço lateral */
+    box-sizing: border-box;
 }
 
 footer h3, footer p {
@@ -172,7 +172,23 @@ footer .logo {
 }
 main {
     font-size: 1em;
+    flex: 1;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wrapper cresce para ocupar o espaço disponível */
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 
 
 
