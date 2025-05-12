@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/* Estilo Geral da Página */  
+body {  
+    font-family: Arial, sans-serif;  
+    background-color: #eaffea; /* Fundo verde claro */  
+    color: #333; /* Texto em cinza escuro para contraste */  
+    margin: 0;  
+    padding: 20px;  
+}  
+
+/* Cabeçalho */  
+h1 {  
+    color: #4caf50; /* Verde mais escuro */  
+}  
+
+/* Formulário */  
+form {  
+    background-color: #f8f8f8; /* Fundo do formulário */  
+    border: 1px solid #c8e6c9; /* Bordas verde claro */  
+    border-radius: 5px;  
+    padding: 20px;  
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
+}  
+
+/* Labels */  
+label {  
+    display: block; /* Cada label em uma nova linha */  
+    margin: 10px 0 5px;  
+}  
+
+/* Campos de entrada */  
+input[type="text"],  
+input[type="email"],  
+input[type="tel"],  
+textarea {  
+    width: calc(100% - 20px); /* Largura adequada com espaçamento */  
+    padding: 10px;  
+    border: 1px solid #9ccc9c; /* Bordas para os campos */  
+    border-radius: 4px;  
+    margin-bottom: 15px;  
+}  
+
+/* Botão */  
+button {  
+    background-color: #4caf50; /* Verde do botão */  
+    color: white; /* Texto branco */  
+    border: none;  
+    padding: 10px 15px;  
+    border-radius: 4px;  
+    cursor: pointer;  
+}  
+
+button:hover {  
+    background-color: #45a049; /* Tom mais escuro ao passar o mouse */  
+}  
+
+/* Rodapé */  
+footer {  
+    margin-top: 20px;  
+    text-align: center;  
+}
+button{
+    cursor: pointer;
+    border-radius: 5x;
+}
