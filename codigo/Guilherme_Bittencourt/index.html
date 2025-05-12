@@ -37,37 +37,61 @@
     <main>
   <h1>Localização das Instituições</h1>
 
-  <!-- Layout com Bootstrap - Filtros à esquerda e Mapa à direita -->
+  <!-- Layout com Bootstrap - Filtros + Legenda à esquerda | Mapa à direita -->
   <div class="container-fluid">
-    <div class="row">
+    <div class="row position-relative">
 
-      <!-- Coluna dos Filtros -->
+      <!-- Coluna Esquerda (Filtros + Legenda) -->
       <div class="col-md-4 mb-4 mb-md-0">
-  <div class="filters">
 
-    <!-- Filtro por Tipo -->
-    <div>
-      <label for="filterType">Filtrar por tipo de doação:</label>
-      <select id="filterType" onchange="updateFilters()">
-        <option value="all">Todos</option>
-        <option value="alimentos">Alimentos</option>
-        <option value="dinheiro">Dinheiro</option>
-        <option value="voluntariado">Voluntariado</option>
-      </select>
-    </div>
+        <!-- Filtros -->
+        <div class="filters mb-3">
+          <!-- Filtro por Tipo -->
+          <div>
+            <label for="filterType">Filtrar por tipo de doação:</label>
+            <select id="filterType" onchange="updateFilters()">
+              <option value="all">Todos</option>
+              <option value="alimentos">Alimentos</option>
+              <option value="dinheiro">Dinheiro</option>
+              <option value="voluntariado">Voluntariado</option>
+            </select>
+          </div>
 
-    <!-- Filtro por Raio -->
-    <div>
-      <label for="filterRadius">Mostrar ONGs na distância de:</label>
-      <input type="range" id="filterRadius" min="1" max="50" value="10" class="form-range">
-      <span id="radiusValue">10</span> km
-    </div>
+          <!-- Filtro por Raio -->
+          <div>
+            <label for="filterRadius">Mostrar ONGs em uma distância de até:</label>
+            <input type="range" id="filterRadius" min="1" max="50" value="10" class="form-range">
+            <span id="radiusValue">10</span> km
+          </div>
+        </div>
 
-  </div>
-</div>
-      <!-- Coluna do Mapa -->
-      <div class="col-md-8">
+        <!-- Legenda dos Tipos de Doação - Abaixo dos Filtros -->
+        <div class="legend-bottom">
+          <p class="mb-1"><strong>Tipos de Doação:</strong></p>
+          <div class="d-flex flex-column gap-2">
+            <div class="d-flex align-items-center">
+              <img src="imgs/iconecomida.png" alt="Alimento" width="24" class="me-2">
+              <span>Alimentos</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <img src="imgs/iconedinheiro.png" alt="Dinheiro" width="24" class="me-2">
+              <span>Dinheiro</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <img src="imgs/iconevoluntarios.png" alt="Voluntário" width="24" class="me-2">
+              <span>Voluntariado</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Coluna Direita - Mapa -->
+      <div class="col-md-8 position-relative">
+
+        <!-- Mapa -->
         <div id="map"></div>
+
       </div>
 
     </div>
@@ -255,6 +279,7 @@ document.getElementById("filterRadius").addEventListener("input", function () {
     document.getElementById("radiusValue").textContent = this.value;
     updateFilters(); // Atualiza os marcadores em tempo real
 });
+
     </script>
 </body>
 </html>
