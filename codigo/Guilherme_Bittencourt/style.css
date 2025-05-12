@@ -90,6 +90,17 @@ main {
   font-size: 0.9em;
 }
 
+.filters label,
+.filters select,
+.filters input[type="checkbox"],
+.filters input[type="range"] {
+  margin-top: 10px;
+}
+
+#radiusValue {
+  font-weight: bold;
+}
+
 /* Ajuste do mapa */
 #map {
   height: 400px;

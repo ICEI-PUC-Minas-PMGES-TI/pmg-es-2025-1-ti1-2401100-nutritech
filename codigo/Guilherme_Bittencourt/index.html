@@ -43,24 +43,28 @@
 
       <!-- Coluna dos Filtros -->
       <div class="col-md-4 mb-4 mb-md-0">
-        <div class="filters">
-          <div>
-            <label for="filterType">Filtrar por tipo de doação:</label>
-            <select id="filterType" onchange="updateFilters()">
-              <option value="all">Todos</option>
-              <option value="alimentos">Alimentos</option>
-              <option value="dinheiro">Dinheiro</option>
-              <option value="voluntariado">Voluntariado</option>
-            </select>
-          </div>
+  <div class="filters">
 
-          <div>
-            <label for="filterDistance">Ordenar por distância:</label>
-            <input type="checkbox" id="filterDistance" onchange="updateFilters()">
-          </div>
-        </div>
-      </div>
+    <!-- Filtro por Tipo -->
+    <div>
+      <label for="filterType">Filtrar por tipo de doação:</label>
+      <select id="filterType" onchange="updateFilters()">
+        <option value="all">Todos</option>
+        <option value="alimentos">Alimentos</option>
+        <option value="dinheiro">Dinheiro</option>
+        <option value="voluntariado">Voluntariado</option>
+      </select>
+    </div>
 
+    <!-- Filtro por Raio -->
+    <div>
+      <label for="filterRadius">Mostrar ONGs na distância de:</label>
+      <input type="range" id="filterRadius" min="1" max="50" value="10" class="form-range">
+      <span id="radiusValue">10</span> km
+    </div>
+
+  </div>
+</div>
       <!-- Coluna do Mapa -->
       <div class="col-md-8">
         <div id="map"></div>
@@ -181,37 +185,51 @@ ongs.forEach((ong) => {
             }
         }
 
-        // Função para atualizar os marcadores das ONGs com base no filtro
         function updateFilters() {
-            const typeFilter = document.getElementById("filterType").value;
-            const distanceFilter = document.getElementById("filterDistance").checked;
+    const typeFilter = document.getElementById("filterType").value;
+    const radius = parseFloat(document.getElementById("filterRadius").value); // Em km
 
-            // Filtrando as ONGs por tipo de doação
-            let filteredOngs = markers.filter((ong) => {
-                if (typeFilter !== "all" && ong.tipo !== typeFilter) {
-                    return false;
-                }
-                return true;
-            });
+    // Mostra o valor em tempo real
+    document.getElementById("radiusValue").textContent = radius;
 
-            // Ordenando as ONGs por distância
-            if (distanceFilter && userLocation) {
-                filteredOngs.sort((a, b) => {
-                    const distanceA = getDistance(userLocation, [a.lat, a.lng]);
-                    const distanceB = getDistance(userLocation, [b.lat, b.lng]);
-                    return distanceA - distanceB;
-                });
-            }
+    let filteredOngs = [...markers]; // Cria cópia dos marcadores
 
-            // Remover os marcadores antigos
-            markers.forEach((markerObj) => markerObj.marker.remove());
+    // Filtrar por tipo de ONG
+    if (typeFilter !== "all") {
+        filteredOngs = filteredOngs.filter(ong => ong.tipo === typeFilter);
+    }
 
-            // Adicionar os marcadores filtrados
-            filteredOngs.forEach((ong) => {
-                ong.marker.addTo(map);
-            });
-        }
+    // Se tiver localização do usuário, filtrar por distância
+    if (userLocation) {
+        filteredOngs = filteredOngs.map(ong => ({
+            ...ong,
+            distance: getDistance(userLocation, [ong.lat, ong.lng])
+        }));
 
+        // Filtrar pelo raio selecionado
+        filteredOngs = filteredOngs.filter(ong => ong.distance <= radius);
+
+        // 🔁 Ordenar sempre por distância (sem precisar de checkbox)
+        filteredOngs.sort((a, b) => a.distance - b.distance);
+    }
+
+    // Remover todos os marcadores do mapa
+    markers.forEach(markerObj => {
+        map.removeLayer(markerObj.marker);
+    });
+
+    // Adicionar apenas os marcadores filtrados
+    filteredOngs.forEach(ong => {
+        map.addLayer(ong.marker);
+    });
+
+    // Garantir que o pin do usuário sempre fique visível
+    const userMarker = markers.find(m => m.tipo === "usuario")?.marker;
+    if (userMarker && !map.hasLayer(userMarker)) {
+        map.addLayer(userMarker);
+    }
+}
+        
         // Função para calcular a distância entre duas coordenadas
         function getDistance(coord1, coord2) {
             const lat1 = coord1[0];
@@ -232,6 +250,11 @@ ongs.forEach((ong) => {
 
         // Inicializar o mapa ao carregar a página
         window.onload = initMap;
+        // Atualiza os filtros automaticamente enquanto o usuário arrasta o slider
+document.getElementById("filterRadius").addEventListener("input", function () {
+    document.getElementById("radiusValue").textContent = this.value;
+    updateFilters(); // Atualiza os marcadores em tempo real
+});
     </script>
 </body>
 </html>
