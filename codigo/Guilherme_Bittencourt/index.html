@@ -119,13 +119,51 @@
                 { name: "Fundação Dom Bosco", lat: -19.8320, lng: -43.9320, tipo: "dinheiro" },
             ];
 
-            // Adicionando os marcadores para as ONGs
-            ongs.forEach((ong) => {
-                const marker = window.L.marker([ong.lat, ong.lng])
-                    .addTo(map)
-                    .bindPopup(ong.name); // O nome da ONG está em português
-                markers.push({ ...ong, marker });
-            });
+            // Definindo os ícones personalizados diretamente no script
+const iconDinheiro = new L.Icon({
+    iconUrl: 'imgs/iconedinheiro.png',
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40]
+});
+
+const iconAlimento = new L.Icon({
+    iconUrl: 'imgs/iconecomida.png',
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40]
+});
+
+const iconVoluntario = new L.Icon({
+    iconUrl: 'imgs/iconevoluntarios.png',
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40]
+});
+
+// Adicionando os marcadores para as ONGs com ícones personalizados
+ongs.forEach((ong) => {
+    let icon;
+    switch (ong.tipo) {
+        case 'dinheiro':
+            icon = iconDinheiro;
+            break;
+        case 'alimentos':
+            icon = iconAlimento;
+            break;
+        case 'voluntariado':
+            icon = iconVoluntario;
+            break;
+        default:
+            icon = L.icon.default; // Ícone padrão se não houver correspondência
+    }
+
+    const marker = window.L.marker([ong.lat, ong.lng], { icon })
+        .addTo(map)
+        .bindPopup(ong.name);
+
+    markers.push({ ...ong, marker });
+});
 
             // Obtendo a localização do usuário
             if (navigator.geolocation) {
