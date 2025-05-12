@@ -37,7 +37,7 @@ fetch('doacoes.json')
 card.className = 'card mb-3';
 
 card.innerHTML = `
-  <div class="card-body bg-fundos shadow">
+  <div class="card-body rounded-3 bg-fundos shadow">
     <h5 class="card-title">${item.instituicao}</h5>
     <p class="card-text">
       <strong>Data:</strong> ${item.data}<br>
@@ -77,7 +77,7 @@ document.addEventListener('click', function (e) {
 });
     // Botão de gerenciar doações com recorrência. Ideia de levar para uma página de gerenciamento de doações recorrentes
     document.getElementById('gerenciar-recorrencia').addEventListener('click', function () {
-        window.location.href = 'recorrencia.html';
+        window.location.href = 'recorrencia.html';  
 });
 document.getElementById('foto-doador').src = dadosPessoais.foto || 'default.jpg';
 
