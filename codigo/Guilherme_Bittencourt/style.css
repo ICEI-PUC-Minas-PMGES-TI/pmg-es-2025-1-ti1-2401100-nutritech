@@ -74,7 +74,7 @@ main {
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Reduzido */
 }
 
 .filters label,
@@ -90,14 +90,34 @@ main {
   font-size: 0.9em;
 }
 
+.filters label,
+.filters select,
+.filters input[type="checkbox"],
+.filters input[type="range"] {
+  margin-top: 10px;
+}
+
+#radiusValue {
+  font-weight: bold;
+}
+
 /* Ajuste do mapa */
 #map {
-  height: 400px;
+  height: 360px;
   width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Para controlar o espaçamento entre a caixa de filtros e a legenda */
+.legend-bottom {
+  margin-top: -0.5rem; /* Puxa pra cima */
+  font-size: 0.9em;
+}
+
+.legend-bottom img {
+  vertical-align: middle;
+}
 
 /* Footer */
 /* Footer */

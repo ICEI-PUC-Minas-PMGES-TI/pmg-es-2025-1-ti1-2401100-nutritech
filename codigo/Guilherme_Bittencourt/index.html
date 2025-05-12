@@ -37,13 +37,16 @@
     <main>
   <h1>Localização das Instituições</h1>
 
-  <!-- Layout com Bootstrap - Filtros à esquerda e Mapa à direita -->
+  <!-- Layout com Bootstrap - Filtros + Legenda à esquerda | Mapa à direita -->
   <div class="container-fluid">
-    <div class="row">
+    <div class="row position-relative">
 
-      <!-- Coluna dos Filtros -->
+      <!-- Coluna Esquerda (Filtros + Legenda) -->
       <div class="col-md-4 mb-4 mb-md-0">
-        <div class="filters">
+
+        <!-- Filtros -->
+        <div class="filters mb-3">
+          <!-- Filtro por Tipo -->
           <div>
             <label for="filterType">Filtrar por tipo de doação:</label>
             <select id="filterType" onchange="updateFilters()">
@@ -54,16 +57,41 @@
             </select>
           </div>
 
+          <!-- Filtro por Raio -->
           <div>
-            <label for="filterDistance">Ordenar por distância:</label>
-            <input type="checkbox" id="filterDistance" onchange="updateFilters()">
+            <label for="filterRadius">Mostrar ONGs em uma distância de até:</label>
+            <input type="range" id="filterRadius" min="1" max="50" value="10" class="form-range">
+            <span id="radiusValue">10</span> km
           </div>
         </div>
+
+        <!-- Legenda dos Tipos de Doação - Abaixo dos Filtros -->
+        <div class="legend-bottom">
+          <p class="mb-1"><strong>Tipos de Doação:</strong></p>
+          <div class="d-flex flex-column gap-2">
+            <div class="d-flex align-items-center">
+              <img src="imgs/iconecomida.png" alt="Alimento" width="24" class="me-2">
+              <span>Alimentos</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <img src="imgs/iconedinheiro.png" alt="Dinheiro" width="24" class="me-2">
+              <span>Dinheiro</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <img src="imgs/iconevoluntarios.png" alt="Voluntário" width="24" class="me-2">
+              <span>Voluntariado</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Coluna do Mapa -->
-      <div class="col-md-8">
+      <!-- Coluna Direita - Mapa -->
+      <div class="col-md-8 position-relative">
+
+        <!-- Mapa -->
         <div id="map"></div>
+
       </div>
 
     </div>
@@ -119,13 +147,51 @@
                 { name: "Fundação Dom Bosco", lat: -19.8320, lng: -43.9320, tipo: "dinheiro" },
             ];
 
-            // Adicionando os marcadores para as ONGs
-            ongs.forEach((ong) => {
-                const marker = window.L.marker([ong.lat, ong.lng])
-                    .addTo(map)
-                    .bindPopup(ong.name); // O nome da ONG está em português
-                markers.push({ ...ong, marker });
-            });
+            // Definindo os ícones personalizados diretamente no script
+const iconDinheiro = new L.Icon({
+    iconUrl: 'imgs/iconedinheiro.png',
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40]
+});
+
+const iconAlimento = new L.Icon({
+    iconUrl: 'imgs/iconecomida.png',
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40]
+});
+
+const iconVoluntario = new L.Icon({
+    iconUrl: 'imgs/iconevoluntarios.png',
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40]
+});
+
+// Adicionando os marcadores para as ONGs com ícones personalizados
+ongs.forEach((ong) => {
+    let icon;
+    switch (ong.tipo) {
+        case 'dinheiro':
+            icon = iconDinheiro;
+            break;
+        case 'alimentos':
+            icon = iconAlimento;
+            break;
+        case 'voluntariado':
+            icon = iconVoluntario;
+            break;
+        default:
+            icon = L.icon.default; // Ícone padrão se não houver correspondência
+    }
+
+    const marker = window.L.marker([ong.lat, ong.lng], { icon })
+        .addTo(map)
+        .bindPopup(ong.name);
+
+    markers.push({ ...ong, marker });
+});
 
             // Obtendo a localização do usuário
             if (navigator.geolocation) {
@@ -143,37 +209,51 @@
             }
         }
 
-        // Função para atualizar os marcadores das ONGs com base no filtro
         function updateFilters() {
-            const typeFilter = document.getElementById("filterType").value;
-            const distanceFilter = document.getElementById("filterDistance").checked;
+    const typeFilter = document.getElementById("filterType").value;
+    const radius = parseFloat(document.getElementById("filterRadius").value); // Em km
 
-            // Filtrando as ONGs por tipo de doação
-            let filteredOngs = markers.filter((ong) => {
-                if (typeFilter !== "all" && ong.tipo !== typeFilter) {
-                    return false;
-                }
-                return true;
-            });
+    // Mostra o valor em tempo real
+    document.getElementById("radiusValue").textContent = radius;
 
-            // Ordenando as ONGs por distância
-            if (distanceFilter && userLocation) {
-                filteredOngs.sort((a, b) => {
-                    const distanceA = getDistance(userLocation, [a.lat, a.lng]);
-                    const distanceB = getDistance(userLocation, [b.lat, b.lng]);
-                    return distanceA - distanceB;
-                });
-            }
+    let filteredOngs = [...markers]; // Cria cópia dos marcadores
 
-            // Remover os marcadores antigos
-            markers.forEach((markerObj) => markerObj.marker.remove());
+    // Filtrar por tipo de ONG
+    if (typeFilter !== "all") {
+        filteredOngs = filteredOngs.filter(ong => ong.tipo === typeFilter);
+    }
 
-            // Adicionar os marcadores filtrados
-            filteredOngs.forEach((ong) => {
-                ong.marker.addTo(map);
-            });
-        }
+    // Se tiver localização do usuário, filtrar por distância
+    if (userLocation) {
+        filteredOngs = filteredOngs.map(ong => ({
+            ...ong,
+            distance: getDistance(userLocation, [ong.lat, ong.lng])
+        }));
 
+        // Filtrar pelo raio selecionado
+        filteredOngs = filteredOngs.filter(ong => ong.distance <= radius);
+
+        // 🔁 Ordenar sempre por distância (sem precisar de checkbox)
+        filteredOngs.sort((a, b) => a.distance - b.distance);
+    }
+
+    // Remover todos os marcadores do mapa
+    markers.forEach(markerObj => {
+        map.removeLayer(markerObj.marker);
+    });
+
+    // Adicionar apenas os marcadores filtrados
+    filteredOngs.forEach(ong => {
+        map.addLayer(ong.marker);
+    });
+
+    // Garantir que o pin do usuário sempre fique visível
+    const userMarker = markers.find(m => m.tipo === "usuario")?.marker;
+    if (userMarker && !map.hasLayer(userMarker)) {
+        map.addLayer(userMarker);
+    }
+}
+        
         // Função para calcular a distância entre duas coordenadas
         function getDistance(coord1, coord2) {
             const lat1 = coord1[0];
@@ -194,6 +274,12 @@
 
         // Inicializar o mapa ao carregar a página
         window.onload = initMap;
+        // Atualiza os filtros automaticamente enquanto o usuário arrasta o slider
+document.getElementById("filterRadius").addEventListener("input", function () {
+    document.getElementById("radiusValue").textContent = this.value;
+    updateFilters(); // Atualiza os marcadores em tempo real
+});
+
     </script>
 </body>
 </html>
