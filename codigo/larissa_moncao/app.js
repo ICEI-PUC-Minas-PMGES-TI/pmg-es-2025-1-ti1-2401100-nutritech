@@ -37,8 +37,11 @@ fetch('doacoes.json')
 card.className = 'card mb-3';
 
 card.innerHTML = `
-  <div class="card-body rounded-3 bg-fundos shadow">
-    <h5 class="card-title">${item.instituicao}</h5>
+  <div class="card-body rounded-5 shadow">
+    <h5 class="card-title"> <a href="pagina.html?instituicao=${encodeURIComponent(item.instituicao)}" class="text-decoration-none">
+        ${item.instituicao}
+      </a>
+    </h5>
     <p class="card-text">
       <strong>Data:</strong> ${item.data}<br>
       <strong>Descrição:</strong> ${item.descricao}<br>

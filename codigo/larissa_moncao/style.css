@@ -28,9 +28,8 @@ a{
 .bg-verde-fundo:hover {
     background-color: #c4f7c4;
 }
-
-.navbar-rounded-bottom-right {
-    border-bottom-right-radius: 80px;
+.card {
+  border: none !important;
 }
 /* header */
 header {
@@ -135,9 +134,10 @@ main{
 }
 
 body {
-  background-image: url('img/directions_walk.png'); /* Caminho da imagem */
-  background-size:auto;        /* Cobre toda a tela */
-  background-repeat: no-repeat;  /* Não repete a imagem */
-  background-position: left bottom;   /* Centraliza a imagem */
-  background-size: 12%;
+  background-image: url('img/directions_walk.png'), url('img/Fundoverdedireito.png'), url('img/img_fundo.png'); 
+  background-size:auto;        
+  background-repeat: no-repeat;
+  background-position: left bottom, 0px 400px, 1050px 900px;   
+  background-size: 12%, 40%, 60%;
 }
+
