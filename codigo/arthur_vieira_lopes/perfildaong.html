@@ -8,69 +8,68 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<header>
-    <img src="imgs/forma1.png" alt="decoracao-cabecalho" id="forma1">
-    <div id="logo">
-        <img src="imgs/logo.png" alt="Logo" id="img-logo">
-        <h1>Alimentação<br>Para<br>Todos</h1>
-    </div>
-
-    <a href="https://example.com" class="usuario">
-        <h2>Usuário</h2>
-        <img src="imgs/usuario.png" alt="Usuario" id="img-usuario">
-    </a>
-</header>
 <body>
-    <div id="pagina">
-        <div class="container">
-            <form id="form-cartao">
-                <div class="tipo-cartao">
-                    <div class="perfil-ong">
-                        <div class="anel-story">
-                            <div class="foto-redonda"></div>
-                        </div>
-                        <div class="info-ong">
-                            <h3>ONG Mãos que Alimentam <i class="fa-solid fa-check-circle" style="color: #4CAF50;"></i></h3>
-                            <p class="bio">“Somos a Mãos que Alimentam, uma ONG dedicada a combater a fome e promover a dignidade de famílias em situação de vulnerabilidade. Por meio de doações, parcerias e ações comunitárias, levamos alimentos e esperança a quem mais precisa. Acreditamos que ninguém deve enfrentar o dia com o estômago vazio — e trabalhamos todos os dias para transformar essa realidade.”</p>
+<header class="d-flex justify-content-between align-items-center p-3 bg-light">
+        <a href="#" class="d-flex align-items-center">
+            <img src="imgs/logo.png" alt="Logo" class="logo me-3">
+            <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
+        </a>
+        <a href="#" class="usuario-container d-flex align-items-center">
+            <h3 class="m-0 me-2">Usuário</h3>
+            <img src="imgs/usuario.png" alt="Usuário" class="usuario">
+        </a>
+</header>
+<main>
+    <div class="container">
+    <h1>Student Profile Page Design Example</h1>
+    <p class="subtitle">A responsive student profile page design.</p>
 
-                            <ul class="detalhes-perfil">
-                                <li><i class="fa-regular fa-calendar-alt" style="color: #4CAF50;"></i> <strong>Entrou em:</strong> Março de 2023</li>
-                                <li><i class="fa-solid fa-location-dot" style="color: #4CAF50;"></i> <strong>Localização:</strong> Avenida Afonso Pena, 1234, Centro - Belo Horizonte - MG</li>
-                                <li><strong>Famílias ajudadas:</strong> 12</li>
-                                <li><strong>Redes sociais:</strong> 
-                                    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a> | 
-                                    <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
-                                </li>
-                            </ul>
-                            <div>
-                                <br>
-                                <button id="btn-submit" type="button">Quero Doar Alimentos</button>
-                                <button id="btn-submit-2" type="button">Apoiar Financeiramente</button>
-                                <script src="script.js"></script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+    <div class="profile">
+      <div class="card profile-info">
+        <img src="fotoong.png" alt="Foto do Aluno" class="profile-pic" />
+        <h2>Ishmam Ahasan Samin</h2>
+        <p><strong>Student ID:</strong> 321000001</p>
+        <p><strong>Class:</strong> 4</p>
+        <p><strong>Section:</strong> A</p>
+      </div>
+
+      <div class="card details">
+        <h3><i class="fa fa-info-circle"></i> General Information</h3>
+        <table>
+          <tr><td>Famílias ajudadas</td><td>:</td><td>125</td></tr>
+          <tr><td>Entrou em</td><td>:</td><td>2025</td></tr>
+          <tr><td>Gender</td><td>:</td><td>Male</td></tr>
+          <tr><td>Religion</td><td>:</td><td>Group</td></tr>
+          <tr><td>Blood</td><td>:</td><td>B+</td></tr>
+        </table>
+
+        <div class="card extra">
+          <h3><i class="fa fa-comment"></i> Other Information</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
         </div>
+      </div>
     </div>
-</body>
-<footer>
-    <img src="imgs/forma3.png" alt="decoracao-rodape1" id="forma3">
-    <img src="imgs/forma4.png" alt="decoracao-rodape2" id="forma4">
+  </div>
+</main>
+<footer class="bg-light py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left text-center text-md-start">
+                <h3 class="mb-2">Local</h3>
+                <p>Belo Horizonte</p>
+            </div>
 
-    <div id="informacoes">
-        <div id="inf-contato">
-            <h4>Contato</h4>
-            <p>(31) 9999-6666<br>
-            nutritech@pucminas.com.br</p>
-        </div>
+            <div class="footer-center text-center">
+                <p>© 2025 NutriTech</p>
+            </div>
 
-        <div id="inf-local">
-            <h5>Local</h5>
-            <p>Belo Horizonte - MG</p>
+            <div class="footer-right text-center text-md-end">
+                <h3 class="mb-2">Contato</h3>
+                <p class="mb-1">(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
         </div>
-    </div>
 </footer>
+</body>
+
 </html>
 
