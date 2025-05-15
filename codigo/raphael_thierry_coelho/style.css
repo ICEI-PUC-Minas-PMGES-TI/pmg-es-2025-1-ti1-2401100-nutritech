@@ -5,6 +5,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-right: 10%;
 }
 #titulo-pagina{
     font-size: 40px;
@@ -79,6 +80,42 @@ label:hover {
     align-items: center; 
     font-family: Arial, sans-serif;
     
+}
+
+.cartao-visual {
+  width: 450px;
+  height: 275px;
+  background: linear-gradient(to right, #5D8736, #A9C46C);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  font-family: sans-serif;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.numero-cartao {
+  font-size: 35px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.nome-cartao, .validade-cartao {
+  font-size: 18px;
+}
+
+#faixa-cartao{
+    background-color: #555353;
+    border-style: solid;
+    border-left: 0;
+    border-right: 0;
+    color: black;
+    width: 450px;
+    height: 50px;
+    bottom: 40px;
+    left: 0;
+    position: absolute;
 }
 
 
