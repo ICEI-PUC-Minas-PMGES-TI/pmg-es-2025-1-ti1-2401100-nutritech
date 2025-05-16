@@ -23,32 +23,29 @@
     <section class="form-section">
       <h2>Cadastre-se</h2>
       <form id="cadastroForm">
-        <input type="text" placeholder="Digite seu nome" required />
-        <input type="email" placeholder="Digite a email" required />
-        <input type="text" placeholder="Digite seu CPF" required />
-        <input type="password" placeholder="Digite a senha" required />
-        <input type="password" placeholder="Confirme a senha" required />
-        <input type="tel" placeholder="Digite seu telefone" required />
-        <input type="text" placeholder="Digite seu endereço completo" required>
-        <input type="date" placeholder="Data de nascimento" required>
-        <select required>
-          <option value="" disabled selected>Selecione seu gênero</option>
-          <option value="feminino">Feminino</option>
-          <option value="masculino">Masculino</option>
-          <option value="nao_binario">Não-binário</option>
-          <option value="prefiro_nao_dizer">Prefiro não dizer</option>
-          <option value="outro">Outro</option>
-        </select>
+  <input type="text" name="nome" placeholder="Digite seu nome" required />
+  <input type="email" name="email" placeholder="Digite a email" required />
+  <input type="text" name="cpf" placeholder="Digite seu CPF" required />
+  <input type="password" name="senha" placeholder="Digite a senha" required />
+  <input type="password" name="confirmarSenha" placeholder="Confirme a senha" required />
+  <input type="tel" name="telefone" placeholder="Digite seu telefone" required />
+  <input type="text" name="endereco" placeholder="Digite seu endereço completo" required>
+  <input type="date" name="dataNascimento" required>
+  <select name="genero" required>
+    <option value="" disabled selected>Selecione seu gênero</option>
+    <option value="feminino">Feminino</option>
+    <option value="masculino">Masculino</option>
+    <option value="nao_binario">Não-binário</option>
+    <option value="prefiro_nao_dizer">Prefiro não dizer</option>
+    <option value="outro">Outro</option>
+  </select>
 
+  <div class="tipo-usuario">
+    <button type="button" class="user-btn">Instituição</button>
+  </div>
 
-
-        <div class="tipo-usuario">
-          
-          <button type="button" class="user-btn">Instituição</button>
-        </div>
-
-        <button type="submit" class="submit-btn">Cadastrar</button>
-      </form>
+  <button type="submit" class="submit-btn">Cadastrar</button>
+</form>
     </section>
   </main>
 
