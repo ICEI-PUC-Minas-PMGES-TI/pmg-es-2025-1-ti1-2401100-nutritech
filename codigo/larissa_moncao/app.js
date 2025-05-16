@@ -52,7 +52,7 @@ card.innerHTML = `
       <strong>Status:</strong> ${item.status || 'Concluído'}<br>
       <strong>Comprovante:</strong> <a href="${item.comprovante || '#'}" target="_blank" >Ver Comprovante</a>
     </p>
-    <button class="btn btn-doar-novamente btn-verde rounded-pill px-4 py-2 shadow" data-doacao='${JSON.stringify(item)}'>
+    <button class="btn btn-doar-novamente btn-verde rounded-pill justify-content-center align-items-center" data-doacao='${JSON.stringify(item)}'>
       Doar novamente
     </button>
   </div>
