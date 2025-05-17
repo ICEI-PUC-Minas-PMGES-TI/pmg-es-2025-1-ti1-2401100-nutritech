@@ -34,10 +34,10 @@ fetch('doacoes.json')
       // Exibe as doações
       doacoesFiltradas.forEach(item => {
         const card = document.createElement('div');
-card.className = 'card mb-3';
+card.className = 'card mb-3 shadow rounded-4';
 
 card.innerHTML = `
-  <div class="card-body rounded-5 shadow">
+  <div class="card-body rounded-pill">
     <h5 class="card-title"> <a href="pagina.html?instituicao=${encodeURIComponent(item.instituicao)}" class="text-decoration-none">
         ${item.instituicao}
       </a>
@@ -80,7 +80,6 @@ document.addEventListener('click', function (e) {
 });
     // Botão de gerenciar doações com recorrência. Ideia de levar para uma página de gerenciamento de doações recorrentes
     document.getElementById('gerenciar-recorrencia').addEventListener('click', function () {
-        window.location.href = 'recorrencia.html';  
+      window.location.href = 'recorrencia.html';  
 });
-document.getElementById('foto-doador').src = dadosPessoais.foto || 'default.jpg';
 
