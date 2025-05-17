@@ -1,18 +1,3 @@
-const usuariosDB = {
-  Usuarios: JSON.parse(localStorage.getItem('usuariosDB')) || [
-    {
-      Nome: "Henrique Silva",
-      Email: "Henrique@gmail.com",
-      CPF: "583.756.138-20",
-      Senha: "Henrique1234",
-      Telefone: "31-99867-8031",
-      Endereco: "Rua das Flores, 123",
-      DataNascimento: "1990-01-01",
-      Genero: "masculino"
-    }
-  ]
-};
-
 document.getElementById('cadastroForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -28,9 +13,12 @@ document.getElementById('cadastroForm').addEventListener('submit', function (e) 
   const dataNascimento = form.dataNascimento.value;
   const genero = form.genero.value;
 
+  // Carrega os dados salvos (ou inicia com array vazio)
+  const usuarios = JSON.parse(localStorage.getItem('usuariosDB')) || [];
+
   // Verificação de duplicidade
-  const emailExistente = usuariosDB.Usuarios.some(u => u.Email === email);
-  const cpfExistente = usuariosDB.Usuarios.some(u => u.CPF === cpf);
+  const emailExistente = usuarios.some(u => u.email === email);
+  const cpfExistente = usuarios.some(u => u.cpf === cpf);
 
   if (emailExistente) {
     alert("Este e-mail já está cadastrado!");
@@ -47,20 +35,21 @@ document.getElementById('cadastroForm').addEventListener('submit', function (e) 
     return;
   }
 
-  usuariosDB.Usuarios.push({
-    Nome: nome,
-    Email: email,
-    CPF: cpf,
-    Senha: senha,
-    Telefone: telefone,
-    Endereco: endereco,
-    DataNascimento: dataNascimento,
-    Genero: genero
+  // Adiciona novo usuário
+  usuarios.push({
+    nome,
+    email,
+    cpf,
+    senha,
+    telefone,
+    endereco,
+    dataNascimento,
+    genero
   });
 
-  localStorage.setItem('usuariosDB', JSON.stringify(usuariosDB.Usuarios));
+  // Salva de volta no localStorage
+  localStorage.setItem('usuariosDB', JSON.stringify(usuarios));
 
   alert("Cadastro realizado com sucesso!");
-
   form.reset();
 });
