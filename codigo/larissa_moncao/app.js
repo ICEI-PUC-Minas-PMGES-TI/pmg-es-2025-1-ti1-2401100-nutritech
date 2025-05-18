@@ -34,11 +34,14 @@ fetch('doacoes.json')
       // Exibe as doações
       doacoesFiltradas.forEach(item => {
         const card = document.createElement('div');
-card.className = 'card mb-3';
+card.className = 'card mb-3 shadow rounded-4';
 
 card.innerHTML = `
-  <div class="card-body rounded-3 bg-fundos shadow">
-    <h5 class="card-title">${item.instituicao}</h5>
+  <div class="card-body rounded-pill">
+    <h5 class="card-title"> <a href="pagina.html?instituicao=${encodeURIComponent(item.instituicao)}" class="text-decoration-none">
+        ${item.instituicao}
+      </a>
+    </h5>
     <p class="card-text">
       <strong>Data:</strong> ${item.data}<br>
       <strong>Descrição:</strong> ${item.descricao}<br>
@@ -49,7 +52,7 @@ card.innerHTML = `
       <strong>Status:</strong> ${item.status || 'Concluído'}<br>
       <strong>Comprovante:</strong> <a href="${item.comprovante || '#'}" target="_blank" >Ver Comprovante</a>
     </p>
-    <button class="btn btn-doar-novamente btn-verde rounded-pill px-4 py-2 shadow" data-doacao='${JSON.stringify(item)}'>
+    <button class="btn btn-doar-novamente btn-verde rounded-pill justify-content-center align-items-center" data-doacao='${JSON.stringify(item)}'>
       Doar novamente
     </button>
   </div>
@@ -77,7 +80,6 @@ document.addEventListener('click', function (e) {
 });
     // Botão de gerenciar doações com recorrência. Ideia de levar para uma página de gerenciamento de doações recorrentes
     document.getElementById('gerenciar-recorrencia').addEventListener('click', function () {
-        window.location.href = 'recorrencia.html';  
+      window.location.href = 'recorrencia.html';  
 });
-document.getElementById('foto-doador').src = dadosPessoais.foto || 'default.jpg';
 

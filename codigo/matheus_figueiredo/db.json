@@ -1,0 +1,14 @@
+{
+  "usuarios": [
+    {
+      "nome": "Henrique Silva",
+      "email": "Henrique@gmail.com",
+      "cpf": "583.756.138-20",
+      "senha": "Henrique1234",
+      "telefone": "31-99867-8031",
+      "endereco": "Rua das Flores, 123",
+      "dataNascimento": "1990-01-01",
+      "genero": "masculino"
+    }
+  ]
+}

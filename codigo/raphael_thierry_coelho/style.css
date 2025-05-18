@@ -5,6 +5,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-right: 10%;
 }
 #titulo-pagina{
     font-size: 40px;
@@ -13,23 +14,32 @@
 #form-cartao{
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+#container-dados{
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    align-items: center; 
+    align-items: center;
 }
 input{
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 0%);
-    border-style: none;
-    background-color: rgb(228, 221, 214);
-    padding: 20px;
-    padding-left: 80px;
-    font-size: 30px;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     width: 600px;
 }
 
 .tipo-cartao{
     display: flex;
     padding-bottom: 20px;
-    
+    padding-top: 20px;
 }
 input[type="radio"] {
     display: none;
@@ -73,12 +83,47 @@ label:hover {
 
 #pagina{
     margin: 0;
-    height: 100vh;
+    height: 110vh;
     display: flex;
     justify-content: center;
     align-items: center; 
     font-family: Arial, sans-serif;
-    
+}
+
+.cartao-visual {
+  width: 450px;
+  height: 275px;
+  background: linear-gradient(to right, #5D8736, #A9C46C);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  font-family: sans-serif;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.numero-cartao {
+  font-size: 35px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.nome-cartao, .validade-cartao {
+  font-size: 18px;
+}
+
+#faixa-cartao{
+    background-color: #555353;
+    border-style: solid;
+    border-left: 0;
+    border-right: 0;
+    color: black;
+    width: 450px;
+    height: 50px;
+    bottom: 40px;
+    left: 0;
+    position: absolute;
 }
 
 
