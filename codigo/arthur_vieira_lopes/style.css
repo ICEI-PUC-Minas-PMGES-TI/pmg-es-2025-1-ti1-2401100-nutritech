@@ -195,6 +195,30 @@ html, body {
   flex: 1;
   min-width: 300px;
 }
+.button-group {
+  margin-top: 50px;
+  display: flex;
+  gap: 70px;
+  justify-content: center; 
+  margin-left: 200px;
+}
+
+.btn-doar {
+  background-color: #2e8b57; /* Verde semelhante ao do exemplo */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-doar:hover {
+  background-color: #256b45; /* Um tom mais escuro no hover */
+}
+
 
 
 

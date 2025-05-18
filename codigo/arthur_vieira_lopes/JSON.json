@@ -1,65 +1,30 @@
 {
-    "site": {
-      "titulo": "Perfil da Ong",
-      "logo": {
-        "imagem": "imgs/logo.png",
-        "alt": "Logo",
-        "titulo": "Alimentação Para Todos"
-      },
-      "usuario": {
-        "nome": "Usuário",
-        "imagem": "imgs/usuario.png",
-        "link": "https://example.com"
-      },
-      "ong": {
-        "nome": "ONG Mãos que Alimentam",
-        "bio": "Somos a Mãos que Alimentam, uma ONG dedicada a combater a fome e promover a dignidade de famílias em situação de vulnerabilidade. Por meio de doações, parcerias e ações comunitárias, levamos alimentos e esperança a quem mais precisa. Acreditamos que ninguém deve enfrentar o dia com o estômago vazio — e trabalhamos todos os dias para transformar essa realidade.",
-        "data_entrada": "Março de 2023",
-        "localizacao": "Belo Horizonte - MG",
-        "familias_ajudadas": 12,
-        "redes_sociais": [
-          {
-            "nome": "Instagram",
-            "url": "https://instagram.com",
-            "icone": "fa-brands fa-instagram"
-          },
-          {
-            "nome": "Facebook",
-            "url": "https://facebook.com",
-            "icone": "fa-brands fa-facebook"
-          }
-        ]
-      },
-      "formulario": {
-        "id": "form-cartao",
-        "botao_doador": {
-          "texto": "Doar",
-          "id": "btn-submit"
-        }
-      },
-      "footer": {
-        "decoracoes": [
-          {
-            "imagem": "imgs/forma3.png",
-            "alt": "decoracao-rodape1",
-            "id": "forma3"
-          },
-          {
-            "imagem": "imgs/forma4.png",
-            "alt": "decoracao-rodape2",
-            "id": "forma4"
-          }
-        ],
-        "informacoes": {
-          "contato": {
-            "telefone": "(31) 9999-6666",
-            "email": "nutritech@pucminas.com.br"
-          },
-          "localizacao": "Belo Horizonte - MG"
-        }
-      }
+  "ong": {
+    "nome": "ONG Alimentar com Amor",
+    "ano_entrada": 2025,
+    "cnpj": "12.345.678/0001-95",
+    "contato": "(31) 91234-5678",
+    "informacoes_gerais": {
+      "fundada_em": 2018,
+      "familias_ajudadas": 125,
+      "voluntarios_envolvidos": 200,
+      "colaboradores_mensais": 42
+    },
+    "descricao": "A Alimentar com Amor é uma organização sem fins lucrativos dedicada a combater a fome e a insegurança alimentar em comunidades em situação de vulnerabilidade.",
+    "acoes": [
+      "Doar Dinheiro",
+      "Doar Alimento"
+    ]
+  },
+  "rodape": {
+    "local": "Belo Horizonte",
+    "ano": 2025,
+    "contato": {
+      "telefone": "(31) 9999-6666",
+      "email": "nutritech@pucminas.com.br"
     }
   }
+}
   
   
   
