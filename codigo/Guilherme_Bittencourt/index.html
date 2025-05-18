@@ -23,165 +23,261 @@
     </style>
 </head>
 <body>
-    <header>
-        <a href="#">
-            <img src="imgs/logo.png" alt="Logo" class="px-3 logo">
-            <h2>Alimentação <br> Para <br> Todos</h2>
+    <header class="d-flex justify-content-between align-items-center p-3 bg-light">
+        <a href="#" class="d-flex align-items-center">
+            <img src="imgs/logo.png" alt="Logo" class="logo me-3">
+            <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
         </a>
-        <a href="#" class="usuario-container">
-            <h3>usuário</h3>
-            <img src="imgs/usuario.png" alt="Usuário" class="usuario px-3">
+        <a href="#" class="usuario-container d-flex align-items-center">
+            <h3 class="m-0 me-2">Usuário</h3>
+            <img src="imgs/usuario.png" alt="Usuário" class="usuario">
         </a>
     </header>
 
     <main>
-        <h1>Localização das Instituições</h1>
-        
-        <!-- Filtros -->
-        <div class="filters">
-            <div>
-                <label for="filterType">Filtrar por tipo de doação:</label>
-                <select id="filterType" onchange="updateFilters()">
-                    <option value="all">Todos</option>
-                    <option value="alimentos">Alimentos</option>
-                    <option value="dinheiro">Dinheiro</option>
-                    <option value="voluntariado">Voluntariado</option>
-                </select>
-            </div>
+  <h1>Localização das Instituições</h1>
 
-            <div>
-                <label for="filterDistance">Ordenar por distância:</label>
-                <input type="checkbox" id="filterDistance" onchange="updateFilters()">
-            </div>
+  <!-- Layout com Bootstrap - Filtros + Legenda à esquerda | Mapa à direita -->
+  <div class="container-fluid">
+    <div class="row position-relative">
+
+      <!-- Coluna Esquerda (Filtros + Legenda) -->
+      <div class="col-md-3 mb-4 mb-md-0">
+
+        <!-- Filtros -->
+        <div class="filters mb-3">
+          <!-- Filtro por Tipo -->
+          <div>
+            <label for="filterType">Filtrar por tipo de doação:</label>
+            <select id="filterType" onchange="updateFilters()">
+              <option value="all">Todos</option>
+              <option value="alimentos">Alimentos</option>
+              <option value="dinheiro">Dinheiro</option>
+              <option value="voluntariado">Voluntariado</option>
+            </select>
+          </div>
+
+          <!-- Filtro por Raio -->
+          <div>
+            <label for="filterRadius">Mostrar ONGs em uma distância de até:</label>
+            <input type="range" id="filterRadius" min="1" max="50" value="10" class="form-range">
+            <span id="radiusValue">10</span> km
+          </div>
         </div>
+
+        <!-- Legenda dos Tipos de Doação - Abaixo dos Filtros -->
+        <div class="legend-bottom">
+          <p class="mb-1"><strong>Tipos de Doação:</strong></p>
+          <div class="d-flex flex-column gap-2">
+            <div class="d-flex align-items-center">
+              <img src="imgs/iconecomida.png" alt="Alimento" width="24" class="me-2">
+              <span>Alimentos</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <img src="imgs/iconedinheiro.png" alt="Dinheiro" width="24" class="me-2">
+              <span>Dinheiro</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <img src="imgs/iconevoluntarios.png" alt="Voluntário" width="24" class="me-2">
+              <span>Voluntariado</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Coluna Direita - Mapa -->
+      <div class="col-md-9 position-relative">
 
         <!-- Mapa -->
         <div id="map"></div>
-    </main>
 
-    <footer>
-        <div class="footer-info px-5">
-            <div>
-                <h3>Contato</h3>
-                <p>(31) 9999-6666</p>
-                <p>nutritech@pucminas.com.br</p>
-            </div>
-            <div class="px-5">
-                <h3>Local</h3>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+    <footer class="bg-light py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left text-center text-md-start">
+                <h3 class="mb-2">Local</h3>
                 <p>Belo Horizonte</p>
             </div>
+
+            <div class="footer-center text-center">
+                <p>© 2025 NutriTech</p>
+            </div>
+
+            <div class="footer-right text-center text-md-end">
+                <h3 class="mb-2">Contato</h3>
+                <p class="mb-1">(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
         </div>
-        <img src="imgs/logo.png" alt="Logo" class="logo">
     </footer>
 
     <script>
         const API_KEY = '5c44b3606f0c4083a694018d9e277792'; // Sua chave de API do Geoapify
-        let map;
-        let userLocation;
-        let markers = [];
+let map;
+let userLocation;
+let markers = [];
 
-        // Função para inicializar o mapa usando a API do Geoapify
-        function initMap() {
-            map = new window.L.Map("map", {
-                center: [ -19.8191, -43.9378 ], // Belo Horizonte
-                zoom: 12,
-                zoomControl: true,
-            });
+// Função para carregar o arquivo JSON
+async function loadOngs() {
+    try {
+        const response = await fetch('adição_ONGs.json'); // Caminho para o arquivo JSON
+        const ongs = await response.json(); // Converte o JSON em um array JavaScript
+        initMap(ongs); // Passa as ONGs para inicializar o mapa
+    } catch (error) {
+        console.error("Erro ao carregar ONGs:", error);
+    }
+}
 
-            // Usando a URL fornecida para o estilo carto
-            window.L.tileLayer(
-                `https://maps.geoapify.com/v1/tile/carto/{z}/{x}/{y}.png?&apiKey=${API_KEY}`,
-                {
-                    maxZoom: 19,
-                    attribution: "© OpenStreetMap contributors"
-                }
-            ).addTo(map);
+// Função para inicializar o mapa usando a API do Geoapify
+function initMap(ongs) {
+    map = new window.L.Map("map", {
+        center: [-19.9191, -43.9378], // Centro de Belo Horizonte
+        zoom: 12,
+        zoomControl: true,
+    });
 
-            // Definindo as ONGs com suas localizações (latitude e longitude)
-            const ongs = [
-                { name: "Comida que Abraça", lat: -19.9191, lng: -43.9378, tipo: "alimentos" },
-                { name: "ONG Verde", lat: -19.8300, lng: -43.9200, tipo: "voluntariado" },
-                { name: "Fundação Dom Bosco", lat: -19.8320, lng: -43.9320, tipo: "dinheiro" },
-            ];
-
-            // Adicionando os marcadores para as ONGs
-            ongs.forEach((ong) => {
-                const marker = window.L.marker([ong.lat, ong.lng])
-                    .addTo(map)
-                    .bindPopup(ong.name); // O nome da ONG está em português
-                markers.push({ ...ong, marker });
-            });
-
-            // Obtendo a localização do usuário
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    userLocation = [position.coords.latitude, position.coords.longitude];
-
-                    // Adicionando um marcador para a posição do usuário
-                    window.L.marker(userLocation)
-                        .addTo(map)
-                        .bindPopup("Sua localização");
-
-                    // Atualizar os filtros quando o mapa estiver pronto
-                    updateFilters();
-                });
-            }
+    // Usando a URL fornecida para o estilo carto
+    window.L.tileLayer(
+        `https://maps.geoapify.com/v1/tile/carto/ {z}/{x}/{y}.png?&apiKey=${API_KEY}`,
+        {
+            maxZoom: 19,
+            attribution: "© OpenStreetMap contributors"
         }
+    ).addTo(map);
 
-        // Função para atualizar os marcadores das ONGs com base no filtro
-        function updateFilters() {
-            const typeFilter = document.getElementById("filterType").value;
-            const distanceFilter = document.getElementById("filterDistance").checked;
+    // Definindo os ícones personalizados
+    const iconDinheiro = new L.Icon({
+        iconUrl: 'imgs/iconedinheiro.png',
+        iconSize: [32, 40],
+        iconAnchor: [16, 40],
+        popupAnchor: [0, -40]
+    });
+    const iconAlimento = new L.Icon({
+        iconUrl: 'imgs/iconecomida.png',
+        iconSize: [32, 40],
+        iconAnchor: [16, 40],
+        popupAnchor: [0, -40]
+    });
+    const iconVoluntario = new L.Icon({
+        iconUrl: 'imgs/iconevoluntarios.png',
+        iconSize: [32, 40],
+        iconAnchor: [16, 40],
+        popupAnchor: [0, -40]
+    });
 
-            // Filtrando as ONGs por tipo de doação
-            let filteredOngs = markers.filter((ong) => {
-                if (typeFilter !== "all" && ong.tipo !== typeFilter) {
-                    return false;
-                }
-                return true;
-            });
-
-            // Ordenando as ONGs por distância
-            if (distanceFilter && userLocation) {
-                filteredOngs.sort((a, b) => {
-                    const distanceA = getDistance(userLocation, [a.lat, a.lng]);
-                    const distanceB = getDistance(userLocation, [b.lat, b.lng]);
-                    return distanceA - distanceB;
-                });
-            }
-
-            // Remover os marcadores antigos
-            markers.forEach((markerObj) => markerObj.marker.remove());
-
-            // Adicionar os marcadores filtrados
-            filteredOngs.forEach((ong) => {
-                ong.marker.addTo(map);
-            });
+    // Adicionando os marcadores para as ONGs com ícones personalizados
+    ongs.forEach((ong) => {
+        let icon;
+        switch (ong.tipo) {
+            case 'dinheiro':
+                icon = iconDinheiro;
+                break;
+            case 'alimentos':
+                icon = iconAlimento;
+                break;
+            case 'voluntariado':
+                icon = iconVoluntario;
+                break;
+            default:
+                icon = L.icon.default; // Ícone padrão se não houver correspondência
         }
+        const marker = window.L.marker([ong.lat, ong.lng], { icon })
+            .addTo(map)
+            .bindPopup(ong.name);
+        markers.push({ ...ong, marker });
+    });
 
-        // Função para calcular a distância entre duas coordenadas
-        function getDistance(coord1, coord2) {
-            const lat1 = coord1[0];
-            const lon1 = coord1[1];
-            const lat2 = coord2[0];
-            const lon2 = coord2[1];
-            
-            const R = 6371; // Raio da Terra em km
-            const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lon2 - lon1) * Math.PI / 180;
-            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-                      Math.sin(dLon/2) * Math.sin(dLon/2);
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-            const distance = R * c; // Resultado em km
-            return distance;
-        }
+    // Obtendo a localização do usuário
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            userLocation = [position.coords.latitude, position.coords.longitude];
+            // Adicionando um marcador para a posição do usuário
+            window.L.marker(userLocation)
+                .addTo(map)
+                .bindPopup("Sua localização");
+            // Atualizar os filtros quando o mapa estiver pronto
+            updateFilters();
+        });
+    }
+}
 
-        // Inicializar o mapa ao carregar a página
-        window.onload = initMap;
+function updateFilters() {
+    const typeFilter = document.getElementById("filterType").value;
+    const radius = parseFloat(document.getElementById("filterRadius").value); // Em km
+    // Mostra o valor em tempo real
+    document.getElementById("radiusValue").textContent = radius;
+
+    let filteredOngs = [...markers]; // Cria cópia dos marcadores
+
+    // Filtrar por tipo de ONG
+    if (typeFilter !== "all") {
+        filteredOngs = filteredOngs.filter(ong => ong.tipo === typeFilter);
+    }
+
+    // Se tiver localização do usuário, filtrar por distância
+    if (userLocation) {
+        filteredOngs = filteredOngs.map(ong => ({
+            ...ong,
+            distance: getDistance(userLocation, [ong.lat, ong.lng])
+        }));
+        // Filtrar pelo raio selecionado
+        filteredOngs = filteredOngs.filter(ong => ong.distance <= radius);
+        // 🔁 Ordenar sempre por distância (sem precisar de checkbox)
+        filteredOngs.sort((a, b) => a.distance - b.distance);
+    }
+
+    // Remover todos os marcadores do mapa
+    markers.forEach(markerObj => {
+        map.removeLayer(markerObj.marker);
+    });
+
+    // Adicionar apenas os marcadores filtrados
+    filteredOngs.forEach(ong => {
+        map.addLayer(ong.marker);
+    });
+
+    // Garantir que o pin do usuário sempre fique visível
+    const userMarker = markers.find(m => m.tipo === "usuario")?.marker;
+    if (userMarker && !map.hasLayer(userMarker)) {
+        map.addLayer(userMarker);
+    }
+}
+
+// Função para calcular a distância entre duas coordenadas
+function getDistance(coord1, coord2) {
+    const lat1 = coord1[0];
+    const lon1 = coord1[1];
+    const lat2 = coord2[0];
+    const lon2 = coord2[1];
+
+    const R = 6371; // Raio da Terra em km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c; // Resultado em km
+    return distance;
+}
+
+// Carregar as ONGs e inicializar o mapa ao carregar a página
+window.onload = loadOngs;
+
+// Atualiza os filtros automaticamente enquanto o usuário arrasta o slider
+document.getElementById("filterRadius").addEventListener("input", function () {
+    document.getElementById("radiusValue").textContent = this.value;
+    updateFilters(); // Atualiza os marcadores em tempo real
+});
+
     </script>
 </body>
 </html>
-
 
 

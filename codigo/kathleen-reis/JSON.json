@@ -1,0 +1,102 @@
+{
+    "ong": {
+        "nome": "Nome  ONG",
+        "cnpj": "12.345.678/0001-90 (exemplo)",
+        "endereco": {
+            "rua": "Rua Exemplo",
+            "numero": 123 ,
+            "bairro": "Bairro Exemplo",
+            "cidade": "Cidade Exemplo",
+            "estado": "Estado Exemplo",
+            "cep": "12345-678"
+        },
+        "contato": {
+            "telefone": "(11) 98765-4321 (exemplo)",
+            "email": "contato@exemplo.org",
+            "website": "http://www.exemplo.org"
+        },
+        "descricao": {
+            "missao": "Missão da ONG",
+            "visao": "Visão da ONG",
+            "historico": "Histórico da ONG.",
+            "objetivos": [
+                "Promoção da educação",
+                "Apoio à saúde",
+                "Proteção ambiental" 
+            ],
+            "areas_atuacao": [
+                "Educação",
+                "Saúde",
+                "Meio ambiente",
+                "Direitos humanos"  
+            ]
+        },
+        "equipe": {
+            "fundadores": [
+                {
+                    "nome": "Nome do Fundador 1",
+                    "cargo": "Presidente"
+                },
+                {
+                    "nome": "Nome do Fundador 2",
+                    "cargo": "Diretor"
+                }
+            ],
+            "membros": [
+                {
+                    "nome": "Nome do Membro 1",
+                    "cargo": "Coordenador de Projetos"
+                }
+            ]
+        },
+        "atividades": {
+            "projetos_em_andamento": [
+                {
+                    "nome": "Projeto Exemplo 1",
+                    "descricao": "Descrição do projeto 1",
+                    "impacto": "Beneficiou 100 pessoas."
+                }
+            ],
+            "projetos_realizados": [
+                {
+                    "nome": "Projeto Exemplo 2",
+                    "descricao": "Descrição do projeto 2",
+                    "resultado": "Resultados obtidos com sucesso."
+                }
+            ]
+        },
+        "financiamento": {
+            "fontes": [
+                "Doador A",
+                "Patrocínio B"
+            ],
+            "relatorios_financeiros": "Disponíveis sob solicitação."
+        },
+        "documentacao": {
+            "documentos": [
+                "Estatuto Social",
+                "Ata de Fundação",
+                "Registro em órgão"
+            ]
+        },
+        "colaboracao": {
+            "formas_ajuda": [
+                "Doações",
+                "Voluntariado",
+                "Parcerias"
+            ],
+            "eventos": [
+                {
+                    "nome": "Evento de Arrecadação",
+                    "data": "2023-12-15",
+                    "descricao": "Descrição do evento."
+                }
+            ]
+        },
+        "redes_sociais": {
+            "facebook": "http://facebook.com/exemplo",
+            "instagram": "http://instagram.com/exemplo",
+            "twitter": "http://twitter.com/exemplo"
+        }
+    }
+}
