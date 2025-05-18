@@ -188,6 +188,16 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 300px;
+}
+
+
+
 
 
 
