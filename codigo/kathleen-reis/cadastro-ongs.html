@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,114 +8,166 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <title>Cadastro ONG</title>
 </head>
+
 <body>
-    <header>  
+    <header>
+        <img src="img/logo.png" alt="Logo" class="logo me-3">
         <h1>Inicie seu cadastro como ONG</h1>
-
-        <button id="back"><a href="#"></a>Voltar</button>
-    </header>  
+        
+    </header>
     
-    <main>  
-        <section>  
+    <main>
+        <section>
             <form action="#" method="post">
-                <H2>Informações pessoais:</H2>
-                <label for="nome"> Nome da instituição:</label>
-                <input type="text" id="nome" name="nome" required>
-
-                <label for="cnpj">CNPJ:</label>
-                <input type="text" id="cnpj" name="cnpj" required>
-
+                <button id="back"><a href="#"></a>Voltar</button>
+                <h2>Informações pessoais:</h2>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label for="nome">Nome da instituição:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="input-item">
+                        <label for="cnpj">CNPJ:</label>
+                        <input type="text" id="cnpj" name="cnpj" required>
+                    </div>
+                </div>
 
                 <h2>Endereço:</h2>
-                <label for="rua">Rua:</label>
-                <input type="text" id="rua" name="rua" required>
-
-                <label for="numero">Número:</label>
-                <input type="number" id="numero" name="numero" required>
-
-                <label for="cidade">Cidade:</label>
-                <input type="text" id="cidade" name="cidade" required>
-
-                <label for="bairro">Bairro:</label>
-                <input type="text" id="bairor" name="bairro" required>
-
-                <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado" required>
-
-                <label for="cep">CEP</label>
-                <input type="number" id="cep" name="cep" required>
-
+                <div class="input-group">
+                    <div class="input-item">
+                        <label for="rua">Rua:</label>
+                        <input type="text" id="rua" name="rua" required>
+                    </div>
+                    <div class="input-item">
+                        <label for="numero">Número:</label>
+                        <input type="number" id="numero" name="numero" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" required>
+                    </div>
+                    <div class="input-item">
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" id="bairro" name="bairro" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" name="estado" required>
+                    </div>
+                    <div class="input-item">
+                        <label for="cep">CEP:</label>
+                        <input type="number" id="cep" name="cep" required>
+                    </div>
+                </div>
 
                 <h2>Contato:</h2>
-                <label for="telefone">Telefone:</label>
-                <input type="tel" name="telefone" id="telefone" required>
-
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
-
-                <label for="website">WebSite:</label>
-                <input type="url" name="website" id="website" required>
-
+                <div class="input-group">
+                    <div class="input-item">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" name="telefone" id="telefone" required>
+                    </div>
+                    <div class="input-item">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="input-item">
+                        <label for="website">WebSite:</label>
+                        <input type="url" name="website" id="website" required>
+                    </div>
+                </div>
 
                 <h2>Descrição:</h2>
-                <label for="missao">Missão:</label>
-                <textarea name="missao" id="missao" required></textarea>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label for="missao">Missão:</label>
+                        <textarea name="missao" id="missao" required></textarea>
+                    </div>
+                    <div class="input-item">
+                        <label for="visao">Visão:</label>
+                        <textarea name="visao" id="visao" required></textarea>
+                    </div>
+                </div>
+                <div class="input-item">
+                    <label for="historico">Histórico:</label>
+                    <textarea id="historico" name="historico" required></textarea>
+                </div>
 
-                <label for="visao">Visão:</label>
-                <textarea name="visao" id="visao" required></textarea>
+                <h2>Objetivo:</h2>
+                <div class="input-item">
+                    <label for="objetivos">Objetivos:</label>
+                    <textarea id="objetivos" name="objetivos" required></textarea>
+                </div>
 
-                <label for="historico">Histórico:</label>  
-                <textarea id="historico" name="historico" required></textarea>  
+                <h2>Áreas de Atuação:</h2>
+                <div class="input-item">
+                    <label for="areas_atuacao">Áreas de Atuação:</label>
+                    <textarea id="areas_atuacao" name="areas_atuacao" required></textarea>
+                </div>
 
+                <h2>Equipe:</h2>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label for="fundadores">Fundadores:</label>
+                        <textarea id="fundadores" name="fundadores" required></textarea>
+                    </div>
+                    <div class="input-item">
+                        <label for="membros">Membros:</label>
+                        <textarea id="membros" name="membros" required></textarea>
+                    </div>
+                </div>
 
-                <h2>Onjetivo:</h2>
-                <label for="objetivos">Objetivos:</label>  
-                <textarea id="objetivos" name="objetivos" required></textarea>
+                <h2>Atividades:</h2>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label for="projetos_andamento">Projetos em Andamento:</label>
+                        <textarea id="projetos_andamento" name="projetos_andamento" required></textarea>
+                    </div>
+                    <div class="input-item">
+                        <label for="projetos_realizados">Projetos Realizados:</label>
+                        <textarea id="projetos_realizados" name="projetos_realizados" required></textarea>
+                    </div>
+                </div>
 
+                <h2>Financiamento:</h2>
+                <div class="input-item">
+                    <label for="fontes">Fontes de Financiamento:</label>
+                    <textarea id="fontes" name="fontes" required></textarea>
+                </div>
 
-                <h2>Áreas de Atuação</h2>  
-                <label for="areas_atuacao">Áreas de Atuação:</label>  
-                <textarea id="areas_atuacao" name="areas_atuacao" required></textarea>  
+                <h2>Colaboração:</h2>
+                <div class="input-item">
+                    <label for="formas_ajuda">Formas de Ajuda:</label>
+                    <textarea id="formas_ajuda" name="formas_ajuda" required></textarea>
+                </div>
 
-                <h2>Equipe</h2>  
-                <label for="fundadores">Fundadores:</label>  
-                <textarea id="fundadores" name="fundadores" required></textarea>  
+                <h2>Redes Sociais:</h2>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label for="facebook">Facebook:</label>
+                        <input type="url" id="facebook" name="facebook" required>
+                    </div>
+                    <div class="input-item">
+                        <label for="instagram">Instagram:</label>
+                        <input type="url" id="instagram" name="instagram" required>
+                    </div>
+                </div>
+                <div class="input-item">
+                    <label for="twitter">Twitter:</label>
+                    <input type="url" id="twitter" name="twitter" required>
+                </div>
 
-                <label for="membros">Membros:</label>  
-                <textarea id="membros" name="membros" required></textarea>  
-
-                <h2>Atividades</h2>  
-                <label for="projetos_andamento">Projetos em Andamento:</label>  
-                <textarea id="projetos_andamento" name="projetos_andamento" required></textarea>  
-
-                <label for="projetos_realizados">Projetos Realizados:</label>  
-                <textarea id="projetos_realizados" name="projetos_realizados" required></textarea>  
-
-                <h2>Financiamento</h2>  
-                <label for="fontes">Fontes de Financiamento:</label>  
-                <textarea id="fontes" name="fontes" required></textarea>  
-
-                <h2>Colaboração</h2>  
-                <label for="formas_ajuda">Formas de Ajuda:</label>  
-                <textarea id="formas_ajuda" name="formas_ajuda" required></textarea>  
-
-                <h2>Redes Sociais</h2>  
-                <label for="facebook">Facebook:</label>  
-                <input type="url" id="facebook" name="facebook" required>  
-
-                <label for="instagram">Instagram:</label>  
-                <input type="url" id="instagram" name="instagram" required>  
-
-                <label for="twitter">Twitter:</label>  
-                <input type="url" id="twitter" name="twitter" required>  
-
-                <button type="submit">Cadastrar ONG</button> 
+                <button type="submit">Cadastrar ONG</button>
             </form>
-        </section>  
-    </main>  
-    
-    <footer>  
+        </section>
+    </main>
+
+    <footer>
         <p>&copy; 2025 NutriTech - Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
