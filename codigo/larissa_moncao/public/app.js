@@ -1,7 +1,7 @@
   // Define o CPF do doador (enquanto ainda não tenho um sistema de login)
   const CPF = '123.456.789-00';
 
-  fetch('./db/db.json')
+  fetch('http://localhost:3000/doacoes')
     .then(response => response.json())
     .then(dados => {
       const lista = document.getElementById('lista-doacoes');
@@ -11,14 +11,14 @@
       info.innerHTML = '';
 
       // Filtra as doações pelo CPF
-      const doacoesFiltradas = dados.doacoes.filter(item => item.doacao.CPF === CPF);
+      const doacoesFiltradas = dados.filter(item => item.CPF === CPF);
 
       if (doacoesFiltradas.length === 0) {
         lista.innerHTML = '<p>Nenhuma doação encontrada para este doador.</p>';
         info.innerHTML = '<p>Dados pessoais não encontrados.</p>';
       } else {
         // Exibe os dados pessoais do doador
-        const dadosPessoais = doacoesFiltradas[0].doacao;
+        const dadosPessoais = doacoesFiltradas[0];
 
         info.innerHTML = `
           <div class="card-pessoal">
