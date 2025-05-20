@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Voluntários</title>
+    <link rel="stylesheet" href="cadastro-voluntarios.css">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+    <header class="d-flex justify-content-between align-items-center p-3 bg-light">
+        <a href="#" class="d-flex align-items-center">
+            <img src="../imgs/logo.png" alt="Logo" class="logo me-3">
+            <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
+        </a>
+        <a href="#" class="usuario-container d-flex align-items-center">
+            <h3 class="m-0 me-2">Usuário</h3>
+            <img src="../imgs/usuario.png" alt="Usuário" class="usuario">
+        </a>
+    </header>
+
+
+
+    <main>
+         <div id="pagina">
+            <div class="container-pagina">
+                <h4 id="titulo-pagina">Seja um Voluntário!</h4>
+                <form id="form-voluntarios">
+                    <div id="container-dados">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome" maxlength="50"><br>
+
+                        <label for="telefone">Telefone</label>
+                        <input type="text" id="telefone" name="telefone" required placeholder="(XX) XXXXX-XXXX" maxlength="16"><br>
+
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" required placeholder="email@nutritech.com" maxlength="50"><br>
+
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" required placeholder="___.___.___-__" maxlength="14"><br>
+                        
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" required placeholder="Escolha uma senha"><br>
+
+                        <label for="confirmar-senha">Confirmar Senha</label>
+                        <input type="password" id="confirmar-senha" name="confirmar-senha" required placeholder="Confirme sua senha"><br>
+                    </div>
+                    <button id="btn-submit" type="submit">Cadastrar</button>
+                </form>
+            </div>
+         </div>
+    </main>
+
+    <script src="js-voluntarios.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script>
+  // Mascaras de input 
+
+  // CPF
+  IMask(document.getElementById('cpf'), {
+    mask: '000.000.000-00'
+  });
+
+  // Telefone
+  IMask(document.getElementById('telefone'), {
+    mask: '(00) 00000-0000'
+  });
+</script>
+
+
+</body>
+
+    <footer class="bg-light py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left text-center text-md-start">
+                <h3 class="mb-2">Local</h3>
+                <p>Belo Horizonte</p>
+            </div>
+
+            <div class="footer-center text-center">
+                <p>© 2025 NutriTech</p>
+            </div>
+
+            <div class="footer-right text-center text-md-end">
+                <h3 class="mb-2">Contato</h3>
+                <p class="mb-1">(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
+        </div>
+    </footer>
+
+</html>
