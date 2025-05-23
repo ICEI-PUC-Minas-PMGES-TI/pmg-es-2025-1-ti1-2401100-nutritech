@@ -1,0 +1,93 @@
+footer {
+    background: linear-gradient(to right, #368758, #8EC46C);
+    padding: 10px 0; /* Substitui a altura fixa por padding */
+    color: #fff;
+    font-family: 'ABeeZee', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+footer .container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Espaço entre colunas */
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebra em telas pequenas */
+    gap: 10px; /* Espaço entre blocos */
+    padding: 0 20px; /* Espaço lateral */
+    box-sizing: border-box;
+}
+
+footer h3, footer p {
+    margin: 0; /* Remove margens extras */
+    font-size: 0.7rem; /* Reduz o tamanho da fonte para caber no footer */
+    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    text-align: center;
+}
+
+footer .row {
+    margin: 0;
+}
+
+footer .logo {
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #5D8736, #A9C46C);
+    padding: 5px; /* Ajustado para reduzir o padding */
+    height: 75px; /* Altura ajustada */
+}
+
+header .logo {
+    width: auto;
+    max-height: 70px; /* Reduzido o tamanho da imagem */
+    margin: 5px; /* Ajustado para reduzir o espaçamento */
+}
+
+header h2 {
+    font-size: 1.0em; /* Reduzido o tamanho da fonte */
+    color: #fff;
+    margin: 0;
+    padding: 5px; /* Ajustado para reduzir o espaçamento */
+    font-family: 'ABeeZee', sans-serif;
+}
+
+header .usuario-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+header .usuario {
+    max-height: 30px; /* Reduzido o tamanho da imagem */
+    margin-left: 5px; /* Ajustado para reduzir o espaçamento */
+}
+
+header h3 {
+    font-size: 1em; /* Reduzido o tamanho da fonte */
+    color: #555353;
+    opacity: 0.8;
+    font-family: 'ABeeZee', sans-serif;
+    margin: 0;
+}
+
+header a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
