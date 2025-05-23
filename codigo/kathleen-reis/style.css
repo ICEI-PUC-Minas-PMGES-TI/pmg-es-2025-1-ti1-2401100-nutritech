@@ -1,70 +1,129 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-/* Estilo Geral da Página */  
-body {  
-    font-family: Arial, sans-serif;  
-    background-color: #eaffea; /* Fundo verde claro */  
-    color: #333; /* Texto em cinza escuro para contraste */  
+* {  
     margin: 0;  
-    padding: 20px;  
+    padding: 0;  
+    box-sizing: border-box;  
+    font-family: Arial, sans-serif;  
 }  
 
-/* Cabeçalho */  
+header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #234900, #A9C46C);
+    padding: 10px;
+}
+
+header .logo {
+    width: auto;
+    max-height: 100px;
+    margin: 10px;
+}
+
+body {  
+    background-color: #f0f8f0; /* Fundo claro */  
+    color: #333; /* Texto escuro */  
+    margin: 100px;  
+}  
+
 h1 {  
-    color: #4caf50; /* Verde mais escuro */  
+    color: #08f810; /* Verde escuro */  
+    text-align: center;  
+    height: 110px;
 }  
 
-/* Formulário */  
 form {  
-    background-color: #f8f8f8; /* Fundo do formulário */  
-    border: 1px solid #c8e6c9; /* Bordas verde claro */  
-    border-radius: 5px;  
+    background-color: #ffffff; /* Fundo do formulário */  
+    border: 1px solid #4CAF50; /* Borda verde */  
     padding: 20px;  
+    border-radius: 8px;  
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
 }  
 
-/* Labels */  
 label {  
-    display: block; /* Cada label em uma nova linha */  
+    display: block; /* Alinha os labels */  
     margin: 10px 0 5px;  
+    font-weight: bold;  
+    color: #4CAF50; /* Labels em verde escuro */  
 }  
 
-/* Campos de entrada */  
+.input-group {  
+    display: flex; /* Usando flexbox para alinhamento */  
+    justify-content: space-between; /* Espaço entre os itens */  
+    margin-bottom: 5px; /* Espaçamento entre grupos */  
+}  
+
+.input-item {  
+    flex: 1; /* Cada item ocupa espaço igual */  
+    margin-right: 10px; /* Margem direita para espaçamento */  
+}  
+
+.input-item:last-child {  
+    margin-right: 0; /* Remove margem do último item */  
+}  
+
 input[type="text"],  
 input[type="email"],  
 input[type="tel"],  
+input[type="url"],  
+input[type="number"],  
 textarea {  
-    width: calc(100% - 20px); /* Largura adequada com espaçamento */  
-    padding: 10px;  
-    border: 1px solid #9ccc9c; /* Bordas para os campos */  
+    width: 50%; /* Ajusta a largura para 30% do seu container para campos lado a lado */  
+    padding: 6px; /* Reduz o espaçamento interno */  
+    margin-bottom: 10px; /* Espaçamento entre as caixas */  
+    border: 1px solid #4CAF50; /* Borda verde */  
     border-radius: 4px;  
-    margin-bottom: 15px;  
+    outline: none; /* Remove contorno */  
 }  
 
-/* Botão */  
+textarea {  
+    width: 40%; /* Mantém a largura completa no textarea */  
+    margin-bottom: 5px; /* Espaçamento externo para textarea */  
+}  
+
 button {  
-    background-color: #4caf50; /* Verde do botão */  
+    background-color: #4CAF50; /* Botão verde */  
     color: white; /* Texto branco */  
-    border: none;  
-    padding: 10px 15px;  
-    border-radius: 4px;  
+    border: none; /* Remove borda */  
+    padding: 10px 15px; /* Espaçamento interno */  
+    border-radius: 5px; /* Bordas arredondadas */  
     cursor: pointer;  
+    border-radius: 5px;  
 }  
 
 button:hover {  
-    background-color: #45a049; /* Tom mais escuro ao passar o mouse */  
+    background-color: #388E3C; /* Tom mais escuro ao passar o mouse */  
 }  
 
-/* Rodapé */  
-footer {  
-    margin-top: 20px;  
-    text-align: center;  
+/* Footer */
+footer {
+    background: linear-gradient(to right, #368758, #8EC46C);
+    padding: 15px 20px; 
+    color: #fff;
+    font-family: 'ABeeZee', sans-serif;
 }
-button{
-    cursor: pointer;
-    border-radius: 5x;
+
+footer .container {
+    max-width: 100%;
+}
+
+footer h3 {
+    margin-bottom: 10px; 
+    font-size: 1.1rem;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+footer .row {
+    margin: 0;
+}
+
+footer .logo {
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

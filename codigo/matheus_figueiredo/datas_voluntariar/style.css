@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #d4edc9, #cde5bd);
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(to right, #8cbf58, #a8c66c);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+/* Container principal */
+main {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Título */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e6f5e0;
+    font-size: 1em;
+}
+
+button {
+    background-color: #65b347;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #4d9335;
+}
+
+footer {
+    background: linear-gradient(to right, #368758, #8EC46C);
+    height: 80px; /* Mantém a altura fixa do footer */
+    color: #fff;
+    font-family: 'ABeeZee', sans-serif;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
+    box-sizing: border-box; /* Garante que o padding não afete a altura */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
+}
+
+footer .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Ajusta o espaçamento entre os elementos */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Centraliza o texto */
+    flex-wrap: wrap; /* Garante que o conteúdo se ajuste ao tamanho do footer */
+    padding: 0 10px; /* Adiciona espaçamento interno horizontal */
+    box-sizing: border-box; /* Garante que o padding não afete o layout */
+}
+
+footer h3, footer p {
+    margin: 0; /* Remove margens extras */
+    font-size: 0.7rem; /* Reduz o tamanho da fonte para caber no footer */
+    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    text-align: center;
+}
+
+footer .row {
+    margin: 0;
+}
+
+footer .logo {
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
