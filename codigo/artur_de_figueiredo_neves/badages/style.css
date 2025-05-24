@@ -106,3 +106,54 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+.badges-section {
+    padding: 40px 0;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.badges-section h3 {
+    font-size: 32px;
+    color: #4CAF50;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.badges-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 160px;
+    background-color: #f1fdf4;
+    padding: 20px;
+    border-radius: 16px;
+    transition: transform 0.3s;
+}
+
+.badge-item:hover {
+    transform: scale(1.05);
+}
+
+.badge-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.badge-title {
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+}
