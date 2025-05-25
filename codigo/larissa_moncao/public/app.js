@@ -93,6 +93,6 @@
   });
       // Botão de gerenciar doações com recorrência. Ideia de levar para uma página de gerenciamento de doações recorrentes
       document.getElementById('gerenciar-recorrencia').addEventListener('click', function () {
-        window.location.href = 'recorrencia.html';  
+        window.location.href = 'gerenciar_recorrencias.html';  
   });
 
