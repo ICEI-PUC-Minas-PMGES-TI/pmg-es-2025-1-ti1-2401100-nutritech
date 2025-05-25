@@ -46,15 +46,10 @@ header a {
     align-items: center;
 }
 
-
-
-
-
-/* Footer */
 /* Footer */
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
-    height: 80px; /* Mantém a altura fixa do footer */
+    min-height: 80px; /* Usar min-height ao invés de height fixa */
     color: #fff;
     font-family: 'ABeeZee', sans-serif;
     display: flex;
@@ -63,6 +58,10 @@ footer {
     padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
     box-sizing: border-box; /* Garante que o padding não afete a altura */
     overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    left: 0;
 }
 
 footer .container {
@@ -94,8 +93,4 @@ footer .logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-main{
-    height: 100px;
 }
