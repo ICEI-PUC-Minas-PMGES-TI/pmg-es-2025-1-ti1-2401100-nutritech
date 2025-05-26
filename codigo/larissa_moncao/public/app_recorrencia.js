@@ -65,6 +65,8 @@ fetch('http://localhost:3000/doacoes')
             <button class="btn btn-doar-novamente btn-verde rounded-pill justify-content-center align-items-center" data-doacao='${JSON.stringify(item)}'>
             Doar novamente
             </button>
+            <button class="btn btn-editar btn-warning rounded-pill" data-id='${item.id}'> Editar </button>
+            <button class="btn btn-excluir btn-danger rounded-pill" data-id='${item.id}'> Excluir </button>
         </div>
     `;
 
