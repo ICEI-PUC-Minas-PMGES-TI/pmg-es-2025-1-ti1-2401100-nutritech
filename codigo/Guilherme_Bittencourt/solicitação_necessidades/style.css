@@ -78,19 +78,29 @@ main {
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
+    max-width: 1200px;
     width: 100%;
     transition: transform 0.3s ease;
 }
 
-/* Dividir o formulário em duas colunas */
-.form-container .form-left {
+/* Dividir o formulário e as listagens */
+.form-left {
     flex: 1;
-    margin-right: 20px; /* Espaço entre as colunas */
+    margin-right: 20px;
 }
 
-.form-container .form-right {
+.form-right {
     flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.list-column {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -139,7 +149,7 @@ button:hover {
 .list-group {
     list-style: none;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .list-group li {
@@ -154,6 +164,22 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+/* Estilo para o botão de exclusão */
+.btn-delete {
+    cursor: pointer;
+    margin-left: 8px; /* Espaçamento entre o texto e o botão */
+    display: inline-block;
+    background: none;
+    border: none;
+    font-size: 12px; /* Tamanho menor para o ícone */
+    color: red; /* Cor vermelha para destacar */
+    transition: transform 0.2s ease; /* Efeito suave ao passar o mouse */
+}
+
+.btn-delete:hover {
+    transform: scale(1.2); /* Aumenta ligeiramente ao passar o mouse */
 }
 
 
