@@ -46,6 +46,117 @@ header a {
     align-items: center;
 }
 
+
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'ABeeZee', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    background: rgb(247, 247, 247);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+/* Dividir o formulário em duas colunas */
+.form-container .form-left {
+    flex: 1;
+    margin-right: 20px; /* Espaço entre as colunas */
+}
+
+.form-container .form-right {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    border-color: #368758;
+    outline: none;
+}
+
+button {
+    background: linear-gradient(to right, #368758, #8EC46C);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, margin 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; /* Afastar os botões em 1px */
+}
+
+button:hover {
+    background: #2e6b4a;
+}
+
+.list-group {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.list-group li {
+    background: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+
 /* Footer */
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
