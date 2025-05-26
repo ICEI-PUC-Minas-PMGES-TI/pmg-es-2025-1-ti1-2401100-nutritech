@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perfil do Doador</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style_recorrencia.css">
+</head>
+<body class="bg-white text-black">
+    
+  <header class="d-flex justify-content-between align-items-center p-3 bg-light">
+        <a href="#" class="d-flex align-items-center">
+            <img src="../public/img/logo.png" alt="Logo" class="logo me-3">
+            <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
+        </a>
+        <a href="#" class="usuario-container d-flex align-items-center">
+            <h3 class="m-0 me-2">Usuario</h3>
+            <img src="../public/img/usuario.png" alt="Usuário" class="usuario">
+        </a>
+    </header>
+  
+  <main>
+    <div class="row mb-5">
+      <div class="row mb-4">
+        <!-- Dados Pessoais -->
+        <div class="col-md-4 ">
+          <section id="dados-pessoais" class=" rounded p-3 mb-4 shadow">
+            <div class="shadow-sm p-3 mb-1 bg-body">
+            <h2 class="h4 border-bottom border-success">Dados Pessoais</h2>
+            <div id="info-doador" class="p-3 rounded">Carregando...</div>
+            <div class="mt-3">
+              <button id="editar" class="btn btn-verde rounded-pill px-4 py-2 shadow">Editar</button>
+              <button id="logout" class="btn btn-verde rounded-pill px-4 py-2 shadow">Logout</button>
+            </div>
+            </div>
+          </section>
+        <div class="rounded-1 shadow-sm p-3 mb-1">
+          <div class="shadow  align-items-center p-3">
+            <!--Botão nova doação-->
+            <section id="doar" class="py-3">
+              <p id="gestao" class="h5 text-center pb-2 mb-2">Faça uma nova doação</p>
+              <button id="nova-doacao" class="btn bg-verde-fundo w-100 rounded-pill px-3 py-6 shadow text-light ">Nova Doação</button>
+            </section>
+          </div>
+        </div>
+        </div>
+      
+        <!-- Lista Doações -->
+        <div class="col-md-8">
+          <section id="doacoes">
+            <h2 class="h4 text-center mb-4 border-bottom border-success border-2 pb-2">Doações já realizadas por você</h2>
+            <div id="lista-doacoes" class="p-3 rounded-4 shadow">Carregando...</div>
+                      <script src="app_recorrencia.js"></script>
+          </section>
+        </div>
+      </div>
+
+      </div>
+      </div>
+  
+  </main>
+  <!--rodapé-->
+  <footer class="bg-light py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left text-center text-md-start">
+                <h3 class="mb-2">Local</h3>
+                <p>Belo Horizonte</p>
+            </div>
+
+            <div class="footer-center text-center">
+                <p>© 2025 NutriTech</p>
+            </div>
+
+            <div class="footer-right text-center text-md-end">
+                <h3 class="mb-2">Contato</h3>
+                <p class="mb-1">(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
+        </div>
+    </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
