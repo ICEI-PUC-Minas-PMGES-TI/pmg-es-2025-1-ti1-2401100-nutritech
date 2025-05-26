@@ -1,11 +1,24 @@
-{
-  "nome": "João da Silva",
-  "telefone": "(31) 91234-5678",
-  "email": "joao@email.com",
-  "cpf": "123.456.789-00",
-  "Agendamento": [
-    { "Data": "25/05/2025", "Alimento": "Feijão" },
-    { "Data": "27/05/2025", "Alimento": "Arroz" },
-    { "Data": "30/05/2025", "Alimento": "Macarrão" }
-  ]
-}
+[
+  {
+    "nome": "João da Silva",
+    "telefone": "(31) 91234-5678",
+    "email": "joao@email.com",
+    "cpf": "123.456.789-00",
+    "Agendamento": [
+      { "Data": "25/05/2025", "Alimento": "Feijão" },
+      { "Data": "27/05/2025", "Alimento": "Arroz" },
+      { "Data": "30/05/2025", "Alimento": "Macarrão" }
+    ]
+  },
+  {
+    "nome": "Maria Oliveira",
+    "telefone": "(31) 98888-1234",
+    "email": "maria@email.com",
+    "cpf": "987.654.321-00",
+    "Agendamento": [
+      { "Data": "26/05/2025", "Alimento": "Leite" },
+      { "Data": "28/05/2025", "Alimento": "Óleo" },
+      { "Data": "30/05/2025", "Alimento": "Açúcar" }
+    ]
+  }
+]
