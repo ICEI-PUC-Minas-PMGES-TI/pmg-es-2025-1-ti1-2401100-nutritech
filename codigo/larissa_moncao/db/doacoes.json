@@ -1,9 +1,12 @@
 {
-  "doacoes_alimentos": [
+  "doacoes": [
     {
       "doacao": {
+        "id": 1,
         "nome": "Larissa Monção",
         "CPF": "123.456.789-00",
+        "dataNascimento": "1990-11-19",
+        "endereco": "Rua França, 100",
         "cidade": "Belo Horizonte",
         "estado": "MG",
         "email": "larissa.oliveira@example.com",
@@ -11,6 +14,7 @@
       },
       "data": "10/04/2025",
       "instituicao": "Comida que Abraça",
+      "categoria": "Alimentos",
       "descricao": "Arroz",
       "quantidade": "10 Unidades",
       "entrega":"Entregue na instituição",
@@ -18,8 +22,11 @@
     },
     {
       "doacao": {
+        "id": 1,
         "nome": "Larissa Monção",
         "CPF": "123.456.789-00",
+        "dataNascimento": "1990-01-01",
+        "endereco": "Rua das Flores, 123",
         "cidade": "Belo Horizonte",
         "estado": "MG",
         "email": "larissa.oliveira@example.com",
@@ -27,10 +34,30 @@
       },
       "data": "01/05/2025",
       "instituicao": "Comida que Abraça",
+      "categoria": "Alimentos",
       "descricao": "Feijão",
       "quantidade": "5 Unidades",
       "entrega": "Enviada via correios",
       "valor": 40.00
+    },
+    {
+      "doacao": {
+        "id": 1,
+        "nome": "Larissa Monção",
+        "CPF": "123.456.789-00",
+        "dataNascimento": "1990-01-01",
+        "endereco": "Rua das Flores, 123",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "email": "larissa.oliveira@example.com",
+        "telefone": "(38) 99815-4188"
+      },
+      "data": "01/05/2025",
+      "instituicao": "Fundação Dom Bosco",
+      "categoria": "Dinheiro",
+      "descricao": "Cartão",
+      "valor": 40.00,
+      "recorrencia": true
     }
   ]
 }

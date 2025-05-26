@@ -1,0 +1,243 @@
+/* Alterações Fora do Template Base*/
+
+#titulo-pagina{
+    font-size: 40px;
+    padding: 50px;
+    padding-bottom: 80px;
+    text-align: center;
+}
+
+
+#form-voluntarios{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+.cadastro{
+    align-items: center;
+}
+.titulo-form{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-right: 200px;
+    margin-left: -100px;
+}
+#container-dados{
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    width: 700px;
+    margin-right: 200px;
+    margin-left: -100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.colunas-form {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+input{
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 95%;
+
+}
+
+
+.container-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1 1 300px;
+  margin-left: 10%;
+}
+
+.disponibilidade {
+  width: 100%;
+  align-items: center;
+}
+.titulo-disponibilidade {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.tabela-disponibilidade {
+  display: grid;
+  grid-template-columns: 100px repeat(3, 80px);
+  gap: 10px;
+  width: 400px;
+  padding: 20px;
+
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;   
+}
+
+.tabela-disponibilidade .header{
+  font-weight: bold;
+  text-align: center;
+}
+.tabela-disponibilidade .dia {
+  font-weight: bold;
+}
+
+.areas-interesse{
+    width: 100%;
+    margin-top: 60px;
+}
+.titulo-areas-interesse {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.tabela-areas-interesse .opcao {
+  font-weight: bold;
+}
+.tabela-areas-interesse {
+  display: grid;
+  grid-template-columns: 250px repeat(1, 150px);
+  gap: 10px;
+  width: 400px;
+  padding: 20px;
+
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px; 
+}
+
+#btn-submit{
+    border-radius: 100px;
+    padding: 25px;
+    font-size: 20px;
+    width: 200px;
+    color: whitesmoke;
+    background: linear-gradient(to right, rgb(114, 212, 114), rgb(67, 126, 67));
+    background-color: green;
+    border-style: none;
+    cursor: pointer;
+    margin: 50px;
+}
+#btn-submit:hover {
+    background: none;
+    background-color: #3e8e41;
+    transition: 0.5s;
+}
+
+
+/* header */
+header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #5D8736, #A9C46C);
+    padding: 5px; /* Ajustado para reduzir o padding */
+    height: 75px; /* Altura ajustada */
+}
+
+header .logo {
+    width: auto;
+    max-height: 70px; /* Reduzido o tamanho da imagem */
+    margin: 5px; /* Ajustado para reduzir o espaçamento */
+}
+
+header h2 {
+    font-size: 1.0em; /* Reduzido o tamanho da fonte */
+    color: #fff;
+    margin: 0;
+    padding: 5px; /* Ajustado para reduzir o espaçamento */
+    font-family: 'ABeeZee', sans-serif;
+}
+
+header .usuario-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+header .usuario {
+    max-height: 30px; /* Reduzido o tamanho da imagem */
+    margin-left: 5px; /* Ajustado para reduzir o espaçamento */
+}
+
+header h3 {
+    font-size: 1em; /* Reduzido o tamanho da fonte */
+    color: #555353;
+    opacity: 0.8;
+    font-family: 'ABeeZee', sans-serif;
+    margin: 0;
+}
+
+header a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+/* Footer */
+/* Footer */
+footer {
+    background: linear-gradient(to right, #368758, #8EC46C);
+    height: 80px; /* Mantém a altura fixa do footer */
+    color: #fff;
+    font-family: 'ABeeZee', sans-serif;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
+    box-sizing: border-box; /* Garante que o padding não afete a altura */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
+}
+
+footer .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Ajusta o espaçamento entre os elementos */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Centraliza o texto */
+    flex-wrap: wrap; /* Garante que o conteúdo se ajuste ao tamanho do footer */
+    padding: 0 10px; /* Adiciona espaçamento interno horizontal */
+    box-sizing: border-box; /* Garante que o padding não afete o layout */
+}
+
+footer h3, footer p {
+    margin: 0; /* Remove margens extras */
+    font-size: 0.7rem; /* Reduz o tamanho da fonte para caber no footer */
+    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    text-align: center;
+}
+
+footer .row {
+    margin: 0;
+}
+
+footer .logo {
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main{
+    height: auto;
+}

@@ -1,3 +1,36 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+a{
+    color: rgb(5, 95, 50);
+    text-decoration: none;
+}
+
+.bg-verde-fundo {
+    background-color: #2E8B57;
+}
+
+.bg-fundos {
+    background: linear-gradient(to right, #36875899, #8ec46c9c);
+}
+
+.btn-verde {
+    background-color: #2E8B57;
+    color: white;
+}
+
+.bg-link {
+    color: #2E8B57;
+}
+.bg-verde-fundo:hover {
+    background-color: #c4f7c4;
+}
+.card {
+  border: none !important;
+}
 /* header */
 header {
     display: flex;
@@ -46,10 +79,15 @@ header a {
     align-items: center;
 }
 
+
+
+
+
+/* Footer */
 /* Footer */
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
-    min-height: 80px; /* Usar min-height ao invés de height fixa */
+    height: 80px; /* Mantém a altura fixa do footer */
     color: #fff;
     font-family: 'ABeeZee', sans-serif;
     display: flex;
@@ -58,10 +96,6 @@ footer {
     padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
     box-sizing: border-box; /* Garante que o padding não afete a altura */
     overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
-    position: relative;
-    width: 100%;
-    bottom: 0;
-    left: 0;
 }
 
 footer .container {
@@ -93,4 +127,35 @@ footer .logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+
+body {
+  background-image: url('img/directions_walk.png'), url('img/Fundoverdedireito.png'), url('img/img_fundo.png'); 
+  background-size:auto;        
+  background-repeat: no-repeat;
+  background-position: left bottom, 0px 400px, 1050px 900px;   
+  background-size: 12%, 40%, 60%;
+}
+
+#gestao {
+    font-size: medium;
+}
+html, body {
+  height: 800%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+main {
+  flex: 1; 
+}
+
+footer {
+  background-color: #0e4071;
+  padding: 1rem;
 }

@@ -1,0 +1,11 @@
+{
+  "nome": "João da Silva",
+  "telefone": "(31) 91234-5678",
+  "email": "joao@email.com",
+  "cpf": "123.456.789-00",
+  "Agendamento": [
+    { "Data": "25/05/2025", "Alimento": "Feijão" },
+    { "Data": "27/05/2025", "Alimento": "Arroz" },
+    { "Data": "30/05/2025", "Alimento": "Macarrão" }
+  ]
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil da Ong</title>
+    <link rel="stylesheet" href="gestaodevoluntarios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+<header class="d-flex justify-content-between align-items-center p-3 bg-light">
+        <a href="#" class="d-flex align-items-center">
+            <img src="imgs/logo.png" alt="Logo" class="logo me-3">
+            <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
+        </a>
+        <a href="#" class="usuario-container d-flex align-items-center">
+            <h3 class="m-0 me-2">Usuário</h3>
+            <img src="imgs/usuario.png" alt="Usuário" class="usuario">
+        </a>
+</header>
+<main style="margin-left: 30px;">
+  <h1>Voluntariado</h1>
+
+  <form>
+    <h2>Dia da Semana</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Dia</th>
+          <th>Horário</th>
+          <th>Interesse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <label for="dia" class="visually-hidden">Dia</label>
+            <select name="dia" id="dia" required>
+              <option value="">Selecione</option>
+              <option value="segunda">Segunda-feira</option>
+              <option value="terca">Terça-feira</option>
+              <option value="quarta">Quarta-feira</option>
+              <option value="quinta">Quinta-feira</option>
+              <option value="sexta">Sexta-feira</option>
+              <option value="sabado">Sábado</option>
+              <option value="domingo">Domingo</option>
+            </select>
+          </td>
+          <td>
+            <label for="horario" class="visually-hidden">Horário</label>
+            <input type="text" name="horario" id="horario" placeholder="Ex: 14h às 17h" required />
+          </td>
+          <td>
+            <label for="interesse" class="visually-hidden">Interesse</label>
+            <input type="text" name="interesse" id="interesse" placeholder="Ex: Cuidar de animais" required />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Tipo de Voluntariado</h2>
+    <label for="tipoVoluntariado" class="visually-hidden">Tipo de Voluntariado</label>
+    <select name="tipoVoluntariado" id="tipoVoluntariado" required>
+      <option value="">Selecione</option>
+      <option value="educacao">Educação</option>
+      <option value="meio_ambiente">Meio Ambiente</option>
+      <option value="saude">Saúde</option>
+      <option value="animais">Proteção Animal</option>
+      <option value="outros">Outros</option>
+    </select>
+
+    <br><br>
+    <button type="submit">Salvar</button>
+  </form>
+</main>
+
+      
+
+<footer class="bg-light py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left text-center text-md-start">
+                <h3 class="mb-2">Local</h3>
+                <p>Belo Horizonte</p>
+            </div>
+
+            <div class="footer-center text-center">
+                <p>© 2025 NutriTech</p>
+            </div>
+
+            <div class="footer-right text-center text-md-end">
+                <h3 class="mb-2">Contato</h3>
+                <p class="mb-1">(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
+        </div>
+    </footer>
+</body>

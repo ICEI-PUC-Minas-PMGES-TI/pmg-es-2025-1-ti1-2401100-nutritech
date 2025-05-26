@@ -1,55 +1,89 @@
-/* header */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #d4edc9, #cde5bd);
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
 header {
+    background: linear-gradient(to right, #8cbf58, #a8c66c);
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to right, #5D8736, #A9C46C);
-    padding: 5px; /* Ajustado para reduzir o padding */
-    height: 75px; /* Altura ajustada */
+    padding: 10px 20px;
+    color: white;
 }
 
-header .logo {
-    width: auto;
-    max-height: 70px; /* Reduzido o tamanho da imagem */
-    margin: 5px; /* Ajustado para reduzir o espaçamento */
-}
-
-header h2 {
-    font-size: 1.0em; /* Reduzido o tamanho da fonte */
-    color: #fff;
-    margin: 0;
-    padding: 5px; /* Ajustado para reduzir o espaçamento */
-    font-family: 'ABeeZee', sans-serif;
-}
-
-header .usuario-container {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-header .usuario {
-    max-height: 30px; /* Reduzido o tamanho da imagem */
-    margin-left: 5px; /* Ajustado para reduzir o espaçamento */
-}
-
-header h3 {
-    font-size: 1em; /* Reduzido o tamanho da fonte */
-    color: #555353;
-    opacity: 0.8;
-    font-family: 'ABeeZee', sans-serif;
-    margin: 0;
-}
-
-header a {
-    text-decoration: none;
+.logo {
     display: flex;
     align-items: center;
 }
 
-/* Footer */
+.logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+/* Container principal */
+main {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Título */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e6f5e0;
+    font-size: 1em;
+}
+
+button {
+    background-color: #65b347;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #4d9335;
+}
+
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
-    min-height: 80px; /* Usar min-height ao invés de height fixa */
+    height: 80px; /* Mantém a altura fixa do footer */
     color: #fff;
     font-family: 'ABeeZee', sans-serif;
     display: flex;
@@ -58,10 +92,6 @@ footer {
     padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
     box-sizing: border-box; /* Garante que o padding não afete a altura */
     overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
-    position: relative;
-    width: 100%;
-    bottom: 0;
-    left: 0;
 }
 
 footer .container {
