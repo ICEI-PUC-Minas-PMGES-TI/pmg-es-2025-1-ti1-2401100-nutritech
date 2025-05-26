@@ -85,41 +85,58 @@ function updateSavedList(tipo) {
     const necessidades = JSON.parse(localStorage.getItem("necessidades")) || { alimentos: [], voluntarios: [] };
 
     necessidades[tipo + "s"].forEach(savedItem => {
-        if (typeof savedItem === "object" && savedItem !== null && "item" in savedItem && "deadline" in savedItem) {
-            const listItem = document.createElement('li');
-            listItem.className = "d-flex justify-content-between align-items-center";
+        // Criar o elemento <li> para o item
+        const listItem = document.createElement('li');
+        listItem.className = "d-flex justify-content-between align-items-center";
 
-            const itemText = document.createElement('span');
-            itemText.textContent = `${savedItem.item} (Prazo: ${savedItem.deadline})`;
-            listItem.appendChild(itemText);
+        // Verificar se o item é válido e exibir sua descrição
+        const itemDescription = typeof savedItem === "object" && savedItem !== null && "item" in savedItem && "deadline" in savedItem
+            ? `${savedItem.item} (Prazo: ${savedItem.deadline})`
+            : `[Formato Inválido]`;
 
-            const deleteButton = document.createElement('span');
-            deleteButton.className = "btn-delete";
-            deleteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red" viewBox="0 0 16 16"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 1-1zm4 0A.5.5 0 0 1 10 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 1-1z"/><path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm13 0A2 2 0 0 1 14 2V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h13z"/></svg>';
-            deleteButton.onclick = () => confirmAndRemoveSavedItem(savedItem.item, tipo); // Confirmar e remover
-            listItem.appendChild(deleteButton);
+        const itemText = document.createElement('span');
+        itemText.textContent = itemDescription;
 
-            savedList.appendChild(listItem);
-        }
+        // Adiciona o <span> ao <li>
+        listItem.appendChild(itemText);
+
+        // ✅ Adiciona o <li> à lista UL/OL
+        savedList.appendChild(listItem);
+
+        
+
+        // Criar o botão de exclusão
+        const deleteButton = document.createElement('span');
+        deleteButton.className = "btn-delete";
+        deleteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red" viewBox="0 0 16 16"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 1-1zm4 0A.5.5 0 0 1 10 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 1-1z"/><path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm13 0A2 2 0 0 1 14 2V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h13z"/></svg>';
+        deleteButton.onclick = () => confirmAndRemoveSavedItem(savedItem, tipo); // Confirmar e remover
+        listItem.appendChild(deleteButton);
+
+        savedList.appendChild(listItem);
     });
 }
 
 // Função para confirmar e remover um item salvo permanentemente
-function confirmAndRemoveSavedItem(itemName, tipo) {
+function confirmAndRemoveSavedItem(savedItem, tipo) {
     if (confirm("Tem certeza de que deseja excluir este item permanentemente?")) {
-        removeSavedItem(itemName, tipo);
+        removeSavedItem(savedItem, tipo);
     }
 }
 
 // Função para remover um item salvo permanentemente
-function removeSavedItem(itemName, tipo) {
+function removeSavedItem(itemToRemove, tipo) {
     // Ler os dados salvos
     let necessidades = JSON.parse(localStorage.getItem("necessidades")) || { alimentos: [], voluntarios: [] };
 
     // Filtrar os itens salvos no localStorage
-    necessidades[tipo + "s"] = necessidades[tipo + "s"].filter(
-        savedItem => savedItem.item !== itemName
-    );
+    necessidades[tipo + "s"] = necessidades[tipo + "s"].filter(savedItem => {
+        // Comparar apenas os objetos válidos
+        if (typeof savedItem === "object" && savedItem !== null && "item" in savedItem && "deadline" in savedItem) {
+            return savedItem.item !== itemToRemove.item || savedItem.deadline !== itemToRemove.deadline;
+        }
+        // Para itens inválidos, removê-los diretamente
+        return false;
+    });
 
     // Salvar no localStorage
     localStorage.setItem("necessidades", JSON.stringify(necessidades));
@@ -134,43 +151,38 @@ document.getElementById('alimento-deadline').setAttribute('min', today);
 document.getElementById('voluntario-deadline').setAttribute('min', today);
 
 // Carregar dados iniciais do localStorage
-window.onload = () => {
-    const necessidades = JSON.parse(localStorage.getItem("necessidades")) || { alimentos: [], voluntarios: [] };
+window.onload = function() {
+    const currentDate = new Date().toISOString().split('T')[0];
+    document.getElementById('alimento-deadline').min = currentDate;
+    document.getElementById('voluntario-deadline').min = currentDate;
+    updateSavedList("alimento");
+    updateSavedList("voluntario");
 
-    // Limpar as listagens permanentes antes de preencher
-    document.getElementById('saved-alimentos').innerHTML = "";
-    document.getElementById('saved-voluntarios').innerHTML = "";
-
-    // Preencher a listagem permanente de alimentos
-    necessidades.alimentos.forEach(item => {
-        if (typeof item === "object" && item !== null && "item" in item && "deadline" in item) {
-            addItemToSavedList('alimento', item.item, item.deadline);
-        }
-    });
-
-    // Preencher a listagem permanente de voluntários
-    necessidades.voluntarios.forEach(item => {
-        if (typeof item === "object" && item !== null && "item" in item && "deadline" in item) {
-            addItemToSavedList('voluntario', item.item, item.deadline);
-        }
-    });
+    // ... restante do código idêntico ao original ...
 };
 
+
 // Função auxiliar para adicionar itens à listagem permanente
-function addItemToSavedList(tipo, text, deadline) {
+function addItemToSavedList(tipo, savedItem) {
     const savedList = document.getElementById(`saved-${tipo}s`);
 
     const listItem = document.createElement('li');
     listItem.className = "d-flex justify-content-between align-items-center";
 
+    // Verificar se o item é válido e exibir sua descrição
+    const itemDescription = typeof savedItem === "object" && savedItem !== null && "item" in savedItem && "deadline" in savedItem
+        ? `${savedItem.item} (Prazo: ${savedItem.deadline})`
+        : `[Formato Inválido]`;
+
     const itemText = document.createElement('span');
-    itemText.textContent = `${text} (Prazo: ${deadline})`;
+    itemText.textContent = itemDescription;
     listItem.appendChild(itemText);
 
+    // Criar o botão de exclusão
     const deleteButton = document.createElement('span');
     deleteButton.className = "btn-delete";
     deleteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red" viewBox="0 0 16 16"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 1-1zm4 0A.5.5 0 0 1 10 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 1-1z"/><path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm13 0A2 2 0 0 1 14 2V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h13z"/></svg>';
-    deleteButton.onclick = () => confirmAndRemoveSavedItem(text, tipo);
+    deleteButton.onclick = () => confirmAndRemoveSavedItem(savedItem, tipo);
     listItem.appendChild(deleteButton);
 
     savedList.appendChild(listItem);
