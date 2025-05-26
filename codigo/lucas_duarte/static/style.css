@@ -1,58 +1,119 @@
 
-/* Main Content */
-main {
-    display: block;
-    height: 715px;
-    text-align: left;
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
     padding: 0;
-
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-main .row {
-    justify-content: flex-start;
-    margin-left: 0;
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-main .col-md-6 {
-    padding-left: 0;
-    margin-left: 0; 
+header img.logo {
+    width: 50px;
+    margin-right: 10px;
 }
 
-main h1 {
-    text-align: left;
-    font-size: 2rem;
-    color: #368758;
-    font-family: 'ABeeZee', sans-serif;
+header h2 {
+    font-size: 24px;
+    text-align: center;
 }
 
-form {
+.usuario-container img.usuario {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+header a {
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+header a:hover {
+    text-decoration: underline; 
+}
+
+
+main h3 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #4CAF50;
+}
+
+#ranking-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
     width: 100%;
-    max-width: 400px; 
-    margin-left: 0; 
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 22px;
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
 }
 
-form select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-form input[type="text"],
-form input[type="submit"] {
-    padding: 10px; 
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+#ranking-list li {
+    display: flex;
+    justify-content: space-between;
+    background-color: #a8dba8;
+    margin-bottom: 10px;
+    padding: 20px 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 700;
 }
 
-form input[type="submit"] {
-    background-color: #368758;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s;
+#ranking-list li strong {
+    color: #004400;
+    margin-right: 10px;
 }
 
-form input[type="submit"]:hover {
-    background-color: #2a6b46;
+#ranking-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+footer {
+    background-color: #4CAF50 !important;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: white; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
