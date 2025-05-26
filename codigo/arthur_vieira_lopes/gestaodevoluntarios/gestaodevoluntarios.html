@@ -21,38 +21,60 @@
             <img src="imgs/usuario.png" alt="Usuário" class="usuario">
         </a>
 </header>
-<main>
-<h1>Voluntariado</h1>
+<main style="margin-left: 30px;">
+  <h1>Voluntariado</h1>
 
-<h2>Dia da Semana</h2>
-<table border="1">
-<tr>
-<th>Dia</th>
-<th>Horário</th>
-<th>Interesse</th>
-</tr>
-<tr>
-<td>
-<select name="dia">
-<option></option>
-</select>
-</td>
-<td>
-<input type="text" name="horario">
-</td>
-<td>
-<input type="text" name="interesse">
-</td>
-</tr>
-</table>
+  <form>
+    <h2>Dia da Semana</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Dia</th>
+          <th>Horário</th>
+          <th>Interesse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <label for="dia" class="visually-hidden">Dia</label>
+            <select name="dia" id="dia" required>
+              <option value="">Selecione</option>
+              <option value="segunda">Segunda-feira</option>
+              <option value="terca">Terça-feira</option>
+              <option value="quarta">Quarta-feira</option>
+              <option value="quinta">Quinta-feira</option>
+              <option value="sexta">Sexta-feira</option>
+              <option value="sabado">Sábado</option>
+              <option value="domingo">Domingo</option>
+            </select>
+          </td>
+          <td>
+            <label for="horario" class="visually-hidden">Horário</label>
+            <input type="text" name="horario" id="horario" placeholder="Ex: 14h às 17h" required />
+          </td>
+          <td>
+            <label for="interesse" class="visually-hidden">Interesse</label>
+            <input type="text" name="interesse" id="interesse" placeholder="Ex: Cuidar de animais" required />
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-<h2>Tipo de Voluntariado</h2>
-<select name="tipoVoluntariado">
-<option></option>
-</select>
+    <h2>Tipo de Voluntariado</h2>
+    <label for="tipoVoluntariado" class="visually-hidden">Tipo de Voluntariado</label>
+    <select name="tipoVoluntariado" id="tipoVoluntariado" required>
+      <option value="">Selecione</option>
+      <option value="educacao">Educação</option>
+      <option value="meio_ambiente">Meio Ambiente</option>
+      <option value="saude">Saúde</option>
+      <option value="animais">Proteção Animal</option>
+      <option value="outros">Outros</option>
+    </select>
 
-<br><br>
-<button type="submit">SALVAR</button>
+    <br><br>
+    <button type="submit">Salvar</button>
+  </form>
 </main>
 
       

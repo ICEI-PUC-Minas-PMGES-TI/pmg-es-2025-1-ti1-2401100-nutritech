@@ -86,8 +86,20 @@ header a {
     display: flex;
     align-items: center;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Faz o wrapper ocupar o espaço todo e empurra o footer para baixo */
 .wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Faz o conteúdo principal crescer para ocupar o espaço disponível */
+main {
+    flex: 1;
 }
