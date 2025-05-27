@@ -1,0 +1,15 @@
+{
+    "doacoes_alimentos": [
+      {
+        "doador": {
+          "nome": "João da Silva",
+          "email": "larissa.oliveira@example.com",
+          "telefone": "(38) 99815-4188"
+        },
+        "data": "2025-04-10",
+        "descricao": "Arroz",
+        "quantidade": "10 Unidades",
+        "valor": 88.00
+      }
+    ]
+  }

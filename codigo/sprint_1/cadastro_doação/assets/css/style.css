@@ -1,0 +1,57 @@
+/* Main Content */
+main {
+    display: block;
+    height: 715px;
+    text-align: left;
+    padding: 0;
+
+}
+
+main .row {
+    justify-content: flex-start;
+    margin-left: 0;
+}
+
+main .col-md-6 {
+    padding-left: 0;
+    margin-left: 0; 
+}
+
+main h1 {
+    text-align: left;
+    font-size: 2rem;
+    color: #368758;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+form {
+    width: 100%;
+    max-width: 400px; 
+    margin-left: 0; 
+}
+
+form select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+form input[type="text"],
+form input[type="submit"] {
+    padding: 10px; 
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #368758;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2a6b46;
+}

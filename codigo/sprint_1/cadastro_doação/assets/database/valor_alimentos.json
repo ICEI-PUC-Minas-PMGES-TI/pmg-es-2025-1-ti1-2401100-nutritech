@@ -1,0 +1,21 @@
+{
+    "alimentos": [
+      {
+        "nome": "macarrao",
+        "valor_unitario": 4.50
+      },
+      {
+        "nome": "arroz",
+        "valor_unitario": 5.90
+      },
+      {
+        "nome": "feijao",
+        "valor_unitario": 6.30
+      },
+      {
+        "nome": "enlatados",
+        "valor_unitario": 3.20
+      }
+    ]
+  }
+  
