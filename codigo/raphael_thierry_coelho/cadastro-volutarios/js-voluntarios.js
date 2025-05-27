@@ -26,7 +26,7 @@ document.getElementById('form-voluntarios').addEventListener('submit', function 
             return;
         }
 
-        if (telefone.length < 16){
+        if (telefone.length < 15){
             alert('Número de telefone inexistente. Tente novamente!');
             return;
         }
