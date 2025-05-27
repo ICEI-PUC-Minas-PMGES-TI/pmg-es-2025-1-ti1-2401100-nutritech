@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alimentação Para Todos - Cadastro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="d-flex justify-content-between align-items-center p-3 bg-light">
+        <a href="#" class="d-flex align-items-center">
+            <img src="logo.png" alt="Logo" class="logo me-3">
+            <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
+        </a>
+        <a href="#" class="usuario-container d-flex align-items-center">
+            <h3 class="m-0 me-2">Usuário</h3>
+            <img src="usuario.png" alt="Usuário" class="usuario">
+        </a>
+    </header>
+
+
+  <main>
+    <section class="form-section">
+      <h2>Cadastre-se</h2>
+      <form id="cadastroForm">
+  <input type="text" name="nome" placeholder="Digite seu nome" required />
+  <input type="email" name="email" placeholder="Digite a email" required />
+  <input type="text" name="cpf" placeholder="Digite seu CPF" required />
+  <input type="password" name="senha" placeholder="Digite a senha" required />
+  <input type="password" name="confirmarSenha" placeholder="Confirme a senha" required />
+  <input type="tel" name="telefone" placeholder="Digite seu telefone" required />
+  <input type="text" name="endereco" placeholder="Digite seu endereço completo" required>
+  <input type="date" name="dataNascimento" required>
+  <select name="genero" required>
+    <option value="" disabled selected>Selecione seu gênero</option>
+    <option value="feminino">Feminino</option>
+    <option value="masculino">Masculino</option>
+    <option value="nao_binario">Não-binário</option>
+    <option value="prefiro_nao_dizer">Prefiro não dizer</option>
+    <option value="outro">Outro</option>
+  </select>
+
+  <div class="tipo-usuario">
+    <button type="button" class="user-btn">Instituição</button>
+  </div>
+
+  <button type="submit" class="submit-btn">Cadastrar</button>
+</form>
+    </section>
+  </main>
+
+  <footer class="bg-light py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left text-center text-md-start">
+                <h3 class="mb-2">Local</h3>
+                <p>Belo Horizonte</p>
+            </div>
+
+            <div class="footer-center text-center">
+                <p>© 2025 NutriTech</p>
+            </div>
+
+            <div class="footer-right text-center text-md-end">
+                <h3 class="mb-2">Contato</h3>
+                <p class="mb-1">(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
+        </div>
+    </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

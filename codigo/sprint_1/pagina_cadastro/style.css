@@ -1,0 +1,182 @@
+* 
+/* header */
+header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #5D8736, #A9C46C);
+    padding: 5px; /* Ajustado para reduzir o padding */
+    height: 75px; /* Altura ajustada */
+}
+
+header .logo {
+    width: auto;
+    max-height: 70px; /* Reduzido o tamanho da imagem */
+    margin: 5px; /* Ajustado para reduzir o espaçamento */
+}
+
+header h2 {
+    font-size: 1.0em; /* Reduzido o tamanho da fonte */
+    color: #fff;
+    margin: 0;
+    padding: 5px; /* Ajustado para reduzir o espaçamento */
+    font-family: 'ABeeZee', sans-serif;
+}
+
+header .usuario-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+header .usuario {
+    max-height: 30px; /* Reduzido o tamanho da imagem */
+    margin-left: 5px; /* Ajustado para reduzir o espaçamento */
+}
+
+header h3 {
+    font-size: 1em; /* Reduzido o tamanho da fonte */
+    color: #555353;
+    opacity: 0.8;
+    font-family: 'ABeeZee', sans-serif;
+    margin: 0;
+}
+
+header a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background: #f9f9f9;
+  }
+  
+  .top-banner {
+    background: linear-gradient(to right, #8BC34A, #A5D6A7);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo img {
+    height: 80px;
+  }
+  
+  .textos h1 {
+    color: white;
+    font-size: 24px;
+  }
+  
+  .form-section {
+    background: linear-gradient(to right, #dcedc8, #c8e6c9);
+    padding: 40px 20px;
+    border-radius: 0 0 30px 30px;
+    text-align: center;
+  }
+  
+  .form-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"] {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e8f5e9;
+  }
+  
+  .tipo-usuario {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .user-btn {
+    background-color: #a5d6a7;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .submit-btn {
+    background-color: #66bb6a;
+    color: white;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  footer {
+    background: linear-gradient(to right, #368758, #8EC46C);
+    height: 80px; /* Mantém a altura fixa do footer */
+    color: #fff;
+    font-family: 'ABeeZee', sans-serif;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
+    box-sizing: border-box; /* Garante que o padding não afete a altura */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
+}
+
+footer .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Ajusta o espaçamento entre os elementos */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Centraliza o texto */
+    flex-wrap: wrap; /* Garante que o conteúdo se ajuste ao tamanho do footer */
+    padding: 0 10px; /* Adiciona espaçamento interno horizontal */
+    box-sizing: border-box; /* Garante que o padding não afete o layout */
+}
+
+footer h3, footer p {
+    margin: 0; /* Remove margens extras */
+    font-size: 0.7rem; /* Reduz o tamanho da fonte para caber no footer */
+    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    text-align: center;
+}
+
+footer .row {
+    margin: 0;
+}
+
+footer .logo {
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
