@@ -1,12 +1,12 @@
 function getBadge(valor) {
   if (valor >= 100) {
-    return '<img src="imgs/elo4.png" alt="Anjo da Esperança" title="Anjo da Esperança" width="20">';
+    return '<img src="imgs/elogrande4.png" alt="Anjo da Esperança" title="Anjo da Esperança" width="20">';
   } else if (valor >= 70) {
-    return '<img src="imgs/elo3.png" alt="Herói da Comunidade" title="Herói da Comunidade" width="20">';
+    return '<img src="imgs/elogrande3.png" alt="Herói da Comunidade" title="Herói da Comunidade" width="20">';
   } else if (valor >= 50) {
-    return '<img src="imgs/elo2.png" alt="Coração Generoso" title="Coração Generoso" width="20">';
+    return '<img src="imgs/elogrande2.png" alt="Coração Generoso" title="Coração Generoso" width="20">';
   } else if (valor >= 20) {
-    return '<img src="imgs/elo1.png" alt="Semente Solidária" title="Semente Solidária" width="20">';
+    return '<img src="imgs/elogrande1.png" alt="Semente Solidária" title="Semente Solidária" width="20">';
   } else {
     return '';
   }
