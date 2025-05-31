@@ -32,26 +32,26 @@ header {
 
 /* Container principal */
 main {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 800px; /* antes era 600px, agora é maior */
+    margin: 80px auto; /* mais espaço vertical acima e abaixo */
+    padding: 40px; /* mais espaço interno */
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     text-align: center;
 }
 
 /* Título */
 h2 {
-    color: #333;
-    margin-bottom: 20px;
+    font-size: 2rem; /* Aumenta o tamanho do título */
+    margin-bottom: 30px; /* Mais espaço abaixo */
 }
 
 /* Formulário */
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px; /* Mais espaço entre os campos */
 }
 
 label {
@@ -62,11 +62,9 @@ label {
 
 input, select, button {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    background-color: #e6f5e0;
-    font-size: 1em;
+    padding: 14px; /* Mais espaço dentro dos inputs */
+    border-radius: 25px;
+    font-size: 1.1em;
 }
 
 button {
