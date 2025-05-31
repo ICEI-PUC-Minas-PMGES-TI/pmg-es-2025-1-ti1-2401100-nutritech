@@ -15,14 +15,14 @@
 
 const jsonServer = require('json-server')
 const server = jsonServer.create()
-const router = jsonServer.router('./db/db.json')
+const router = jsonServer.router('./db/db_unificado.json')
   
 // Para permitir que os dados sejam alterados, altere a linha abaixo
 // colocando o atributo readOnly como false.
-const middlewares = jsonServer.defaults({ noCors: true })
+const middlewares = jsonServer.defaults()
 server.use(middlewares)
 server.use(router)
 
-server.listen(3000, () => {
+server.listen(3001, () => {
   console.log(`JSON Server is running em http://localhost:3000`)
 })

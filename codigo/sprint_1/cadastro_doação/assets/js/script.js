@@ -10,14 +10,6 @@ function carregarJSON(caminho, erroMsg) {
         });
 }
 
-function salvarNoLocalStorage(chave, dados) {
-    localStorage.setItem(chave, JSON.stringify(dados));
-}
-
-function obterDoacoesDoLocalStorage() {
-    return JSON.parse(localStorage.getItem("cadastro_doacoes"));
-}
-
 function carregarAlimentos() {
     carregarJSON('assets/database/valor_alimentos.json', 'Erro ao carregar o arquivo JSON')
         .then(data => {
@@ -29,14 +21,20 @@ function carregarAlimentos() {
         .catch(error => console.error('Erro ao carregar os dados:', error));
 }
 
-function carregarDoacoes() {
-    carregarJSON('assets/database/cadastro_doacoes.json', 'Erro ao carregar o arquivo JSON de doações')
-        .then(data => {
-            if (!localStorage.getItem("cadastro_doacoes")) {
-                salvarNoLocalStorage("cadastro_doacoes", data);
-            }
-        })
-        .catch(error => console.error('Erro ao carregar os dados de doações:', error));
+async function obterUsuariosAPI() {
+    const res = await fetch('http://localhost:3000/usuarios');
+    if (!res.ok) throw new Error('Erro ao buscar usuários na API');
+    return res.json();
+}
+
+async function atualizarUsuarioAPI(id, usuarioAtualizado) {
+    const res = await fetch(`http://localhost:3000/usuarios/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(usuarioAtualizado)
+    });
+    if (!res.ok) throw new Error('Erro ao atualizar usuário na API');
+    return res.json();
 }
 
 function createCard(doacao) {
@@ -58,21 +56,29 @@ function createCard(doacao) {
     return card;
 }
 
-function exibirCardsDeDoacoes() {
+async function exibirCardsDeDoacoes() {
     const cardsContainer = document.getElementById("cards-container");
-    const cadastroDoacoes = obterDoacoesDoLocalStorage();
-
-    if (cadastroDoacoes && cadastroDoacoes.doacoes_alimentos) {
-        cadastroDoacoes.doacoes_alimentos.forEach(doacao => {
-            const card = createCard(doacao);
-            cardsContainer.appendChild(card);
-        });
-    } else {
-        console.error("Nenhuma doação encontrada no localStorage.");
+    cardsContainer.innerHTML = "";
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+    if (!id) {
+        console.error("ID não informado na URL.");
+        return;
+    }
+    try {
+        const usuarios = await obterUsuariosAPI();
+        const usuario = usuarios.find(u => String(u.id) === String(id));
+        if (usuario && usuario.doacoes) {
+            usuario.doacoes.forEach(doacao => {
+                if (!doacao.doador) doacao.doador = { nome: usuario.nome };
+                const card = createCard(doacao);
+                cardsContainer.appendChild(card);
+            });
+        }
+    } catch (err) {
+        console.error('Erro ao exibir cards:', err);
     }
 }
-
-// Tudo que depende do DOM vai para dentro do DOMContentLoaded
 
 document.addEventListener("DOMContentLoaded", function () {
     const alimentoSelect = document.getElementById("alimento");
@@ -104,12 +110,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const valorTotal = valorDoacao.textContent.replace("R$", "").trim();
 
         const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
         const nome = urlParams.get("nome") || "Anônimo";
         const email = urlParams.get("email") || "Não informado";
         const telefone = urlParams.get("telefone") || "Não informado";
 
         return {
-            doador: { nome, email, telefone },
+            doador: { id, nome, email, telefone },
             data: new Date().toISOString().split("T")[0],
             descricao: alimentoSelecionado,
             quantidade: `${quantidadeSelecionada} Unidades`,
@@ -117,27 +124,42 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    function registrarDoacao(event) {
+    async function registrarDoacao(event) {
         event.preventDefault();
-
         const novaDoacao = criarNovaDoacao();
-        const cadastroDoacoes = obterDoacoesDoLocalStorage();
-
-        cadastroDoacoes.doacoes_alimentos.push(novaDoacao);
-        salvarNoLocalStorage("cadastro_doacoes", cadastroDoacoes);
-
-        alert("Doação registrada com sucesso!");
-        console.log("JSON atualizado:", cadastroDoacoes);
-        const cardsContainer = document.getElementById("cards-container");
-        const novoCard = createCard(novaDoacao);
-        cardsContainer.prepend(novoCard);
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+        if (!id) {
+            alert('ID do usuário não informado!');
+            return;
+        }
+        try {
+            const usuarios = await obterUsuariosAPI();
+            const usuario = usuarios.find(u => String(u.id) === String(id));
+            if (!usuario) {
+                alert('Usuário não encontrado!');
+                return;
+            }
+            if (!usuario.doacoes) usuario.doacoes = [];
+            usuario.doacoes.push({
+                descricao: novaDoacao.descricao,
+                quantidade: novaDoacao.quantidade,
+                valor: novaDoacao.valor,
+                data: novaDoacao.data,
+                fonte: 'cadastro_doacao.html',
+                doador: { nome: usuario.nome }
+            });
+            await atualizarUsuarioAPI(id, { doacoes: usuario.doacoes });
+            alert("Doação registrada com sucesso!");
+            exibirCardsDeDoacoes();
+        } catch (err) {
+            alert('Erro ao registrar doação: ' + err.message);
+        }
     }
 
     alimentoSelect.addEventListener("change", calcularValorDoacao);
     quantidadeSelect.addEventListener("change", calcularValorDoacao);
     document.querySelector("form").addEventListener("submit", registrarDoacao);
-
     carregarAlimentos();
-    carregarDoacoes();
     exibirCardsDeDoacoes();
 });
