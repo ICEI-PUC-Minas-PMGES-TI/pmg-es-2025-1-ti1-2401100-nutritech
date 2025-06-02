@@ -1,20 +1,30 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('voluntarioForm');
-  const lista = document.getElementById('listaVoluntarios');
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("voluntarioForm");
+  const lista = document.getElementById("listaVoluntarios");
 
-  form.addEventListener('submit', function (e) {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const dia = document.getElementById('dia').value;
-    const horario = document.getElementById('horario').value;
-    const interesse = document.getElementById('interesse').value;
-    const tipo = document.getElementById('tipoVoluntariado').value;
+    const nome = document.getElementById("nome").value;
+    const dia = document.getElementById("dia").value;
+    const horario = document.getElementById("horario").value;
+    const tipoVoluntariadoSelect = document.getElementById("tipoVoluntariado");
+    const tipoVoluntariado = tipoVoluntariadoSelect.options[tipoVoluntariadoSelect.selectedIndex].text;
 
-    const item = document.createElement('li');
-    item.className = 'list-group-item';
-    item.innerHTML = `<strong>${dia}</strong> - ${horario} - ${interesse} - <em>${tipo}</em>`;
+    // Criando o item da lista
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    li.innerHTML = `
+      <strong>Nome:</strong> ${nome} <br>
+      <strong>Dia:</strong> ${dia} <br>
+      <strong>Horário:</strong> ${horario} <br>
+      <strong>Tipo:</strong> ${tipoVoluntariado}
+    `;
 
-    lista.appendChild(item);
+    lista.appendChild(li);
     form.reset();
   });
 });
+
+
+
