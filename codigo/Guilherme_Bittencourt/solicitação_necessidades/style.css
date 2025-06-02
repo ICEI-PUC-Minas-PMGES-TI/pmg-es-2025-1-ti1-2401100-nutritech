@@ -150,7 +150,7 @@ button:hover {
     list-style: none;
     padding: 0;
     margin-top: 20px;
-    max-height: 300px; /* Define uma altura máxima */
+    max-height: 250px; /* Define uma altura máxima */
     overflow-y: auto; /* Habilita o scroll vertical quando necessário */
 }
 
