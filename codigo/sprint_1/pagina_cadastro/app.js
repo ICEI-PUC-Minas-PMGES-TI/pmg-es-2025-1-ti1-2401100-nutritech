@@ -13,30 +13,13 @@ document.getElementById('cadastroForm').addEventListener('submit', function (e) 
   const dataNascimento = form.dataNascimento.value;
   const genero = form.genero.value;
 
-  // Carrega os dados salvos (ou inicia com array vazio)
-  const usuarios = JSON.parse(localStorage.getItem('usuariosDB')) || [];
-
-  // Verificação de duplicidade
-  const emailExistente = usuarios.some(u => u.email === email);
-  const cpfExistente = usuarios.some(u => u.cpf === cpf);
-
-  if (emailExistente) {
-    alert("Este e-mail já está cadastrado!");
-    return;
-  }
-
-  if (cpfExistente) {
-    alert("Este CPF já está cadastrado!");
-    return;
-  }
-
+  // Validação das senhas
   if (senha !== confirmarSenha) {
     alert("As senhas não coincidem!");
     return;
   }
 
-  // Adiciona novo usuário
-  usuarios.push({
+  const novoUsuario = {
     nome,
     email,
     cpf,
@@ -45,11 +28,51 @@ document.getElementById('cadastroForm').addEventListener('submit', function (e) 
     endereco,
     dataNascimento,
     genero
-  });
+  };
 
-  // Salva de volta no localStorage
-  localStorage.setItem('usuariosDB', JSON.stringify(usuarios));
+  const baseURL = 'http://localhost:3000/usuarios';
 
-  alert("Cadastro realizado com sucesso!");
-  form.reset();
+  // Verifica se já existe o e-mail
+  fetch(`${baseURL}?email=${email}`)
+    .then(response => response.json())
+    .then(usuariosEmail => {
+      if (usuariosEmail.length > 0) {
+        alert("Este e-mail já está cadastrado!");
+        throw new Error('Email duplicado');
+      }
+
+      // Verifica se já existe o CPF
+      return fetch(`${baseURL}?cpf=${cpf}`);
+    })
+    .then(response => response.json())
+    .then(usuariosCPF => {
+      if (usuariosCPF.length > 0) {
+        alert("Este CPF já está cadastrado!");
+        throw new Error('CPF duplicado');
+      }
+
+      // Cadastra o novo usuário
+      return fetch(baseURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(novoUsuario)
+      });
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("Cadastro realizado com sucesso!");
+        form.reset();
+      } else {
+        alert("Erro ao cadastrar usuário.");
+      }
+    })
+    .catch(error => {
+      console.error('Erro:', error);
+      // Evita mostrar erro se foi duplicata detectada
+      if (!['Email duplicado', 'CPF duplicado'].includes(error.message)) {
+        alert("Ocorreu um erro ao realizar o cadastro.");
+      }
+    });
 });

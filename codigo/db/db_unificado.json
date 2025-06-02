@@ -92,17 +92,6 @@
           "fonte": "cadastro_doacoes.json"
         }
       ]
-    },
-    {
-      "id": "c6dc",
-      "nome": "adafaw",
-      "email": "fafa@gmail.com",
-      "cpf": "213124124",
-      "senha": "gatgatgat",
-      "telefone": "12321412412",
-      "endereco": "rua flor 12",
-      "dataNascimento": "2025-06-17",
-      "genero": "masculino"
     }
   ],
   "ongs": [],
@@ -136,7 +125,7 @@
       "descricao": "Arroz",
       "quantidade": "10 Unidades",
       "entrega": "Entregue na instituição",
-      "valor": 88
+      "valor": 88.00
     },
     {
       "id": "abc1-0002",
@@ -154,7 +143,7 @@
       "descricao": "Feijão",
       "quantidade": "5 Unidades",
       "entrega": "Enviada via correios",
-      "valor": 40
+      "valor": 40.00
     },
     {
       "id": "abc1-0003",
@@ -170,7 +159,7 @@
       "instituicao": "Fundação Dom Bosco",
       "categoria": "Dinheiro",
       "descricao": "Cartão",
-      "valor": 40,
+      "valor": 40.00,
       "recorrencia": true
     }
   ]

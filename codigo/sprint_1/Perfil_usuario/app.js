@@ -1,7 +1,7 @@
   // Define o CPF do doador (enquanto ainda não tenho um sistema de login)
   const CPF = '123.456.789-00';
 
-  fetch('http://localhost:3000/doacoes')
+  fetch('http://localhost:3000/usuarios')
     .then(response => response.json())
     .then(dados => {
       const lista = document.getElementById('lista-doacoes');
