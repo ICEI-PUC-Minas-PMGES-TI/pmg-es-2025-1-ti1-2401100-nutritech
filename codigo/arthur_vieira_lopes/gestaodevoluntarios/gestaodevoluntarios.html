@@ -21,24 +21,17 @@
             <img src="imgs/usuario.png" alt="Usuário" class="usuario">
         </a>
 </header>
-<main style="margin-left: 30px;">
-  <h1>Voluntariado</h1>
-
-  <form>
-    <h2>Dia da Semana</h2>
-    <table border="1">
-      <thead>
-        <tr>
-          <th>Dia</th>
-          <th>Horário</th>
-          <th>Interesse</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <label for="dia" class="visually-hidden">Dia</label>
-            <select name="dia" id="dia" required>
+<main class="container my-4">
+  <div class="row">
+    <!-- Formulário -->
+    <div class="col-md-6">
+      <div class="card p-4 shadow-sm">
+        <h1 class="mb-3">Voluntariado</h1>
+        <form id="voluntarioForm">
+          <h2>Dia da Semana</h2>
+          <div class="mb-3">
+            <label for="dia" class="form-label">Dia</label>
+            <select name="dia" id="dia" class="form-select" required>
               <option value="">Selecione</option>
               <option value="segunda">Segunda-feira</option>
               <option value="terca">Terça-feira</option>
@@ -48,34 +41,51 @@
               <option value="sabado">Sábado</option>
               <option value="domingo">Domingo</option>
             </select>
-          </td>
-          <td>
-            <label for="horario" class="visually-hidden">Horário</label>
-            <input type="text" name="horario" id="horario" placeholder="Ex: 14h às 17h" required />
-          </td>
-          <td>
-            <label for="interesse" class="visually-hidden">Interesse</label>
-            <input type="text" name="interesse" id="interesse" placeholder="Ex: Montagem de cestas" required />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
 
-    <h2>Tipo de Voluntariado</h2>
-    <label for="tipoVoluntariado" class="visually-hidden">Tipo de Voluntariado</label>
-    <select name="tipoVoluntariado" id="tipoVoluntariado" required>
-      <option value="">Selecione</option>
-      <option value="educacao">Triagem e Organização</option>
-      <option value="meio_ambiente">Montagem de cestas</option>
-      <option value="saude">Comunicação e Redes sociais</option>
-      <option value="animais">Logística e Entrega</option>
-      <option value="outros">Outros</option>
-    </select>
+          <div class="mb-3">
+             <label for="horario" class="form-label">Horário</label>
+             <select name="horario" id="horario" class="form-select" required>
+               <option value="">Selecione</option>
+               <option value="Manhã">Manhã</option>
+               <option value="Tarde">Tarde</option>
+               <option value="Noite">Noite</option>
+             </select>
+          </div>
 
-    <br><br>
-    <button type="submit">Salvar</button>
-  </form>
+
+          <div class="mb-3">
+            <label for="interesse" class="form-label">Interesse</label>
+            <input type="text" name="interesse" id="interesse" class="form-control" placeholder="Ex: Montagem de cestas" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="tipoVoluntariado" class="form-label">Tipo de Voluntariado</label>
+            <select name="tipoVoluntariado" id="tipoVoluntariado" class="form-select" required>
+              <option value="">Selecione</option>
+              <option value="educacao">Triagem e Organização</option>
+              <option value="meio_ambiente">Montagem de cestas</option>
+              <option value="saude">Comunicação e Redes sociais</option>
+              <option value="animais">Logística e Entrega</option>
+              <option value="outros">Outros</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-success w-100">Salvar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Lista de voluntários -->
+    <div class="col-md-6">
+      <div class="card p-4 shadow-sm">
+        <h2 class="mb-3">Voluntários Salvos</h2>
+        <ul id="listaVoluntarios" class="list-group"></ul>
+      </div>
+    </div>
+  </div>
 </main>
+
 
       
 
@@ -97,4 +107,8 @@
             </div>
         </div>
     </footer>
-</body>
+
+  <script src="gestaodevoluntarios.js"></script>
+
+
+  </body>
