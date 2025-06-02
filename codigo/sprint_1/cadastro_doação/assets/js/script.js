@@ -22,13 +22,13 @@ function carregarAlimentos() {
 }
 
 async function obterUsuariosAPI() {
-    const res = await fetch('http://localhost:3000/usuarios');
+    const res = await fetch('http://localhost:3001/usuarios');
     if (!res.ok) throw new Error('Erro ao buscar usuários na API');
     return res.json();
 }
 
 async function atualizarUsuarioAPI(id, usuarioAtualizado) {
-    const res = await fetch(`http://localhost:3000/usuarios/${id}`, {
+    const res = await fetch(`http://localhost:3001/usuarios/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(usuarioAtualizado)
