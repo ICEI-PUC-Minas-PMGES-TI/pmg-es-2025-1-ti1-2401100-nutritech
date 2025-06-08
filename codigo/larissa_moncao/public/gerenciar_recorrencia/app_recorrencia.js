@@ -41,7 +41,7 @@ fetch('http://localhost:3000/doacoes')
         
         const infoDinheiro = `
         <strong>Recorrência:</strong> Sim<br>
-        <strong>Comprovante:</strong> <a href="comprovantes.html?id=${item.id}" target="_blank">Ver Comprovante</a><br>
+        <strong>Comprovante:</strong> <a href="comprovante.html?id=${item.id}" target="_blank">Ver Comprovante</a><br>
 
         `;
 

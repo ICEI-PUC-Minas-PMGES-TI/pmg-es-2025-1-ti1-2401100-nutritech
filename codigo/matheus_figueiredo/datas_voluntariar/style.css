@@ -4,7 +4,13 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #d4edc9, #cde5bd);
     min-height: 100vh;
@@ -32,26 +38,28 @@ header {
 
 /* Container principal */
 main {
-    max-width: 800px; /* antes era 600px, agora é maior */
-    margin: 80px auto; /* mais espaço vertical acima e abaixo */
-    padding: 40px; /* mais espaço interno */
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 40px;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     text-align: center;
+
+    flex: 1; /* Faz o main crescer para ocupar o espaço */
 }
 
 /* Título */
 h2 {
-    font-size: 2rem; /* Aumenta o tamanho do título */
-    margin-bottom: 30px; /* Mais espaço abaixo */
+    font-size: 2rem;
+    margin-bottom: 30px;
 }
 
 /* Formulário */
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Mais espaço entre os campos */
+    gap: 20px;
 }
 
 label {
@@ -62,7 +70,7 @@ label {
 
 input, select, button {
     width: 100%;
-    padding: 14px; /* Mais espaço dentro dos inputs */
+    padding: 14px;
     border-radius: 25px;
     font-size: 1.1em;
 }
@@ -81,32 +89,32 @@ button:hover {
 
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
-    height: 80px; /* Mantém a altura fixa do footer */
+    height: 80px;
     color: #fff;
     font-family: 'ABeeZee', sans-serif;
     display: flex;
-    align-items: center; /* Centraliza verticalmente o conteúdo */
-    justify-content: center; /* Centraliza horizontalmente o conteúdo */
-    padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
-    box-sizing: border-box; /* Garante que o padding não afete a altura */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 footer .container {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Ajusta o espaçamento entre os elementos */
-    align-items: center; /* Centraliza verticalmente */
-    text-align: center; /* Centraliza o texto */
-    flex-wrap: wrap; /* Garante que o conteúdo se ajuste ao tamanho do footer */
-    padding: 0 10px; /* Adiciona espaçamento interno horizontal */
-    box-sizing: border-box; /* Garante que o padding não afete o layout */
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 footer h3, footer p {
-    margin: 0; /* Remove margens extras */
-    font-size: 0.7rem; /* Reduz o tamanho da fonte para caber no footer */
-    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    margin: 0;
+    font-size: 0.7rem;
+    line-height: 1.2;
     text-align: center;
 }
 

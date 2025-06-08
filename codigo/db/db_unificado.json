@@ -92,75 +92,72 @@
           "fonte": "cadastro_doacoes.json"
         }
       ]
-    }
-  ],
-  "ongs": [],
-  "contatos": [
-    {
-      "id": "00000001",
-      "nome": "Larissa Monção",
-      "CPF": "123.456.789-00",
-      "dataNascimento": "1990-11-19",
-      "endereco": "Rua França, 100",
-      "cidade": "Belo Horizonte",
-      "estado": "MG",
-      "email": "larissa.oliveira@example.com",
-      "telefone": "(38) 99815-4188"
-    }
-  ],
-  "doacoes": [
-    {
-      "id": "abc1-0001",
-      "nome": "Larissa Monção",
-      "CPF": "123.456.789-00",
-      "dataNascimento": "1990-11-19",
-      "endereco": "Rua França, 100",
-      "cidade": "Belo Horizonte",
-      "estado": "MG",
-      "email": "larissa.oliveira@example.com",
-      "telefone": "(38) 99815-4188",
-      "data": "10/04/2025",
-      "instituicao": "Comida que Abraça",
-      "categoria": "Alimentos",
-      "descricao": "Arroz",
-      "quantidade": "10 Unidades",
-      "entrega": "Entregue na instituição",
-      "valor": 88.00
     },
     {
-      "id": "abc1-0002",
-      "nome": "Larissa Monção",
-      "CPF": "123.456.789-00",
-      "dataNascimento": "1990-01-01",
-      "endereco": "Rua das Flores, 123",
+      "id": "3",
+      "nome": "Pedro Santos",
+      "email": "pedro.santos@example.com",
+      "cpf": "111.222.333-00",
+      "senha": null,
+      "telefone": "(31) 97898-9477",
+      "endereco": "Rua Liz, 150",
       "cidade": "Belo Horizonte",
       "estado": "MG",
-      "email": "larissa.oliveira@example.com",
-      "telefone": "(38) 99815-4188",
-      "data": "01/05/2025",
-      "instituicao": "Comida que Abraça",
-      "categoria": "Alimentos",
-      "descricao": "Feijão",
-      "quantidade": "5 Unidades",
-      "entrega": "Enviada via correios",
-      "valor": 40.00
-    },
+      "dataNascimento": "1970-10-08",
+      "genero": null,
+      "doacoes": []
+    }
+  ],
+  "ongs": [
     {
-      "id": "abc1-0003",
-      "nome": "Larissa Monção",
-      "CPF": "123.456.789-00",
-      "dataNascimento": "1990-01-01",
-      "endereco": "Rua das Flores, 123",
-      "cidade": "Belo Horizonte",
-      "estado": "MG",
-      "email": "larissa.oliveira@example.com",
-      "telefone": "(38) 99815-4188",
-      "data": "01/05/2025",
-      "instituicao": "Fundação Dom Bosco",
-      "categoria": "Dinheiro",
-      "descricao": "Cartão",
-      "valor": 40.00,
-      "recorrencia": true
+      "id": "1",
+      "nome": "Comida que Abraça",
+      "voluntarios": [
+        {
+          "id": 1,
+          "diasTurnos": {
+            "segunda": [
+              "manha",
+              "tarde",
+              "noite"
+            ]
+          },
+          "areasInteresse": [
+            "Apoio Logístico"
+          ]
+        },
+        {
+          "id": 2,
+          "diasTurnos": {
+            "segunda": [
+              "manha",
+              "tarde",
+              "noite"
+            ],
+            "sexta": [
+              "noite"
+            ]
+          },
+          "areasInteresse": [
+            "Distribuição de Alimentos",
+            "Atendimento ao Público"
+          ]
+        },
+        {
+          "id": 3,
+          "diasTurnos": {
+            "segunda": [
+              "manha"
+            ],
+            "sexta": [
+              "noite"
+            ]
+          },
+          "areasInteresse": [
+            "Distribuição de Alimentos"
+          ]
+        }
+      ]
     }
   ]
 }

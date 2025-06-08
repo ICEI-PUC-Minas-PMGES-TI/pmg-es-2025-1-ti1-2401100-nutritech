@@ -1,0 +1,41 @@
+body {
+    background: #f8f9fa;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .receipt {
+    max-width: 360px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .receipt h2 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .line {
+    border-bottom: 1px dashed #999;
+    margin: 10px 0;
+  }
+  .label {
+    float: left;
+    font-weight: 600;
+  }
+  .value {
+    float: right;
+  }
+  .clear {
+    clear: both;
+  }
+  .footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 2rem;
+  }
+  button {
+    width: 100%;
+    margin-top: 15px;
+  }
