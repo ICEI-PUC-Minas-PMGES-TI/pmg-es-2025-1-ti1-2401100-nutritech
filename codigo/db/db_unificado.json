@@ -1,4 +1,4 @@
-  {
+{
   "usuarios": [
     {
       "id": "1",
@@ -92,7 +92,72 @@
           "fonte": "cadastro_doacoes.json"
         }
       ]
+    },
+    {
+      "id": "3",
+      "nome": "Pedro Santos",
+      "email": "pedro.santos@example.com",
+      "cpf": "111.222.333-00",
+      "senha": null,
+      "telefone": "(31) 97898-9477",
+      "endereco": "Rua Liz, 150",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "dataNascimento": "1970-10-08",
+      "genero": null,
+      "doacoes": []
     }
   ],
-  "ongs": []
+  "ongs": [
+    {
+      "id": "1",
+      "nome": "Comida que Abraça",
+      "voluntarios": [
+        {
+          "id": 1,
+          "diasTurnos": {
+            "segunda": [
+              "manha",
+              "tarde",
+              "noite"
+            ]
+          },
+          "areasInteresse": [
+            "Apoio Logístico"
+          ]
+        },
+        {
+          "id": 2,
+          "diasTurnos": {
+            "segunda": [
+              "manha",
+              "tarde",
+              "noite"
+            ],
+            "sexta": [
+              "noite"
+            ]
+          },
+          "areasInteresse": [
+            "Distribuição de Alimentos",
+            "Atendimento ao Público"
+          ]
+        },
+        {
+          "id": 3,
+          "diasTurnos": {
+            "segunda": [
+              "manha"
+            ],
+            "sexta": [
+              "noite"
+            ]
+          },
+          "areasInteresse": [
+            "Distribuição de Alimentos"
+          ]
+        }
+      ]
+    }
+  ]
 }
