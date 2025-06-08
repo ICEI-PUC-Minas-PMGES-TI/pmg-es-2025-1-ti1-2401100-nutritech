@@ -1,0 +1,90 @@
+header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #5D8736, #A9C46C);
+    padding: 5px;
+    height: 75px;
+}
+
+header .logo {
+    width: auto;
+    max-height: 70px;
+    margin: 5px;
+}
+
+header h2 {
+    font-size: 1.0em;
+    color: #fff;
+    margin: 0;
+    padding: 5px;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+header .usuario-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+header .usuario {
+    max-height: 30px;
+    margin-left: 5px;
+}
+
+header h3 {
+    font-size: 1em;
+    color: #555353;
+    opacity: 0.8;
+    font-family: 'ABeeZee', sans-serif;
+    margin: 0;
+}
+
+header a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+footer {
+    background: linear-gradient(to right, #368758, #8EC46C);
+    height: 80px;
+    color: #fff;
+    font-family: 'ABeeZee', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+footer .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+footer h3, footer p {
+    margin: 0;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+footer .row {
+    margin: 0;
+}
+
+footer .logo {
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
