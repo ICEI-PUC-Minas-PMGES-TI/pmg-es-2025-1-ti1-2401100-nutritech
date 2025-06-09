@@ -1,0 +1,25 @@
+{
+  "ongs": [
+    {
+      "id": 1,
+      "nome": "ONG Alimentar com Amor",
+      "cnpj": "12.345.678/0001-95",
+      "data_fundacao": "2018-01-01",
+      "rua": "Rua das Flores",
+      "numero": "123",
+      "cidade": "Belo Horizonte",
+      "bairro": "Centro",
+      "estado": "MG",
+      "cep": "30123-456",
+      "telefone": "(31) 91234-5678",
+      "email": "contato@alimentar.com",
+      "website": "https://www.alimentarcomamor.org",
+      "descricao": "A Alimentar com Amor é uma organização sem fins lucrativos dedicada a combater a fome e a insegurança alimentar em comunidades em situação de vulnerabilidade.",
+      "rede_social": "https://instagram.com/alimentarcomamor",
+      "entrouEm": "2025",
+      "familiasAjudadas": 125,
+      "voluntarios": 200,
+      "colaboradoresMensais": 42
+    }
+  ]
+}
