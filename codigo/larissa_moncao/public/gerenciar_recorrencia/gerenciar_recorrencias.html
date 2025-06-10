@@ -20,7 +20,7 @@
         </a>
     </header>
   
-  <main>
+  <main class="container mt-5">
     <div class="row mb-5">
       <div class="row mb-4">
         <!-- Dados Pessoais -->
@@ -30,7 +30,7 @@
             <h2 class="h4 border-bottom border-success">Dados Pessoais</h2>
             <div id="info-doador" class="p-3 rounded">Carregando...</div>
             <div class="mt-3">
-              <button id="editar" class="btn btn-verde rounded-pill px-4 py-2 shadow">Editar</button>
+              <button id="btn-editar-pessoais" class="btn btn-verde rounded-pill px-4 py-2 shadow">Editar</button>
               <button id="logout" class="btn btn-verde rounded-pill px-4 py-2 shadow">Logout</button>
             </div>
             </div>
@@ -51,7 +51,7 @@
           <section id="doacoes">
             <h2 class="h4 text-center mb-4 border-bottom border-success border-2 py-5 pb-2">Suas Doações Recorrentes</h2>
             <div id="lista-doacoes" class="p-3 rounded-4 shadow">Carregando...</div>
-                      <script src="app_recorrencia.js"></script>
+
           </section>
         </div>
       </div>
@@ -76,6 +76,82 @@
   </div>
 </div>
 
+<!-- Modal Editar Doação -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form id="form-editar" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEditarLabel">Editar Doação</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="edit-id" name="id" />
+        
+        <div class="mb-3">
+          <label for="edit-valor" class="form-label">Valor (R$)</label>
+          <input type="number" step="0.01" min="0" class="form-control" id="edit-valor" name="valor" required />
+        </div>
+        
+        <div class="mb-3">
+          <label for="edit-data" class="form-label">Data</label>
+          <input type="date" class="form-control" id="edit-data" name="data" required />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Modal Editar Dados Pessoais -->
+<div class="modal fade" id="modalEditarPessoais" tabindex="-1" aria-labelledby="modalEditarPessoaisLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form id="form-editar-pessoais" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEditarPessoaisLabel">Editar Dados Pessoais</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+
+        <input type="hidden" id="edit-id-pessoal" />
+
+        <div class="mb-3">
+          <label for="edit-email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="edit-email" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="edit-endereco" class="form-label">Endereço</label>
+          <input type="text" class="form-control" id="edit-endereco" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="edit-cidade" class="form-label">Cidade</label>
+          <input type="text" class="form-control" id="edit-cidade" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="edit-estado" class="form-label">Estado</label>
+          <input type="text" class="form-control" id="edit-estado" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="edit-telefone" class="form-label">Telefone</label>
+          <input type="text" class="form-control" id="edit-telefone" required />
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
       </div>
   
   </main>
@@ -98,7 +174,7 @@
             </div>
         </div>
     </footer>
-
+                          <script src="app_recorrencia.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

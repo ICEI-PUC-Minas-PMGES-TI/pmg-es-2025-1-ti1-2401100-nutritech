@@ -129,15 +129,6 @@ footer .logo {
 }
 
 
-
-body {
-  background-image: url('img/directions_walk.png'), url('img/Fundoverdedireito.png'), url('img/img_fundo.png'); 
-  background-size:auto;        
-  background-repeat: no-repeat;
-  background-position: left bottom, 0px 400px, 1050px 900px;   
-  background-size: 12%, 40%, 60%;
-}
-
 #gestao {
     font-size: medium;
 }
@@ -151,10 +142,7 @@ html, body {
 }
 
 main {
-  flex: 1; 
+flex: 1;
 }
 
-footer {
-  background-color: #0e4071;
-  padding: 1rem;
-}
+
