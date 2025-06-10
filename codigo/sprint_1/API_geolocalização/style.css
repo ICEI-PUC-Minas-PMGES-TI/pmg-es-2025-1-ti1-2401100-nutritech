@@ -118,6 +118,13 @@ main {
 .legend-bottom img {
   vertical-align: middle;
 }
+/* Estilo para o indicador de carregamento */
+#loading {
+    z-index: 1000; /* Garante que o indicador fique acima do mapa */
+    background: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+}
 
 /* Footer */
 /* Footer */

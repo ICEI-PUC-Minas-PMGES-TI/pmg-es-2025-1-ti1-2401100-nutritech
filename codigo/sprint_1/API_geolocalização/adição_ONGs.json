@@ -1,116 +1,135 @@
 [
     {
         "name": "Comida que Abraça",
-        "lat": -19.9191,
-        "lng": -43.9378,
+        "endereco": "Rua dos Caetés, 123",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "alimentos"
     },
     {
         "name": "ONG Verde",
-        "lat": -19.8300,
-        "lng": -43.9200,
+        "endereco": "Avenida Afonso Pena, 456",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "voluntariado"
     },
     {
         "name": "Fundação Dom Bosco",
-        "lat": -19.8320,
-        "lng": -43.9320,
+        "endereco": "Rua da Bahia, 789",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "dinheiro"
     },
     {
         "name": "ONG Cidadania e Paz",
-        "lat": -19.885395,
-        "lng": -43.899870,
+        "endereco": "Rua Guajajaras, 101",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "alimentos"
     },
     {
         "name": "Casa de Apoio Aura",
-        "lat": -19.923439,
-        "lng": -43.910139,
+        "endereco": "Rua Rio Grande do Sul, 202",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "voluntariado"
     },
     {
         "name": "ONG Casa Azul",
-        "lat": -19.941398,
-        "lng": -43.992617,
+        "endereco": "Rua Fernandes Tourinho, 303",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "dinheiro"
     },
     {
         "name": "Casa de apoio Amor a Vida",
-        "lat": -19.838569,
-        "lng": -43.957492,
+        "endereco": "Rua São Paulo, 404",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "alimentos"
     },
     {
         "name": "NAAÇÃO",
-        "lat": -19.905187604940696,
-        "lng": -43.95808075119398,
+        "endereco": "Rua Tupis, 505",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "voluntariado"
     },
     {
         "name": "Ong Raio de Luz",
-        "lat": -19.85191471286857,
-        "lng": -43.93370483658515,
+        "endereco": "Rua dos Timbiras, 606",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "alimentos"
     },
     {
         "name": "ONG Oportunidade",
-        "lat": -19.816004000304673,
-        "lng": -43.97452979639733,
+        "endereco": "Rua Pernambuco, 707",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "dinheiro"
     },
     {
         "name": "ONG O Bem Nunca Para",
-        "lat": -19.823755649892053,
-        "lng": -43.91582160769156,
+        "endereco": "Rua Espírito Santo, 808",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "voluntariado"
     },
     {
         "name": "SOMOS DO BHEM",
-        "lat": -19.843778994607835,
-        "lng": -43.92955451733034,
+        "endereco": "Rua Ouro Preto, 909",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "alimentos"
     },
     {
         "name": "ONG PAREDÃO OUSADIA SOLIDÁRIO",
-        "lat": -19.984300007093854,
-        "lng": -44.055233419138354,
+        "endereco": "Rua Padre Eustáquio, 1010",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "alimentos"
     },
     {
         "name": "ONG Movimentar Vidas",
-        "lat": -19.797914357134342,
-        "lng": -43.99232515995152,
+        "endereco": "Rua Itajubá, 1111",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "voluntariado"
     },
     {
         "name": "Projeto Esperança",
-        "lat": -19.79500706055147,
-        "lng": -43.97035250452948,
+        "endereco": "Rua Lavras, 1212",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "dinheiro"
     },
     {
         "name": "Ong Ágape Provisão",
-        "lat": -19.77982364920765,
-        "lng": -43.983398768686314,
+        "endereco": "Rua Uberaba, 1313",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "alimentos"
     },
     {
         "name": "ONG Pro Vida",
-        "lat": -19.9148732360653,
-        "lng": -43.938261982692524,
+        "endereco": "Rua Juiz de Fora, 1414",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "dinheiro"
     },
     {
         "name": "Ação Social Casa De Nazaré",
-        "lat": -19.812268065449416,
-        "lng": -43.95474309172861,
+        "endereco": "Rua Santa Catarina, 1515",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "voluntariado"
     },
     {
         "name": "ONG Calpevi - Casa de Apoio Lutando Pela Vida",
-        "lat": -19.82970915530214,
-        "lng": -43.94718999142729,
+        "endereco": "Rua Pouso Alegre, 1616",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
         "tipo": "alimentos"
     }
 ]
