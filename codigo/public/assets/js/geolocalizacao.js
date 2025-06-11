@@ -1,4 +1,4 @@
- const API_KEY = '5c44b3606f0c4083a694018d9e277792'; // Sua chave de API do Geoapify
+const API_KEY = '5c44b3606f0c4083a694018d9e277792'; // Sua chave de API do Geoapify
 let map;
 let userLocation;
 let markers = [];
@@ -6,7 +6,7 @@ let markers = [];
 // Função para carregar o arquivo JSON
 async function loadOngs() {
     try {
-        const response = await fetch('adição_ONGs.json'); // Caminho para o arquivo JSON
+        const response = await fetch('assets/js/adição_ONGs.json'); // Caminho para o arquivo JSON
         const ongs = await response.json(); // Converte o JSON em um array JavaScript
         initMap(ongs); // Passa as ONGs para inicializar o mapa
     } catch (error) {
@@ -33,19 +33,19 @@ function initMap(ongs) {
 
     // Definindo os ícones personalizados
     const iconDinheiro = new L.Icon({
-        iconUrl: 'imgs/iconedinheiro.png',
+        iconUrl: 'assets/images/iconedinheiro.png',
         iconSize: [32, 40],
         iconAnchor: [16, 40],
         popupAnchor: [0, -40]
     });
     const iconAlimento = new L.Icon({
-        iconUrl: 'imgs/iconecomida.png',
+        iconUrl: 'assets/images/iconecomida.png',
         iconSize: [32, 40],
         iconAnchor: [16, 40],
         popupAnchor: [0, -40]
     });
     const iconVoluntario = new L.Icon({
-        iconUrl: 'imgs/iconevoluntarios.png',
+        iconUrl: 'assets/images/iconevoluntarios.png',
         iconSize: [32, 40],
         iconAnchor: [16, 40],
         popupAnchor: [0, -40]
@@ -147,8 +147,41 @@ function getDistance(coord1, coord2) {
     return distance;
 }
 
+// Função para popular a lista de sites de ONGs
+async function populateOngWebsiteList() {
+    try {
+        const response = await fetch('assets/js/adição_ONGs.json');
+        const ongs = await response.json();
+        const listContainer = document.getElementById('ong-website-list');
+
+        if (!listContainer) {
+            console.error('Element with ID "ong-website-list" not found.');
+            return;
+        }
+
+        ongs.forEach(ong => {
+            const listItem = document.createElement('div');
+            listItem.classList.add('ong-list-item'); // Add a class for styling
+
+            const link = document.createElement('a');
+            link.href = ong.website || '#'; // Assume 'website' property in JSON, fallback to '#'
+            link.textContent = ong.name;
+            link.target = '_blank'; // Open in new tab
+            link.classList.add('d-block', 'mb-1', 'text-decoration-none'); // Bootstrap classes for styling
+            listItem.appendChild(link);
+            listContainer.appendChild(listItem);
+        });
+
+    } catch (error) {
+        console.error("Erro ao carregar ONGs para a lista de sites:", error);
+    }
+}
+
 // Carregar as ONGs e inicializar o mapa ao carregar a página
-window.onload = loadOngs;
+window.onload = () => {
+    loadOngs();
+    populateOngWebsiteList(); // Call the new function
+};
 
 // Atualiza os filtros automaticamente enquanto o usuário arrasta o slider
 document.getElementById("filterRadius").addEventListener("input", function () {

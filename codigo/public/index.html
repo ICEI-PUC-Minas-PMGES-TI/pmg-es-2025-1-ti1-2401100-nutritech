@@ -1,78 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="./assets/js/login.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="banner">
-        <img src="./assets/images/banner_ti.png" alt="" />
-      </div>
-      <div class="barra-info">
-        <nav class="menu">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">Sobre nós</a></li>
-          </ul>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Doação</title>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+
+<body>
+    <header class="d-flex align-items-center p-3 bg-light position-relative">
+        <a href="index.html" class="d-flex align-items-center position-relative z-2">
+            <img src="assets/images/logo.png" alt="Logo" class="logo me-3">
+            <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
+        </a>
+        <nav class="d-flex align-items-center gap-3 position-absolute top-50 start-50 translate-middle-x">
+            <a href="ranking.html" class="nav-link link-white">Ranking</a>
+            <a href="#" class="nav-link link-white">ONGs</a>
+            <a href="#" class="nav-link link-white">Seja um Voluntário</a>
         </nav>
-        <div class="dados-usuario">
-          <span id="userInfo"></span>
+        <div class="dropdown ms-auto position-relative z-2">
+            <button class="btn btn-link dropdown-toggle d-flex align-items-center p-0" id="usuarioDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <h3 class="m-0 me-2">Usuário</h3>
+                <img src="assets/images/usuario.png" alt="Usuário" class="usuario">
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Sair</a></li>
+            </ul>
         </div>
-      </div>
     </header>
+
     <main>
-        <h3>Boas vindas</h3>
-        <p>Sejam bem-vindos à home-page do projeto de TI 1 - Trabalho
-        Interdisciplinar</p>
-        <p>Esse conteúdo que você está lendo foi criado para exemplificar como
-        criar o seu site integrado com o ambiente de login e o back end que
-        utiliza o JSON Server.</p>
-        <p>Ao criar o seu site, você deve adaptar esse código para sua neessidade ou começar do zero, excluindo todo esse conteúdo.
-        </p>
+        <!-- Sobre Nós Section -->
+        <section class="sobre-nos py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-start">
+                        <img src="assets/images/comida.png" alt="Comida 1" class="img-fluid rounded mb-3 sobre-nos-img">
+                        <img src="assets/images/comida2.png" alt="Comida 2"
+                            class="img-fluid rounded mb-3 sobre-nos-img">
+                        <img src="assets/images/comida3.png" alt="Comida 3"
+                            class="img-fluid rounded mb-3 sobre-nos-img">
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <h2 class="mb-4 sobre-nos-title">Sobre Nós</h2>
+                        <p class="sobre-nos-text">O projeto consiste em unir Instituições que contribuem
+                            para o combate à Insegurança Alimentar de Comunidades Carentes na região de Belo Horizonte
+                            em
+                            um único local de forma a facilitar a arrecadação de fundos de maneira rápida, eficiente e
+                            prática.</p>
+                        <img src="assets/images/forma5.png" alt="Forma 5" class="img-fluid sobre-nos-forma">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <h3>Arquivos do site (Front End)</h3>
-        <p>Para montar seu site, edite os arquivos existentes e crie novos arquivos na pasta <code>public</code> que mantem todos os arquivos da parte de Front End do site, a interface que é vista pelo usuário no navegador.</p>
+        <!-- Doação Section -->
+        <section class="doacao py-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <p>Ao doar você ajuda a combater a fome de várias comunidades carentes.</p>
+                        <button class="btn btn-success doacao-btn">DOAR</button>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Você pode se tornar um doador recorrente e ajudar frequentemente no combate à fome!</p>
+                        <button class="btn btn-success doacao-btn">SER DOADOR</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <p>Nesta pasta <code>public</code>, sugerimos que você organize os arquivos do seu site da seguinte maneira:</p>
-        <ul>
-            <li><strong>Pasta <code>assets</code></strong>: os arquivos de formatação (CSS), os scripts (JS), as imagens utilizadas no site (JPG, PNG, GIF, SVG, etc), fontes (TTF) e outros arquivos gerais utilizados por todo o site.</li>
-            <li><strong>Pasta <code>modulos</code></strong>: os arquivos utilizados na implementação das funcionalidades do site. Separe uma sub-pasta para cada novo módulo ou funcionalidade. Pode também ser utilizado para dividir o trabalho de cada membro do grupo.</li>
-            <li><strong>Arquivo <code>index.html</code></strong>: arquivo que representa a "home page" do site.</li>
-        </ul>
+        <!-- ONGs Carrossel Section -->
+        <section class="ongs-participantes py-5">
+            <div class="container">
+                <h2 class="text-center mb-4 ongs-participantes-title">Ong's Participantes</h2>
+                <div id="ongsCarousel" class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row text-center ongs-carousel-row">
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="assets/images/comida.png" alt="Comida que Abraça"
+                                            class="card-img-top img-fluid ong-logo rounded-circle">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Comida que Abraça</h5>
+                                            <p class="card-text">Belo Horizonte - Sede</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="assets/images/comida2.png" alt="ONG Verde"
+                                            class="card-img-top img-fluid ong-logo rounded-circle">
+                                        <div class="card-body">
+                                            <h5 class="card-title">ONG Verde</h5>
+                                            <p class="card-text">Belo Horizonte</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="assets/images/comida3.png" alt="Fundação Dom Bosco"
+                                            class="card-img-top img-fluid ong-logo rounded-circle">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Fundação Dom Bosco</h5>
+                                            <p class="card-text">Belo Horizonte</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="assets/images/comida4.png" alt="ONG Esperança"
+                                            class="card-img-top img-fluid ong-logo rounded-circle">
+                                        <div class="card-body">
+                                            <h5 class="card-title">ONG Esperança</h5>
+                                            <p class="card-text">Belo Horizonte</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="assets/images/comida5.png" alt="ONG Solidariedade"
+                                            class="card-img-top img-fluid ong-logo rounded-circle">
+                                        <div class="card-body">
+                                            <h5 class="card-title">ONG Solidariedade</h5>
+                                            <p class="card-text">Belo Horizonte</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="assets/images/comida6.png" alt="ONG União"
+                                            class="card-img-top img-fluid ong-logo rounded-circle">
+                                        <div class="card-body">
+                                            <h5 class="card-title">ONG União</h5>
+                                            <p class="card-text">Belo Horizonte</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <h3>Módulo de Login</h3>
-        <p>O módulo de login de usuário traz uma funcionalidade completa de registro de usuários e validação de login e senha.</p>
-        <h4>Integração do site com módulo de Login</h4>
-        <p>Para utilizar o módulo de login, basta incluir o script na sua página colocando a seguinte tag no HEAD</p>
-        <pre>&lt;script src="./assets/js/login.js"&gt&lt;script&gt;</pre>
-        <p>Ao incluir o script de login na sua página, caso o usuário ainda não tenha efetuado login, ao acessar a home-page do site, o navegador será direcionado para o formulário de <strong>Identificação de Usuário</strong>. Se o usuário informar corretamente o login e a senha, o navegador será direcionado para a Home-Page.</p>
-        <h4>Sessão do usuário logado</h4>
-        <p>Assim que o usuário se identifica e acessa a parte privada do site, o módulo de login cria uma chave do sessionStorage do navegador com o título <strong>usuarioCorrente</strong> e cujo conteúdo é um objeto com os atributos: id, nome, login, senha e email. </p>
-        <h4>Base de dados de usuários</h4>
-        <p>Inicialmente o módulo de login é configurado com dois usuários: </p>
-        <ul>
-            <li>admin - Senha: 123</li>
-            <li>user - Senha: 123</li>
-        </ul>
+                    <button class="carousel-control-prev" type="button">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
 
-        <h3>Servidor Web e API baseada no JSON Server (Back end)</h3>
-        <p>O ambiente de trabalho disponibilizado para suportar o Trabalho Interdisciplinar 1 é baseado no Node.js. A aplicação de back end utiliza o módulo JSON Server para criar um Servidor Web que prove duas estruturas separadas:
-        <ul>
-            <li><strong>Arquivos estáticos (Pasta <code>public</code>)</strong>: da acesso aos arquivos utilizados no front end (HTML, CSS e JavaScript).</li>
-            <li><strong>API RESTful (pasta <code>db</code>)</strong>: uma interface para acesso aos dados definidos no arquivo db.json.</li>
-        </ul></p>
+        <!-- Mapa Section -->
+        <section>
+            <h1>Localização das Instituições</h1>
 
-        <h4>Arquitetura do site</h4>
-        <p>A imagem que se segue apresenta a arquitetura desse ambiente, mostrando as duas refletindo as pastas desse ambiente.</p>
-        <p><img class="img-fluid d-block w-75 m-auto" src="./assets/images/servidor.png" alt=""></p>
+            <div class="container-fluid">
+                <div class="row position-relative">
 
-        <h4>Arquivo db.json</h4>
-        <p>O arquivo JSON utilizado para definição das estruturas dos dados providos pela aplicação é localizado na pasta db e tem um formato como o mostrado no exemplo da figura a seguir. Esse arquivo define uma estrutura hipotética de contatos que descreve itens com os seguintes atributos: <code>id</code>, <code>nome</code> e <code>cidade</code>. para o JSON Server, é fundamental que toda estrutura tenha um atributo de identificador de nome <code>id</code>.</p>
-        <p><img class="img-fluid d-block w-50 m-auto" src="./assets/images/arquivo_json.png" alt=""></p>
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <div class="row g-0">
+                            <div class="col-7 filter-legend-bg">
+                                <div class="filters mb-3">
+                                    <div>
+                                        <label for="filterType">Filtrar por tipo de doação:</label>
+                                        <select id="filterType" onchange="updateFilters()">
+                                            <option value="all">Todos</option>
+                                            <option value="alimentos">Alimentos</option>
+                                            <option value="dinheiro">Dinheiro</option>
+                                            <option value="voluntariado">Voluntariado</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label for="filterRadius">Mostrar ONGs em uma distância de até:</label>
+                                        <input type="range" id="filterRadius" min="1" max="50" value="10" class="form-range">
+                                        <span id="radiusValue">10</span> km
+                                    </div>
+                                </div>
+
+                                <div class="legend-bottom">
+                                    <p class="mb-1"><strong>Tipos de Doação:</strong></p>
+                                    <div class="d-flex flex-column gap-2">
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/iconecomida.png" alt="Alimento" width="24" class="me-2">
+                                            <span>Alimentos</span>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/iconedinheiro.png" alt="Dinheiro" width="24" class="me-2">
+                                            <span>Dinheiro</span>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/iconevoluntarios.png" alt="Voluntário" width="24" class="me-2">
+                                            <span>Voluntariado</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-1 d-flex justify-content-center">
+                                 <div class="vr"></div>
+                            </div>
+
+                            <div class="col-4">
+                                <h6 class="ms-1 mb-2">ONGs</h6>
+                                <div id="ong-website-list" class="ong-list-scrollable ms-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 position-relative">
+
+                        <div id="map"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
-  </body>
+
+    <footer class="bg-light py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left text-center text-md-start">
+                <h3 class="mb-2">Local</h3>
+                <p>Belo Horizonte</p>
+            </div>
+
+            <div class="footer-center text-center">
+                <p>© 2025 NutriTech</p>
+            </div>
+
+            <div class="footer-right text-center text-md-end">
+                <h3 class="mb-2">Contato</h3>
+                <p class="mb-1">(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/homepage.js"></script>
+    <script src="assets/js/geolocalizacao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>

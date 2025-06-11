@@ -1,14 +1,21 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"); 
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
+/* General Styles */
 h3 {
     color: #093070;
     border-bottom: 1px solid #c1c1c1;
 }
+
 h4 {
     color: #ff7645;
 }
 
+main {
+    padding: 20px;
+}
+
+/* Header  */
 .banner img {
     width: 100%;
 }
@@ -29,7 +36,7 @@ h4 {
 .menu li {
     display: inline;
     margin: 0px;
-    padding: 0.5em 1em; 
+    padding: 0.5em 1em;
     height: 2em;
     line-height: 2em;
 }
@@ -51,6 +58,230 @@ h4 {
     margin-right: 20px;
 }
 
-main {
-    padding: 20px;
+#usuarioDropdown {
+    cursor: pointer;
+    background: none;
+    border: none;
 }
+
+.dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: scale(0.95);
+    opacity: 0;
+    right: 0;
+    left: auto;
+    max-width: calc(100vw - 20px);
+    overflow: hidden;
+    background-color: #fff;
+    padding: 0.5rem;
+}
+
+.dropdown-menu.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.dropdown-item {
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 0.9rem;
+    color: #5D8736;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-item:hover {
+    background-color: #A9C46C;
+    color: #fff;
+}
+
+.dropdown-menu-end {
+    min-width: 150px;
+    position: absolute;
+}
+
+/* Sobre Section */
+.sobre-nos {
+    background-color: #e8f5e9;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.sobre-nos-img {
+    max-width: 200px;
+}
+
+.sobre-nos-title {
+    color: #093070;
+}
+
+.sobre-nos-text {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.sobre-nos-forma {
+    max-width: 100px;
+    margin-top: 20px;
+}
+
+/* Doação Section */
+.doacao-btn {
+    border-radius: 10px;
+}
+
+/* ONGs Carrossel Section */
+.ongs-participantes-title {
+    color: #171718;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: transparent;
+    filter: invert(50%);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: none;
+    border: none;
+}
+
+.carousel-control-prev {
+    left: 0px !important;
+}
+
+.carousel-control-next {
+    right: 0px !important;
+}
+
+#ongsCarousel .carousel-inner {
+    overflow: hidden;
+}
+
+#ongsCarousel .carousel-item .row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.ong-logo {
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+#ongsCarousel .carousel-control-prev,
+#ongsCarousel .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: none;
+    border: none;
+}
+
+#ongsCarousel .carousel-control-next {
+    right: 0;
+    left: auto;
+}
+
+/* Mapa Section */
+.filters {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+}
+
+.filters label,
+.filters select,
+.filters input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.filters select {
+    padding: 8px;
+    font-size: 0.9em;
+}
+
+.filters label,
+.filters select,
+.filters input[type="checkbox"],
+.filters input[type="range"] {
+    margin-top: 10px;
+}
+
+#radiusValue {
+    font-weight: bold;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.legend-bottom {
+    margin-top: -0.5rem;
+    font-size: 0.9em;
+}
+
+.legend-bottom img {
+    vertical-align: middle;
+}
+
+.filter-legend-bg {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+/* ONGs (Mapa) */
+.ong-list-scrollable {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.ong-list-scrollable a {
+    font-size: 0.85em;
+    color: #ff7645;
+}
+
+.ong-list-scrollable a:hover {
+    text-decoration: underline !important;
+}
+
+.ong-list-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.ong-list-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+
+.vr {
+    background-color: currentColor;
+    opacity: 0.25;
+    width: 2px !important;
+    align-self: stretch;
+    min-height: 100px;
+}
+

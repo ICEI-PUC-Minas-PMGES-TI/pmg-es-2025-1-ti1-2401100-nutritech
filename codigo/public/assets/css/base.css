@@ -1,9 +1,11 @@
+/* Styles for Header */
 header {
     display: flex;
     align-items: center;
     background: linear-gradient(to right, #5D8736, #A9C46C);
     padding: 5px;
-    height: 75px;
+    height: 90px;
+    position: relative;
 }
 
 header .logo {
@@ -20,10 +22,43 @@ header h2 {
     font-family: 'ABeeZee', sans-serif;
 }
 
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+header nav a,
+header nav a:visited,
+header nav a:focus,
+header nav a:active {
+    color: #fff !important;
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+header nav a:hover {
+    color: #A9C46C !important;
+    background: none !important;
+    text-decoration: underline;
+    transform: scale(1.12);
+    transition: transform 0.2s ease, color 0.2s ease; 
+}
+
 header .usuario-container {
     display: flex;
     align-items: center;
     margin-left: auto;
+    min-width: 120px;
+    position: relative;
+    z-index: 2;
 }
 
 header .usuario {
@@ -45,6 +80,27 @@ header a {
     align-items: center;
 }
 
+
+#usuarioDropdown {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+#usuarioDropdown h3 {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+#usuarioDropdown:focus,
+#usuarioDropdown:active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+/* Styles for Footer */
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
     height: 80px;
