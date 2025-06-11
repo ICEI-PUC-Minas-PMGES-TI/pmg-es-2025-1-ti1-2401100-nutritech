@@ -1,116 +1,192 @@
 [
     {
         "name": "Comida que Abraça",
-        "lat": -19.9191,
-        "lng": -43.9378,
-        "tipo": "alimentos"
+        "endereco": "Rua dos Caetés, 123",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "tipo": "alimentos",
+        "lat": -19.9167,
+        "lng": -43.9343,
+        "imagem": "assets/images/comida.png"
     },
     {
-        "name": "ONG Verde",
-        "lat": -19.8300,
-        "lng": -43.9200,
-        "tipo": "voluntariado"
+        "name": "ONG Verde Contagem",
+        "endereco": "Avenida João César de Oliveira, 1200",
+        "cidade": "Contagem",
+        "estado": "MG",
+        "tipo": "voluntariado",
+        "lat": -19.9325,
+        "lng": -44.0533,
+        "imagem": "assets/images/comida2.png"
     },
     {
-        "name": "Fundação Dom Bosco",
-        "lat": -19.8320,
-        "lng": -43.9320,
-        "tipo": "dinheiro"
+        "name": "Fundação Dom Bosco Neves",
+        "endereco": "Rua Ari Teixeira da Costa, 500",
+        "cidade": "Ribeirão das Neves",
+        "estado": "MG",
+        "tipo": "dinheiro",
+        "lat": -19.7669,
+        "lng": -44.0850,
+        "imagem": "assets/images/comida3.png"
     },
     {
-        "name": "ONG Cidadania e Paz",
-        "lat": -19.885395,
-        "lng": -43.899870,
-        "tipo": "alimentos"
+        "name": "ONG Cidadania Betim",
+        "endereco": "Avenida Edméia Matos Lazzarotti, 1655",
+        "cidade": "Betim",
+        "estado": "MG",
+        "tipo": "alimentos",
+        "lat": -19.9670,
+        "lng": -44.1958,
+        "imagem": "assets/images/comida.png"
     },
     {
         "name": "Casa de Apoio Aura",
-        "lat": -19.923439,
-        "lng": -43.910139,
-        "tipo": "voluntariado"
+        "endereco": "Rua Rio Grande do Sul, 202",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "tipo": "voluntariado",
+        "lat": -19.9240,
+        "lng": -43.9415,
+        "imagem": "assets/images/comida2.png"
     },
     {
-        "name": "ONG Casa Azul",
-        "lat": -19.941398,
-        "lng": -43.992617,
-        "tipo": "dinheiro"
+        "name": "ONG Casa Azul Contagem",
+        "endereco": "Rua Tiradentes, 2100",
+        "cidade": "Contagem",
+        "estado": "MG",
+        "tipo": "dinheiro",
+        "lat": -19.9194,
+        "lng": -44.0760,
+        "imagem": "assets/images/comida3.png"
     },
     {
-        "name": "Casa de apoio Amor a Vida",
-        "lat": -19.838569,
-        "lng": -43.957492,
-        "tipo": "alimentos"
+        "name": "Casa de apoio Amor a Vida Neves",
+        "endereco": "Avenida Eduardo Brandão, 300",
+        "cidade": "Ribeirão das Neves",
+        "estado": "MG",
+        "tipo": "alimentos",
+        "lat": -19.7500,
+        "lng": -44.1000,
+        "imagem": "assets/images/comida.png"
     },
     {
-        "name": "NAAÇÃO",
-        "lat": -19.905187604940696,
-        "lng": -43.95808075119398,
-        "tipo": "voluntariado"
+        "name": "NAAÇÃO Betim",
+        "endereco": "Rua do Rosário, 700",
+        "cidade": "Betim",
+        "estado": "MG",
+        "tipo": "voluntariado",
+        "lat": -19.9580,
+        "lng": -44.1880,
+        "imagem": "assets/images/comida2.png"
     },
     {
         "name": "Ong Raio de Luz",
-        "lat": -19.85191471286857,
-        "lng": -43.93370483658515,
-        "tipo": "alimentos"
+        "endereco": "Rua dos Timbiras, 606",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "tipo": "alimentos",
+        "lat": -19.9310,
+        "lng": -43.9481,
+        "imagem": "assets/images/comida3.png"
     },
     {
-        "name": "ONG Oportunidade",
-        "lat": -19.816004000304673,
-        "lng": -43.97452979639733,
-        "tipo": "dinheiro"
+        "name": "ONG Oportunidade Contagem",
+        "endereco": "Avenida José Faria da Rocha, 5000",
+        "cidade": "Contagem",
+        "estado": "MG",
+        "tipo": "dinheiro",
+        "lat": -19.9000,
+        "lng": -44.0500,
+        "imagem": "assets/images/comida.png"
     },
     {
-        "name": "ONG O Bem Nunca Para",
-        "lat": -19.823755649892053,
-        "lng": -43.91582160769156,
-        "tipo": "voluntariado"
+        "name": "ONG O Bem Nunca Para Neves",
+        "endereco": "Rua Principal, 123",
+        "cidade": "Ribeirão das Neves",
+        "estado": "MG",
+        "tipo": "voluntariado",
+        "lat": -19.7300,
+        "lng": -44.0700,
+        "imagem": "assets/images/comida2.png"
     },
     {
-        "name": "SOMOS DO BHEM",
-        "lat": -19.843778994607835,
-        "lng": -43.92955451733034,
-        "tipo": "alimentos"
+        "name": "SOMOS DO BHEM Betim",
+        "endereco": "Praça Milton Campos, 10",
+        "cidade": "Betim",
+        "estado": "MG",
+        "tipo": "alimentos",
+        "lat": -19.9690,
+        "lng": -44.1990,
+        "imagem": "assets/images/comida3.png"
     },
     {
         "name": "ONG PAREDÃO OUSADIA SOLIDÁRIO",
-        "lat": -19.984300007093854,
-        "lng": -44.055233419138354,
-        "tipo": "alimentos"
+        "endereco": "Rua Padre Eustáquio, 1010",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "tipo": "alimentos",
+        "lat": -19.9380,
+        "lng": -43.9547,
+        "imagem": "assets/images/comida.png"
     },
     {
-        "name": "ONG Movimentar Vidas",
-        "lat": -19.797914357134342,
-        "lng": -43.99232515995152,
-        "tipo": "voluntariado"
+        "name": "ONG Movimentar Vidas Contagem",
+        "endereco": "Rua das Indústrias, 750",
+        "cidade": "Contagem",
+        "estado": "MG",
+        "tipo": "voluntariado",
+        "lat": -19.9250,
+        "lng": -44.0650,
+        "imagem": "assets/images/comida2.png"
     },
     {
-        "name": "Projeto Esperança",
-        "lat": -19.79500706055147,
-        "lng": -43.97035250452948,
-        "tipo": "dinheiro"
+        "name": "Projeto Esperança Neves",
+        "endereco": "Estrada de Vera Cruz, 900",
+        "cidade": "Ribeirão das Neves",
+        "estado": "MG",
+        "tipo": "dinheiro",
+        "lat": -19.7750,
+        "lng": -44.0950,
+        "imagem": "assets/images/comida3.png"
     },
     {
-        "name": "Ong Ágape Provisão",
-        "lat": -19.77982364920765,
-        "lng": -43.983398768686314,
-        "tipo": "alimentos"
+        "name": "Ong Ágape Provisão Betim",
+        "endereco": "Avenida Amazonas, 3000",
+        "cidade": "Betim",
+        "estado": "MG",
+        "tipo": "alimentos",
+        "lat": -19.9500,
+        "lng": -44.1700,
+        "imagem": "assets/images/comida.png"
     },
     {
         "name": "ONG Pro Vida",
-        "lat": -19.9148732360653,
-        "lng": -43.938261982692524,
-        "tipo": "dinheiro"
+        "endereco": "Rua Juiz de Fora, 1414",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "tipo": "dinheiro",
+        "lat": -19.9450,
+        "lng": -43.9613,
+        "imagem": "assets/images/comida2.png"
     },
     {
-        "name": "Ação Social Casa De Nazaré",
-        "lat": -19.812268065449416,
-        "lng": -43.95474309172861,
-        "tipo": "voluntariado"
+        "name": "Ação Social Casa De Nazaré Contagem",
+        "endereco": "Rua Quatorze, 100",
+        "cidade": "Contagem",
+        "estado": "MG",
+        "tipo": "voluntariado",
+        "lat": -19.8900,
+        "lng": -44.0400,
+        "imagem": "assets/images/comida3.png"
     },
     {
-        "name": "ONG Calpevi - Casa de Apoio Lutando Pela Vida",
-        "lat": -19.82970915530214,
-        "lng": -43.94718999142729,
-        "tipo": "alimentos"
+        "name": "ONG Calpevi - Casa de Apoio Lutando Pela Vida Neves",
+        "endereco": "Rua Vinte e Cinco, 45",
+        "cidade": "Ribeirão das Neves",
+        "estado": "MG",
+        "tipo": "alimentos",
+        "lat": -19.7400,
+        "lng": -44.0600,
+        "imagem": "assets/images/comida.png"
     }
 ]
