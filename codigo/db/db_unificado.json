@@ -3,15 +3,21 @@
     {
       "id": "1",
       "nome": "Larissa Monção",
+      "login": "larissa_moncao",
       "email": "larissa.oliveira@example.com",
       "cpf": "123.456.789-00",
-      "senha": null,
+      "senha": "senha123",
       "telefone": "(38) 99815-4188",
-      "endereco": "Rua França, 100",
-      "cidade": "Belo Horizonte",
-      "estado": "MG",
+      "endereco": {
+        "rua": "Rua França",
+        "numero": "100",
+        "bairro": "Centro",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "cep": "30000-000"
+      },
       "dataNascimento": "1990-11-19",
-      "genero": null,
+      "genero": "feminino",
       "doacoes": [
         {
           "id": "abc1-0001",
@@ -41,46 +47,25 @@
           "valor": 40,
           "recorrencia": true,
           "data": "01/05/2025"
-        },
-        {
-          "descricao": "Arroz",
-          "quantidade": "10 Unidades",
-          "valor": 88,
-          "data": "2025-04-10",
-          "fonte": "cadastro_doacoes.json"
-        },
-        {
-          "descricao": "arroz",
-          "quantidade": "2 Unidades",
-          "valor": 11.8,
-          "data": "2025-05-28",
-          "fonte": "cadastro_doacao.html",
-          "doador": {
-            "nome": "Larissa Monção"
-          }
-        },
-        {
-          "descricao": "feijao",
-          "quantidade": "2 Unidades",
-          "valor": 12.6,
-          "data": "2025-05-31",
-          "fonte": "cadastro_doacao.html",
-          "doador": {
-            "nome": "Larissa Monção"
-          }
         }
       ]
     },
     {
       "id": "2",
       "nome": "João da Silva",
+      "login": "joao_silva",
       "email": "joao.silva@example.com",
       "cpf": "987.654.321-00",
-      "senha": null,
+      "senha": "outrasenha",
       "telefone": "(31) 99999-9999",
-      "endereco": "Rua Exemplo, 456",
-      "cidade": "Contagem",
-      "estado": "MG",
+      "endereco": {
+        "rua": "Rua Exemplo",
+        "numero": "456",
+        "bairro": "Industrial",
+        "cidade": "Contagem",
+        "estado": "MG",
+        "cep": "32000-000"
+      },
       "dataNascimento": "1985-05-20",
       "genero": "masculino",
       "doacoes": [
@@ -96,28 +81,38 @@
     {
       "id": "3",
       "nome": "Pedro Santos",
+      "login": "pedro_santos",
       "email": "pedro.santos@example.com",
       "cpf": "111.222.333-00",
-      "senha": null,
+      "senha": "pedro123",
       "telefone": "(31) 97898-9477",
-      "endereco": "Rua Liz, 150",
-      "cidade": "Belo Horizonte",
-      "estado": "MG",
+      "endereco": {
+        "rua": "Rua Liz",
+        "numero": "150",
+        "bairro": "Floresta",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "cep": "30150-270"
+      },
       "dataNascimento": "1970-10-08",
-      "genero": null,
+      "genero": "masculino",
       "doacoes": []
     },
     {
       "nome": "Rogerio Santos",
+      "login": "rogerio_santos",
       "email": "dwa@da.com",
       "cpf": "12345678910",
       "senha": "teste",
       "telefone": "5135133421321",
-      "rua": "5134",
-      "bairro": "32131",
-      "cidade": "fsd",
-      "estado": "fdsfs",
-      "cep": "32280321",
+      "endereco": {
+        "rua": "Rua das Palmeiras",
+        "numero": "5134",
+        "bairro": "Eldorado",
+        "cidade": "Contagem",
+        "estado": "MG",
+        "cep": "32280321"
+      },
       "dataNascimento": "2025-06-20",
       "genero": "masculino",
       "doacoes": [],
@@ -125,72 +120,249 @@
     },
     {
       "nome": "Lucas Testetete",
+      "login": "lucas_teste12",
       "email": "fevereiro@outlook.ocm",
-      "login": "teste12",
       "cpf": "123453678910",
       "senha": "teste12",
       "telefone": "432432",
-      "rua": "fsdfsd",
-      "bairro": "32131",
-      "cidade": "32432",
-      "estado": "5234",
-      "cep": "32280321",
+      "endereco": {
+        "rua": "Av. Principal",
+        "numero": "1000",
+        "bairro": "Centro",
+        "cidade": "Betim",
+        "estado": "MG",
+        "cep": "32280321"
+      },
       "dataNascimento": "2025-06-05",
       "genero": "masculino",
       "doacoes": [],
       "id": "pgmknve"
+    },
+    {
+      "id": "user004",
+      "nome": "Ana Pereira",
+      "login": "ana_pereira",
+      "email": "ana.pereira@email.com",
+      "cpf": "444.555.666-77",
+      "senha": "ana123",
+      "telefone": "(31) 98888-7777",
+      "endereco": {
+        "rua": "Rua das Flores",
+        "numero": "789",
+        "bairro": "Jardim",
+        "cidade": "Nova Lima",
+        "estado": "MG",
+        "cep": "34000-000"
+      },
+      "dataNascimento": "1995-03-10",
+      "genero": "feminino",
+      "doacoes": []
+    },
+    {
+      "id": "user005",
+      "nome": "Carlos Alberto",
+      "login": "carlos_alberto",
+      "email": "carlos.alberto@email.com",
+      "cpf": "555.666.777-88",
+      "senha": "carlos123",
+      "telefone": "(31) 97777-6666",
+      "endereco": {
+        "rua": "Avenida Brasil",
+        "numero": "1234",
+        "bairro": "Funcionários",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "cep": "30140-000"
+      },
+      "dataNascimento": "1980-07-25",
+      "genero": "masculino",
+      "doacoes": []
     }
   ],
   "ongs": [
     {
       "id": "1",
       "nome": "Comida que Abraça",
+      "cnpj": "11.222.333/0001-44",
+      "data_fundacao": "2010-05-15",
+      "descricao": "ONG dedicada a fornecer alimentos para comunidades carentes e promover a segurança alimentar.",
+      "rede_social": "https://instagram.com/comidaqueabraca",
+      "endereco": {
+        "rua": "Rua da Esperança",
+        "numero": "123",
+        "bairro": "Boa Vista",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "cep": "31000-000",
+        "lat": -19.9191,
+        "lng": -43.9378
+      },
+      "contato": {
+        "telefone": "(31) 3333-4444",
+        "email": "contato@comidaqueabraca.org",
+        "website": "http://www.comidaqueabraca.org"
+      },
+      "tipos_doacao_aceitos": ["alimentos", "dinheiro"],
+      "familias_ajudadas": 150,
+      "colaboradores_mensais": 30,
+      "data_ultima_ajuda": "2025-05-20",
       "voluntarios": [
         {
           "id": 1,
-          "diasTurnos": {
-            "segunda": [
-              "manha",
-              "tarde",
-              "noite"
-            ]
-          },
-          "areasInteresse": [
-            "Apoio Logístico"
-          ]
+          "diasTurnos": { "segunda": ["manha", "tarde", "noite"] },
+          "areasInteresse": ["Apoio Logístico"]
         },
         {
           "id": 2,
-          "diasTurnos": {
-            "segunda": [
-              "manha",
-              "tarde",
-              "noite"
-            ],
-            "sexta": [
-              "noite"
-            ]
-          },
-          "areasInteresse": [
-            "Distribuição de Alimentos",
-            "Atendimento ao Público"
-          ]
+          "diasTurnos": { "segunda": ["manha", "tarde", "noite"], "sexta": ["noite"] },
+          "areasInteresse": ["Distribuição de Alimentos", "Atendimento ao Público"]
         },
         {
           "id": 3,
-          "diasTurnos": {
-            "segunda": [
-              "manha"
-            ],
-            "sexta": [
-              "noite"
-            ]
-          },
-          "areasInteresse": [
-            "Distribuição de Alimentos"
-          ]
+          "diasTurnos": { "segunda": ["manha"], "sexta": ["noite"] },
+          "areasInteresse": ["Distribuição de Alimentos"]
         }
       ]
+    },
+    {
+      "nome": "Mãos que Alimentam",
+      "cnpj": "43.242.352/3120-01",
+      "data_fundacao": "2025-06-13",
+      "descricao": "ONG de Teste para cadastro de alimentos e outras doações.",
+      "rede_social": "https://facebook.com/maosquealimentam",
+      "id": 2,
+      "endereco": {
+        "rua": "Rua Teste da Silva",
+        "numero": "246",
+        "cidade": "Contagem",
+        "bairro": "Industrial",
+        "estado": "MG",
+        "cep": "32280-321",
+        "lat": -19.9320,
+        "lng": -44.0542
+      },
+      "contato": {
+        "telefone": "(31) 94132-1000",
+        "email": "teste@teste.com",
+        "website": "http://www.maosquealimentam.org.br"
+      },
+      "tipos_doacao_aceitos": ["alimentos"],
+      "familias_ajudadas": 0,
+      "colaboradores_mensais": 0,
+      "voluntarios": [],
+      "data_ultima_ajuda": null
+    },
+    {
+      "id": "3",
+      "nome": "Sopa Solidária BH",
+      "cnpj": "55.666.777/0001-88",
+      "data_fundacao": "2018-02-10",
+      "descricao": "Preparamos e distribuímos sopas nutritivas para pessoas em situação de rua em Belo Horizonte.",
+      "rede_social": "https://instagram.com/sopasolidariabh",
+      "endereco": {
+        "rua": "Avenida dos Andradas",
+        "numero": "3000",
+        "bairro": "Santa Efigênia",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "cep": "30260-070",
+        "lat": -19.9208,
+        "lng": -43.9352
+      },
+      "contato": {
+        "telefone": "(31) 3444-5555",
+        "email": "contato@sopasolidariabh.org",
+        "website": "http://www.sopasolidariabh.org"
+      },
+      "tipos_doacao_aceitos": ["alimentos", "dinheiro"],
+      "familias_ajudadas": 200,
+      "colaboradores_mensais": 50,
+      "data_ultima_ajuda": "2025-06-01",
+      "voluntarios": []
+    },
+    {
+      "id": "4",
+      "nome": "Cestas de Esperança",
+      "cnpj": "88.999.000/0001-11",
+      "data_fundacao": "2022-01-20",
+      "descricao": "Montagem e distribuição de cestas básicas para famílias em vulnerabilidade social na região metropolitana.",
+      "rede_social": "",
+      "endereco": {
+        "rua": "Rua das Acácias",
+        "numero": "50",
+        "bairro": "Eldorado",
+        "cidade": "Contagem",
+        "estado": "MG",
+        "cep": "32340-000",
+        "lat": -19.9180,
+        "lng": -44.0600
+      },
+      "contato": {
+        "telefone": "(31) 3555-6666",
+        "email": "cestasdeesperanca@email.com",
+        "website": ""
+      },
+      "tipos_doacao_aceitos": ["alimentos"],
+      "familias_ajudadas": 80,
+      "colaboradores_mensais": 15,
+      "data_ultima_ajuda": "2025-05-10",
+      "voluntarios": []
+    },
+    {
+      "id": "5",
+      "nome": "Nutrindo o Futuro",
+      "cnpj": "12.345.678/0001-99",
+      "data_fundacao": "2019-08-01",
+      "descricao": "Foco em nutrição infantil, oferecendo refeições balanceadas e educação alimentar para crianças carentes.",
+      "rede_social": "https://instagram.com/nutrindoofuturo",
+      "endereco": {
+        "rua": "Rua das Crianças",
+        "numero": "10",
+        "bairro": "Vila Feliz",
+        "cidade": "Betim",
+        "estado": "MG",
+        "cep": "32500-000",
+        "lat": -19.9554,
+        "lng": -44.1972
+      },
+      "contato": {
+        "telefone": "(31) 3666-7777",
+        "email": "contato@nutrindoofuturo.org",
+        "website": "http://www.nutrindoofuturo.org"
+      },
+      "tipos_doacao_aceitos": ["alimentos", "dinheiro"],
+      "familias_ajudadas": 120,
+      "colaboradores_mensais": 25,
+      "data_ultima_ajuda": "2025-06-05",
+      "voluntarios": []
+    },
+    {
+      "id": "6",
+      "nome": "Amigos da Comunidade",
+      "cnpj": "98.765.432/0001-00",
+      "data_fundacao": "2015-03-12",
+      "descricao": "Apoio geral à comunidade local, incluindo distribuição de alimentos, roupas e assistência social.",
+      "rede_social": "https://facebook.com/amigosdacomunidade",
+      "endereco": {
+        "rua": "Avenida da Solidariedade",
+        "numero": "500",
+        "bairro": "Centro",
+        "cidade": "Sabará",
+        "estado": "MG",
+        "cep": "34500-000",
+        "lat": -19.8869,
+        "lng": -43.8067
+      },
+      "contato": {
+        "telefone": "(31) 3777-8888",
+        "email": "amigos@comunidade.org",
+        "website": ""
+      },
+      "tipos_doacao_aceitos": ["alimentos", "dinheiro"],
+      "familias_ajudadas": 300,
+      "colaboradores_mensais": 40,
+      "data_ultima_ajuda": "2025-05-28",
+      "voluntarios": []
     }
   ]
 }

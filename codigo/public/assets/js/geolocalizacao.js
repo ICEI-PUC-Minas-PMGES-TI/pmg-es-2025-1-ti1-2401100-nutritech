@@ -4,30 +4,48 @@ let userLocation;
 let markers = [];
 let userPositionMarker = null;
 
+function formatAddress(enderecoObj) {
+    if (!enderecoObj) return 'Endereço não disponível';
+    return [enderecoObj.rua, enderecoObj.numero, enderecoObj.bairro, enderecoObj.cidade, enderecoObj.estado, enderecoObj.cep]
+           .filter(part => part)
+           .join(', ');
+}
+
 async function loadOngs() {
     const loadingElement = document.getElementById('loading');
+    if (loadingElement) loadingElement.style.display = 'block';
+
     try {
-        const response = await fetch('assets/js/adição_ONGs.json');
+        const response = await fetch('http://localhost:3001/ongs');
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status} ao buscar adição_ONGs.json`);
+            throw new Error('HTTP error! status: ' + response.status + ' ao buscar ONGs');
         }
-        let ongs;
+        
+        let ongsData;
         try {
-            ongs = await response.json();
+            ongsData = await response.json();
         } catch (parseError) {
             console.error("Erro ao fazer parse do JSON de ONGs:", parseError);
             throw new Error("Formato de JSON inválido.");
         }
 
-        const ongsValidas = ongs.filter(ong => typeof ong.lat === 'number' && typeof ong.lng === 'number');
+        const ongsValidas = ongsData.filter(ong => 
+            ong.endereco && 
+            typeof ong.endereco.lat === 'number' && 
+            typeof ong.endereco.lng === 'number'
+        );
 
         if (ongsValidas.length === 0) {
-            console.error("Nenhuma ONG com coordenadas válidas encontrada diretamente no JSON.");
+            console.warn("Nenhuma ONG com coordenadas válidas (ong.endereco.lat/lng) encontrada. Verifique o arquivo db_unificado.json ou o processo de cadastro.");
+            const mapElement = document.getElementById("map");
+            if (mapElement) {
+                mapElement.innerHTML = '<p style="text-align: center; padding: 20px;">Nenhuma ONG com localização definida encontrada. Certifique-se de que as ONGs em db_unificado.json possuem os campos `lat` e `lng` em `endereco`.</p>';
+            }
             if (loadingElement) loadingElement.style.display = 'none';
             return;
         }
 
-        console.log("ONGs válidas carregadas do JSON:", ongsValidas);
+        console.log("ONGs válidas carregadas:", ongsValidas);
         initMap(ongsValidas);
 
         if (loadingElement) loadingElement.style.display = 'none';
@@ -81,24 +99,20 @@ function initMap(ongs) {
 
     ongs.forEach((ong) => {
         let icon;
-        switch (ong.tipo) {
-            case 'dinheiro':
-                icon = iconDinheiro;
-                break;
-            case 'alimentos':
-                icon = iconAlimento;
-                break;
-            case 'voluntariado':
-                icon = iconVoluntario;
-                break;
-            default:
-                icon = window.L.Icon.Default ? new window.L.Icon.Default() : undefined;
+        if (ong.tipos_doacao_aceitos && ong.tipos_doacao_aceitos.includes('dinheiro')) {
+            icon = iconDinheiro;
+        } else if (ong.tipos_doacao_aceitos && ong.tipos_doacao_aceitos.includes('alimentos')) {
+            icon = iconAlimento;
+        } 
+        else {
+            icon = window.L.Icon.Default ? new window.L.Icon.Default() : undefined;
         }
 
-        const marker = window.L.marker([ong.lat, ong.lng], { icon })
+        const marker = window.L.marker([ong.endereco.lat, ong.endereco.lng], { icon })
             .addTo(map)
-            .bindPopup(`${ong.name}<br>${ong.endereco}`);
-        markers.push({ ...ong, marker });
+            .bindPopup('<strong>' + ong.nome + '</strong><br>' + formatAddress(ong.endereco));
+        
+        markers.push({ ...ong, marker }); 
     });
 
     if (navigator.geolocation) {
@@ -164,15 +178,15 @@ function updateOngListDisplay(filteredOngs) {
         listItem.classList.add('ong-list-item');
 
         const link = document.createElement('a');
-        link.href = ong.website || '#';
-        link.textContent = ong.name;
+        link.href = ong.contato && ong.contato.website ? ong.contato.website : '#';
+        link.textContent = ong.nome;
         link.target = "_blank";
 
         listItem.appendChild(link);
 
         if (ong.distance !== undefined) {
             const distanceText = document.createElement('span');
-            distanceText.textContent = ` - ${ong.distance.toFixed(2)} km`;
+            distanceText.textContent = ' - ' + ong.distance.toFixed(2) + ' km';
             listItem.appendChild(distanceText);
         }
         listContainer.appendChild(listItem);
@@ -187,19 +201,26 @@ function updateFilters() {
     const radius = parseFloat(radiusInput);
     document.getElementById("radiusValue").textContent = radius;
 
-    console.log(`Filtros: Tipo=${typeFilter}, Raio=${radius} km`);
+    console.log('Filtros: Tipo=' + typeFilter + ', Raio=' + radius + ' km');
 
-    let filteredOngs = [...markers];
+    let filteredOngs = [...markers]; 
 
     if (typeFilter !== "all") {
-        filteredOngs = filteredOngs.filter(ong => ong.tipo === typeFilter);
-        console.log(`ONGs após filtro de tipo (${typeFilter}):`, filteredOngs.length);
+        filteredOngs = filteredOngs.filter(ong => {
+            if (typeFilter === 'dinheiro' || typeFilter === 'alimentos') {
+                return ong.tipos_doacao_aceitos && ong.tipos_doacao_aceitos.includes(typeFilter);
+            } else if (typeFilter === 'voluntariado') {
+                return ong.voluntarios && ong.voluntarios.length > 0;
+            }
+            return false; 
+        });
+        console.log('ONGs após filtro de tipo (' + typeFilter + '):', filteredOngs.length);
     }
 
     if (userLocation) {
         console.log("Localização do usuário disponível:", userLocation);
         filteredOngs = filteredOngs.map(ong => {
-            const distance = getDistance(userLocation, [ong.lat, ong.lng]);
+            const distance = getDistance(userLocation, [ong.endereco.lat, ong.endereco.lng]);
             return {
                 ...ong,
                 distance: distance
@@ -211,7 +232,7 @@ function updateFilters() {
             const isInRadius = ong.distance <= radius;
             return isInRadius;
         });
-        console.log(`ONGs antes do filtro de raio: ${ongsBeforeRadiusFilter}, Após filtro de raio (${radius} km):`, filteredOngs.length);
+        console.log('ONGs antes do filtro de raio: ' + ongsBeforeRadiusFilter + ', Após filtro de raio (' + radius + ' km):', filteredOngs.length);
 
         filteredOngs.sort((a, b) => a.distance - b.distance);
     } else {
@@ -229,7 +250,7 @@ function updateFilters() {
             map.addLayer(ong.marker);
         }
     });
-    console.log(`${filteredOngs.length} marcadores filtrados adicionados ao mapa.`);
+    console.log(filteredOngs.length + ' marcadores filtrados adicionados ao mapa.');
 
     updateOngListDisplay(filteredOngs);
 }

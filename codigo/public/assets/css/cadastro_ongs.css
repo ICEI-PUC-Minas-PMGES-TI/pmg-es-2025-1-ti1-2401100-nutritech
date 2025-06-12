@@ -119,3 +119,25 @@ footer {
         gap: 0;
     }
 }
+
+#tiposDoacaoFieldset .input-group {
+    display: flex;
+    align-items: center; 
+    gap: 20px; 
+}
+
+#tiposDoacaoFieldset .input-item {
+    display: flex;
+    align-items: center;
+    flex-direction: row; 
+    margin-bottom: 0; 
+}
+
+#tiposDoacaoFieldset .input-item input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+#tiposDoacaoFieldset .input-item label {
+    font-weight: normal;
+    margin-bottom: 0; 
+}
