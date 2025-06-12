@@ -7,7 +7,6 @@ Nosso projeto busca ajudar a reduzir a insegurança alimentar, facilitando a doa
 * Arthur Vieira Lopes
 * Artur de Figueiredo Neves
 * Guilherme Pereira Bittencourt
-* Kathleen Lorrayne Almeida Reis
 * Larissa Monção de Oliveira
 * Lucas Batista Duarte
 * Matheus Figueiredo
