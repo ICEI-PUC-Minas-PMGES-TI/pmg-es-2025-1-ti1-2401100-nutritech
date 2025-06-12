@@ -1,7 +1,8 @@
-  // Define o CPF do doador (enquanto ainda não tenho um sistema de login)
+// Define o CPF do doador (enquanto ainda não tenho um sistema de login)
   const CPF = '123.456.789-00';
+  const API_URL = 'http://localhost:3001/usuarios'; // MODIFIED: Changed to use the correct port and path for users
 
-  fetch('http://localhost:3000/usuarios')
+  fetch(API_URL) // MODIFIED: Changed to use API_URL constant
     .then(response => response.json())
     .then(dados => {
       const lista = document.getElementById('lista-doacoes');

@@ -15,6 +15,31 @@ main {
     padding: 20px;
 }
 
+/* Custom Button Styles */
+.btn-nutritech-primary {
+    background-color: #5D8736;
+    border-color: #5D8736;
+    color: #fff;
+}
+
+.btn-nutritech-primary:hover {
+    background-color: #4A6F2A; /* Darker shade for hover */
+    border-color: #4A6F2A;
+    color: #fff;
+}
+
+.btn-nutritech-secondary {
+    background-color: #ff7645;
+    border-color: #ff7645;
+    color: #fff;
+}
+
+.btn-nutritech-secondary:hover {
+    background-color: #E06030; /* Darker shade for hover */
+    border-color: #E06030;
+    color: #fff;
+}
+
 /* Header  */
 .banner img {
     width: 100%;

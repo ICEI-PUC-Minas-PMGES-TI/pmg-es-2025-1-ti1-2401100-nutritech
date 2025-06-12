@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7; /* Match */
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    min-height: 80vh; /* Match */
+    padding: 32px 0; /* Match */
+}
+
+.form-section {
+    background: #fff; /* Match */
+    padding: 32px 24px; /* Match */
+    border-radius: 12px; /* Match */
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08); /* Match */
+    width: 100%;
+    max-width: 700px; /* Match */
+}
+
+/* Adapting .form-cadastro h1 to .form-section .form-title (new class for h2) */
+.form-section .form-title { /* Changed from h2 to a class for flexibility */
+    text-align: center;
+    margin-bottom: 24px; /* Match */
+    color: #2d7a3e; /* Match */
+    font-size: 1.5em; /* Adjusted for consistency, ONG h1 is browser default likely */
+}
+
+/* Styling for fieldset and legend if adopted in HTML */
+fieldset {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    padding: 16px;
+}
+
+legend {
+    font-weight: bold;
+    color: #2d7a3e;
+    padding: 0 8px;
+    font-size: 1.1em;
+}
+
+/* Styling for input groups and items if adopted in HTML */
+.input-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 10px; /* Add some space between groups if they stack */
+}
+
+.input-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(50% - 8px); /* Adjust for 2 items per row with gap */
+    margin-bottom: 12px;
+}
+
+.input-item.full-width { /* New class for items that should take full width */
+    flex-basis: 100%;
+}
+
+
+.input-item label {
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.9em;
+}
+
+.input-item input[type="text"],
+.input-item input[type="email"],
+.input-item input[type="tel"],
+.input-item input[type="password"],
+.input-item input[type="date"],
+.input-item select {
+    padding: 10px; /* Increased padding slightly */
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    font-size: 1em;
+    background: #fafafa; /* Match */
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.input-item select {
+    appearance: none; /* Basic reset for select */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    padding-right: 30px; /* Make space for arrow */
+}
+
+
+/* .tipo-usuario and .user-btn are specific to user registration */
+/* This section might need specific styling if it's kept as is */
+.tipo-usuario {
+    display: flex;
+    justify-content: center; /* Or start, depending on desired layout */
+    gap: 15px;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #e8f5e9; /* Light green background */
+    border-radius: 8px;
+}
+
+.user-btn { 
+    background-color: #81c784; /* Slightly darker green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.user-btn:hover {
+    background-color: #66bb6a;
+}
+
+/* Adapting .btn-cadastrar to .submit-btn */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(90deg, #2d7a3e 60%, #43b06c 100%); /* Match */
+    color: #fff; /* Match */
+    border: none;
+    border-radius: 32px; /* Match */
+    font-size: 1.2em; /* Match */
+    font-weight: bold; /* Match */
+    cursor: pointer;
+    margin-top: 24px; /* Match */
+    box-shadow: 0 6px 24px rgba(67, 176, 108, 0.15); /* Match */
+    letter-spacing: 1px; /* Match */
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s; /* Match */
+    outline: none;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.08); /* Match */
+    text-transform: uppercase; /* Match */
+}
+
+.submit-btn:hover, .submit-btn:focus {
+    background: linear-gradient(90deg, #256632 60%, #43b06c 100%); /* Match */
+    transform: translateY(-3px) scale(1.04); /* Match */
+    box-shadow: 0 12px 32px rgba(67, 176, 108, 0.22); /* Match */
+}
+
+/* Media query from ONG CSS */
+@media (max-width: 800px) {
+    .form-section {
+        padding: 24px 16px; 
+    }
+    .input-group {
+        flex-direction: column;
+        gap: 0; 
+    }
+    .input-item {
+        flex-basis: 100%; /* Full width on smaller screens */
+    }
+}
+
+/* Original .textos h1 - not needed if header is separate */
+/*
+.textos h1 {
+    color: white;
+    font-size: 24px;
+  }
+*/
+
