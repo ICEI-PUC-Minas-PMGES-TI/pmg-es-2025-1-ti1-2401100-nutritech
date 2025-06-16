@@ -1,23 +1,22 @@
-/* header */
 header {
     display: flex;
     align-items: center;
     background: linear-gradient(to right, #5D8736, #A9C46C);
-    padding: 5px; /* Ajustado para reduzir o padding */
-    height: 75px; /* Altura ajustada */
+    padding: 5px;
+    height: 75px;
 }
 
 header .logo {
     width: auto;
-    max-height: 70px; /* Reduzido o tamanho da imagem */
-    margin: 5px; /* Ajustado para reduzir o espaçamento */
+    max-height: 70px;
+    margin: 5px;
 }
 
 header h2 {
-    font-size: 1.0em; /* Reduzido o tamanho da fonte */
+    font-size: 1.0em;
     color: #fff;
     margin: 0;
-    padding: 5px; /* Ajustado para reduzir o espaçamento */
+    padding: 5px;
     font-family: 'ABeeZee', sans-serif;
 }
 
@@ -28,12 +27,12 @@ header .usuario-container {
 }
 
 header .usuario {
-    max-height: 30px; /* Reduzido o tamanho da imagem */
-    margin-left: 5px; /* Ajustado para reduzir o espaçamento */
+    max-height: 30px;
+    margin-left: 5px;
 }
 
 header h3 {
-    font-size: 1em; /* Reduzido o tamanho da fonte */
+    font-size: 1em;
     color: #555353;
     opacity: 0.8;
     font-family: 'ABeeZee', sans-serif;
@@ -46,16 +45,12 @@ header a {
     align-items: center;
 }
 
-
-
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilos gerais */
 body {
     font-family: 'ABeeZee', Arial, sans-serif;
     display: flex;
@@ -83,7 +78,6 @@ main {
     transition: transform 0.3s ease;
 }
 
-/* Dividir o formulário e as listagens */
 .form-left {
     flex: 1;
     margin-right: 20px;
@@ -139,7 +133,7 @@ button {
     font-size: 16px;
     transition: background 0.3s ease, margin 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 10px; /* Afastar os botões em 1px */
+    margin-top: 10px;
 }
 
 button:hover {
@@ -150,8 +144,8 @@ button:hover {
     list-style: none;
     padding: 0;
     margin-top: 20px;
-    max-height: 250px; /* Define uma altura máxima */
-    overflow-y: auto; /* Habilita o scroll vertical quando necessário */
+    max-height: 250px;
+    overflow-y: auto;
 }
 
 .list-group li {
@@ -168,35 +162,32 @@ button:hover {
     display: none;
 }
 
-/* Estilo para o botão de exclusão */
 .btn-delete {
     cursor: pointer;
-    margin-left: 8px; /* Espaçamento entre o texto e o botão */
+    margin-left: 8px;
     display: inline-block;
     background: none;
     border: none;
-    font-size: 12px; /* Tamanho menor para o ícone */
-    color: red; /* Cor vermelha para destacar */
-    transition: transform 0.2s ease; /* Efeito suave ao passar o mouse */
+    font-size: 12px;
+    color: red;
+    transition: transform 0.2s ease;
 }
 
 .btn-delete:hover {
-    transform: scale(1.2); /* Aumenta ligeiramente ao passar o mouse */
+    transform: scale(1.2);
 }
 
-
-/* Footer */
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
-    min-height: 80px; /* Usar min-height ao invés de height fixa */
+    min-height: 80px;
     color: #fff;
     font-family: 'ABeeZee', sans-serif;
     display: flex;
-    align-items: center; /* Centraliza verticalmente o conteúdo */
-    justify-content: center; /* Centraliza horizontalmente o conteúdo */
-    padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
-    box-sizing: border-box; /* Garante que o padding não afete a altura */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
     position: relative;
     width: 100%;
     bottom: 0;
@@ -206,18 +197,18 @@ footer {
 footer .container {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Ajusta o espaçamento entre os elementos */
-    align-items: center; /* Centraliza verticalmente */
-    text-align: center; /* Centraliza o texto */
-    flex-wrap: wrap; /* Garante que o conteúdo se ajuste ao tamanho do footer */
-    padding: 0 10px; /* Adiciona espaçamento interno horizontal */
-    box-sizing: border-box; /* Garante que o padding não afete o layout */
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 footer h3, footer p {
-    margin: 0; /* Remove margens extras */
-    font-size: 0.7rem; /* Reduz o tamanho da fonte para caber no footer */
-    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    margin: 0;
+    font-size: 0.7rem;
+    line-height: 1.2;
     text-align: center;
 }
 

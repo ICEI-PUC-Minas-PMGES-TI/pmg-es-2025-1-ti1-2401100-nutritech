@@ -1,6 +1,3 @@
-
-/*MINHAS ALTERAÇÕES FORA DO TEMPLATE BASE*/
-
 .container-pagina{
     align-items: center;
     display: flex;
@@ -126,29 +123,25 @@ label:hover {
     position: absolute;
 }
 
-
-/*TEMPLATE BASE*/
-
-/* header */
 header {
     display: flex;
     align-items: center;
     background: linear-gradient(to right, #5D8736, #A9C46C);
-    padding: 5px; /* Ajustado para reduzir o padding */
-    height: 75px; /* Altura ajustada */
+    padding: 5px;
+    height: 75px;
 }
 
 header .logo {
     width: auto;
-    max-height: 70px; /* Reduzido o tamanho da imagem */
-    margin: 5px; /* Ajustado para reduzir o espaçamento */
+    max-height: 70px;
+    margin: 5px;
 }
 
 header h2 {
-    font-size: 1.0em; /* Reduzido o tamanho da fonte */
+    font-size: 1.0em;
     color: #fff;
     margin: 0;
-    padding: 5px; /* Ajustado para reduzir o espaçamento */
+    padding: 5px;
     font-family: 'ABeeZee', sans-serif;
 }
 
@@ -159,12 +152,12 @@ header .usuario-container {
 }
 
 header .usuario {
-    max-height: 30px; /* Reduzido o tamanho da imagem */
-    margin-left: 5px; /* Ajustado para reduzir o espaçamento */
+    max-height: 30px;
+    margin-left: 5px;
 }
 
 header h3 {
-    font-size: 1em; /* Reduzido o tamanho da fonte */
+    font-size: 1em;
     color: #555353;
     opacity: 0.8;
     font-family: 'ABeeZee', sans-serif;
@@ -177,23 +170,17 @@ header a {
     align-items: center;
 }
 
-
-
-
-
-/* Footer */
-/* Footer */
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
-    height: 80px; /* Mantém a altura fixa do footer */
+    height: 80px;
     color: #fff;
     font-family: 'ABeeZee', sans-serif;
     display: flex;
-    align-items: center; /* Centraliza verticalmente o conteúdo */
-    justify-content: center; /* Centraliza horizontalmente o conteúdo */
-    padding: 0; /* Remove o padding para evitar que o conteúdo ultrapasse a altura */
-    box-sizing: border-box; /* Garante que o padding não afete a altura */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse o footer */
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 footer .container {

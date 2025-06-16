@@ -1,4 +1,13 @@
-/* Styles for Header */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
 header {
     display: flex;
     align-items: center;
@@ -8,19 +17,26 @@ header {
     position: relative;
 }
 
+header a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
 header .logo {
     width: auto;
     max-height: 70px;
     margin: 5px;
 }
 
-header h2 {
+header h2 { 
+    font-family: 'ABeeZee', sans-serif;
     font-size: 1.0em;
     color: #fff;
     margin: 0;
     padding: 5px;
-    font-family: 'ABeeZee', sans-serif;
 }
+
 
 header nav {
     display: flex;
@@ -42,42 +58,39 @@ header nav a:active {
     box-shadow: none !important;
     border: none !important;
     outline: none !important;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 header nav a:hover {
     color: #A9C46C !important;
-    background: none !important;
     text-decoration: underline;
     transform: scale(1.12);
-    transition: transform 0.2s ease, color 0.2s ease; 
 }
 
 header .usuario-container {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    min-width: 120px;
+    margin-left: auto; 
+    min-width: 120px; 
     position: relative;
-    z-index: 2;
+    z-index: 2; 
 }
 
-header .usuario {
+header .usuario { 
+    width: 30px;
+    height: 30px;
     max-height: 30px;
     margin-left: 5px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 header h3 {
+    font-family: 'ABeeZee', sans-serif;
     font-size: 1em;
     color: #555353;
     opacity: 0.8;
-    font-family: 'ABeeZee', sans-serif;
     margin: 0;
-}
-
-header a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
 }
 
 
@@ -100,7 +113,35 @@ header a {
     border: none;
 }
 
-/* Styles for Footer */
+
+.btn-nutritech-primary,
+#loginButton.btn-nutritech-primary {
+    background-color: #FF8C00 !important;
+    border-color: #FF8C00 !important;
+    color: white !important;
+}
+
+.btn-nutritech-primary:hover,
+#loginButton.btn-nutritech-primary:hover {
+    background-color: #FFA500 !important;
+    border-color: #FFA500 !important;
+}
+
+.btn-nutritech-secondary,
+#registerButton.btn-nutritech-secondary {
+    background-color: #5D8736 !important; 
+    border-color: #5D8736 !important;
+    color: white !important;
+}
+
+.btn-nutritech-secondary:hover,
+#registerButton.btn-nutritech-secondary:hover {
+    background-color: #6f9a46 !important;
+    border-color: #6f9a46 !important;
+}
+
+
+
 footer {
     background: linear-gradient(to right, #368758, #8EC46C);
     height: 80px;
@@ -118,29 +159,23 @@ footer .container {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     text-align: center;
     flex-wrap: wrap;
     padding: 0 10px;
     box-sizing: border-box;
+    background-color: transparent; 
 }
 
-footer h3, footer p {
+footer h3, 
+footer p {
     margin: 0;
     font-size: 0.7rem;
     line-height: 1.2;
-    text-align: center;
+    text-align: center; 
 }
 
 footer .row {
     margin: 0;
-}
-
-footer .logo {
-    max-height: 80px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 

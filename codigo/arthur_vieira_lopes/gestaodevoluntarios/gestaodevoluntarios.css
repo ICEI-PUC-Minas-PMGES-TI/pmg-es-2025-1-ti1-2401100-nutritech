@@ -95,21 +95,19 @@ html, body {
     padding: 0;
 }
 
-/* Faz o wrapper ocupar o espaço todo e empurra o footer para baixo */
 .wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Faz o conteúdo principal crescer para ocupar o espaço disponível */
 main {
     flex: 1;
 }
 #listaVoluntarios {
-  max-height: 300px; /* você pode ajustar esse valor */
+  max-height: 300px;
   overflow-y: auto;
-  padding-right: 10px; /* espaço pro scrollbar */
+  padding-right: 10px;
 }
 #listaVoluntarios::-webkit-scrollbar {
   width: 6px;
@@ -120,7 +118,7 @@ main {
   border-radius: 4px;
 }
 #voluntarioForm button {
-  background-color: #2e8b57; /* Verde semelhante ao do exemplo */
+  background-color: #2e8b57;
   color: white;
   padding: 10px 20px;
   border: none;

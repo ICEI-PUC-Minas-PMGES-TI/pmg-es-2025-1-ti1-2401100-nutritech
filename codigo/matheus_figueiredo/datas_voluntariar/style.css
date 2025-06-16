@@ -16,7 +16,6 @@ body {
     min-height: 100vh;
 }
 
-/* Cabeçalho */
 header {
     background: linear-gradient(to right, #8cbf58, #a8c66c);
     display: flex;
@@ -36,7 +35,6 @@ header {
     margin-right: 10px;
 }
 
-/* Container principal */
 main {
     max-width: 800px;
     margin: 80px auto;
@@ -46,16 +44,14 @@ main {
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     text-align: center;
 
-    flex: 1; /* Faz o main crescer para ocupar o espaço */
+    flex: 1;
 }
 
-/* Título */
 h2 {
     font-size: 2rem;
     margin-bottom: 30px;
 }
 
-/* Formulário */
 form {
     display: flex;
     flex-direction: column;

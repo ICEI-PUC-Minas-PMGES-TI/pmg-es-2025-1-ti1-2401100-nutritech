@@ -1,0 +1,126 @@
+
+
+.container { 
+    width: 90%;
+    max-width: 1200px; 
+    margin: 20px auto; 
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    flex-grow: 1;
+}
+
+.container h1 {
+    color: #333; 
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+#ongsTable {
+    width: 100%; 
+    margin-top: 20px;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+
+#ongsTable thead th {
+    background-color: #e9ecef;
+    color: #495057; 
+    font-weight: 600; 
+    text-align: left; 
+    padding: 12px 15px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+#ongsTable tbody tr {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+#ongsTable tbody tr:last-child {
+    border-bottom: none;
+}
+
+#ongsTable tbody tr:hover {
+    background-color: #f8f9fa; 
+    transition: background-color 0.2s ease-in-out;
+}
+
+#ongsTable td {
+    vertical-align: middle; 
+    padding: 12px 15px;
+    color: #555;
+}
+
+
+.ong-table-img {
+    width: 60px; 
+    height: 60px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #eee; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);}
+
+
+#ongsTable .text-center td {
+    padding: 20px;
+    color: #777;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 1.8em;
+    }
+    #ongsTable thead {
+        display: none;
+    }
+    #ongsTable, #ongsTable tbody, #ongsTable tr, #ongsTable td {
+        display: block;
+        width: 100%;
+    }
+    #ongsTable tr {
+        margin-bottom: 15px;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+    }
+    #ongsTable td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid #eee;
+    }
+    #ongsTable td:last-child {
+        border-bottom: none;
+    }
+    #ongsTable td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+    .ong-table-img {
+        width: 50px;
+        height: 50px;
+        float: right;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 1.5em;
+    }
+    #ongsTable td {
+        padding-left: 40%;
+    }
+    #ongsTable td::before {
+        width: calc(40% - 20px);
+    }
+}

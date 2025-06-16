@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ranking Mensal</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/css/base.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet" />
-  <link href="assets/css/ranking.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONGS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/ongs.css">
 </head>
-<body>
-  
-    <header class="d-flex align-items-center p-3 bg-light position-relative">
+<body> 
+    <header>
         <a href="/public/index.html" class="d-flex align-items-center position-relative z-2"> 
             <img src="/public/assets/images/logo.png" alt="Logo" class="logo me-3"> 
             <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
@@ -42,42 +39,44 @@
         </div>
     </header>
 
+    <main class="container mt-4">
+        <h1 class="mb-4 text-center">Nossas ONGs Parceiras</h1>
+        <div class="table-responsive">
+            <table class="table table-hover" id="ongsTable">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col" style="width: 10%;" aria-label="Imagem da ONG"></th> 
+                        <th scope="col" style="width: 25%;">Nome da ONG</th>
+                        <th scope="col">Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
-  <main class="container my-5">
-    <div class="text-center mb-4">
-      <h3 class="display-5" style="color: #4CAF50;">Ranking Mensal</h3>
-    </div>
+        <footer> 
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left text-center text-md-start">
+                <h3 class="mb-2">Local</h3>
+                <p>Belo Horizonte</p>
+            </div>
 
-    <ul id="ranking-list" class="list-unstyled">
-      
-    </ul>
-    <div class="text-center mt-4">
-      <a href="badge.html" class="btn btn-success">Ver Elos</a>
-    </div>
-  </main>
+            <div class="footer-center text-center">
+                <p>© 2025 NutriTech</p>
+            </div>
 
-
-  <footer class="py-4" style="background-color: #4CAF50; color: white;">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div class="footer-left text-center text-md-start">
-        <h3 class="mb-2">Local</h3>
-        <p>Belo Horizonte</p>
-      </div>
-
-      <div class="footer-center text-center">
-        <p>© 2025 NutriTech</p>
-      </div>
-
-      <div class="footer-right text-center text-md-end">
-        <h3 class="mb-2">Contato</h3>
-        <p class="mb-1">(31) 9999-6666</p>
-        <p>nutritech@pucminas.com.br</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/ranking.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="assets/js/login.js"></script>
+            <div class="footer-right text-center text-md-end">
+                <h3 class="mb-2">Contato</h3>
+                <p class="mb-1">(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
+        </div>
+    </footer>
+    
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="assets/js/login.js"></script>
+<script src="assets/js/ongs.js"></script>
 </html>

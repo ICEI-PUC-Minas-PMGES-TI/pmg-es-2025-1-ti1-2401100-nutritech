@@ -11,10 +11,22 @@
 
 const LOGIN_URL = "/public/modulos/login/login.html";
 const RETURN_URL = "/public/index.html";
-const API_URL = 'http://localhost:3001/usuarios';
+const USER_PROFILE_URL = "/public/perfil_usuario.html";
+const ONG_PROFILE_URL = "/public/perfildaong.html";
+
+
+if (typeof window.API_URL === 'undefined') {
+  window.API_URL = 'http://localhost:3001/usuarios';
+}
+
+if (typeof window.ONGS_API_URL === 'undefined') {
+  window.ONGS_API_URL = 'http://localhost:3001/ongs'; 
+}
+
 const LOGIN_PAGE_FILENAME = "login.html";
 
 var db_usuarios = { usuarios: [] };
+var db_ongs = { ongs: [] }; 
 var usuarioCorrente = {};
 
 
@@ -38,6 +50,29 @@ function initLoginApp () {
             }
         } 
     });
+}
+
+
+async function carregarOngs() {
+    try {
+        const response = await fetch(window.ONGS_API_URL);
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json();
+        if (Array.isArray(data)) {
+            db_ongs = { ongs: data };
+        } else if (data && Array.isArray(data.ongs)) {
+             db_ongs = data;
+        } else {
+            console.error("ONG data from API is not in expected format:", data);
+            db_ongs = { ongs: [] };
+        }
+    } catch (error) {
+        console.error('Error loading ONGs via API:', error);
+        db_ongs = { ongs: [] }; 
+        throw error; 
+    }
 }
 
 function loadCurrentUserFromSession() {
@@ -78,6 +113,11 @@ async function handleLoginSubmit(event) {
         if (!db_usuarios || !db_usuarios.usuarios || db_usuarios.usuarios.length === 0) {
             await carregarUsuarios();
         }
+        if (!db_ongs || !db_ongs.ongs || db_ongs.ongs.length === 0) {
+            await carregarOngs().catch(error => {
+                console.warn("Could not load ONG data during login attempt:", error);
+            });
+        }
 
         if (await authenticateUser(login, senha)) {
             const absoluteRedirectUrl = window.location.origin + RETURN_URL;
@@ -93,32 +133,59 @@ async function handleLoginSubmit(event) {
 
 
 async function authenticateUser(login, senha) {
-    if (!db_usuarios || !db_usuarios.usuarios) {
-        console.error("User database (db_usuarios.usuarios) is not available for authentication.");
+
+    if (!db_ongs || !db_ongs.ongs || db_ongs.ongs.length === 0) { 
+        console.warn("ONG database (db_ongs.ongs) is not available or empty. Attempting to load.");
+        try {
+            await carregarOngs();
+            if (!db_ongs || !db_ongs.ongs || db_ongs.ongs.length === 0) {
+                console.error("Failed to load ONG data or ONG data is empty after attempt during authentication.");
+            }
+        } catch (error) {
+            console.error("Error loading ONGs during authentication attempt:", error);
+        }
+    }
+
+    if (db_ongs && db_ongs.ongs && db_ongs.ongs.length > 0) {
+        const ong = db_ongs.ongs.find(o => o.login === login);
+        if (ong && ong.senha === senha) {
+            usuarioCorrente = { ...ong, type: 'ong' };
+            try {
+                sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
+            } catch (e) {
+                console.error("Error saving ONG session to sessionStorage:", e);
+            }
+            updateHeaderUI();
+            return true;
+        }
+    }
+
+    if (!db_usuarios || !db_usuarios.usuarios || db_usuarios.usuarios.length === 0) { 
+        console.warn("User database (db_usuarios.usuarios) is not available or empty. Attempting to load.");
         try {
             await carregarUsuarios();
-            if (!db_usuarios || !db_usuarios.usuarios) {
-                console.error("Failed to load user data after retry during authentication.");
-                return false;
+            if (!db_usuarios || !db_usuarios.usuarios || db_usuarios.usuarios.length === 0) {
+                console.error("Failed to load user data or user data is empty after attempt during authentication.");
             }
         } catch (error) {
             console.error("Error loading users during authentication attempt:", error);
-            return false;
         }
     }
 
-    const user = db_usuarios.usuarios.find(u => u.login === login);
-
-    if (user && user.senha === senha) {
-        usuarioCorrente = user;
-        try {
-            sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
-        } catch (e) {
-            console.error("Error saving user session to sessionStorage:", e);
+    if (db_usuarios && db_usuarios.usuarios && db_usuarios.usuarios.length > 0) {
+        const user = db_usuarios.usuarios.find(u => u.login === login);
+        if (user && user.senha === senha) {
+            usuarioCorrente = { ...user, type: 'user' };
+            try {
+                sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
+            } catch (e) {
+                console.error("Error saving user session to sessionStorage:", e);
+            }
+            updateHeaderUI();
+            return true;
         }
-        updateHeaderUI();
-        return true;
     }
+
     return false;
 }
 
@@ -130,7 +197,7 @@ function logoutUser () {
 
 async function carregarUsuarios() {
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(window.API_URL);
         if (!response.ok) {
             throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
         }
@@ -152,25 +219,101 @@ async function carregarUsuarios() {
 }
 
 
+function displayMessage(message) {
+    alert(message);
+}
+
+function profileLinkHandler(e) {
+    e.preventDefault();
+    if (usuarioCorrente && usuarioCorrente.type) {
+        let profileUrl = '';
+        if (usuarioCorrente.type === 'ong') {
+            profileUrl = ONG_PROFILE_URL;
+        } else if (usuarioCorrente.type === 'user') {
+            profileUrl = USER_PROFILE_URL;
+        }
+
+        if (profileUrl) {
+            window.location.href = window.location.origin + profileUrl;
+        }
+    }
+}
+
 function updateHeaderUI() {
     const userDropdownContainer = document.getElementById('userDropdownContainer');
-    const userSection = document.getElementById('userSection'); // Changed from authButtonsContainer
+    const userSection = document.getElementById('userSection');
     const userNameDisplay = document.getElementById('userNameDisplay');
+    const userImageDisplay = document.getElementById('userImageDisplay');
     const logoutLink = document.getElementById('logoutLink');
+    const dropdownProfileLink = document.getElementById('dropdownProfileLink');
 
     if (isUserLoggedIn()) {
         if (userDropdownContainer) userDropdownContainer.classList.remove('d-none');
-        if (userSection) userSection.classList.add('d-none'); // Changed from authButtonsContainer
-        if (userNameDisplay) userNameDisplay.textContent = usuarioCorrente.nome || usuarioCorrente.login;
-        if (logoutLink) {
-            logoutLink.removeEventListener('click', logoutUser); 
-            logoutLink.addEventListener('click', logoutUser);
+        if (userSection) userSection.classList.add('d-none');
+        
+        let determinedProfileUrl = USER_PROFILE_URL;
+        if (usuarioCorrente && usuarioCorrente.type === 'ong') {
+            determinedProfileUrl = ONG_PROFILE_URL;
+        }
+
+        if (userNameDisplay) {
+            if (usuarioCorrente.type === 'ong') {
+                userNameDisplay.textContent = usuarioCorrente.nome_fantasia || 'ONG';
+            } else {
+                userNameDisplay.textContent = usuarioCorrente.nome || 'Usuário';
+            }
+            if (userNameDisplay.getAttribute('data-profile-listener-attached')) {
+                userNameDisplay.removeEventListener('click', profileLinkHandler);
+                userNameDisplay.removeAttribute('data-profile-listener-attached');
+            }
+            userNameDisplay.style.cursor = 'default'; 
+        }
+        
+        if (dropdownProfileLink) {
+            dropdownProfileLink.href = window.location.origin + determinedProfileUrl;
+            if (!dropdownProfileLink.getAttribute('data-profile-listener-attached')) {
+                dropdownProfileLink.addEventListener('click', profileLinkHandler);
+                dropdownProfileLink.setAttribute('data-profile-listener-attached', 'true');
+            }
+        }
+
+        if (userImageDisplay) {
+            if (usuarioCorrente.foto_perfil) {
+                userImageDisplay.src = usuarioCorrente.foto_perfil;
+            } else if (usuarioCorrente.fotoPerfil) {
+                userImageDisplay.src = usuarioCorrente.fotoPerfil;
+            } else {
+                userImageDisplay.src = (usuarioCorrente.type === 'ong') ? '/public/assets/images/default_ong_logo.png' : '/public/assets/images/usuario.png';
+            }
+        }
+
+        if (logoutLink && !logoutLink.getAttribute('data-listener-attached')) {
+            logoutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                logoutUser();
+            });
+            logoutLink.setAttribute('data-listener-attached', 'true');
         }
     } else {
         if (userDropdownContainer) userDropdownContainer.classList.add('d-none');
-        if (userSection) userSection.classList.remove('d-none'); // Changed from authButtonsContainer
-        if (logoutLink) {
-            logoutLink.removeEventListener('click', logoutUser);
+        if (userSection) userSection.classList.remove('d-none');
+        if (userNameDisplay) {
+            userNameDisplay.textContent = 'Usuário';
+            if (userNameDisplay.getAttribute('data-profile-listener-attached')) {
+                userNameDisplay.removeEventListener('click', profileLinkHandler);
+                userNameDisplay.removeAttribute('data-profile-listener-attached');
+            }
+            userNameDisplay.style.cursor = 'default';
+        }
+        if (dropdownProfileLink) {
+            dropdownProfileLink.href = '#';
+            if (dropdownProfileLink.getAttribute('data-profile-listener-attached')) {
+                dropdownProfileLink.removeEventListener('click', profileLinkHandler);
+                dropdownProfileLink.removeAttribute('data-profile-listener-attached');
+            }
+        }
+        if (userImageDisplay) {
+            userImageDisplay.src = '/public/assets/images/usuario.png';
         }
     }
 }
@@ -202,11 +345,6 @@ async function addUser (nome, login, senha, email) {
     }
 }
 
-
-
-function displayMessage(message) {
-    alert(message);
-}
 
 
 initLoginApp();

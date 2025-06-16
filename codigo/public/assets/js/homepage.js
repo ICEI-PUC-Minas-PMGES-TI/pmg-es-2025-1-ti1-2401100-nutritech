@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const img = document.createElement('img');
         img.src = ong.imagem || 'assets/images/placeholder.png';
-        img.alt = ong.name;
+        img.alt = ong.nome;
         img.style.width = '100px';
         img.style.height = '100px';
         img.style.borderRadius = '50%';
@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         img.style.marginRight = 'auto';
 
         const nameElement = document.createElement('p');
-        nameElement.textContent = ong.name;
-        nameElement.style.fontWeight = 'bold';
+        nameElement.textContent = ong.nome;
 
         col.appendChild(img);
         col.appendChild(nameElement);
@@ -48,9 +47,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     try {
-        const response = await fetch('assets/js/adição_ONGs.json');
+        const response = await fetch('http://localhost:3001/ongs');
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}, ao buscar adição_ONGs.json`);
+            throw new Error(`HTTP error! status: ${response.status}, ao buscar /ongs`);
         }
         const ongsArray = await response.json();
 
@@ -65,14 +64,35 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         if (processedOngs && processedOngs.length > 0) {
             row.innerHTML = '';
-            processedOngs.forEach(ong => {
-                if (ong.name && ong.imagem) {
-                    const cardElement = createOngCard(ong);
-                    row.appendChild(cardElement);
-                } else {
-                    console.warn('Dados da ONG incompletos (nome ou imagem faltando), pulando card:', ong);
+
+            let ongDataForCarousel = processedOngs.filter(ong => {
+                if (!ong.nome) {
+                    console.warn('ONG sem nome_fantasia, pulando card:', ong);
+                    return false;
                 }
+                return true;
             });
+
+            if (ongDataForCarousel.length > 0) {
+                let finalOngDataToRender = [...ongDataForCarousel];
+                const numVisibleItems = 3;
+
+                if (ongDataForCarousel.length > 0 && ongDataForCarousel.length < (numVisibleItems + 1)) {
+                    let currentUniqueIndex = 0;
+                    while (finalOngDataToRender.length < (numVisibleItems + 1) && finalOngDataToRender.length < 6) {
+                        finalOngDataToRender.push(ongDataForCarousel[currentUniqueIndex % ongDataForCarousel.length]);
+                        currentUniqueIndex++;
+                    }
+                }
+                
+                finalOngDataToRender.forEach(ongData => {
+                    const cardElement = createOngCard(ongData);
+                    row.appendChild(cardElement);
+                });
+
+            } else {
+                row.innerHTML = '<p class="text-center col-12">Nenhuma ONG com nome válido encontrada.</p>';
+            }
         } else {
             row.innerHTML = '<p class="text-center col-12">Nenhuma ONG participante encontrada.</p>';
         }
@@ -98,7 +118,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     let itemWidth = items[0].offsetWidth;
-    const transitionDuration = 500; // ms
+    const transitionDuration = 500;
     let isAnimating = false;
     const numVisibleItems = 3;
 
@@ -123,7 +143,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             row.style.transition = 'none';
             row.style.transform = 'translateX(0px)';
-            void row.offsetWidth; // Force reflow
+            void row.offsetWidth;
             row.style.transition = `transform ${transitionDuration / 1000}s ease-in-out`;
             isAnimating = false;
         }, transitionDuration);
@@ -140,7 +160,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         row.style.transition = 'none';
         row.style.transform = `translateX(-${itemWidth}px)`;
 
-        void row.offsetWidth; // Force reflow
+        void row.offsetWidth;
 
         requestAnimationFrame(() => {
             row.style.transition = `transform ${transitionDuration / 1000}s ease-in-out`;

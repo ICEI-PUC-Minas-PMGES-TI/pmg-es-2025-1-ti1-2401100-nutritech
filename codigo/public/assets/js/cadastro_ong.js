@@ -1,12 +1,7 @@
-
 document.addEventListener("DOMContentLoaded", function () {  
-
     const backButton = document.getElementById("back");  
-
     const form = document.querySelector("form");  
-
     const API_KEY = '5c44b3606f0c4083a694018d9e277792';
-
     async function geocodeAddress(addressString) {
         const url = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(addressString)}&apiKey=${API_KEY}`;
         try {
@@ -24,97 +19,126 @@ document.addEventListener("DOMContentLoaded", function () {
             return null;
         }
     }
-    
-
     form.addEventListener("submit", async function (event) { 
         event.preventDefault();
-        
         const formData = new FormData(form);  
         let formDataObject = {};  
         formData.forEach((value, key) => {  
             formDataObject[key] = value;  
         });  
-
-
-        const addressString = `${formDataObject.rua}, ${formDataObject.numero}, ${formDataObject.bairro}, ${formDataObject.cidade}, ${formDataObject.estado}, ${formDataObject.cep}`;
-
-        const coordinates = await geocodeAddress(addressString);
-
-
-        fetch("http://localhost:3001/ongs")
-            .then(response => response.json())
-            .then(async data => {
-                formDataObject.id = data.length + 1; 
-
-                formDataObject.endereco = {
-                    rua: formDataObject.rua,
-                    numero: formDataObject.numero,
-                    cidade: formDataObject.cidade,
-                    bairro: formDataObject.bairro,
-                    estado: formDataObject.estado,
-                    cep: formDataObject.cep,
-                    lat: coordinates ? coordinates.lat : null,
-                    lng: coordinates ? coordinates.lng : null 
-                };
-                delete formDataObject.rua;
-                delete formDataObject.numero;
-                delete formDataObject.cidade;
-                delete formDataObject.bairro;
-                delete formDataObject.estado;
-                delete formDataObject.cep;
-
-                formDataObject.contato = {
-                    telefone: formDataObject.telefone,
-                    email: formDataObject.email,
-                    website: formDataObject.website
-                };
-                delete formDataObject.telefone;
-                delete formDataObject.email;
-                delete formDataObject.website;
-
-                const tiposDoacao = [];
-                const alimentosCheckbox = document.getElementById("tipo_doacao_alimentos");
-                const dinheiroCheckbox = document.getElementById("tipo_doacao_dinheiro");
-
-                if (alimentosCheckbox && alimentosCheckbox.checked) {
-                    tiposDoacao.push(alimentosCheckbox.value);
-                }
-                if (dinheiroCheckbox && dinheiroCheckbox.checked) {
-                    tiposDoacao.push(dinheiroCheckbox.value);
-                }
-                formDataObject.tipos_doacao_aceitos = tiposDoacao;
-
-
-                formDataObject.familias_ajudadas = 0;
-                formDataObject.colaboradores_mensais = 0;
-                formDataObject.voluntarios = [];
-                formDataObject.data_ultima_ajuda = null;
-
-                fetch("http://localhost:3001/ongs", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(formDataObject)
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        return response.text().then(text => { throw new Error('Erro ao cadastrar ONG: ' + text); });
+        const imagemInput = form.imagem;
+        const processOngCadastro = async (imagemBase64 = null) => {
+            const addressString = `${formDataObject.rua}, ${formDataObject.numero}, ${formDataObject.bairro}, ${formDataObject.cidade}, ${formDataObject.estado}, ${formDataObject.cep}`;
+            const coordinates = await geocodeAddress(addressString);
+            fetch("http://localhost:3001/ongs")
+                .then(response => response.json())
+                .then(async data => {
+                    formDataObject.id = data.length > 0 ? Math.max(...data.map(ong => ong.id)) + 1 : 1;
+                    formDataObject.endereco = {
+                        logradouro: formDataObject.rua,
+                        numero: formDataObject.numero,
+                        cidade: formDataObject.cidade,
+                        bairro: formDataObject.bairro,
+                        estado: formDataObject.estado,
+                        cep: formDataObject.cep,
+                        lat: coordinates ? coordinates.lat : null,
+                        lng: coordinates ? coordinates.lng : null 
+                    };
+                    delete formDataObject.rua;
+                    delete formDataObject.numero;
+                    delete formDataObject.cidade;
+                    delete formDataObject.bairro;
+                    delete formDataObject.estado;
+                    delete formDataObject.cep;
+                    formDataObject.contato = {
+                        telefone: formDataObject.telefone,
+                        email: formDataObject.email,
+                        website: formDataObject.website
+                    };
+                    delete formDataObject.telefone;
+                    delete formDataObject.email;
+                    delete formDataObject.website;
+                    const tiposDoacao = [];
+                    const alimentosCheckbox = document.getElementById("tipo_doacao_alimentos");
+                    const dinheiroCheckbox = document.getElementById("tipo_doacao_dinheiro");
+                    if (alimentosCheckbox && alimentosCheckbox.checked) {
+                        tiposDoacao.push(alimentosCheckbox.value);
                     }
-                    return response.json();
+                    if (dinheiroCheckbox && dinheiroCheckbox.checked) {
+                        tiposDoacao.push(dinheiroCheckbox.value);
+                    }
+                    formDataObject.tipos_doacao_aceitos = tiposDoacao;
+                    formDataObject.imagem = imagemBase64;
+                    formDataObject.data_entrada = new Date().toISOString().split('T')[0];
+                    formDataObject.familias_ajudadas = 0;
+                    formDataObject.colaboradores_mensais = 0;
+                    formDataObject.voluntarios = [];
+                    formDataObject.data_ultima_ajuda = null;
+                    fetch("http://localhost:3001/ongs", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(formDataObject)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.text().then(text => { throw new Error('Erro ao cadastrar ONG: ' + text); });
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        alert("Cadastro realizado com sucesso!");
+                        form.reset();
+                    })
+                    .catch(error => {
+                        alert("Erro ao cadastrar ONG: " + error.message);
+                        console.error(error);
+                    });
                 })
-                .then(data => {
-                    alert("Cadastro realizado com sucesso!");
-                    form.reset();
-                })
-                .catch(error => {
-                    alert("Erro ao cadastrar ONG: " + error.message);
+                .catch(error => { 
+                    alert("Erro ao obter dados das ONGs para definir o ID: " + error.message);
                     console.error(error);
                 });
-            })
-            .catch(error => { 
-                alert("Erro ao obter dados das ONGs para definir o ID: " + error.message);
-                console.error(error);
-            });
+        };
+        if (imagemInput && imagemInput.files && imagemInput.files[0]) {
+            const file = imagemInput.files[0];
+            const reader = new FileReader();
+            const image = new Image();
+            image.onload = () => {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 400;
+                const MAX_HEIGHT = 400;
+                let width = image.width;
+                let height = image.height;
+                if (width > height) {
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                } else {
+                    if (height > MAX_HEIGHT) {
+                        width *= MAX_HEIGHT / height;
+                        height = MAX_HEIGHT;
+                    }
+                }
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(image, 0, 0, width, height);
+                const dataUrl = canvas.toDataURL('image/jpeg', 0.75);
+                processOngCadastro(dataUrl);
+                URL.revokeObjectURL(image.src);
+            };
+            image.onerror = () => {
+                console.error('Erro ao carregar a imagem da ONG para redimensionamento.');
+                alert('Erro ao processar a imagem da ONG. Tentando cadastrar sem imagem.');
+                processOngCadastro();
+                URL.revokeObjectURL(image.src);
+            };
+            image.src = URL.createObjectURL(file);
+        } else {
+            processOngCadastro();
+        }
     });  
 });

@@ -6,7 +6,7 @@ let userPositionMarker = null;
 
 function formatAddress(enderecoObj) {
     if (!enderecoObj) return 'Endereço não disponível';
-    return [enderecoObj.rua, enderecoObj.numero, enderecoObj.bairro, enderecoObj.cidade, enderecoObj.estado, enderecoObj.cep]
+    return [enderecoObj.logradouro, enderecoObj.numero, enderecoObj.bairro, enderecoObj.cidade, enderecoObj.estado, enderecoObj.cep]
            .filter(part => part)
            .join(', ');
 }
@@ -98,21 +98,43 @@ function initMap(ongs) {
     });
 
     ongs.forEach((ong) => {
-        let icon;
-        if (ong.tipos_doacao_aceitos && ong.tipos_doacao_aceitos.includes('dinheiro')) {
-            icon = iconDinheiro;
-        } else if (ong.tipos_doacao_aceitos && ong.tipos_doacao_aceitos.includes('alimentos')) {
-            icon = iconAlimento;
-        } 
-        else {
-            icon = window.L.Icon.Default ? new window.L.Icon.Default() : undefined;
-        }
+        if (ong.endereco && typeof ong.endereco.lat === 'number' && typeof ong.endereco.lng === 'number') {
+            let iconUrl;
+    
+            if (ong.tipos_doacao_aceitos && ong.tipos_doacao_aceitos.includes('dinheiro')) { 
+                iconUrl = 'assets/images/iconedinheiro.png';
+            } else if (ong.tipos_doacao_aceitos && ong.tipos_doacao_aceitos.includes('alimentos')) { 
+                iconUrl = 'assets/images/iconecomida.png';
+            } else if (ong.tipos_doacao_aceitos && ong.tipos_doacao_aceitos.includes('voluntarios')) {
+                iconUrl = 'assets/images/iconevoluntarios.png';
+            } else {
+                iconUrl = 'assets/images/default_marker.png'; 
+            }
 
-        const marker = window.L.marker([ong.endereco.lat, ong.endereco.lng], { icon })
-            .addTo(map)
-            .bindPopup('<strong>' + ong.nome + '</strong><br>' + formatAddress(ong.endereco));
-        
-        markers.push({ ...ong, marker }); 
+            const customIcon = new L.Icon({
+                iconUrl: iconUrl,
+                iconSize: [32, 40],
+                iconAnchor: [16, 40],
+                popupAnchor: [0, -40]
+            });
+
+            const marker = window.L.marker([ong.endereco.lat, ong.endereco.lng], { icon: customIcon }).addTo(map);
+            marker.ongData = ong;
+            
+            const ongName = ong.nome || "Nome da ONG não disponível"; 
+            const ongAddress = formatAddress(ong.endereco);
+            const ongDescription = ong.descricao || "Descrição não disponível";
+
+            marker.bindPopup(
+                `<b>${ongName}</b><br>` +
+                `${ongAddress}<br>` +
+                `<i>${ongDescription.substring(0, 100)}${ongDescription.length > 100 ? '...' : ''}</i><br>` +
+                `<a href="perfildaong.html?id=${ong.id}" target="_blank">Ver perfil</a>`
+            );
+            markers.push(marker);
+        } else {
+            console.warn('ONG ignorada por falta de coordenadas válidas:', ong);
+        }
     });
 
     if (navigator.geolocation) {
@@ -173,22 +195,22 @@ function updateOngListDisplay(filteredOngs) {
         return;
     }
 
-    filteredOngs.forEach(ong => {
-        const listItem = document.createElement('div');
-        listItem.classList.add('ong-list-item');
-
-        const link = document.createElement('a');
-        link.href = ong.contato && ong.contato.website ? ong.contato.website : '#';
-        link.textContent = ong.nome;
-        link.target = "_blank";
-
-        listItem.appendChild(link);
-
-        if (ong.distance !== undefined) {
-            const distanceText = document.createElement('span');
-            distanceText.textContent = ' - ' + ong.distance.toFixed(2) + ' km';
-            listItem.appendChild(distanceText);
+    filteredOngs.forEach(markerObj => {
+        const ongData = markerObj.ongData;
+        if (!ongData) {
+            console.warn("Dados da ONG não encontrados no marcador:", markerObj);
+            return; 
         }
+
+        const listItem = document.createElement('div');
+        listItem.className = 'ong-list-item';
+        
+        const ongDisplayName = ongData.nome || "Nome não disponível";
+
+        listItem.innerHTML = `
+            <h6>${ongDisplayName}</h6>
+            <a href="perfildaong.html?id=${ongData.id}" target="_blank">Ver perfil</a>
+        `;
         listContainer.appendChild(listItem);
     });
 }
@@ -206,32 +228,26 @@ function updateFilters() {
     let filteredOngs = [...markers]; 
 
     if (typeFilter !== "all") {
-        filteredOngs = filteredOngs.filter(ong => {
-            if (typeFilter === 'dinheiro' || typeFilter === 'alimentos') {
-                return ong.tipos_doacao_aceitos && ong.tipos_doacao_aceitos.includes(typeFilter);
-            } else if (typeFilter === 'voluntariado') {
-                return ong.voluntarios && ong.voluntarios.length > 0;
-            }
-            return false; 
+        filteredOngs = filteredOngs.filter(markerObj => {
+            return markerObj.ongData && markerObj.ongData.tipos_doacao_aceitos && markerObj.ongData.tipos_doacao_aceitos.includes(typeFilter);
         });
         console.log('ONGs após filtro de tipo (' + typeFilter + '):', filteredOngs.length);
     }
 
     if (userLocation) {
         console.log("Localização do usuário disponível:", userLocation);
-        filteredOngs = filteredOngs.map(ong => {
-            const distance = getDistance(userLocation, [ong.endereco.lat, ong.endereco.lng]);
-            return {
-                ...ong,
-                distance: distance
-            };
+        filteredOngs = filteredOngs.map(markerObj => {
+            if (!markerObj.ongData || !markerObj.ongData.endereco) {
+                console.warn("MarkerObj sem ongData ou endereço:", markerObj);
+                return { ...markerObj, distance: Infinity };
+            }
+            const ongCoords = [markerObj.ongData.endereco.lat, markerObj.ongData.endereco.lng];
+            const distance = getDistance(userLocation, ongCoords);
+            return { ...markerObj, distance: distance };
         });
 
         const ongsBeforeRadiusFilter = filteredOngs.length;
-        filteredOngs = filteredOngs.filter(ong => {
-            const isInRadius = ong.distance <= radius;
-            return isInRadius;
-        });
+        filteredOngs = filteredOngs.filter(markerObj => markerObj.distance <= radius);
         console.log('ONGs antes do filtro de raio: ' + ongsBeforeRadiusFilter + ', Após filtro de raio (' + radius + ' km):', filteredOngs.length);
 
         filteredOngs.sort((a, b) => a.distance - b.distance);

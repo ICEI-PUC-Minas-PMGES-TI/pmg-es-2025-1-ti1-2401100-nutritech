@@ -1,11 +1,9 @@
-
 .carousel-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px 0;
 }
-
 
 .carousel-container {
   width: calc(3 * 240px);  
@@ -16,18 +14,15 @@
   margin-bottom: 20px;
 }
 
-
 .carousel {
   position: relative;
   overflow: hidden;
 }
 
-
 .carousel-inner {
   display: flex;
   transition: transform 0.5s ease;
 }
-
 
 .carousel-item {
   min-width: 220px;
@@ -38,7 +33,6 @@
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
-
 
 .carousel-item img {
   width: 100px; height: 100px;
@@ -55,7 +49,6 @@
 .stars {
   color: #f5a623; font-size: 1.2em;
 }
-
 
 .carousel-button {
   position: absolute;
@@ -78,48 +71,3 @@
 }
 .prev { left: 5px; }
 .next { right: 5px; }
-.avaliacao-wrapper {
-  margin: 40px auto;
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
-  border-top: 1px solid #ccc;
-  text-align: center;
-}
-
-.avaliacao-wrapper h2 {
-  margin-bottom: 20px;
-}
-
-.avaliacao-wrapper form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-}
-
-.avaliacao-wrapper select,
-.avaliacao-wrapper button {
-  padding: 8px 12px;
-  font-size: 1em;
-  width: 60%;
-  max-width: 300px;
-}
-
-.avaliacao-wrapper button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.avaliacao-wrapper button:hover {
-  background-color: #45a049;
-}
-
-#mensagemAvaliacao {
-  margin-top: 15px;
-  color: green;
-  font-weight: bold;
-}

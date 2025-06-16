@@ -1,103 +1,81 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
+}
 
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+#ranking-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
 
 #ranking-list {
     list-style: none;
     padding: 0;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100%;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 22px;
-    font-family: 'Quicksand', sans-serif;
-    color: #ffffff;
+    font-size: 1.1em;
+    color: #333;
 }
 
 #ranking-list li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #a8dba8;
-    margin-bottom: 10px;
-    padding: 20px 40px;
-    border-radius: 30px;
-    font-size: 20px;
-    color: #ffffff;
-    font-weight: 700;
+    margin-bottom: 12px;
+    padding: 18px 30px;
+    border-radius: 15px;
+    font-size: 1em;
+    color: #004400;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 #ranking-list li strong {
     color: #004400;
-    margin-right: 10px;
-}
-
-#ranking-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-
-
-#ranking-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 30px;
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 22px;
-    font-family: 'Quicksand', sans-serif;
-    color: #ffffff;
-}
-
-#ranking-list li {
-    display: flex;
-    justify-content: space-between;
-    background-color: #a8dba8;
-    margin-bottom: 10px;
-    padding: 20px 40px;
-    border-radius: 30px;
-    font-size: 20px;
-    color: #ffffff;
+    margin-right: 15px;
     font-weight: 700;
-}
-
-#ranking-list li strong {
-    color: #004400;
-    margin-right: 10px;
-}
-
-#ranking-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 10px;
-    flex-wrap: wrap;
 }
 
 .badges-section {
-    padding: 40px 0;
+    padding: 30px 20px;
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .badges-section h3 {
-    font-size: 32px;
+    font-size: 1.8em;
     color: #4CAF50;
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .badges-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
@@ -105,38 +83,77 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 160px;
+    width: 150px;
     background-color: #f1fdf4;
-    padding: 20px;
-    border-radius: 16px;
-    transition: transform 0.3s;
+    padding: 15px;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .badge-item:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
 .badge-img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .badge-title {
-    font-size: 18px;
+    font-size: 1em;
     color: #333;
     font-weight: 600;
     text-align: center;
-    line-height: 1.4;
-}
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+    line-height: 1.3;
 }
 
-main {
-    flex: 1;
+@media (max-width: 768px) {
+    #ranking-list li {
+        padding: 15px 20px;
+        font-size: 0.95em;
+    }
+    .badges-section h3 {
+        font-size: 1.5em;
+    }
+    .badge-item {
+        width: 120px;
+    }
+    .badge-img {
+        width: 70px;
+        height: 70px;
+    }
+    .badge-title {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    #ranking-list li {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    #ranking-list li strong {
+        margin-right: 10px;
+    }
+    .badges-section h3 {
+        font-size: 1.3em;
+    }
+    .badge-item {
+        width: 100px;
+        padding: 10px;
+    }
+    .badge-img {
+        width: 60px;
+        height: 60px;
+    }
+    .badge-title {
+        font-size: 0.85em;
+    }
+    .badges-container {
+        gap: 15px;
+    }
 }

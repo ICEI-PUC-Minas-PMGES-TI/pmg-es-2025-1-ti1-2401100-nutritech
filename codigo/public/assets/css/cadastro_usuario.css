@@ -1,16 +1,13 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f7f7f7;
-    margin: 0;
-    padding: 0;
-}
+
 
 main {
     display: flex;
     justify-content: center;
-    align-items: flex-start; 
-    min-height: 80vh;
-    padding: 32px 0;
+    align-items: flex-start;
+    flex-grow: 1;
+    padding: 32px 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-section {
@@ -26,44 +23,43 @@ main {
     text-align: center;
     margin-bottom: 24px;
     color: #2d7a3e;
-    font-size: 1.5em;
+    font-size: 1.6em;
 }
 
 fieldset {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    margin-bottom: 18px;
-    padding: 16px;
+    margin-bottom: 20px;
+    padding: 20px;
 }
 
 legend {
     font-weight: bold;
     color: #2d7a3e;
-    padding: 0 8px;
-    font-size: 1.1em;
+    padding: 0 10px;
+    font-size: 1.15em;
 }
 
 .input-group {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .input-item {
     display: flex;
     flex-direction: column;
     flex: 1 1 calc(50% - 8px);
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .input-item.full-width {
     flex-basis: 100%;
 }
 
-
 .input-item label {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     font-weight: 500;
     color: #333;
     font-size: 0.9em;
@@ -80,12 +76,14 @@ legend {
     border-radius: 4px;
     font-size: 1em;
     background: #fafafa;
-    width: 100%; 
-    box-sizing: border-box; 
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .input-item select {
     appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 10px center;
@@ -97,13 +95,13 @@ legend {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin: 20px 0;
-    padding: 10px;
+    margin: 25px 0;
+    padding: 12px;
     background-color: #e8f5e9;
     border-radius: 8px;
 }
 
-.user-btn { 
+.user-btn {
     background-color: #81c784;
     color: white;
     border: none;
@@ -137,22 +135,27 @@ legend {
     text-transform: uppercase;
 }
 
-.submit-btn:hover, .submit-btn:focus {
+.submit-btn:hover,
+.submit-btn:focus {
     background: linear-gradient(90deg, #256632 60%, #43b06c 100%);
-    transform: translateY(-3px) scale(1.04);
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 12px 32px rgba(67, 176, 108, 0.22);
 }
 
 @media (max-width: 800px) {
     .form-section {
-        padding: 24px 16px; 
+        padding: 24px 16px;
+        max-width: 95vw;
     }
     .input-group {
         flex-direction: column;
-        gap: 0; 
+        gap: 0;
     }
     .input-item {
         flex-basis: 100%;
+    }
+    .form-section .form-title {
+        font-size: 1.4em;
     }
 }
 

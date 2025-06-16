@@ -14,32 +14,6 @@ main {
     padding: 20px;
 }
 
-
-.btn-nutritech-primary {
-    background-color: #5D8736;
-    border-color: #5D8736;
-    color: #fff;
-}
-
-.btn-nutritech-primary:hover {
-    background-color: #4A6F2A;
-    border-color: #4A6F2A;
-    color: #fff;
-}
-
-.btn-nutritech-secondary {
-    background-color: #ff7645;
-    border-color: #ff7645;
-    color: #fff;
-}
-
-.btn-nutritech-secondary:hover {
-    background-color: #E06030;
-    border-color: #E06030;
-    color: #fff;
-}
-
-/* Header  */
 .banner img {
     width: 100%;
 }
@@ -125,7 +99,6 @@ main {
     position: absolute;
 }
 
-/* Sobre Section */
 .sobre-nos {
     background-color: #e8f5e9;
     border-radius: 15px;
@@ -150,12 +123,10 @@ main {
     margin-top: 20px;
 }
 
-/* Doação Section */
 .doacao-btn {
     border-radius: 10px;
 }
 
-/* ONGs Carrossel Section */
 .ongs-participantes-title {
     color: #171718;
 }
@@ -214,7 +185,6 @@ main {
     left: auto;
 }
 
-/* Mapa Section */
 .filters {
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -233,79 +203,84 @@ main {
 
 .filters select {
     padding: 8px;
-    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
 }
 
 .filters label,
 .filters select,
 .filters input[type="checkbox"],
 .filters input[type="range"] {
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #radiusValue {
+    display: inline-block;
+    margin-left: 10px;
     font-weight: bold;
 }
 
 #map {
-    height: 400px;
+    height: 500px;
     width: 100%;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .legend-bottom {
-    margin-top: -0.5rem;
-    font-size: 0.9em;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .legend-bottom img {
+    height: 20px;
+    margin: 0 5px;
     vertical-align: middle;
 }
 
 .filter-legend-bg {
-    background-color: #e9ecef;
+    background-color: #f9f9f9;
+    border-radius: 8px;
     padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* ONGs (Mapa) */
 .ong-list-scrollable {
-    max-height: 400px;
+    max-height: 480px;
     overflow-y: auto;
     border: 1px solid #eee;
-    padding: 5px;
-    border-radius: 4px;
+    border-radius: 8px;
+    padding: 0;
+    background-color: #fff;
 }
 
 .ong-list-scrollable a {
-    font-size: 0.85em;
-    color: #ff7645;
+    text-decoration: none;
+    color: inherit;
 }
 
 .ong-list-scrollable a:hover {
-    text-decoration: underline !important;
+    background-color: #f0f0f0;
 }
 
 .ong-list-item {
+    padding: 10px 15px;
     border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .ong-list-item:last-child {
     border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
 }
 
-
 .vr {
-    background-color: currentColor;
-    opacity: 0.25;
-    width: 2px !important;
     align-self: stretch;
-    min-height: 100px;
+    background-color: currentColor;
+    display: inline-block;
+    min-height: 1em;
+    opacity: .25;
+    width: 1px;
 }
 
