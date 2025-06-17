@@ -241,7 +241,7 @@ function profileLinkHandler(e) {
         }
 
         if (profileUrl) {
-            window.location.href = profileUrl; // MODIFIED: Use relative path
+            window.location.href = profileUrl;
         }
     }
 }
@@ -289,15 +289,15 @@ function updateHeaderUI() {
                 if (usuarioCorrente.imagem) {
                     userImageDisplay.src = usuarioCorrente.imagem;
                 } else {
-                    userImageDisplay.src = 'assets/images/default_ong_logo.png'; // Default ONG image
+                    userImageDisplay.src = 'assets/images/default_ong_logo.png';
                 }
             } else { // For type 'user'
                 if (usuarioCorrente.foto_perfil) {
                     userImageDisplay.src = usuarioCorrente.foto_perfil;
-                } else if (usuarioCorrente.fotoPerfil) { // Fallback for user
+                } else if (usuarioCorrente.fotoPerfil) { 
                     userImageDisplay.src = usuarioCorrente.fotoPerfil;
                 } else {
-                    userImageDisplay.src = 'assets/images/usuario.png'; // Default user image
+                    userImageDisplay.src = 'assets/images/usuario.png'; 
                 }
             }
         }
