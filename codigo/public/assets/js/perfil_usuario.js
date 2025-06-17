@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('info-doador').innerHTML = '<p>Por favor, faça login para ver seus dados.</p>';
         document.getElementById('lista-doacoes').innerHTML = '<p>Por favor, faça login para ver suas doações.</p>';
         const fotoDoador = document.getElementById('foto-doador');
-        if (fotoDoador) fotoDoador.src = '/public/assets/images/usuario.png';
+        if (fotoDoador) fotoDoador.src = 'assets/images/usuario.png';
         const nomeUsuarioH1 = document.querySelector('.d-flex.justify-content-center.align-items-center.flex-column.mb-4 h1');
         if (nomeUsuarioH1) nomeUsuarioH1.textContent = 'Usuário Anônimo';
         return;
@@ -79,31 +79,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 userData.doacoes.forEach(item => {
                     const card = document.createElement('div');
                     card.className = 'card mb-3 shadow rounded-4';
-                    const infoDinheiro = `
-                    <strong>Recorrência:</strong> ${item.recorrencia === true ? 'Sim' : item.recorrencia === false ? 'Não' : 'Não informado'}<br>
-                    <strong>Comprovante:</strong> <a href="${item.comprovante || '#'}" target="_blank">Ver Comprovante</a><br>
-                    `;
-                    const infoOutros = `
-                    <strong>Quantidade:</strong> ${item.quantidade}<br>
-                    <strong>Entrega:</strong> ${item.entrega || 'Não informado'}<br>
-                    `;
+                    
+                    let categoria = 'Alimento';
+                    if (item.categoria && typeof item.categoria === 'string') { 
+                        categoria = item.categoria;
+                    }
+
+                    let recipientInfo = '';
+                    if (item.recipientOngNome) {
+                        recipientInfo = `<strong>Para:</strong> ${item.recipientOngNome}<br>`;
+                    }
+
+                    let categorySpecificInfo = '';
+                    if (categoria === 'Dinheiro') {
+                        categorySpecificInfo = `
+                        <strong>Recorrência:</strong> ${item.recorrencia === true ? 'Sim' : item.recorrencia === false ? 'Não' : 'Não informado'}<br>
+                        <strong>Comprovante:</strong> <a href="${item.comprovante || '#'}" target="_blank">Ver Comprovante</a><br>
+                        `;
+                    } else {
+                        categorySpecificInfo = `
+                        <strong>Quantidade:</strong> ${item.quantidade || 'N/A'}<br>
+                        `;
+                    }
+
                     card.innerHTML = `
                         <div class="card-body rounded-pill">
                             <h5 class="card-title">
-                            <a href="#" class="text-decoration-none">
-                                ${item.instituicao || 'Nome da Instituição não disponível'}
-                            </a>
+                                Doação de ${item.descricao || 'N/A'} <!-- Nome da Doação -->
                             </h5>
                             <p class="card-text">
-                            <strong>Data:</strong> ${item.data}<br>
-                            <strong>Descrição:</strong> ${item.descricao}<br>
-                            <strong>Categoria:</strong> ${item.categoria}<br>
-                            <strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(2)}<br>
-                            ${item.categoria === 'Dinheiro' ? infoDinheiro : infoOutros}
+                            ${recipientInfo}
+                            <strong>Data:</strong> ${item.data || 'N/A'}<br>
+                            <strong>Categoria:</strong> ${categoria}<br>
+                            <strong>Valor Estimado:</strong> R$ ${(parseFloat(item.valor) || 0).toFixed(2)}<br>
+                            ${categorySpecificInfo}
                             <strong>Status:</strong> ${item.status || 'Concluído'}<br>
                             </p>
                             <button class="btn btn-doar-novamente btn-verde rounded-pill justify-content-center align-items-center" data-doacao='${JSON.stringify(item)}'>
-                            Doar novamente
+                            Doar novamente para ${item.recipientOngNome || 'esta causa'}
                             </button>
                         </div>
                         `;
@@ -119,12 +132,30 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('lista-doacoes').innerHTML = '<p>Erro ao carregar doações. Verifique o console.</p>';
         });
 });
+
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('btn-doar-novamente')) {
-      const doacao = JSON.parse(e.target.getAttribute('data-doacao'));
-      alert(`Você está doando: ${doacao.descricao} para ${doacao.instituicao || 'a instituição'}`);
+      const doacaoString = e.target.getAttribute('data-doacao');
+      try {
+        const doacao = JSON.parse(doacaoString);
+        if (doacao && doacao.recipientOngId) {
+            if (!isUserLoggedIn()) {
+                alert("Por favor, faça login para doar novamente.");
+                redirectToLogin();
+                return;
+            }
+            window.location.href = `cadastro_doacao.html?ongId=${doacao.recipientOngId}`;
+        } else {
+            console.error('Dados da doação ou ID da ONG destinatária ausentes:', doacao);
+            alert('Não foi possível identificar a ONG para doação. Dados incompletos.');
+        }
+      } catch (error) {
+        console.error('Erro ao processar dados da doação para doar novamente:', error);
+        alert('Ocorreu um erro ao tentar processar sua solicitação de doação.');
+      }
     }
 });
+
 document.getElementById('gerenciar-recorrencia').addEventListener('click', function () {
     if (!isUserLoggedIn()) {
         alert("Por favor, faça login para gerenciar suas doações recorrentes.");
@@ -164,7 +195,8 @@ if(novaDoacaoButton) {
             redirectToLogin();
             return;
         }
-        window.location.href = '/public/cadastro_doacao.html';
+        // Redirect to ongs.html
+        window.location.href = 'ongs.html'; 
     });
 }
 

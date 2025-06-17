@@ -63,6 +63,23 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
                 window.location.href = `/public/dashboard_ong.html?id=${ongId}`;
             };
         }
+    } else {
+        const primaryButton = document.getElementById('primaryActionButton');
+        const secondaryButton = document.getElementById('secondaryActionButton');
+
+        if (primaryButton) {
+            primaryButton.textContent = 'Doar Dinheiro'; 
+            primaryButton.onclick = function() {
+                alert('Funcionalidade de doar dinheiro ainda não implementada.');
+            };
+        }
+
+        if (secondaryButton) {
+            secondaryButton.textContent = 'Doar Alimento';
+            secondaryButton.onclick = function() {
+                window.location.href = `cadastro_doacao.html?ongId=${ongId}`;
+            };
+        }
     }
     const imgElement = document.getElementById('ongProfilePic');
     if (imgElement && data.imagem) {

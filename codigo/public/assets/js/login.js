@@ -277,7 +277,7 @@ function updateHeaderUI() {
         }
         
         if (dropdownProfileLink) {
-            dropdownProfileLink.href = determinedProfileUrl; // MODIFIED: Use relative path
+            dropdownProfileLink.href = determinedProfileUrl;
             if (!dropdownProfileLink.getAttribute('data-profile-listener-attached')) {
                 dropdownProfileLink.addEventListener('click', profileLinkHandler);
                 dropdownProfileLink.setAttribute('data-profile-listener-attached', 'true');
@@ -328,7 +328,7 @@ function updateHeaderUI() {
             }
         }
         if (userImageDisplay) {
-            userImageDisplay.src = '/assets/images/usuario.png';
+            userImageDisplay.src = 'assets/images/usuario.png';
         }
     }
 }

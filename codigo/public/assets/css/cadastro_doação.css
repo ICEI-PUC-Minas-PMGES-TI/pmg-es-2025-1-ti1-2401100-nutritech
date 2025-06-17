@@ -16,7 +16,6 @@ main .col-md-6 {
 }
 
 main h1 {
-    text-align: left;
     font-size: 2rem;
     color: #368758;
     font-family: 'ABeeZee', sans-serif;
@@ -25,7 +24,6 @@ main h1 {
 form {
     width: 100%;
     max-width: 400px; 
-    margin-left: 0; 
 }
 
 form select {
@@ -52,4 +50,10 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: #2a6b46;
+}
+
+
+#cards-container {
+    max-height: 570px;
+    overflow-y: auto; 
 }
