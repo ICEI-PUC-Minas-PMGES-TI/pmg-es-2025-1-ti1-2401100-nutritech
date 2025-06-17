@@ -9,10 +9,10 @@
 //
 // Código LoginApp  
 
-const LOGIN_URL = "/public/modulos/login/login.html";
-const RETURN_URL = "/public/index.html";
-const USER_PROFILE_URL = "/public/perfil_usuario.html";
-const ONG_PROFILE_URL = "/public/perfildaong.html";
+const LOGIN_URL = "login.html";
+const RETURN_URL = "index.html";
+const USER_PROFILE_URL = "perfil_usuario.html";
+const ONG_PROFILE_URL = "perfildaong.html";
 
 
 if (typeof window.API_URL === 'undefined') {
@@ -29,6 +29,11 @@ var db_usuarios = { usuarios: [] };
 var db_ongs = { ongs: [] }; 
 var usuarioCorrente = {};
 
+if (typeof displayMessage === 'undefined') {
+  function displayMessage(message) {
+    alert(message);
+  }
+}
 
 function initLoginApp () {
     loadCurrentUserFromSession();
@@ -36,17 +41,24 @@ function initLoginApp () {
     document.addEventListener('DOMContentLoaded', function () {
         updateHeaderUI();
         
-        const currentPagePath = window.location.pathname;
+        const pathSegments = window.location.pathname.split('/');
+        const currentPageFile = pathSegments.pop() || pathSegments.pop();
 
-        if (currentPagePath === LOGIN_URL) {
+        if (currentPageFile === LOGIN_PAGE_FILENAME) {
             carregarUsuarios().catch(error => {
                 console.error("Error loading users on login page:", error);
-                displayMessage("Falha ao carregar dados necessários para login. Tente recarregar a página.");
+                displayMessage("Falha ao carregar dados de usuários. Tente recarregar a página.");
+            });
+            carregarOngs().catch(error => {
+                console.warn("Could not load ONG data on login page init:", error);
             });
 
             const loginForm = document.getElementById('loginForm');
             if (loginForm) {
                 loginForm.addEventListener('submit', handleLoginSubmit);
+            } else {
+                console.error("Login form with id 'loginForm' not found on login page.");
+                displayMessage("Erro crítico: Formulário de login não encontrado. Contacte o suporte.");
             }
         } 
     });
@@ -115,19 +127,18 @@ async function handleLoginSubmit(event) {
         }
         if (!db_ongs || !db_ongs.ongs || db_ongs.ongs.length === 0) {
             await carregarOngs().catch(error => {
-                console.warn("Could not load ONG data during login attempt:", error);
+                console.warn("Could not load ONG data during login attempt in handleLoginSubmit:", error);
             });
         }
 
         if (await authenticateUser(login, senha)) {
-            const absoluteRedirectUrl = window.location.origin + RETURN_URL;
-            window.location.href = absoluteRedirectUrl;
+            window.location.href = RETURN_URL;
         } else {
             displayMessage("Login ou senha inválidos!");
         }
     } catch (error) {
         console.error("Error during handleLoginSubmit:", error);
-        displayMessage("Ocorreu um erro ao tentar fazer login. Verifique o console para detalhes.");
+        displayMessage("Ocorreu um erro ao tentar fazer login. Verifique o console para detalhes ou tente novamente.");
     }
 }
 
@@ -219,10 +230,6 @@ async function carregarUsuarios() {
 }
 
 
-function displayMessage(message) {
-    alert(message);
-}
-
 function profileLinkHandler(e) {
     e.preventDefault();
     if (usuarioCorrente && usuarioCorrente.type) {
@@ -234,7 +241,7 @@ function profileLinkHandler(e) {
         }
 
         if (profileUrl) {
-            window.location.href = window.location.origin + profileUrl;
+            window.location.href = profileUrl; // MODIFIED: Use relative path
         }
     }
 }
@@ -270,7 +277,7 @@ function updateHeaderUI() {
         }
         
         if (dropdownProfileLink) {
-            dropdownProfileLink.href = window.location.origin + determinedProfileUrl;
+            dropdownProfileLink.href = determinedProfileUrl; // MODIFIED: Use relative path
             if (!dropdownProfileLink.getAttribute('data-profile-listener-attached')) {
                 dropdownProfileLink.addEventListener('click', profileLinkHandler);
                 dropdownProfileLink.setAttribute('data-profile-listener-attached', 'true');
@@ -278,12 +285,20 @@ function updateHeaderUI() {
         }
 
         if (userImageDisplay) {
-            if (usuarioCorrente.foto_perfil) {
-                userImageDisplay.src = usuarioCorrente.foto_perfil;
-            } else if (usuarioCorrente.fotoPerfil) {
-                userImageDisplay.src = usuarioCorrente.fotoPerfil;
-            } else {
-                userImageDisplay.src = (usuarioCorrente.type === 'ong') ? '/public/assets/images/default_ong_logo.png' : '/public/assets/images/usuario.png';
+            if (usuarioCorrente.type === 'ong') {
+                if (usuarioCorrente.imagem) {
+                    userImageDisplay.src = usuarioCorrente.imagem;
+                } else {
+                    userImageDisplay.src = 'assets/images/default_ong_logo.png'; // Default ONG image
+                }
+            } else { // For type 'user'
+                if (usuarioCorrente.foto_perfil) {
+                    userImageDisplay.src = usuarioCorrente.foto_perfil;
+                } else if (usuarioCorrente.fotoPerfil) { // Fallback for user
+                    userImageDisplay.src = usuarioCorrente.fotoPerfil;
+                } else {
+                    userImageDisplay.src = 'assets/images/usuario.png'; // Default user image
+                }
             }
         }
 
@@ -313,7 +328,7 @@ function updateHeaderUI() {
             }
         }
         if (userImageDisplay) {
-            userImageDisplay.src = '/public/assets/images/usuario.png';
+            userImageDisplay.src = '/assets/images/usuario.png';
         }
     }
 }

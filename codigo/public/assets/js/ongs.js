@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const row = document.createElement('tr');
                 row.style.cursor = 'pointer';
                 row.addEventListener('click', () => {
-                    window.location.href = `/public/perfildaong.html?id=${ong.id}`;
+                    window.location.href = `perfildaong.html?id=${ong.id}`;
                 });
 
                 const imgCell = document.createElement('td');
