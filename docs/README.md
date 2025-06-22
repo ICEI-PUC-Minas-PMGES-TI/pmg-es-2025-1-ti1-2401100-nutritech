@@ -9,7 +9,6 @@ Informações básicas do projeto.
   * [Artur Neves](https://github.com/Nevez6)
   * [Arthur Vieira](https://github.com/arthurvieiralopes)
   * [Guilherme Pereira](https://github.com/GuilhermePBittencourt)
-  * [Kathleen Lorrayne](https://github.com/KathleenLorrayne01)
   * [Larissa Monção](https://github.com/LarissaMoncao)
   * [Matheus Figueiredo](https://github.com/matheusfigueiredo12)
   * [Lucas Duarte](https://github.com/caslulu)
@@ -264,6 +263,58 @@ Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
 ![Tela de Funcionalidade](images/exemplo-funcionalidade.png)
 
+##### Funcionalidade 2 - Gestão de Voluntários
+
+Permite às Ongs a gestão e atribuição de tarefas aos voluntários
+
+* **Estrutura de dados:** Voluntários
+* **Instruções de acesso:**
+  * Abra o site e efetue o login como ong
+  * Acesse o dashboard da ong 
+  * Em seguida, selecione a opção "Gestão de Voluntários"
+* **Tela da funcionalidade**:
+
+![Tela de Funcionalidade](images/gestao-de-voluntarios.jpeg)
+
+##### Funcionalidade 3 - Solicitação de Necessidades 
+
+Permite à Ong solicitar os alimentos necessários para os doadores
+
+* **Estrutura de dados:** Solicitação de Necessidades
+* **Instruções de acesso:**
+  * Abra o site e efetue o login como ong
+  * Acesse o dashboard da ong
+  * Em seguida, selecione a opção "Solicitação de Necessidades"
+* **Tela da funcionalidade**:
+
+![Tela de Funcionalidade](images/solicitacao-necessidades.jpeg)
+
+##### Funcionalidade 4 - Gestão de Doações Recorrentes 
+
+Permite ao usuário acessar suas doações recorrentes
+
+* **Estrutura de dados:** Doações Recorrentes
+* **Instruções de acesso:**
+  * Abra o site e efetue o login como usuário
+  * Acesse o menu principal e escolha a opção "Perfil de Usuário"
+  * Em seguida, escolha a opção "Doações Recorrentes"
+* **Tela da funcionalidade**:
+
+![Tela de Funcionalidade](images/gestao-recorrencia.jpeg)
+
+##### Funcionalidade 5 - Agendamento de Voluntariado 
+
+Permite ao usuário voluntário agendar um serviço
+
+* **Estrutura de dados:** Agendamento
+* **Instruções de acesso:**
+  * Abra o site e efetue o login como usuário voluntário
+  * Acesse o menu principal e escolha a opção "Perfil de Usuário"
+  * Em seguida, escolha a opção "Agendar Voluntariado"
+* **Tela da funcionalidade**:
+
+![Tela de Funcionalidade](images/agendamento-voluntariado.jpeg)
+
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
 >
 > Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.
@@ -274,35 +325,52 @@ Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
 
-##### Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Contatos
 
 Contatos da aplicação
 
 ```json
   {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
+  "usuarios": [
+    {
+      "nome": "Lucas Duarte",
+      "email": "lucasbatistasuarte@gmail.com",
+      "login": "LucasDuarte",
+      "cpf": "12345678910",
+      "senha": "123456",
+      "telefone": "319821782222",
+      "endereco": {
+        "logradouro": "Rua rio alfa 258",
+        "numero": null,
+        "bairro": "Bairro das Graças",
+        "cidade": "Belo Horizonte",
+        "estado": "Minas Gerais",
+        "cep": "32280321"
+      },
+      "dataNascimento": "2025-06-17",
+      "genero": "masculino",
+      "fotoPerfil": "data:image/jpeg;",
+      "doacoes": [
+      ],
+      "id": 1
+    }
+  ]
   }
   
 ```
 
-##### Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Usuários
 
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
 
 ```json
   {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
+    "nome": "Lucas Duarte",
+    "email": "lucasbatistasuarte@gmail.com",
+    "login": "LucasDuarte",
+    "cpf": "12345678910",
+    "senha": "123456",
+    "id": 1,
   }
 ```
 
@@ -323,16 +391,16 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 **Images**:
 
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
+* Font Awesome - [https://fontawesome.com](https://fontawesome.com)
 
 **Fonts:**
 
-* Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
+* Google Fonts - [https://fonts.google.com](https://fonts.google.com)
 
 **Scripts:**
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
+* Unpkg Mask - [https://unpkg.com](https://unpkg.com)
+* Bootstrap 5 - [http://getbootstrap.com/](http://getbootstrap.com/)
 
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
 >
