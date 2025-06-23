@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'ABeeZee', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+    background-color: #f4f6fc; /* Fundo suave */
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    background: rgb(247, 247, 247);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.form-left,
+.form-right {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #368758;
+    outline: none;
+}
+
+button {
+    background: linear-gradient(to right, #368758, #8EC46C);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, margin 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+button:hover {
+    background: #2e6b4a;
+}
+
+/* Botões inline como "Registrar" */
+.btn-inline {
+    background: transparent;
+    color: #368758;
+    text-decoration: underline;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}
+
+.btn-inline:hover {
+    color: #2e6b4a;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #368758;
+    font-weight: 600;
+}
+
+/* Estilo do modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #368758;
+}
+
+.close-btn {
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #368758;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Garante que inputs tenham tamanho adequado */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: #368758;
+  outline: none;
+}
+
+/* Botões funcionais e responsivos */
+button {
+  background: linear-gradient(to right, #368758, #8EC46C);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background: #2e6b4a;
+  transform: scale(1.02);
+}
+
+.btn-inline {
+  background: transparent;
+  color: #368758;
+  text-decoration: underline;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-inline:hover {
+  color: #2e6b4a;
+}
+
+.modal .btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+.modal .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.modal .btn-success {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.modal .btn-success:hover {
+  background-color: #1e7e34;
+}
