@@ -237,7 +237,25 @@
       ],
       "familias_ajudadas": 15,
       "colaboradores_mensais": 0,
-      "voluntarios": [],
+      "voluntarios": [
+        {
+          "id": 1,
+          "diasTurnos": {
+            "segunda": [
+              "manha"
+            ],
+            "terca": [
+              "tarde"
+            ],
+            "quarta": [
+              "noite"
+            ]
+          },
+          "areasInteresse": [
+            "Distribuição de Alimentos"
+          ]
+        }
+      ],
       "data_ultima_ajuda": null,
       "doacoes": [
         {
