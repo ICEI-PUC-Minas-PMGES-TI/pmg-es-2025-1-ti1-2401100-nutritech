@@ -38,19 +38,22 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
     document.getElementById('email').textContent = data.email || 'Email não disponível';
     const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
     let isOwner = false;
+    let isUser = false;
     if (usuarioCorrenteJSON) {
         try {
             const usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
             if (usuarioCorrente && usuarioCorrente.type === 'ong' && usuarioCorrente.id.toString() === ongId.toString()) {
                 isOwner = true;
+            } else if (usuarioCorrente && usuarioCorrente.type === 'user') {
+                isUser = true;
             }
         } catch (e) {
             console.error("Error parsing usuarioCorrente from sessionStorage for button update:", e);
         }
     }
+    const primaryButton = document.getElementById('primaryActionButton');
+    const secondaryButton = document.getElementById('secondaryActionButton');
     if (isOwner) {
-        const primaryButton = document.getElementById('primaryActionButton');
-        const secondaryButton = document.getElementById('secondaryActionButton');
         if (primaryButton) {
             primaryButton.textContent = 'Editar Perfil';
             primaryButton.onclick = function() {
@@ -63,17 +66,26 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
                 window.location.href = `/public/dashboard_ong.html?id=${ongId}`;
             };
         }
+    } else if (isUser) {
+        if (primaryButton) {
+            primaryButton.textContent = 'Doar Dinheiro';
+            primaryButton.onclick = function() {
+                window.location.href = `cartao.html?ongId=${ongId}`;
+            };
+        }
+        if (secondaryButton) {
+            secondaryButton.textContent = 'Doar Alimento';
+            secondaryButton.onclick = function() {
+                window.location.href = `cadastro_doacao.html?ongId=${ongId}`;
+            };
+        }
     } else {
-        const primaryButton = document.getElementById('primaryActionButton');
-        const secondaryButton = document.getElementById('secondaryActionButton');
-
         if (primaryButton) {
             primaryButton.textContent = 'Doar Dinheiro'; 
             primaryButton.onclick = function() {
-                alert('Funcionalidade de doar dinheiro ainda não implementada.');
+                alert('Você precisa estar logado para doar dinheiro.');
             };
         }
-
         if (secondaryButton) {
             secondaryButton.textContent = 'Doar Alimento';
             secondaryButton.onclick = function() {

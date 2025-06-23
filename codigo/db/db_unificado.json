@@ -188,6 +188,16 @@
           "quantidade": "2 Unidades",
           "valor": 9,
           "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "17506898225491757",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-23",
+          "descricao": "dinheiro",
+          "quantidade": "-",
+          "valor": 400,
+          "fonte": "cartao.html"
         }
       ],
       "id": 1
@@ -404,6 +414,17 @@
           "quantidade": "2 Unidades",
           "valor": 9,
           "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "17506898225491757",
+          "doadorId": 1,
+          "doadorNome": "Lucas Duarte",
+          "doadorTipo": "user",
+          "data": "2025-06-23",
+          "descricao": "dinheiro",
+          "quantidade": "-",
+          "valor": 400,
+          "fonte": "cartao.html"
         }
       ]
     }

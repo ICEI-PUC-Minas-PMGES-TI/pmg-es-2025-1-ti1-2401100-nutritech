@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação com Cartão</title>
+    <link rel="stylesheet" href="assets/css/cartao.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+    <header class="d-flex align-items-center p-3 bg-light position-relative">
+        <a href="index.html" class="d-flex align-items-center position-relative z-2"> 
+            <img src="assets/images/logo.png" alt="Logo" class="logo me-3"> 
+            <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
+        </a>
+        <nav class="d-flex align-items-center gap-3 position-absolute top-50 start-50 translate-middle-x">
+            <a href="ranking.html" class="nav-link link-white">Ranking</a> 
+            <a href="ongs.html" class="nav-link link-white">ONGs</a>
+            <a href="#" class="nav-link link-white">Seja um Voluntário</a>
+        </nav>
+        
+        <div class="dropdown ms-auto position-relative z-2 d-none" id="userDropdownContainer">
+            <button class="btn btn-link dropdown-toggle d-flex align-items-center p-0" id="usuarioDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <h3 class="m-0 me-2" id="userNameDisplay">Usuário</h3>
+                <img src="assets/images/usuario.png" alt="Usuário" class="usuario" id="userImageDisplay"> 
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
+                <li><a class="dropdown-item" href="perfil_usuario.html" id="dropdownProfileLink">Perfil</a></li> 
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" id="logoutLink">Sair</a></li>
+            </ul>
+        </div>
+
+        <div class="usuario-container ms-auto" id="userSection">
+            <a href="login.html" class="btn btn-nutritech-primary me-2" id="loginButton">Login</a> 
+            <a href="cadastro_usuario.html" class="btn btn-nutritech-secondary" id="registerButton">Cadastrar</a>
+        </div>
+    </header>
+
+    <main>
+        <div id="pagina">
+            <div class="container-pagina">
+                <h4 id="titulo-pagina">Pagamento com Cartão</h4>          
+                <form id="form-cartao">
+                    <div id="container-dados">
+                        <input type="text" id="valor" placeholder="Valor da Doação" required>
+                        <input type="text" id="titular" placeholder="Nome do Titular" required>
+                        <input type="text" id="cpf" placeholder="CPF do Titular" required>
+                        <input type="text" id="num-cartao" placeholder="Número do Cartão" required>
+                        <input type="text" id="validade" placeholder="Validade (MM/AAAA)" required>
+                        <input type="text" id="cvv" placeholder="CVV" required>
+                
+                        <div class="tipo-cartao">
+                            <input type="radio" id="credito" name="tipo" value="credito" checked>
+                            <label for="credito">Crédito</label>
+                            <input type="radio" id="debito" name="tipo" value="debito">
+                            <label for="debito">Débito</label>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" id="btn-submit">Doar</button>
+                </form>
+            </div>
+            <div class="cartao-visual">
+                <div class="numero-cartao" id="vis-numero">0000 0000 0000 0000</div>
+                <div class="nome-cartao" id="vis-nome">NOME DO TITULAR</div>
+                <div class="validade-cartao" id="vis-validade">MM/AAAA</div>
+            </div>
+        </div>
+    </main>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="assets/js/cartao.js"></script>
+    <script>
+  // Mascaras de input 
+  // Valor
+  IMask(document.getElementById('valor'), {
+  mask: 'R$ num',
+  blocks: {
+    num: {
+      mask: Number,
+      scale: 2,
+      signed: false,
+      thousandsSeparator: '.',
+      padFractionalZeros: true,
+      radix: ',',
+      mapToRadix: ['.']
+    }
+  }
+});
+
+  // CPF
+  IMask(document.getElementById('cpf'), {
+    mask: '000.000.000-00'
+  });
+
+  // Número do Cartão
+  IMask(document.getElementById('num-cartao'), {
+    mask: '0000 0000 0000 0000'
+  });
+
+  // Validade (MM/AAAA)
+  IMask(document.getElementById('validade'), {
+    mask: '00/0000'
+  });
+
+  // CVV
+  IMask(document.getElementById('cvv'), {
+    mask: '000'
+  });
+</script>
+</body>
+
+
+    <footer class="bg-light py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left text-center text-md-start">
+                <h3 class="mb-2">Local</h3>
+                <p>Belo Horizonte</p>
+            </div>
+
+            <div class="footer-center text-center">
+                <p>© 2025 NutriTech</p>
+            </div>
+
+            <div class="footer-right text-center text-md-end">
+                <h3 class="mb-2">Contato</h3>
+                <p class="mb-1">(31) 9999-6666</p>
+                <p>nutritech@pucminas.com.br</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="assets/js/login.js"></script>
+</html>
