@@ -211,7 +211,50 @@
           "fonte": "cartao.html"
         }
       ],
-      "id": 1
+      "id": "1"
+    },
+    {
+      "id": "fe9c",
+      "nome": "Guilherme Pereira Bittencourt",
+      "email": "guilhermebittencourt.p@gmail.com",
+      "login": "Gui",
+      "cpf": "231.231.231-23",
+      "senha": "123454321",
+      "telefone": "31973400215",
+      "endereco": {
+        "logradouro": "Acilino Diniz Moreira 461",
+        "numero": null,
+        "bairro": "Fonte Grande",
+        "cidade": "Contagem",
+        "estado": "Minas Gerais",
+        "cep": "32013-510"
+      },
+      "dataNascimento": "2025-06-04",
+      "genero": "masculino",
+      "fotoPerfil": "/public/assets/images/usuario.png",
+      "doacoes": [
+        {
+          "donationId": "17507150886563223",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-23",
+          "descricao": "dinheiro",
+          "quantidade": "-",
+          "valor": 900,
+          "recorrencia": false,
+          "fonte": "cartao.html"
+        },
+        {
+          "donationId": "1750715148927126",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-23",
+          "descricao": "Macarrão",
+          "quantidade": "7 Unidades",
+          "valor": 31.5,
+          "fonte": "cadastro_doacao.html"
+        }
+      ]
     }
   ],
   "ongs": [
@@ -226,7 +269,7 @@
       "tipo_doacao": "dinheiro",
       "descricao": "uma ong para ajudar pessoas carentes.",
       "rede_social": "",
-      "id": 5,
+      "id": "5",
       "endereco": {
         "logradouro": "R. Dom José Gaspar",
         "numero": "500",
@@ -246,7 +289,7 @@
         "alimentos",
         "dinheiro"
       ],
-      "familias_ajudadas": 15,
+      "familias_ajudadas": 16,
       "colaboradores_mensais": 0,
       "voluntarios": [
         {
@@ -264,6 +307,27 @@
           },
           "areasInteresse": [
             "Distribuição de Alimentos"
+          ]
+        },
+        {
+          "id": null,
+          "diasTurnos": {
+            "segunda": [
+              "manha"
+            ],
+            "terca": [
+              "manha"
+            ],
+            "quarta": [
+              "tarde"
+            ],
+            "quinta": [
+              "manha"
+            ]
+          },
+          "areasInteresse": [
+            "Arrecadação",
+            "Apoio Logístico"
           ]
         }
       ],
@@ -465,6 +529,28 @@
           "quantidade": "-",
           "valor": 10,
           "fonte": "cartao.html"
+        },
+        {
+          "donationId": "17507150886563223",
+          "doadorId": "fe9c",
+          "doadorNome": "Guilherme Pereira Bittencourt",
+          "doadorTipo": "user",
+          "data": "2025-06-23",
+          "descricao": "dinheiro",
+          "quantidade": "-",
+          "valor": 900,
+          "fonte": "cartao.html"
+        },
+        {
+          "donationId": "1750715148927126",
+          "doadorId": "fe9c",
+          "doadorNome": "Guilherme Pereira Bittencourt",
+          "doadorTipo": "user",
+          "data": "2025-06-23",
+          "descricao": "Macarrão",
+          "quantidade": "7 Unidades",
+          "valor": 31.5,
+          "fonte": "cadastro_doacao.html"
         }
       ]
     }
