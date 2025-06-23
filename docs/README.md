@@ -2,7 +2,7 @@
 
 Informações básicas do projeto.
 
-* **Projeto:** [Alimento para todos]
+* **Projeto:** [Alimentação para todos]
 * **Repositório GitHub:** [Repositorio](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2401100-nutritech)
 * **Membros da equipe:**
 
@@ -240,11 +240,7 @@ O vídeo a seguir traz uma apresentação do problema que a equipe está tratand
 
 [![Vídeo do projeto](images/video.png)](https://www.youtube.com/embed/70gGoFyGeqQ)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> O video de apresentação é voltado para que o público externo possa conhecer a solução. O formato é livre, sendo importante que seja apresentado o problema e a solução numa linguagem descomplicada e direta.
->
-> Inclua um link para o vídeo do projeto.
+
 
 ## Funcionalidades
 
@@ -402,13 +398,15 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 * Unpkg Mask - [https://unpkg.com](https://unpkg.com)
 * Bootstrap 5 - [http://getbootstrap.com/](http://getbootstrap.com/)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
 
 # Referências
 
 As referências utilizadas no trabalho foram:
+
+ONG Comida que Abraça. Comida que Abraça, 2024. Disponível em: <https://comidaqueabraca.org/site/>. Acesso em: data 02/04/2025.
+
+Fundação Dom Bosco. Fundação Dom Bosco, 2021. Disponível em: <https://fundacaodombosco.org>. Acesso em: data 02/04/2025
+
 
 * SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
 
