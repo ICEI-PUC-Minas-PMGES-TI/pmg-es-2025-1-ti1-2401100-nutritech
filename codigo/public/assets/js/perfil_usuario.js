@@ -123,80 +123,43 @@ document.addEventListener('DOMContentLoaded', function() {
                     lista.appendChild(card);
                 });
             } else {
-                lista.innerHTML = '<p>Nenhuma doação encontrada para este usuário.</p>';
+                lista.innerHTML = '<p>Nenhuma doação encontrada.</p>';
             }
         })
         .catch(error => {
-            console.error('Erro detalhado ao carregar dados do usuário ou doações:', error);
-            document.getElementById('info-doador').innerHTML = '<p>Erro ao carregar dados pessoais. Verifique o console.</p>';
-            document.getElementById('lista-doacoes').innerHTML = '<p>Erro ao carregar doações. Verifique o console.</p>';
+            console.error('Erro ao buscar dados do usuário:', error);
+            document.getElementById('info-doador').innerHTML = `<p>${error.message}</p>`;
+            document.getElementById('lista-doacoes').innerHTML = '<p>Não foi possível carregar as doações.</p>';
         });
-});
 
-document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('btn-doar-novamente')) {
-      const doacaoString = e.target.getAttribute('data-doacao');
-      try {
-        const doacao = JSON.parse(doacaoString);
-        if (doacao && doacao.recipientOngId) {
-            if (!isUserLoggedIn()) {
-                alert("Por favor, faça login para doar novamente.");
-                redirectToLogin();
-                return;
-            }
-            window.location.href = `cadastro_doacao.html?ongId=${doacao.recipientOngId}`;
-        } else {
-            console.error('Dados da doação ou ID da ONG destinatária ausentes:', doacao);
-            alert('Não foi possível identificar a ONG para doação. Dados incompletos.');
-        }
-      } catch (error) {
-        console.error('Erro ao processar dados da doação para doar novamente:', error);
-        alert('Ocorreu um erro ao tentar processar sua solicitação de doação.');
-      }
+    const gerenciarRecorrenciaButton = document.getElementById('gerenciar-recorrencia');
+    if (gerenciarRecorrenciaButton) {
+        gerenciarRecorrenciaButton.addEventListener('click', function() {
+            window.location.href = 'gerenciar_recorrencias.html';
+        });
     }
-});
 
-document.getElementById('gerenciar-recorrencia').addEventListener('click', function () {
-    if (!isUserLoggedIn()) {
-        alert("Por favor, faça login para gerenciar suas doações recorrentes.");
-        redirectToLogin();
-        return;
+    const novaDoacaoButton = document.getElementById('nova-doacao');
+    if (novaDoacaoButton) {
+        novaDoacaoButton.addEventListener('click', function() {
+            window.location.href = 'cadastro_doacao.html';
+        });
     }
-    window.location.href = '/public/larissa_moncao/public/gerenciar_recorrencia/gerenciar_recorrencias.html';  
-});
-const editarButton = document.getElementById('editar');
-if(editarButton) {
-    editarButton.addEventListener('click', function() {
-        if (!isUserLoggedIn()) {
-            alert("Por favor, faça login para editar seus dados.");
-            redirectToLogin();
-            return;
-        }
-        alert("Funcionalidade de edição de perfil ainda não implementada.");
-    });
-}
-const logoutButton = document.getElementById('logout');
-if(logoutButton) {
-    logoutButton.addEventListener('click', function() {
-        if (typeof logout === "function") {
-            logout(); 
-        } else {
-            console.warn("Função de logout não encontrada globalmente. O logout principal é pelo header.");
+
+    const editarButton = document.getElementById('editar');
+    if (editarButton) {
+        editarButton.addEventListener('click', function() {
+            // Futuramente, pode levar a uma página de edição de perfil
+            alert('Funcionalidade de edição a ser implementada.');
+        });
+    }
+
+    const logoutButton = document.getElementById('logout');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function() {
             sessionStorage.removeItem('usuarioCorrente');
-            window.location.href = RETURN_URL; 
-        }
-    });
-}
-const novaDoacaoButton = document.getElementById('nova-doacao');
-if(novaDoacaoButton) {
-    novaDoacaoButton.addEventListener('click', function() {
-        if (!isUserLoggedIn()) {
-            alert("Por favor, faça login para fazer uma nova doação.");
-            redirectToLogin();
-            return;
-        }
-        // Redirect to ongs.html
-        window.location.href = 'ongs.html'; 
-    });
-}
+            window.location.href = 'login.html';
+        });
+    }
+});
 
