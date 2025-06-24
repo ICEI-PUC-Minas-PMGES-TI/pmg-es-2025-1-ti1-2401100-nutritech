@@ -1,17 +1,122 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const doacaoParaEditarJSON = sessionStorage.getItem('doacaoParaEditar');
+    if (doacaoParaEditarJSON) {
+        const doacao = JSON.parse(doacaoParaEditarJSON);
+
+        const valorNumerico = parseFloat(doacao.valor);
+        if (!isNaN(valorNumerico)) {
+            document.getElementById('valor').value = valorNumerico.toFixed(2).replace('.', ',');
+        } else {
+            document.getElementById('valor').value = '0,00';
+        }
+        
+        document.getElementById('recorrencia').checked = doacao.recorrencia;
+
+        document.querySelector('.container h1').textContent = 'Editar Doação Recorrente';
+        document.querySelector('button[type="submit"]').textContent = 'Salvar Alterações';
+
+        const ongInfoDiv = document.createElement('div');
+        ongInfoDiv.innerHTML = `<h3>Editando doação para: <strong>${doacao.recipientOngNome}</strong></h3>`;
+        ongInfoDiv.style.textAlign = 'center';
+        ongInfoDiv.style.marginBottom = '20px';
+        const form = document.getElementById('form-cartao');
+        form.parentNode.insertBefore(ongInfoDiv, form);
+    }
+});
+
 document.getElementById('form-cartao').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const campos = this.querySelectorAll('input');
     let todosPreenchidos = true;
-
-    // Não validar o checkbox de recorrência como um campo que precisa ser preenchido
     campos.forEach(campo => {
         if (campo.type !== 'checkbox' && campo.value.trim() === '') {
             todosPreenchidos = false;
         }
     });
 
-    if (todosPreenchidos) {
+    if (!todosPreenchidos) {
+        alert('Por favor, preencha todos os campos do cartão.');
+        return;
+    }
+
+    const doacaoParaEditarJSON = sessionStorage.getItem('doacaoParaEditar');
+    const isEditing = !!doacaoParaEditarJSON;
+
+    if (isEditing) {
+        try {
+            const doacaoParaEditar = JSON.parse(doacaoParaEditarJSON);
+            const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+            if (!usuarioCorrenteJSON) {
+                alert('Sessão expirada. Faça login novamente.');
+                window.location.href = 'login.html';
+                return;
+            }
+            const usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
+
+            const [usuarioResponse, ongResponse] = await Promise.all([
+                fetch(`http://localhost:3001/usuarios/${usuarioCorrente.id}`),
+                fetch(`http://localhost:3001/ongs/${doacaoParaEditar.recipientOngId}`)
+            ]);
+
+            if (!usuarioResponse.ok || !ongResponse.ok) {
+                throw new Error('Não foi possível carregar os dados do usuário ou da ONG.');
+            }
+
+            const usuarioAtual = await usuarioResponse.json();
+            const ong = await ongResponse.json();
+
+            const userDonationIndex = usuarioAtual.doacoes.findIndex(d => d.donationId === doacaoParaEditar.donationId);
+            const ongDonationIndex = ong.doacoes.findIndex(d => d.donationId === doacaoParaEditar.donationId);
+
+            if (userDonationIndex === -1) {
+                throw new Error('Doação não encontrada nos registros do usuário.');
+            }
+
+            const valorInput = document.getElementById('valor').value;
+            const valorLimpo = valorInput.replace(/[^0-9,]/g, '').replace(',', '.');
+            const novoValor = parseFloat(valorLimpo);
+
+            if (isNaN(novoValor) || novoValor <= 0) {
+                alert('O valor da doação é inválido. Por favor, insira um valor maior que zero.');
+                return;
+            }
+
+            const novaRecorrencia = document.getElementById('recorrencia').checked;
+
+            usuarioAtual.doacoes[userDonationIndex].valor = novoValor;
+            usuarioAtual.doacoes[userDonationIndex].recorrencia = novaRecorrencia;
+            usuarioAtual.doacoes[userDonationIndex].data = new Date().toISOString().slice(0, 10);
+
+            if (ongDonationIndex !== -1) {
+                ong.doacoes[ongDonationIndex].valor = novoValor;
+                ong.doacoes[ongDonationIndex].data = new Date().toISOString().slice(0, 10);
+            }
+
+            await Promise.all([
+                fetch(`http://localhost:3001/usuarios/${usuarioCorrente.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(usuarioAtual)
+                }),
+                fetch(`http://localhost:3001/ongs/${doacaoParaEditar.recipientOngId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(ong)
+                })
+            ]);
+
+            alert('Doação atualizada com sucesso!');
+            sessionStorage.removeItem('doacaoParaEditar');
+            window.location.href = 'gerenciar_recorrencias.html';
+
+        } catch (err) {
+            alert('Erro ao atualizar doação. Tente novamente.');
+            console.error(err);
+        }
+
+    } else {
+        // Lógica para CRIAR uma nova doação
         try {
             const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
             if (!usuarioCorrenteJSON) {
@@ -19,8 +124,15 @@ document.getElementById('form-cartao').addEventListener('submit', async function
                 return;
             }
             const usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
-            const valor = document.getElementById('valor').value.replace(/[^0-9,\.]/g, '').replace(',', '.');
-            const valorDoacao = parseFloat(valor);
+            const valorInput = document.getElementById('valor').value;
+            const valorLimpo = valorInput.replace(/[^0-9,]/g, '').replace(',', '.');
+            const valorDoacao = parseFloat(valorLimpo);
+
+            if (isNaN(valorDoacao) || valorDoacao <= 0) {
+                alert('O valor da doação é inválido. Por favor, insira um valor maior que zero.');
+                return;
+            }
+
             const isRecorrente = document.getElementById('recorrencia').checked;
 
             const urlParams = new URLSearchParams(window.location.search);
@@ -50,7 +162,7 @@ document.getElementById('form-cartao').addEventListener('submit', async function
                 descricao: 'dinheiro',
                 quantidade: '-',
                 valor: valorDoacao,
-                recorrencia: isRecorrente, // Adiciona o status da recorrência
+                recorrencia: isRecorrente,
                 fonte: 'cartao.html'
             };
 
@@ -84,13 +196,12 @@ document.getElementById('form-cartao').addEventListener('submit', async function
 
             alert('Doação Realizada com sucesso!');
             this.reset();
+            window.location.href = 'gerenciar_recorrencias.html';
 
         } catch (err) {
             alert('Erro ao registrar doação. Tente novamente.');
             console.error(err);
         }
-    } else {
-        alert('Por favor, preencha todos os campos.');
     }
 });
 

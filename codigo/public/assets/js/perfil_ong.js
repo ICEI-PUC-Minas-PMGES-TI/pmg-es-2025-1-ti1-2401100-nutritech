@@ -23,18 +23,49 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
     return response.json();
   })
   .then(data => {
+    function formatarData(data) {
+        if (!data) return 'Não informado';
+        const dataObj = new Date(data);
+        if (isNaN(dataObj.getTime())) {
+            return data; 
+        }
+        dataObj.setDate(dataObj.getDate() + 1);
+        const dia = String(dataObj.getDate()).padStart(2, '0');
+        const mes = String(dataObj.getMonth() + 1).padStart(2, '0');
+        const ano = dataObj.getFullYear();
+        return `${dia}/${mes}/${ano}`;
+    }
+
+    function formatarCNPJ(cnpj) {
+        if (!cnpj) return 'Não informado';
+        const cnpjLimpo = String(cnpj).replace(/\D/g, '');
+        if (cnpjLimpo.length !== 14) return cnpj;
+        return cnpjLimpo.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+    }
+
+    function formatarTelefone(telefone) {
+        if (!telefone) return 'Não informado';
+        const telLimpo = String(telefone).replace(/\D/g, '');
+        if (telLimpo.length === 11) {
+            return telLimpo.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        } else if (telLimpo.length === 10) {
+            return telLimpo.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+        }
+        return telefone;
+    }
+
     document.getElementById('nomeONG').textContent = data.nome || 'Nome não disponível';
     document.getElementById('nomeONGCard').textContent = data.nome || 'Nome não disponível';
-    document.getElementById('entrouEm').textContent = data.data_entrada || 'Data de entrada não disponível'; 
-    document.getElementById('cnpj').textContent = data.cnpj || 'CNPJ não disponível';
-    document.getElementById('contato').textContent = data.contato.telefone || 'Contato não disponível';
-    document.getElementById('fundadaEm').textContent = data.data_fundacao || 'Data de fundação não disponível'; 
+    document.getElementById('entrouEm').textContent = formatarData(data.data_entrada);
+    document.getElementById('cnpj').textContent = formatarCNPJ(data.cnpj);
+    document.getElementById('contato').textContent = formatarTelefone(data.contato.telefone);
+    document.getElementById('fundadaEm').textContent = formatarData(data.data_fundacao);
     document.getElementById('familiasAjudadas').textContent = data.familias_ajudadas || 'N/A';
     document.getElementById('voluntarios').textContent = data.voluntarios_necessarios || 'N/A';
     document.getElementById('colaboradoresMensais').textContent = data.colaboradores_mensais || 'N/A';
     document.getElementById('descricao').textContent = data.descricao || 'Descrição não disponível';
     document.getElementById('cidade').textContent = data.endereco ? data.endereco.cidade : 'Cidade não disponível';
-    document.getElementById('telefone').textContent = data.telefone || 'Telefone não disponível';
+    document.getElementById('telefone').textContent = formatarTelefone(data.telefone);
     document.getElementById('email').textContent = data.email || 'Email não disponível';
     const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
     let isOwner = false;

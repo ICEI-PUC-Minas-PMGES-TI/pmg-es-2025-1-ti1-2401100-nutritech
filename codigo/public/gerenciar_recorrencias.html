@@ -101,7 +101,7 @@
   <div class="modal-dialog">
     <form id="form-editar" class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalEditarLabel">Editar Doação</h5>
+        <h5 class="modal-title" id="modalEditarLabel">Editar Doação Recorrente</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
@@ -111,15 +111,35 @@
           <label for="edit-valor" class="form-label">Valor (R$)</label>
           <input type="number" step="0.01" min="0" class="form-control" id="edit-valor" name="valor" required />
         </div>
-        
+
+        <h5 class="mt-4 border-top pt-3">Dados do Cartão</h5>
         <div class="mb-3">
-          <label for="edit-data" class="form-label">Data</label>
+            <label for="edit-cartao-numero" class="form-label">Número do Cartão</label>
+            <input type="text" class="form-control" id="edit-cartao-numero" placeholder="0000 0000 0000 0000" maxlength="19">
+        </div>
+        <div class="mb-3">
+            <label for="edit-cartao-nome" class="form-label">Nome do Titular</label>
+            <input type="text" class="form-control" id="edit-cartao-nome">
+        </div>
+        <div class="row">
+            <div class="col-md-7 mb-3">
+                <label for="edit-cartao-validade" class="form-label">Validade (MM/AAAA)</label>
+                <input type="text" class="form-control" id="edit-cartao-validade" placeholder="MM/AAAA" maxlength="7">
+            </div>
+            <div class="col-md-5 mb-3">
+                <label for="edit-cartao-cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="edit-cartao-cvv" placeholder="000" maxlength="3">
+            </div>
+        </div>
+        
+        <div class="mb-3 border-top pt-3">
+          <label for="edit-data" class="form-label">Data da Próxima Doação</label>
           <input type="date" class="form-control" id="edit-data" name="data" required />
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
       </div>
     </form>
   </div>
@@ -127,46 +147,53 @@
 <!-- Modal Editar Dados Pessoais -->
 <div class="modal fade" id="modalEditarPessoais" tabindex="-1" aria-labelledby="modalEditarPessoaisLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form id="form-editar-pessoais" class="modal-content">
+    <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalEditarPessoaisLabel">Editar Dados Pessoais</h5>
+        <h1 class="modal-title fs-5" id="modalEditarPessoaisLabel">Editar Dados Pessoais</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
-
-        <input type="hidden" id="edit-id-pessoal" />
-
-        <div class="mb-3">
-          <label for="edit-email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="edit-email" required />
-        </div>
-
-        <div class="mb-3">
-          <label for="edit-endereco" class="form-label">Endereço</label>
-          <input type="text" class="form-control" id="edit-endereco" required />
-        </div>
-
-        <div class="mb-3">
-          <label for="edit-cidade" class="form-label">Cidade</label>
-          <input type="text" class="form-control" id="edit-cidade" required />
-        </div>
-
-        <div class="mb-3">
-          <label for="edit-estado" class="form-label">Estado</label>
-          <input type="text" class="form-control" id="edit-estado" required />
-        </div>
-
-        <div class="mb-3">
-          <label for="edit-telefone" class="form-label">Telefone</label>
-          <input type="text" class="form-control" id="edit-telefone" required />
-        </div>
-
+        <form id="form-editar-pessoais">
+          <div class="mb-3">
+            <label for="edit-nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="edit-nome">
+          </div>
+          <div class="mb-3">
+            <label for="edit-email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="edit-email">
+          </div>
+          <div class="mb-3">
+            <label for="edit-dataNascimento" class="form-label">Data de Nascimento</label>
+            <input type="date" class="form-control" id="edit-dataNascimento">
+          </div>
+          <div class="mb-3">
+            <label for="edit-logradouro" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="edit-logradouro">
+          </div>
+          <div class="mb-3">
+            <label for="edit-numero" class="form-label">Número</label>
+            <input type="text" class="form-control" id="edit-numero">
+          </div>
+          <div class="mb-3">
+            <label for="edit-cidade" class="form-label">Cidade</label>
+            <input type="text" class="form-control" id="edit-cidade">
+          </div>
+          <div class="mb-3">
+            <label for="edit-estado" class="form-label">Estado</label>
+            <input type="text" class="form-control" id="edit-estado">
+          </div>
+          <div class="mb-3">
+            <label for="edit-telefone" class="form-label">Telefone</label>
+            <input type="tel" class="form-control" id="edit-telefone">
+          </div>
+          <div class="mb-3">
+            <label for="edit-cpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="edit-cpf" readonly>
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 

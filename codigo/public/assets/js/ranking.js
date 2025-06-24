@@ -39,7 +39,8 @@ fetch('http://localhost:3001/usuarios')
     rankingOrdenado.forEach(([nome, valor], index) => {
       const li = document.createElement('li');
       const badge = getBadge(valor);
-      li.innerHTML = `<strong>${index + 1}º</strong> ${nome} ${badge} <span>R$ ${valor.toFixed(2).replace('.', ',')}</span>`;
+      const valorFormatado = valor.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      li.innerHTML = `<strong>${index + 1}º</strong> ${nome} ${badge} <span>R$ ${valorFormatado}</span>`;
       lista.appendChild(li);
     });
   })

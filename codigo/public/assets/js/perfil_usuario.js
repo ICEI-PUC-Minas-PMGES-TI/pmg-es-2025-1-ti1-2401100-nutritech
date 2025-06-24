@@ -60,17 +60,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (estado) estadoStr = estado;
                 if (cep) cepStr = cep;
             }
+
+            function formatarCPF(cpf) {
+                if (!cpf) return 'Não informado';
+                const cpfLimpo = String(cpf).replace(/\D/g, '');
+                if (cpfLimpo.length !== 11) return cpf;
+                return cpfLimpo.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            }
+
+            function formatarTelefone(telefone) {
+                if (!telefone) return 'Não informado';
+                const telLimpo = String(telefone).replace(/\D/g, '');
+                if (telLimpo.length !== 11) return telefone;
+                return telLimpo.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            }
+
+            function formatarCEP(cep) {
+                if (!cep) return 'Não informado';
+                const cepLimpo = String(cep).replace(/\D/g, '');
+                if (cepLimpo.length !== 8) return cep;
+                return cepLimpo.replace(/(\d{5})(\d{3})/, '$1-$2');
+            }
+
+            function formatarData(data) {
+                if (!data || data.length < 10) return 'Não informado';
+                const [ano, mes, dia] = data.substring(0, 10).split('-');
+                if (!ano || !mes || !dia) return data;
+                return `${dia}/${mes}/${ano}`;
+            }
+
             info.innerHTML = `
               <div class="card-pessoal">
                 <strong>Nome:</strong> ${nomeStr}<br>
                 <strong>Email:</strong> ${emailStr}<br>
-                <strong>Data de Nascimento:</strong> ${dataNascimentoStr}<br>
+                <strong>Data de Nascimento:</strong> ${formatarData(dataNascimentoStr)}<br>
                 <strong>Endereço:</strong> ${enderecoCompletoStr}<br>
                 <strong>Cidade:</strong> ${cidadeStr}<br>
                 <strong>Estado:</strong> ${estadoStr}<br>
-                <strong>CEP:</strong> ${cepStr}<br>
-                <strong>Telefone:</strong> ${telefoneStr}<br>
-                <strong>CPF:</strong> ${cpfStr}<br>
+                <strong>CEP:</strong> ${formatarCEP(cepStr)}<br>
+                <strong>Telefone:</strong> ${formatarTelefone(telefoneStr)}<br>
+                <strong>CPF:</strong> ${formatarCPF(cpfStr)}<br>
               </div>
             `;
             const lista = document.getElementById('lista-doacoes');
@@ -109,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </h5>
                             <p class="card-text">
                             ${recipientInfo}
-                            <strong>Data:</strong> ${item.data || 'N/A'}<br>
+                            <strong>Data:</strong> ${formatarData(item.data)}<br>
                             <strong>Categoria:</strong> ${categoria}<br>
                             <strong>Valor Estimado:</strong> R$ ${(parseFloat(item.valor) || 0).toFixed(2)}<br>
                             ${categorySpecificInfo}
