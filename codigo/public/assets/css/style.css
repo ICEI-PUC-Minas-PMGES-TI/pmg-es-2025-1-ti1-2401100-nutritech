@@ -284,3 +284,9 @@ main {
     width: 1px;
 }
 
+
+.flatpickr-day.available-date {
+    background-color: green !important;
+    color: white !important;
+    border-radius: 50%;
+}

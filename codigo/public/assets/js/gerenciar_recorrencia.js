@@ -9,11 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentUser = null;
     let doacoesRecorrentes = [];
 
-    // Inicializa os modais do Bootstrap
     if (document.getElementById('modalEditar')) {
         modalEditar = new bootstrap.Modal(document.getElementById('modalEditar'));
 
-        // Adiciona máscaras de entrada aos campos do modal de edição
+
         const editCardNumberInput = document.getElementById('edit-cartao-numero');
         if (editCardNumberInput) {
             editCardNumberInput.addEventListener('input', (e) => {

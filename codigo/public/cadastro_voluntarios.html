@@ -6,6 +6,7 @@
     <title>Seja um Voluntário</title>
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/cadastro-voluntarios.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 </head>
 <body>
@@ -47,39 +48,8 @@
                     <div class="container-checkboxes">
                         <div class="disponibilidade">
                             <h6 class="titulo-disponibilidade">Disponibilidade</h6>
-                            <div class="tabela-disponibilidade">
-                                <!-- LINHA DE TÍTULOS -->
-                                <div></div>
-                                <div class="header">Manhã</div>
-                                <div class="header">Tarde</div>
-                                <div class="header">Noite</div>
-
-                                <!-- SEGUNDA A SEXTA -->
-                                <div class="dia">Segunda</div>
-                                <div><input type="checkbox" name="segunda-manha"></div>
-                                <div><input type="checkbox" name="segunda-tarde"></div>
-                                <div><input type="checkbox" name="segunda-noite"></div>
-
-                                <div class="dia">Terça</div>
-                                <div><input type="checkbox" name="terca-manha"></div>
-                                <div><input type="checkbox" name="terca-tarde"></div>
-                                <div><input type="checkbox" name="terca-noite"></div>
-
-                                <div class="dia">Quarta</div>
-                                <div><input type="checkbox" name="quarta-manha"></div>
-                                <div><input type="checkbox" name="quarta-tarde"></div>
-                                <div><input type="checkbox" name="quarta-noite"></div>
-
-                                <div class="dia">Quinta</div>
-                                <div><input type="checkbox" name="quinta-manha"></div>
-                                <div><input type="checkbox" name="quinta-tarde"></div>
-                                <div><input type="checkbox" name="quinta-noite"></div>
-
-                                <div class="dia">Sexta</div>
-                                <div><input type="checkbox" name="sexta-manha"></div>
-                                <div><input type="checkbox" name="sexta-tarde"></div>
-                                <div><input type="checkbox" name="sexta-noite"></div>
-                            </div>
+                            <p>Selecione os dias em que você tem disponibilidade para ser voluntário.</p>
+                            <input type="text" id="dias_disponiveis" class="form-control" placeholder="Escolha uma ou mais datas">
                         </div>
 
                         <div class="areas-interesse">
@@ -127,6 +97,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="assets/js/login.js"></script>
     <script src="assets/js/cadastro_voluntarios.js"></script>
 </body>

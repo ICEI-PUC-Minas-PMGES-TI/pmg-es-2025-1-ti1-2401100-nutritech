@@ -84,6 +84,8 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
     }
     const primaryButton = document.getElementById('primaryActionButton');
     const secondaryButton = document.getElementById('secondaryActionButton');
+    const tertiaryButton = document.getElementById('tertiaryActionButton');
+
     if (isOwner) {
         if (primaryButton) {
             primaryButton.textContent = 'Editar Perfil';
@@ -108,6 +110,13 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
             secondaryButton.textContent = 'Doar Alimento';
             secondaryButton.onclick = function() {
                 window.location.href = `cadastro_doacao.html?ongId=${ongId}`;
+            };
+        }
+        if (tertiaryButton) {
+            tertiaryButton.style.display = 'inline-block'; // Mostra o botão
+            tertiaryButton.textContent = 'Agendar Coleta de Alimentos';
+            tertiaryButton.onclick = function() {
+                window.location.href = `agendamento.html?ongId=${ongId}`;
             };
         }
     } else {

@@ -101,7 +101,7 @@
   <div class="modal-dialog">
     <form id="form-editar" class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalEditarLabel">Editar Doação Recorrente</h5>
+        <h5 class="modal-title" id="modalEditarLabel">Editar Doação</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
@@ -111,35 +111,15 @@
           <label for="edit-valor" class="form-label">Valor (R$)</label>
           <input type="number" step="0.01" min="0" class="form-control" id="edit-valor" name="valor" required />
         </div>
-
-        <h5 class="mt-4 border-top pt-3">Dados do Cartão</h5>
-        <div class="mb-3">
-            <label for="edit-cartao-numero" class="form-label">Número do Cartão</label>
-            <input type="text" class="form-control" id="edit-cartao-numero" placeholder="0000 0000 0000 0000" maxlength="19">
-        </div>
-        <div class="mb-3">
-            <label for="edit-cartao-nome" class="form-label">Nome do Titular</label>
-            <input type="text" class="form-control" id="edit-cartao-nome">
-        </div>
-        <div class="row">
-            <div class="col-md-7 mb-3">
-                <label for="edit-cartao-validade" class="form-label">Validade (MM/AAAA)</label>
-                <input type="text" class="form-control" id="edit-cartao-validade" placeholder="MM/AAAA" maxlength="7">
-            </div>
-            <div class="col-md-5 mb-3">
-                <label for="edit-cartao-cvv" class="form-label">CVV</label>
-                <input type="text" class="form-control" id="edit-cartao-cvv" placeholder="000" maxlength="3">
-            </div>
-        </div>
         
-        <div class="mb-3 border-top pt-3">
-          <label for="edit-data" class="form-label">Data da Próxima Doação</label>
+        <div class="mb-3">
+          <label for="edit-data" class="form-label">Data</label>
           <input type="date" class="form-control" id="edit-data" name="data" required />
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
       </div>
     </form>
   </div>

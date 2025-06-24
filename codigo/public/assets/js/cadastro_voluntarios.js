@@ -4,119 +4,127 @@ function getUrlParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     ongId: params.get('ongId'),
-    userId: params.get('userId')
   };
 }
 
 async function fetchJson(url) {
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`Erro ao buscar dados da URL: ${url}`);
+  if (!res.ok) throw new Error(`Error fetching data from URL: ${url}`);
   return res.json();
 }
 
-function fillCheckboxes(voluntario) {
-  if (!voluntario || !voluntario.diasTurnos) return;
-
-  for (const dia in voluntario.diasTurnos) {
-    voluntario.diasTurnos[dia].forEach(turno => {
-      const cb = document.querySelector(`input[name="${dia}-${turno}"]`);
-      if (cb) cb.checked = true;
-    });
-  }
-
-  if(voluntario.areasInteresse) {
-    voluntario.areasInteresse.forEach(area => {
-        const cb = document.querySelector(`input[name="area-interesse"][value="${area}"]`);
-        if (cb) cb.checked = true;
-    });
-  }
-}
-
-function getCheckedValues() {
-  const dias = ['segunda', 'terca', 'quarta', 'quinta', 'sexta'];
-  const turnos = ['manha', 'tarde', 'noite'];
-  const disponibilidade = {};
-
-  dias.forEach(dia => {
-    const turnosSelecionados = turnos.filter(turno => {
-      const cb = document.querySelector(`input[name="${dia}-${turno}"]`);
-      return cb?.checked;
-    });
-    if (turnosSelecionados.length) disponibilidade[dia] = turnosSelecionados;
-  });
-
-  const areas = Array.from(document.querySelectorAll('input[name="area-interesse"]:checked'))
-    .map(cb => cb.value);
-
-  return { disponibilidade, areas };
-}
-
-async function saveVoluntariado(ongId, userId, disponibilidade, areas) {
+async function saveVoluntariado(ongId, userId, diasDisponiveis, areas, nomeVoluntario, telefoneVoluntario) {
     try {
         const ong = await fetchJson(`${baseUrl}/ongs/${ongId}`);
-        let voluntarioExistente = ong.voluntarios.find(v => v.id === Number(userId));
+        const voluntarioExistente = ong.voluntarios.find(v => v.id === Number(userId));
 
         if (voluntarioExistente) {
-            // Atualiza voluntário existente
-            voluntarioExistente.diasTurnos = disponibilidade;
+            voluntarioExistente.dias_disponiveis = diasDisponiveis;
             voluntarioExistente.areasInteresse = areas;
         } else {
-            // Adiciona novo voluntário
+
             ong.voluntarios.push({
                 id: Number(userId),
-                diasTurnos: disponibilidade,
+                nome: nomeVoluntario,
+                telefone: telefoneVoluntario,
+                dias_disponiveis: diasDisponiveis,
                 areasInteresse: areas
             });
         }
 
-        await fetch(`${baseUrl}/ongs/${ongId}`, {
+
+        const response = await fetch(`${baseUrl}/ongs/${ongId}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ voluntarios: ong.voluntarios })
         });
 
-        alert('Voluntariado confirmado com sucesso!');
-        window.location.href = 'index.html';
+        if (!response.ok) {
+            const errorBody = await response.text();
+            throw new Error(`Failed to save volunteer data. Status: ${response.status}, Body: ${errorBody}`);
+        }
+
+        alert('Volunteering confirmed successfully!');
+        window.location.href = 'perfil_usuario.html';
 
     } catch (error) {
-        console.error('Erro ao salvar dados de voluntariado:', error);
-        alert('Não foi possível salvar seus dados. Tente novamente.');
+        console.error('Error saving volunteer data:', error);
+        alert('Could not save your data. Please try again.');
     }
 }
 
 
 window.addEventListener('DOMContentLoaded', async () => {
-  const { ongId, userId } = getUrlParams();
+  const { ongId } = getUrlParams();
   const usuarioCorrente = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
+  const userId = usuarioCorrente ? usuarioCorrente.id : null;
 
-  if (!usuarioCorrente || !usuarioCorrente.id || usuarioCorrente.id.toString() !== userId) {
-      alert('Acesso negado. Você precisa estar logado com o usuário correto.');
+  if (!usuarioCorrente || !userId) {
+      alert('Access denied. You must be logged in.');
       window.location.href = 'login.html';
       return;
   }
 
-  if (!ongId || !userId) {
-    alert('ID da ONG ou do usuário não informado na URL');
+  if (!ongId) {
+    alert('ONG ID not provided in the URL.');
     window.location.href = 'voluntariado_ongs.html';
     return;
   }
 
   try {
-    const ong = await fetchJson(`${baseUrl}/ongs/${ongId}`);
-    document.getElementById('ong-name').textContent = `Para a ONG: ${ong.nome}`;
 
-    const voluntario = ong.voluntarios.find(v => v.id === Number(userId));
+    const ong = await fetchJson(`${baseUrl}/ongs/${ongId}`);
+    document.getElementById('ong-name').textContent = `Seja um voluntário na ONG: ${ong.nome}`;
+    const voluntario = ong.voluntarios?.find(v => v.id === Number(userId));
+
+    const fp = flatpickr("#dias_disponiveis", {
+        mode: "multiple",
+        dateFormat: "d/m/Y",
+        minDate: "today",
+    });
+
     if (voluntario) {
-        fillCheckboxes(voluntario);
+        if (voluntario.dias_disponiveis) {
+
+            const datesForPicker = voluntario.dias_disponiveis.map(d => d.split('/').reverse().join('-'));
+            fp.setDate(datesForPicker);
+        }
+        if (voluntario.areasInteresse) {
+            voluntario.areasInteresse.forEach(area => {
+                const cb = document.querySelector(`input[name="area-interesse"][value="${area}"]`);
+                if (cb) cb.checked = true;
+            });
+        }
     }
 
-    document.getElementById('form-voluntarios').addEventListener('submit', async e => {
-      e.preventDefault();
-      const { disponibilidade, areas } = getCheckedValues();
-      await saveVoluntariado(ongId, userId, disponibilidade, areas);
+    document.getElementById('form-voluntarios').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const diasDisponiveis = document.getElementById('dias_disponiveis')._flatpickr.selectedDates.map(date => {
+            const d = String(date.getDate()).padStart(2, '0');
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const y = date.getFullYear();
+            return `${d}/${m}/${y}`;
+        });
+
+        const areas = Array.from(document.querySelectorAll('input[name="area-interesse"]:checked')).map(cb => cb.value);
+
+        if (diasDisponiveis.length === 0) {
+            alert('Por favor, selecione pelo menos um dia disponível.');
+            return;
+        }
+
+        if (areas.length === 0) {
+            alert('Por favor, selecione pelo menos uma área de interesse.');
+            return;
+        }
+
+        const userData = await fetchJson(`${baseUrl}/usuarios/${userId}`);
+        await saveVoluntariado(ongId, userId, diasDisponiveis, areas, userData.nome, userData.telefone);
     });
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
+
+  } catch (error) {
+    console.error('Erro ao carregar a página:', error);
+    alert('Erro ao carregar as informações. Tente novamente.');
   }
 });

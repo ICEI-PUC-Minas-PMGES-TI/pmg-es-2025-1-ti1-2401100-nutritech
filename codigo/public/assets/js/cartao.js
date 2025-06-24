@@ -116,7 +116,6 @@ document.getElementById('form-cartao').addEventListener('submit', async function
         }
 
     } else {
-        // Lógica para CRIAR uma nova doação
         try {
             const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
             if (!usuarioCorrenteJSON) {
