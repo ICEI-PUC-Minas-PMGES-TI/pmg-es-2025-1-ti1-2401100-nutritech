@@ -39,6 +39,76 @@
           "valor": 4319741389,
           "recorrencia": true,
           "fonte": "cartao.html"
+        },
+        {
+          "donationId": "1750775535715711",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-24",
+          "descricao": "teste",
+          "quantidade": "4 Unidades",
+          "valor": 0,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750775544457178",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-24",
+          "descricao": "arroz",
+          "quantidade": "5 Unidades",
+          "valor": 29.5,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750776701158688",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-24",
+          "descricao": "bleah",
+          "quantidade": "3 Unidades",
+          "valor": 0,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750776917435780",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-24",
+          "descricao": "arroz",
+          "quantidade": "6 Unidades",
+          "valor": 35.4,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750776925219535",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-24",
+          "descricao": "arroz",
+          "quantidade": "4 Unidades",
+          "valor": 23.6,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750777004207429",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-24",
+          "descricao": "Arroz",
+          "quantidade": "3 Unidades",
+          "valor": 17.7,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750778218271893",
+          "recipientOngId": "5",
+          "recipientOngNome": "ONG DO Carson",
+          "data": "2025-06-24",
+          "descricao": "Arroz",
+          "quantidade": "3 Unidades",
+          "valor": 17.7,
+          "fonte": "cadastro_doacao.html"
         }
       ],
       "id": "1"
@@ -109,7 +179,7 @@
         "alimentos",
         "dinheiro"
       ],
-      "familias_ajudadas": 17,
+      "familias_ajudadas": 24,
       "colaboradores_mensais": 0,
       "voluntarios": [
         {
@@ -375,8 +445,142 @@
           "quantidade": "3 Unidades",
           "valor": 17.7,
           "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750775535715711",
+          "doadorId": "1",
+          "doadorNome": "Lucas Duarte",
+          "doadorTipo": "user",
+          "data": "2025-06-24",
+          "descricao": "teste",
+          "quantidade": "4 Unidades",
+          "valor": 0,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750775544457178",
+          "doadorId": "1",
+          "doadorNome": "Lucas Duarte",
+          "doadorTipo": "user",
+          "data": "2025-06-24",
+          "descricao": "arroz",
+          "quantidade": "5 Unidades",
+          "valor": 29.5,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750776701158688",
+          "doadorId": "1",
+          "doadorNome": "Lucas Duarte",
+          "doadorTipo": "user",
+          "data": "2025-06-24",
+          "descricao": "bleah",
+          "quantidade": "3 Unidades",
+          "valor": 0,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750776917435780",
+          "doadorId": "1",
+          "doadorNome": "Lucas Duarte",
+          "doadorTipo": "user",
+          "data": "2025-06-24",
+          "descricao": "arroz",
+          "quantidade": "6 Unidades",
+          "valor": 35.4,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750776925219535",
+          "doadorId": "1",
+          "doadorNome": "Lucas Duarte",
+          "doadorTipo": "user",
+          "data": "2025-06-24",
+          "descricao": "arroz",
+          "quantidade": "4 Unidades",
+          "valor": 23.6,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750777004207429",
+          "doadorId": "1",
+          "doadorNome": "Lucas Duarte",
+          "doadorTipo": "user",
+          "data": "2025-06-24",
+          "descricao": "Arroz",
+          "quantidade": "3 Unidades",
+          "valor": 17.7,
+          "fonte": "cadastro_doacao.html"
+        },
+        {
+          "donationId": "1750778218271893",
+          "doadorId": "1",
+          "doadorNome": "Lucas Duarte",
+          "doadorTipo": "user",
+          "data": "2025-06-24",
+          "descricao": "Arroz",
+          "quantidade": "3 Unidades",
+          "valor": 17.7,
+          "fonte": "cadastro_doacao.html"
         }
-      ]
+      ],
+      "necessidades_alimentos": [
+        {
+          "id": "necessidade_1750775503808_dmamp62ix",
+          "item": "teste",
+          "deadline": "2025-06-26",
+          "status": "suprida",
+          "valorEstimado": 10,
+          "quantidadeTotal": 1,
+          "quantidadeDoada": 0
+        },
+        {
+          "id": "necessidade_1750775518903_a7j5yeo8a",
+          "item": "arroz",
+          "deadline": "2025-06-26",
+          "status": "suprida",
+          "valorEstimado": 10,
+          "quantidadeTotal": 20,
+          "quantidadeDoada": 0
+        },
+        {
+          "id": "necessidade_1750776062998_qu0hs2kxk",
+          "item": "Arroz",
+          "deadline": "2025-06-25",
+          "status": "aberta",
+          "valorEstimado": 10,
+          "quantidadeTotal": 10,
+          "quantidadeDoada": 6
+        },
+        {
+          "id": "necessidade_1750776308990_jfoicp80g",
+          "item": "dwa",
+          "deadline": "2025-06-28",
+          "status": "aberta",
+          "valorEstimado": 122,
+          "quantidadeTotal": 32,
+          "quantidadeDoada": 0
+        },
+        {
+          "id": "necessidade_1750776389701_rrwvh3ur2",
+          "item": "arroz",
+          "deadline": "2025-06-25",
+          "status": "suprida",
+          "valorEstimado": 10,
+          "quantidadeTotal": 10,
+          "quantidadeDoada": 10
+        },
+        {
+          "id": "necessidade_1750776476255_fo6b3w6yt",
+          "item": "bleah",
+          "deadline": "2025-06-25",
+          "status": "suprida",
+          "valorEstimado": 12,
+          "quantidadeTotal": 10,
+          "quantidadeDoada": 0
+        }
+      ],
+      "necessidades_voluntarios": []
     }
   ],
   "alimentos": [

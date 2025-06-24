@@ -85,6 +85,7 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
     const primaryButton = document.getElementById('primaryActionButton');
     const secondaryButton = document.getElementById('secondaryActionButton');
     const tertiaryButton = document.getElementById('tertiaryActionButton');
+    const btnRequisitarNecessidades = document.getElementById('btnRequisitarNecessidades');
 
     if (isOwner) {
         if (primaryButton) {
@@ -98,6 +99,12 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
             secondaryButton.onclick = function() {
                 window.location.href = `/public/dashboard_ong.html?id=${ongId}`;
             };
+        }
+        if (btnRequisitarNecessidades) {
+            btnRequisitarNecessidades.style.display = 'inline-block';
+            btnRequisitarNecessidades.onclick = function() {
+                window.location.href = `necessidade.html?id=${ongId}`;
+            }
         }
     } else if (isUser) {
         if (primaryButton) {
@@ -113,7 +120,7 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
             };
         }
         if (tertiaryButton) {
-            tertiaryButton.style.display = 'inline-block'; // Mostra o botão
+            tertiaryButton.style.display = 'inline-block';
             tertiaryButton.textContent = 'Agendar Coleta de Alimentos';
             tertiaryButton.onclick = function() {
                 window.location.href = `agendamento.html?ongId=${ongId}`;

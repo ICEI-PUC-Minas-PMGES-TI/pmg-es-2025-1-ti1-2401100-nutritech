@@ -4,21 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Doação</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/necessidade.css">
+    <link rel="stylesheet" href="assets/css/base.css">
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap " rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap @5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 </head>
 <body>
-    <!-- Header Estático -->
-    <header class="d-flex justify-content-between align-items-center p-3 bg-light">
-        <a href="#" class="d-flex align-items-center">
-            <img src="imgs/logo.png" alt="Logo" class="logo me-3">
+    <header class="d-flex align-items-center p-3 bg-light position-relative">
+        <a href="index.html" class="d-flex align-items-center position-relative z-2"> 
+            <img src="assets/images/logo.png" alt="Logo" class="logo me-3"> 
             <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
         </a>
-        <a href="#" class="usuario-container d-flex align-items-center">
-            <h3 class="m-0 me-2">Usuário</h3>
-            <img src="imgs/usuario.png" alt="Usuário" class="usuario">
-        </a>
+        <nav class="d-flex align-items-center gap-3 position-absolute top-50 start-50 translate-middle-x">
+            <a href="ranking.html" class="nav-link link-white">Ranking</a> 
+            <a href="ongs.html" class="nav-link link-white">ONGs</a>
+            <a href="voluntariado_ongs.html" class="nav-link link-white">Seja um Voluntário</a>
+        </nav>
+        
+        <div class="dropdown ms-auto position-relative z-2 d-none" id="userDropdownContainer">
+            <button class="btn btn-link dropdown-toggle d-flex align-items-center p-0" id="usuarioDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <h3 class="m-0 me-2" id="userNameDisplay">Usuário</h3>
+                <img src="assets/images/usuario.png" alt="Usuário" class="usuario" id="userImageDisplay"> 
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
+                <li><a class="dropdown-item" href="perfil_usuario.html" id="dropdownProfileLink">Perfil</a></li> 
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" id="logoutLink">Sair</a></li>
+            </ul>
+        </div>
+
+        <div class="usuario-container ms-auto" id="userSection">
+            <a href="login.html" class="btn btn-nutritech-primary me-2" id="loginButton">Login</a>  
+            <a href="cadastro_usuario.html" class="btn btn-nutritech-secondary" id="registerButton">Cadastrar</a>
+        </div>
     </header>
 
     <!-- Conteúdo Dinâmico Gerado pelo React -->
@@ -30,14 +49,14 @@
                     <label>
                         <input type="radio" name="type" value="alimento" checked onclick="toggleForm()">
                         <svg viewBox="0 0 24 24" width="5" height="24" fill="#368758">
-                            <img src="imgs/simbolo alimento.png" alt="alimento" width="34">
+                            <img src="assets/images/simbolo_alimento.png" alt="alimento" width="34">
                         </svg>
                         Alimento
                     </label>
                     <label>
                         <input type="radio" name="type" value="voluntario" onclick="toggleForm()">
                         <svg viewBox="0 0 24 24" width="11" height="24" fill="#368758">
-                            <img src="imgs/icone pessoa.png" alt="voluntário" width="20">
+                            <img src="assets/images/icone_pessoa.png" alt="voluntário" width="20">
                         </svg>
                         Voluntário
                     </label>
@@ -47,7 +66,10 @@
                     <h3>Adicionar Alimento</h3>
                     <div class="form-group">
                         <input type="text" id="alimento-item" placeholder="Qual alimento está precisando?" />
-                        <button onclick="addItem('alimento')">Adicionar</button>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="alimento-quantidade" placeholder="Quantidade" min="1" step="1" />
+                        <input type="number" id="alimento-valor" placeholder="Valor por Unidade (R$)" step="0.01" min="0" />
                     </div>
                     <div class="form-group">
                         <label for="alimento-deadline">Até quando precisa?</label>
@@ -60,7 +82,6 @@
                     <h3>Adicionar Voluntário</h3>
                     <div class="form-group">
                         <input type="text" id="voluntario-item" placeholder="Qual voluntário está precisando?" />
-                        <button onclick="addItem('voluntario')">Adicionar</button>
                     </div>
                     <div class="form-group">
                         <label for="voluntario-deadline">Até quando precisa?</label>
@@ -72,13 +93,6 @@
 
             <!-- Coluna direita: Listagens -->
             <div class="form-right">
-                <!-- Listagem Temporária -->
-                <div class="list-column">
-                    <h3>Lista de necessidades á adicionar</h3>
-                    <ul id="alimento-list" class="list-group"></ul>
-                    <ul id="voluntario-list" class="list-group hidden"></ul>
-                </div>
-
                 <!-- Listagem Permanente -->
                 <div class="list-column">
                     <h3>Necessidades ainda abertas</h3>
@@ -109,6 +123,8 @@
         </div>
     </footer>
 
-    <script src="App.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="assets/js/login.js"></script>
+    <script src="assets/js/necessidade.js"></script>
 </body>
 </html>

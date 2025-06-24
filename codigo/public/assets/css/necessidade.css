@@ -109,7 +109,7 @@ main {
     color: #555;
 }
 
-input[type="text"], input[type="date"] {
+input[type="text"], input[type="date"], input[type="number"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -118,9 +118,13 @@ input[type="text"], input[type="date"] {
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="date"]:focus {
+input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus {
     border-color: #368758;
     outline: none;
+}
+
+input[type="number"] {
+    margin-bottom: 20px;
 }
 
 button {
