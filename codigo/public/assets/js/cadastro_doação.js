@@ -4,7 +4,7 @@ let targetOngNome = null;
 let necessidadesDaOng = [];
 
 function getUsuarioCorrente() {
-    const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+    const usuarioCorrenteJSON = sessionStorage.getItem('currentUser') || localStorage.getItem('currentUser');
     if (usuarioCorrenteJSON) {
         try {
             return JSON.parse(usuarioCorrenteJSON);
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             doadorInfo.doacoes.push(doacaoParaDoador);
             await atualizarEntidadeAPI(usuarioLogado.id, { doacoes: doadorInfo.doacoes }, usuarioLogado.type);
             doadorInfo.type = usuarioLogado.type;
-            sessionStorage.setItem('usuarioCorrente', JSON.stringify(doadorInfo));
+            sessionStorage.setItem('currentUser', JSON.stringify(doadorInfo));
             alert(`Doação para ${targetOngNome || 'ONG'} registrada com sucesso!`);
             exibirCardsDeDoacoes();
             carregarNecessidadesDaOng(targetOngId, ongAlvo);

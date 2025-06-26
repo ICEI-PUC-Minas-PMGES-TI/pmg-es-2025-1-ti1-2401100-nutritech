@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvimento de Interfaces Web | Login de Usuário</title>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Voluntários</title>
+    <link rel="stylesheet" href="../../assets/css/gestaodevoluntarios.css">
     <link rel="stylesheet" href="../../assets/css/base.css">
-    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
-<body class="">
+<body>
+<div class="wrapper">
     <header class="d-flex align-items-center p-3 bg-light position-relative">
         <a href="../../index.html" class="d-flex align-items-center position-relative z-2"> 
             <img src="../../assets/images/logo.png" alt="Logo" class="logo me-3"> 
@@ -22,7 +21,7 @@
         <nav class="d-flex align-items-center gap-3 position-absolute top-50 start-50 translate-middle-x">
             <a href="../../ranking.html" class="nav-link link-white">Ranking</a> 
             <a href="../ong/ongs.html" class="nav-link link-white">ONGs</a>
-            <a href="../volunteers/voluntariado_ongs.html" class="nav-link link-white">Seja um Voluntário</a>
+            <a href="voluntariado_ongs.html" class="nav-link link-white">Seja um Voluntário</a>
         </nav>
         
         <div class="dropdown ms-auto position-relative z-2 d-none" id="userDropdownContainer">
@@ -32,37 +31,34 @@
                 <img src="../../assets/images/usuario.png" alt="Usuário" class="usuario" id="userImageDisplay"> 
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
-                <li><a class="dropdown-item" href="/codigo/public/modulos/user/perfil_usuario.html" id="dropdownProfileLink">Perfil</a></li> 
+                <li><a class="dropdown-item" href="../user/perfil_usuario.html" id="dropdownProfileLink">Perfil</a></li> 
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#" id="logoutLink">Sair</a></li>
             </ul>
         </div>
 
         <div class="usuario-container ms-auto" id="userSection">
-            <a href="/codigo/public/modulos/user/login.html" class="btn btn-nutritech-primary me-2" id="loginButton">Login</a>  
-            <a href="/codigo/public/modulos/user/cadastro_usuario.html" class="btn btn-nutritech-secondary" id="registerButton">Cadastrar</a>
+            <a href="../user/login.html" class="btn btn-nutritech-primary me-2" id="loginButton">Login</a> 
+            <a href="../user/cadastro_usuario.html" class="btn btn-nutritech-secondary" id="registerButton">Cadastrar</a>
         </div>
     </header>
-<main>
-    <div class="form-container">
-      <div class="form-left">
-        <h2>Login</h2>
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="login">Login</label>
-            <input type="text" id="login" name="login" required>
-          </div>
-          <div class="form-group">
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" required>
-          </div>
-          <button type="submit">Entrar</button>
-        </form>
+
+<main class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card p-4 shadow-sm">
+        <h1 class="mb-3">Gestão de Voluntários</h1>
+        <h2 id="ong-name-title" class="h4 text-muted mb-4">Carregando...</h2>
+        <ul id="listaVoluntarios" class="list-group"></ul>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 
-  <footer class="bg-light py-4">
+
+      
+
+<footer class="bg-light py-4">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="footer-left text-center text-md-start">
                 <h3 class="mb-2">Local</h3>
@@ -80,8 +76,8 @@
             </div>
         </div>
     </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/volunteers/gestaodevoluntarios.js"></script>
   <script src="../../assets/js/auth/login.js"></script>
-</body>
-
+  </body>
 </html>

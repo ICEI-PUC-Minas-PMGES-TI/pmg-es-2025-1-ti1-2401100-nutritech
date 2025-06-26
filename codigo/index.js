@@ -19,7 +19,7 @@ const router = jsonServer.router('./db/db_unificado.json')
   
 // Para permitir que os dados sejam alterados, altere a linha abaixo
 // colocando o atributo readOnly como false.
-const middlewares = jsonServer.defaults()
+const middlewares = jsonServer.defaults({ readOnly: false })
 server.use(middlewares)
 server.use(router)
 

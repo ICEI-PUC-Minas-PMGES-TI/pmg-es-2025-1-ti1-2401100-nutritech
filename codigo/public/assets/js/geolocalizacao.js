@@ -129,7 +129,7 @@ function initMap(ongs) {
                 `<b>${ongName}</b><br>` +
                 `${ongAddress}<br>` +
                 `<i>${ongDescription.substring(0, 100)}${ongDescription.length > 100 ? '...' : ''}</i><br>` +
-                `<a href="perfildaong.html?id=${ong.id}" target="_blank">Ver perfil</a>`
+                `<a href="modulos/ong/perfildaong.html?id=${ong.id}" target="_blank">Ver perfil</a>`
             );
             markers.push(marker);
         } else {
@@ -209,7 +209,7 @@ function updateOngListDisplay(filteredOngs) {
 
         listItem.innerHTML = `
             <h6>${ongDisplayName}</h6>
-            <a href="perfildaong.html?id=${ongData.id}" target="_blank">Ver perfil</a>
+            <a href="modulos/ong/perfildaong.html?id=${ongData.id}" target="_blank">Ver perfil</a>
         `;
         listContainer.appendChild(listItem);
     });

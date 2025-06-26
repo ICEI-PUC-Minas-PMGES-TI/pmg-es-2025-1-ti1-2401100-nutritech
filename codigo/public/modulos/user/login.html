@@ -1,0 +1,78 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - NutriTech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/login.css">
+</head>
+
+<body>
+  <header class="d-flex align-items-center p-3 bg-light position-relative">
+    <a href="../../index.html" class="d-flex align-items-center position-relative z-2"> 
+      <img src="../../assets/images/logo.png" alt="Logo" class="logo me-3"> 
+      <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
+    </a>
+    <nav class="d-flex align-items-center gap-3 position-absolute top-50 start-50 translate-middle-x">
+      <a href="../../ranking.html" class="nav-link link-white">Ranking</a> 
+      <a href="../ong/ongs.html" class="nav-link link-white">ONGs</a>
+      <a href="../volunteers/voluntariado_ongs.html" class="nav-link link-white">Seja um Voluntário</a>
+    </nav>
+    
+    <div class="dropdown ms-auto position-relative z-2 d-none" id="userDropdownContainer">
+      <button class="btn btn-link dropdown-toggle d-flex align-items-center p-0" id="usuarioDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <h3 class="m-0 me-2" id="userNameDisplay">Usuário</h3>
+          <img src="../../assets/images/usuario.png" alt="Usuário" class="usuario" id="userImageDisplay"> 
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
+        <li><a class="dropdown-item" href="perfil_usuario.html" id="dropdownProfileLink">Perfil</a></li> 
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#" id="logoutLink">Sair</a></li>
+      </ul>
+    </div>
+
+    <div class="usuario-container ms-auto" id="userSection">
+      <a href="login.html" class="btn btn-nutritech-primary me-2" id="loginButton">Login</a>  
+      <a href="cadastro_usuario.html" class="btn btn-nutritech-secondary" id="registerButton">Cadastrar</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+      <div class="card p-4" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center mb-4">Login</h2>
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="username" class="form-label">Nome de Usuário</label>
+            <input type="text" class="form-control" id="username" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="password" required>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Lembrar-me</label>
+            </div>
+            <a href="#" class="text-decoration-none">Esqueceu a senha?</a>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Entrar</button>
+          <div class="text-center mt-3">
+            <span>Não tem uma conta? <a href="cadastro_usuario.html">Cadastre-se</a></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center p-3 mt-auto">
+    <p class="m-0">&copy; 2024 NutriTech. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/auth/login.js"></script>
+</body>
+
+</html>

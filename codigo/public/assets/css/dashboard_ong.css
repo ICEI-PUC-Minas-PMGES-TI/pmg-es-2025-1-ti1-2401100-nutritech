@@ -1,0 +1,21 @@
+main .card {
+    border: none;
+    border-radius: 10px;
+}
+
+.summary-card {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+main .card-title {
+    font-weight: 600;
+}
+
+#doacoesChart {
+    max-height: 400px;
+}
+
+#quantidadeChart, #valorChart {
+    max-height: 350px;
+}

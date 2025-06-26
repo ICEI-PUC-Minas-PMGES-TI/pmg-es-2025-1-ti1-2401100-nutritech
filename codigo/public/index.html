@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -23,8 +22,8 @@
         </a>
         <nav class="d-flex align-items-center gap-3 position-absolute top-50 start-50 translate-middle-x">
             <a href="ranking.html" class="nav-link link-white">Ranking</a> 
-            <a href="ongs.html" class="nav-link link-white">ONGs</a>
-            <a href="voluntariado_ongs.html" class="nav-link link-white">Seja um Voluntário</a>
+            <a href="modulos/ong/ongs.html" class="nav-link link-white">ONGs</a>
+            <a href="modulos/volunteers/voluntariado_ongs.html" class="nav-link link-white">Seja um Voluntário</a>
         </nav>
         
         <div class="dropdown ms-auto position-relative z-2 d-none" id="userDropdownContainer">
@@ -34,15 +33,15 @@
                 <img src="assets/images/usuario.png" alt="Usuário" class="usuario" id="userImageDisplay"> 
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
-                <li><a class="dropdown-item" href="perfil_usuario.html" id="dropdownProfileLink">Perfil</a></li> 
+                <li><a class="dropdown-item" href="modulos/user/perfil_usuario.html" id="dropdownProfileLink">Perfil</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#" id="logoutLink">Sair</a></li>
             </ul>
         </div>
 
         <div class="usuario-container ms-auto" id="userSection">
-            <a href="login.html" class="btn btn-nutritech-primary me-2" id="loginButton">Login</a>  
-            <a href="cadastro_usuario.html" class="btn btn-nutritech-secondary" id="registerButton">Cadastrar</a>
+            <a href="modulos/user/login.html" class="btn btn-nutritech-primary me-2" id="loginButton">Login</a>  
+            <a href="modulos/user/cadastro_usuario.html" class="btn btn-nutritech-secondary" id="registerButton">Cadastrar</a>
         </div>
     </header>
 
@@ -189,7 +188,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="assets/js/homepage.js"></script> 
     <script src="assets/js/geolocalizacao.js"></script>
-    <script src="assets/js/login.js"></script>
+    <script src="assets/js/auth/login.js"></script>
 </body>
 
 </html>

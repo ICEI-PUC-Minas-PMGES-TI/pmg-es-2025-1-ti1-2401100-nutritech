@@ -1,0 +1,37 @@
+body {
+    background-color: #f8f9fa;
+}
+
+main .container {
+    max-width: 800px;
+}
+
+#edit-ong-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-header.bg-verde-nutritech {
+    background-color: #28a745; 
+}
+
+.btn-primary-nutritech {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.btn-primary-nutritech:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.img-thumbnail {
+    border: 1px solid #dee2e6;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
