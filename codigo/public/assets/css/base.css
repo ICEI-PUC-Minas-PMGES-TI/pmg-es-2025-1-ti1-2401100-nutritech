@@ -26,7 +26,7 @@ header a {
 header .logo {
     width: auto;
     max-height: 70px;
-    margin: 5px;
+    margin: 5x;
 }
 
 header h2 { 
@@ -179,3 +179,29 @@ footer .row {
     margin: 0;
 }
 
+/* Estilo padrão */
+.tab-button {
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+@media (max-width: 768px) {
+    header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #5D8736, #A9C46C);
+    padding: 5px;
+    height: 170px;
+    position: relative;
+}
+    nav.d-flex {
+    height: 120px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.hide-on-mobile {
+    display: none;
+  }
+}
