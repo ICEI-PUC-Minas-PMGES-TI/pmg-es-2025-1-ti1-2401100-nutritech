@@ -86,6 +86,7 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
     const secondaryButton = document.getElementById('secondaryActionButton');
     const tertiaryButton = document.getElementById('tertiaryActionButton');
     const btnRequisitarNecessidades = document.getElementById('btnRequisitarNecessidades');
+    const btnGestaoVoluntarios = document.getElementById('btnGestaoVoluntarios');
 
     if (isOwner) {
         if (primaryButton) {
@@ -104,6 +105,12 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
             btnRequisitarNecessidades.style.display = 'inline-block';
             btnRequisitarNecessidades.onclick = function() {
                 window.location.href = `necessidade.html?id=${ongId}`;
+            }
+        }
+        if (btnGestaoVoluntarios) {
+            btnGestaoVoluntarios.style.display = 'inline-block';
+            btnGestaoVoluntarios.onclick = function() {
+                window.location.href = `gestaodevoluntarios.html?id=${ongId}`;
             }
         }
     } else if (isUser) {
