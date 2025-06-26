@@ -124,3 +124,24 @@
         width: calc(40% - 20px);
     }
 }
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Reduz o tamanho da fonte */
+    }
+
+    p {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte */
+    }
+
+    .table td, .table th {
+        padding: 0.5rem; /* Reduz o espaçamento nas células */
+        font-size: 0.9rem; /* Reduz o tamanho da fonte */
+    }
+
+    /* Faz com que a imagem da ONG seja menor no mobile */
+    .table img {
+        max-width: 40px;
+        height: 40px;
+    }
+}
