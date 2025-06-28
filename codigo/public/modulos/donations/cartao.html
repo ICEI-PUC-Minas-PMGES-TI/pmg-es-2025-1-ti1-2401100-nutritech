@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoaÃ§Ã£o com CartÃ£o</title>
+    <title>Doação com Cartão</title>
     <link rel="stylesheet" href="../../assets/css/base.css">
     <link rel="stylesheet" href="../../assets/css/cartao.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
@@ -14,24 +14,19 @@
     <header class="d-flex align-items-center p-3 bg-light position-relative">
         <a href="../../index.html" class="d-flex align-items-center position-relative z-2"> 
             <img src="../../assets/images/logo.png" alt="Logo" class="logo me-3"> 
-            <h2 class="m-0 text-center">AlimentaÃ§Ã£o <br> Para <br> Todos</h2>
+            <h2 class="m-0 text-center">Alimentação <br> Para <br> Todos</h2>
         </a>
         <nav class="d-flex align-items-center gap-3 position-absolute top-50 start-50 translate-middle-x">
             <a href="../../ranking.html" class="nav-link link-white">Ranking</a> 
             <a href="../ong/ongs.html" class="nav-link link-white">ONGs</a>
-            <a href="../volunteers/voluntariado_ongs.html" class="nav-link link-white">Seja um VoluntÃ¡rio</a>
+            <a href="../volunteers/voluntariado_ongs.html" class="nav-link link-white">Seja um Voluntário</a>
         </nav>
         
         <div class="dropdown ms-auto position-relative z-2 d-none" id="userDropdownContainer">
             <button class="btn btn-link dropdown-toggle d-flex align-items-center p-0" id="usuarioDropdown"
                 data-bs-toggle="dropdown" aria-expanded="false">
-ations/cartao.html
-                <h3 class="m-0 me-2" id="userNameDisplay">UsuÃ¡rio</h3>
-                <img src="../../assets/images/usuario.png" alt="UsuÃ¡rio" class="usuario" id="userImageDisplay"> 
-
-                <h3 class="m-0 me-2 " id="userNameDisplay">UsuÃ¡rio</h3>
-                <img src="../../assets/images/usuario.png" alt="UsuÃ¡rio" class="usuario" id="userImageDisplay"> 
-tao.html
+                <h3 class="m-0 me-2" id="userNameDisplay">Usuário</h3>
+                <img src="../../assets/images/usuario.png" alt="Usuário" class="usuario" id="userImageDisplay"> 
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
                 <li><a class="dropdown-item" href="/codigo/public/modulos/user/perfil_usuario.html" id="dropdownProfileLink">Perfil</a></li> 
@@ -50,9 +45,9 @@ tao.html
         <div id="pagina">
             <div class="container-pagina">
                 <form id="form-cartao">
-                    <h1>Insira os dados do seu cartÃ£o</h1>
+                    <h1>Insira os dados do seu cartão</h1>
                     <div class="input-grupo">
-                        <label for="valor">Valor da DoaÃ§Ã£o</label>
+                        <label for="valor">Valor da Doação</label>
                         <input type="text" id="valor" required>
                     </div>
                     <div class="input-grupo">
@@ -60,7 +55,7 @@ tao.html
                         <input type="text" id="cpf" required>
                     </div>
                     <div class="input-grupo">
-                        <label for="num-cartao">NÃºmero do CartÃ£o</label>
+                        <label for="num-cartao">Número do Cartão</label>
                         <input type="text" id="num-cartao" required>
                     </div>
                     <div class="input-grupo">
@@ -79,7 +74,7 @@ tao.html
                     </div>
                     <div class="input-grupo">
                         <input type="checkbox" id="recorrencia" name="recorrencia">
-                        <label for="recorrencia">Tornar esta doaÃ§Ã£o recorrente (mensal)</label>
+                        <label for="recorrencia">Tornar esta doação recorrente (mensal)</label>
                     </div>
                     <button type="submit" class="btn-doar">Doar</button>
                     <button type="button" class="btn-voltar" onclick="window.location.href='../ong/ongs.html'">Voltar</button>

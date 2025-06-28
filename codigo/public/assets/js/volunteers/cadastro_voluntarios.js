@@ -56,11 +56,34 @@ async function saveVoluntariado(ongId, userId, diasDisponiveis, areas, nomeVolun
 
 window.addEventListener('DOMContentLoaded', async () => {
   const { ongId } = getUrlParams();
-  const usuarioCorrente = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(localStorage.getItem('currentUser'));
-  const userId = usuarioCorrente ? usuarioCorrente.id : null;
+  
+  let currentUser = null;
+  try {
+    currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+  } catch (e) {
+    console.log('Erro ao fazer parse de currentUser do sessionStorage');
+  }
+  
+  if (!currentUser) {
+    try {
+      currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    } catch (e) {
+      console.log('Erro ao fazer parse de currentUser do localStorage');
+    }
+  }
+  
+  if (!currentUser) {
+    try {
+      currentUser = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
+    } catch (e) {
+      console.log('Erro ao fazer parse de usuarioCorrente do sessionStorage');
+    }
+  }
 
-  if (!usuarioCorrente || !userId) {
-      alert('Access denied. You must be logged in.');
+  const userId = currentUser ? currentUser.id : null;
+
+  if (!currentUser || !userId) {
+      alert('Você precisa estar logado para se voluntariar. Redirecionando para a página de login.');
       window.location.href = '../login/login.html';
       return;
   }

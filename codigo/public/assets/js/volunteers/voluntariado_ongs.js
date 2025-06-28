@@ -25,9 +25,31 @@ document.addEventListener('DOMContentLoaded', async () => {
                 row.style.cursor = 'pointer';
                 
                 row.addEventListener('click', () => {
-                    const usuarioCorrente = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(localStorage.getItem('currentUser'));
-                    if (usuarioCorrente && usuarioCorrente.login) {
-                        window.location.href = `cadastro_voluntarios.html?ongId=${ong.id}&userId=${usuarioCorrente.id}`;
+                    let currentUser = null;
+                    try {
+                        currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+                    } catch (e) {
+                        console.log('Erro ao fazer parse de currentUser do sessionStorage');
+                    }
+                    
+                    if (!currentUser) {
+                        try {
+                            currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                        } catch (e) {
+                            console.log('Erro ao fazer parse de currentUser do localStorage');
+                        }
+                    }
+                    
+                    if (!currentUser) {
+                        try {
+                            currentUser = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
+                        } catch (e) {
+                            console.log('Erro ao fazer parse de usuarioCorrente do sessionStorage');
+                        }
+                    }
+
+                    if (currentUser && currentUser.id) {
+                        window.location.href = `cadastro_voluntarios.html?ongId=${ong.id}&userId=${currentUser.id}`;
                     } else {
                         alert('Você precisa estar logado para se voluntariar. Redirecionando para a página de login.');
                         window.location.href = '../login/login.html';

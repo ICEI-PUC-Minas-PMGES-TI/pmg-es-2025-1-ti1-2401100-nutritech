@@ -206,14 +206,14 @@
           "nome": "Lucas Duarte",
           "telefone": "319821782222",
           "dias_disponiveis": [
+            "24/06/2025",
+            "25/06/2025",
             "26/06/2025",
             "27/06/2025",
             "28/06/2025",
-            "01/07/2025",
-            "11/07/2025",
-            "25/07/2025",
-            "23/07/2025",
-            "16/07/2025"
+            "23/06/2025",
+            "30/06/2025",
+            "29/06/2025"
           ],
           "areasInteresse": [
             "Distribuição de Alimentos"
@@ -526,12 +526,57 @@
       ],
       "necessidades_alimentos": [
         {
+          "id": "necessidade_1750775503808_dmamp62ix",
+          "item": "teste",
+          "deadline": "2025-06-26",
+          "status": "suprida",
+          "valorEstimado": 10,
+          "quantidadeTotal": 1,
+          "quantidadeDoada": 0
+        },
+        {
+          "id": "necessidade_1750775518903_a7j5yeo8a",
+          "item": "arroz",
+          "deadline": "2025-06-26",
+          "status": "suprida",
+          "valorEstimado": 10,
+          "quantidadeTotal": 20,
+          "quantidadeDoada": 0
+        },
+        {
+          "id": "necessidade_1750776062998_qu0hs2kxk",
+          "item": "Arroz",
+          "deadline": "2025-06-25",
+          "status": "aberta",
+          "valorEstimado": 10,
+          "quantidadeTotal": 10,
+          "quantidadeDoada": 6
+        },
+        {
           "id": "necessidade_1750776308990_jfoicp80g",
           "item": "dwa",
           "deadline": "2025-06-28",
           "status": "aberta",
           "valorEstimado": 122,
           "quantidadeTotal": 32,
+          "quantidadeDoada": 0
+        },
+        {
+          "id": "necessidade_1750776389701_rrwvh3ur2",
+          "item": "arroz",
+          "deadline": "2025-06-25",
+          "status": "suprida",
+          "valorEstimado": 10,
+          "quantidadeTotal": 10,
+          "quantidadeDoada": 10
+        },
+        {
+          "id": "necessidade_1750776476255_fo6b3w6yt",
+          "item": "bleah",
+          "deadline": "2025-06-25",
+          "status": "suprida",
+          "valorEstimado": 12,
+          "quantidadeTotal": 10,
           "quantidadeDoada": 0
         }
       ],
