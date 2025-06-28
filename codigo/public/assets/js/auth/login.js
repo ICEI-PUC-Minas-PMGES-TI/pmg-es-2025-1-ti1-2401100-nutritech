@@ -14,6 +14,31 @@ const RETURN_URL = "/index.html";
 const USER_PROFILE_URL = "/modulos/user/perfil_usuario.html";
 const ONG_PROFILE_URL = "/modulos/ong/perfildaong.html";
 
+function getIndexPath() {
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split('/').filter(segment => segment !== '');
+    
+    if (pathSegments.length <= 2 || currentPath.includes('/codigo/public/index.html')) {
+        return './index.html';
+    }
+    
+    let levelsUp = 0;
+    for (let i = pathSegments.length - 1; i >= 0; i--) {
+        if (pathSegments[i] === 'public') {
+            break;
+        }
+        if (pathSegments[i] !== 'login.html' && pathSegments[i] !== 'index.html') {
+            levelsUp++;
+        }
+    }
+    
+    if (levelsUp === 0 && (currentPath.includes('/modulos/') || currentPath.includes('/assets/'))) {
+        levelsUp = 2;
+    }
+    
+    return '../'.repeat(levelsUp) + 'index.html';
+}
+
 
 if (typeof window.API_URL === 'undefined') {
   window.API_URL = 'http://localhost:3001/usuarios';
@@ -137,7 +162,7 @@ async function handleLoginSubmit(event) {
         }
 
         if (await authenticateUser(login, senha)) {
-            window.location.href = RETURN_URL;
+            window.location.href = getIndexPath();
         } else {
             displayMessage("Login ou senha inválidos!");
         }
