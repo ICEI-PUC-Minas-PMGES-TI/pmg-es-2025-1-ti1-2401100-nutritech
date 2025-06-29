@@ -7,7 +7,8 @@ const API_CONFIG = {
 function isDevelopment() {
     return window.location.hostname === 'localhost' || 
            window.location.hostname === '127.0.0.1' ||
-           window.location.port === '3001';
+           window.location.port === '3001' ||
+           window.location.port === '3000';
 }
 
 function getApiBaseUrl() {
@@ -16,7 +17,20 @@ function getApiBaseUrl() {
 
 function getApiUrl(endpoint) {
     const baseUrl = getApiBaseUrl();
-    return `${baseUrl}/${endpoint}`;
+    console.log('[DEBUG] getApiUrl called with endpoint:', endpoint);
+    console.log('[DEBUG] baseUrl:', baseUrl);
+    console.log('[DEBUG] isDevelopment():', isDevelopment());
+    console.log('[DEBUG] window.location.hostname:', window.location.hostname);
+    console.log('[DEBUG] window.location.port:', window.location.port);
+    
+    if (!endpoint) {
+        console.error('[ERROR] getApiUrl called with undefined/null endpoint');
+        return baseUrl;
+    }
+    
+    const finalUrl = `${baseUrl}/${endpoint}`;
+    console.log('[DEBUG] final URL:', finalUrl);
+    return finalUrl;
 }
 
 // Funções de formatação para exibição de dados
