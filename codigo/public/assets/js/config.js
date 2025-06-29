@@ -16,7 +16,6 @@ function getApiBaseUrl() {
     return isDevelopment() ? API_CONFIG.DEVELOPMENT_URL : API_CONFIG.PRODUCTION_URL;
 }
 
-
 function getApiUrl(endpoint) {
     const baseUrl = getApiBaseUrl();
     return `${baseUrl}/${endpoint}`;
