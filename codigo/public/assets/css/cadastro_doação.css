@@ -1,8 +1,9 @@
 main {
     display: block;
-    height: 715px;
+    min-height: 715px;
     text-align: left;
     padding: 0;
+    margin-bottom: 20px;
 }
 
 main .row {
@@ -56,4 +57,88 @@ form input[type="submit"]:hover {
 #cards-container {
     max-height: 570px;
     overflow-y: auto; 
+}
+
+/* Media queries para responsividade mobile */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 120px; /* Espaço extra para o footer */
+    }
+    
+    main {
+        min-height: auto;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    
+    main .row {
+        flex-direction: column;
+    }
+    
+    main .col-md-6 {
+        padding: 15px;
+        border: none !important;
+    }
+    
+    #cards-container {
+        max-height: 400px;
+        margin-top: 20px;
+        padding: 10px;
+    }
+    
+    form {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .container-fluid {
+        padding: 10px !important;
+    }
+    
+    footer {
+        position: relative;
+        margin-top: auto;
+        z-index: 10;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-bottom: 140px; /* Mais espaço para footer em telas muito pequenas */
+    }
+    
+    main {
+        padding: 5px;
+        margin-bottom: 40px;
+    }
+    
+    main h1 {
+        font-size: 1.5rem;
+    }
+    
+    #cards-container {
+        max-height: 300px;
+        padding: 5px;
+    }
+    
+    .col-md-6.px-5 {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+    footer {
+        height: auto;
+        min-height: 120px;
+        padding: 15px 0;
+    }
+    
+    footer .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    footer h3,
+    footer p {
+        font-size: 0.8rem;
+    }
 }

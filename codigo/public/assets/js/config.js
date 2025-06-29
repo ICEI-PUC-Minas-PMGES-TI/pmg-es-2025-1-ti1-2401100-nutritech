@@ -17,20 +17,13 @@ function getApiBaseUrl() {
 
 function getApiUrl(endpoint) {
     const baseUrl = getApiBaseUrl();
-    console.log('[DEBUG] getApiUrl called with endpoint:', endpoint);
-    console.log('[DEBUG] baseUrl:', baseUrl);
-    console.log('[DEBUG] isDevelopment():', isDevelopment());
-    console.log('[DEBUG] window.location.hostname:', window.location.hostname);
-    console.log('[DEBUG] window.location.port:', window.location.port);
     
     if (!endpoint) {
         console.error('[ERROR] getApiUrl called with undefined/null endpoint');
         return baseUrl;
     }
     
-    const finalUrl = `${baseUrl}/${endpoint}`;
-    console.log('[DEBUG] final URL:', finalUrl);
-    return finalUrl;
+    return `${baseUrl}/${endpoint}`;
 }
 
 // Funções de formatação para exibição de dados
