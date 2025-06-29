@@ -14,7 +14,7 @@ function getOngId() {
     return params.get('id') || 1;
 }
 const ongId = getOngId();
-const ONGS_API_URL_BASE = 'http://localhost:3001/ongs';
+const ONGS_API_URL_BASE = window.getApiUrl('ongs');
 fetch(`${ONGS_API_URL_BASE}/${ongId}`)
   .then(response => {
     if (!response.ok) {

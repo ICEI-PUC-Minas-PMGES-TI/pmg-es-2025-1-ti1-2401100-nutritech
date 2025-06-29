@@ -46,7 +46,7 @@ document.getElementById('cadastroForm').addEventListener('submit', function (e) 
       doacoes: []
     };
 
-    const baseURL = 'http://localhost:3001/usuarios';
+    const baseURL = window.getApiUrl('usuarios');
     fetch(`${baseURL}?email=${email}`)
       .then(response => response.json())
       .then(usuariosEmail => {

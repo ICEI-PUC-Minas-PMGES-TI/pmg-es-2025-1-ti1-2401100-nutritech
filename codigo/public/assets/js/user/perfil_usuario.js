@@ -51,9 +51,9 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     try {
         const [userResponse, alimentosResponse, ongsResponse] = await Promise.all([
-            fetch(`http://localhost:3001/usuarios/${userId}`),
-            fetch(`http://localhost:3001/alimentos?usuarioId=${userId}`),
-            fetch(`http://localhost:3001/ongs`)
+            fetch(window.getApiUrl(`usuarios/${userId}`)),
+            fetch(window.getApiUrl(`alimentos?usuarioId=${userId}`)),
+            fetch(window.getApiUrl(`ongs`))
         ]);
 
         if (!userResponse.ok) throw new Error(`Falha ao carregar dados do usuário. Status: ${userResponse.status}`);
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const doacaoId = target.getAttribute('data-doacao-id');
                 if (confirm('Tem certeza que deseja cancelar este agendamento?')) {
                     try {
-                        const response = await fetch(`http://localhost:3001/alimentos/${doacaoId}`);
+                        const response = await fetch(window.getApiUrl(`alimentos/${doacaoId}`));
                         if (!response.ok) throw new Error('Não foi possível encontrar a doação.');
                         
                         const doacao = await response.json();

@@ -12,7 +12,7 @@ function getBadge(valor) {
   }
 }
 
-fetch('http://localhost:3001/usuarios')
+fetch(window.getApiUrl('usuarios'))
   .then(response => response.json())
   .then(usuarios => {
     const lista = document.getElementById('ranking-list');
