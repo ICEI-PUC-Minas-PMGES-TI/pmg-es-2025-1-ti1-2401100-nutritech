@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                         doacao.status = 'Pendente';
                         delete doacao.agendamento;
 
-                        const updateResponse = await fetch(`http://localhost:3001/alimentos/${doacaoId}`, {
+                        const updateResponse = await fetch(window.getApiUrl(`alimentos/${doacaoId}`), {
                             method: 'PUT',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(doacao)
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const doacaoId = target.getAttribute('data-doacao-id');
                 if (confirm('Tem certeza que deseja excluir esta doação? Esta ação não pode ser desfeita.')) {
                     try {
-                        const deleteResponse = await fetch(`http://localhost:3001/alimentos/${doacaoId}`, { method: 'DELETE' });
+                        const deleteResponse = await fetch(window.getApiUrl(`alimentos/${doacaoId}`), { method: 'DELETE' });
                         if (!deleteResponse.ok) throw new Error('Falha ao excluir a doação.');
                         alert('Doação excluída com sucesso!');
                         location.reload();

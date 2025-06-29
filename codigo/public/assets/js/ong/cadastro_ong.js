@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const processOngCadastro = async (imagemBase64 = null) => {
             const addressString = `${formDataObject.rua}, ${formDataObject.numero}, ${formDataObject.bairro}, ${formDataObject.cidade}, ${formDataObject.estado}, ${formDataObject.cep}`;
             const coordinates = await geocodeAddress(addressString);
-            fetch("http://localhost:3001/ongs")
+            fetch(window.getApiUrl("ongs"))
                 .then(response => response.json())
                 .then(async data => {
                     formDataObject.id = data.length > 0 ? Math.max(...data.map(ong => ong.id)) + 1 : 1;
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     formDataObject.colaboradores_mensais = 0;
                     formDataObject.voluntarios = [];
                     formDataObject.data_ultima_ajuda = null;
-                    fetch("http://localhost:3001/ongs", {
+                    fetch(window.getApiUrl("ongs"), {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"

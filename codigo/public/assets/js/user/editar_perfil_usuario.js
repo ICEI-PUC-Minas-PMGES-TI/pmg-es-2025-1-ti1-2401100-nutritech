@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Carregar dados do usuário da API
-    fetch(`http://localhost:3001/usuarios/${userId}`)
+    fetch(window.getApiUrl(`usuarios/${userId}`))
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erro ${response.status}: ${response.statusText}`);
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const response = await fetch(`http://localhost:3001/usuarios/${userId}`, {
+                const response = await fetch(window.getApiUrl(`usuarios/${userId}`), {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'

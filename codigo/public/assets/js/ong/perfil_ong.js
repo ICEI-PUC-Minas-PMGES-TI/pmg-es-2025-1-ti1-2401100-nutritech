@@ -144,13 +144,17 @@ fetch(`${ONGS_API_URL_BASE}/${ongId}`)
         if (primaryButton) {
             primaryButton.textContent = 'Doar Dinheiro'; 
             primaryButton.onclick = function() {
-                alert('Você precisa estar logado para doar dinheiro.');
+                // Salvar a intenção de doação e redirecionar para login
+                sessionStorage.setItem('redirectAfterLogin', `../donations/cartao.html?ongId=${ongId}`);
+                window.location.href = '../user/login.html';
             };
         }
         if (secondaryButton) {
             secondaryButton.textContent = 'Doar Alimento';
             secondaryButton.onclick = function() {
-                window.location.href = `../donations/cadastro_doacao.html?ongId=${ongId}`;
+                // Salvar a intenção de doação e redirecionar para login
+                sessionStorage.setItem('redirectAfterLogin', `../donations/cadastro_doacao.html?ongId=${ongId}`);
+                window.location.href = '../user/login.html';
             };
         }
     }

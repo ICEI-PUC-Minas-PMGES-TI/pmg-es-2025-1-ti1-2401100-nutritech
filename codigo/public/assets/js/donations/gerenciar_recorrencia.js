@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function carregarDadosUsuario(userId) {
         console.log('Carregando dados do usuário:', userId);
-        fetch(`http://localhost:3001/usuarios/${userId}`)
+        fetch(window.getApiUrl(`usuarios/${userId}`))
             .then(res => {
                 console.log('Resposta da API:', res.status, res.statusText);
                 if (!res.ok) throw new Error(`Falha ao carregar dados do usuário: ${res.status}`);
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function atualizarUsuarioNoServidor(usuario, successMsg, errorMsg) {
-        fetch(`http://localhost:3001/usuarios/${usuario.id}`, {
+        fetch(window.getApiUrl(`usuarios/${usuario.id}`), {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
