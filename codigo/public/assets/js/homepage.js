@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     try {
-        const response = await fetch('http://localhost:3001/ongs');
+        const response = await fetch(window.API_CONFIG.ONGS_URL);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}, ao buscar /ongs`);
         }

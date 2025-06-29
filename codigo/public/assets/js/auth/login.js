@@ -75,11 +75,17 @@ function getRelativePath(targetPath) {
 
 
 if (typeof window.API_URL === 'undefined') {
-  window.API_URL = 'http://localhost:3001/usuarios';
+  const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+  const baseURL = isProduction ? window.location.origin : 'http://localhost:3001';
+  
+  window.API_URL = `${baseURL}/usuarios`;
 }
 
 if (typeof window.ONGS_API_URL === 'undefined') {
-  window.ONGS_API_URL = 'http://localhost:3001/ongs'; 
+  const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+  const baseURL = isProduction ? window.location.origin : 'http://localhost:3001';
+  
+  window.ONGS_API_URL = `${baseURL}/ongs`;
 }
 
 const LOGIN_PAGE_FILENAME = "login.html";

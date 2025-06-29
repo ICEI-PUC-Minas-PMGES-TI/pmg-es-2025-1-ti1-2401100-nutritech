@@ -1,10 +1,11 @@
 {
-  "name": "lab-jsonserver",
+  "name": "nutritech-platform",
   "version": "1.0.0",
-  "description": "Laboratório de aplicação Web com backend baseado no JSON Server",
+  "description": "Plataforma NutriTech - Combate à fome através de doações e voluntariado",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --watch db/db_unificado.json --static public --port 3001"
+    "start": "json-server --host 0.0.0.0 --port $PORT db/db_unificado.json --static public",
+    "dev": "json-server --watch db/db_unificado.json --static public --port 3001"
   },
   "keywords": [],
   "author": "Rommel Vieira Carneiro",
