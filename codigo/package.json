@@ -7,11 +7,10 @@
     "start": "json-server --host 0.0.0.0 --port $PORT db/db_unificado.json --static public",
     "dev": "json-server --watch db/db_unificado.json --static public --port 3001"
   },
-  "keywords": [],
-  "author": "Rommel Vieira Carneiro",
+  "keywords": ["nutritech", "doacao", "ong", "voluntariado", "combate-fome"],
+  "author": "Equipe NutriTech",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
     "json-server": "^0.17.4"
   }
 }
