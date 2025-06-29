@@ -187,21 +187,80 @@ footer .row {
 
 @media (max-width: 768px) {
     header {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #5D8736, #A9C46C);
-    padding: 5px;
-    height: 170px;
-    position: relative;
-}
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(to right, #5D8736, #A9C46C);
+        padding: 10px 5px;
+        height: auto;
+        min-height: 120px;
+        position: relative;
+    }
+    
+    header .d-flex:first-child {
+        margin-bottom: 10px;
+    }
+    
+    header h2 {
+        font-size: 0.9em;
+        text-align: center;
+    }
+    
+    header .logo {
+        max-height: 50px;
+    }
+    
     nav.d-flex {
-    height: 120px; 
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
+        position: static !important;
+        transform: none !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 10px 0;
+    }
+    
+    nav.d-flex a {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        white-space: nowrap;
+    }
+    
+    .usuario-container {
+        position: static !important;
+        margin: 10px 0 0 0 !important;
+    }
+    
+    .hide-on-mobile {
+        display: none;
+    }
 }
 
-.hide-on-mobile {
-    display: none;
-  }
+@media (max-width: 480px) {
+    header {
+        padding: 8px 3px;
+        min-height: 140px;
+    }
+    
+    header h2 {
+        font-size: 0.8em;
+    }
+    
+    header .logo {
+        max-height: 40px;
+    }
+    
+    nav.d-flex {
+        gap: 0.5rem;
+    }
+    
+    nav.d-flex a {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+    
+    .btn {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+    }
 }

@@ -186,4 +186,34 @@ document.addEventListener('DOMContentLoaded', async function () {
         prevButton.style.display = '';
         nextButton.style.display = '';
     }
+
+    function isUserLoggedIn() {
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || localStorage.getItem('currentUser') || '{}');
+        return currentUser && (currentUser.id || currentUser.email);
+    }
+
+    function handleDonationClick(event) {
+        if (!isUserLoggedIn()) {
+            event.preventDefault();
+            
+            sessionStorage.setItem('redirectAfterLogin', 'modulos/ong/ongs.html');
+
+            window.location.href = 'modulos/user/login.html';
+            return false;
+        }
+    
+        return true;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const doarBtn = document.getElementById('doarBtn');
+        const serDoadorBtn = document.getElementById('serDoadorBtn');
+        
+        if (doarBtn) {
+            doarBtn.addEventListener('click', handleDonationClick);
+        }
+        
+        if (serDoadorBtn) {
+            serDoadorBtn.addEventListener('click', handleDonationClick);
+        }
+    });
 });

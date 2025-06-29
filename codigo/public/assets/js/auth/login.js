@@ -14,14 +14,18 @@ const RETURN_URL = "/index.html";
 const USER_PROFILE_URL = "/modulos/user/perfil_usuario.html";
 const ONG_PROFILE_URL = "/modulos/ong/perfildaong.html";
 
+// Função para calcular o caminho relativo correto para index.html
 function getIndexPath() {
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(segment => segment !== '');
     
+    // Se estamos na raiz ou em /codigo/public/
     if (pathSegments.length <= 2 || currentPath.includes('/codigo/public/index.html')) {
         return './index.html';
     }
     
+    // Se estamos em um subdiretório (como /modulos/user/login.html)
+    // Contar quantos níveis precisamos subir
     let levelsUp = 0;
     for (let i = pathSegments.length - 1; i >= 0; i--) {
         if (pathSegments[i] === 'public') {
@@ -32,11 +36,41 @@ function getIndexPath() {
         }
     }
     
+    // Se não encontrou 'public', assumir que estamos 2 níveis abaixo
     if (levelsUp === 0 && (currentPath.includes('/modulos/') || currentPath.includes('/assets/'))) {
         levelsUp = 2;
     }
     
     return '../'.repeat(levelsUp) + 'index.html';
+}
+
+// Função para calcular o caminho relativo para qualquer página
+function getRelativePath(targetPath) {
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split('/').filter(segment => segment !== '');
+    
+    // Se estamos na raiz ou em /codigo/public/
+    if (pathSegments.length <= 2 || currentPath.includes('/codigo/public/index.html')) {
+        return './' + targetPath;
+    }
+    
+    // Se estamos em um subdiretório
+    let levelsUp = 0;
+    for (let i = pathSegments.length - 1; i >= 0; i--) {
+        if (pathSegments[i] === 'public') {
+            break;
+        }
+        if (pathSegments[i] !== 'login.html' && pathSegments[i] !== 'index.html') {
+            levelsUp++;
+        }
+    }
+    
+    // Se não encontrou 'public', assumir que estamos 2 níveis abaixo
+    if (levelsUp === 0 && (currentPath.includes('/modulos/') || currentPath.includes('/assets/'))) {
+        levelsUp = 2;
+    }
+    
+    return '../'.repeat(levelsUp) + targetPath;
 }
 
 
@@ -162,7 +196,14 @@ async function handleLoginSubmit(event) {
         }
 
         if (await authenticateUser(login, senha)) {
-            window.location.href = getIndexPath();
+            // Verificar se há um redirecionamento pendente
+            const redirectAfterLogin = sessionStorage.getItem('redirectAfterLogin');
+            if (redirectAfterLogin) {
+                sessionStorage.removeItem('redirectAfterLogin');
+                window.location.href = getRelativePath(redirectAfterLogin);
+            } else {
+                window.location.href = getIndexPath();
+            }
         } else {
             displayMessage("Login ou senha inválidos!");
         }
