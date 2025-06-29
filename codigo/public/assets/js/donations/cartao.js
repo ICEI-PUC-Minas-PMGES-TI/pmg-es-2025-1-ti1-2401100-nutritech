@@ -133,6 +133,7 @@ document.getElementById('form-cartao').addEventListener('submit', async function
             }
 
             const isRecorrente = document.getElementById('recorrencia').checked;
+            console.log('Checkbox recorrência marcado:', isRecorrente);
 
             const urlParams = new URLSearchParams(window.location.search);
             const ongId = urlParams.get('ongId');
@@ -164,6 +165,8 @@ document.getElementById('form-cartao').addEventListener('submit', async function
                 recorrencia: isRecorrente,
                 fonte: 'cartao.html'
             };
+
+            console.log('Objeto de doação criado:', donationUser);
 
             const ongDoacoes = Array.isArray(ong.doacoes) ? ong.doacoes : [];
             const donationOng = {
@@ -289,4 +292,8 @@ document.getElementById('valor').addEventListener('input', function () {
     
     // Adiciona o símbolo R$
     this.value = 'R$ ' + val;
+});
+
+document.getElementById('recorrencia').addEventListener('change', function() {
+    console.log('Estado do checkbox recorrência:', this.checked);
 });

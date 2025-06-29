@@ -153,8 +153,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderizarDoacoes(doacoes) {
         console.log('Renderizando doações:', doacoes);
+        console.log('Todas as doações recebidas:', doacoes.map(d => ({
+            descricao: d.descricao,
+            recorrencia: d.recorrencia,
+            valor: d.valor
+        })));
+        
         lista.innerHTML = '';
-        doacoesRecorrentes = doacoes.filter(d => d.recorrencia === true && d.categoria !== "Alimentos");
+        doacoesRecorrentes = doacoes.filter(d => {
+            const isRecorrente = d.recorrencia === true;
+            const isDinheiro = d.descricao && d.descricao.toLowerCase() === 'dinheiro';
+            console.log(`Doação: ${d.descricao}, Recorrente: ${isRecorrente}, É dinheiro: ${isDinheiro}`);
+            return isRecorrente && isDinheiro;
+        });
+        
         console.log('Doações recorrentes filtradas:', doacoesRecorrentes);
 
         if (doacoesRecorrentes.length === 0) {
