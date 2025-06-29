@@ -206,9 +206,12 @@ document.getElementById('form-cartao').addEventListener('submit', async function
 
 document.getElementById('num-cartao').addEventListener('input', function () {
   let val = this.value.replace(/\D/g, '');
-  // Garante que o valor não exceda 16 dígitos
   val = val.slice(0, 16);
+
   val = val.replace(/(.{4})/g, '$1 ').trim();
+  
+  this.value = val;
+  
   document.getElementById('vis-numero').textContent = val || '0000 0000 0000 0000';
 });
 
@@ -219,8 +222,19 @@ document.getElementById('titular').addEventListener('input', function () {
 
 
 document.getElementById('validade').addEventListener('input', function () {
-  // Garante que o valor não exceda 7 caracteres (MM/AAAA)
-  let val = this.value.slice(0, 7);
+  let val = this.value.replace(/\D/g, '');
+  // Garante que o valor não exceda 6 dígitos
+  val = val.slice(0, 6);
+  
+  // Formatação: MM/AAAA (2 dígitos, barra, 4 dígitos)
+  if (val.length >= 3) {
+    val = val.slice(0, 2) + '/' + val.slice(2);
+  }
+  
+  // Atualiza o valor do input
+  this.value = val;
+  
+  // Atualiza a visualização do cartão
   document.getElementById('vis-validade').textContent = val || 'MM/AAAA';
 });
 
@@ -234,6 +248,45 @@ document.getElementById('cvv').addEventListener('blur', function () {
 
 document.getElementById('cvv').addEventListener('input', function () {
     let val = this.value.replace(/\D/g, '');
+    // Garante que o CVV tenha no máximo 3 dígitos
     val = val.slice(0, 3);
+    
+    // Atualiza o valor do input
+    this.value = val;
+    
+    // Atualiza a visualização do cartão
     document.getElementById('vis-cvv').textContent = val;
+});
+
+// Formatação do CPF
+document.getElementById('cpf').addEventListener('input', function () {
+    let val = this.value.replace(/\D/g, '');
+    // Garante que o CPF tenha no máximo 11 dígitos
+    val = val.slice(0, 11);
+    
+    // Formatação: XXX.XXX.XXX-XX
+    val = val.replace(/(\d{3})(\d)/, '$1.$2');
+    val = val.replace(/(\d{3})(\d)/, '$1.$2');
+    val = val.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    
+    // Atualiza o valor do input
+    this.value = val;
+});
+
+// Formatação do valor da doação
+document.getElementById('valor').addEventListener('input', function () {
+    let val = this.value.replace(/\D/g, '');
+    
+    if (val === '') {
+        this.value = '';
+        return;
+    }
+    
+    // Converte para centavos e depois para formato de moeda
+    val = (parseInt(val) / 100).toFixed(2);
+    val = val.replace('.', ',');
+    val = val.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    
+    // Adiciona o símbolo R$
+    this.value = 'R$ ' + val;
 });

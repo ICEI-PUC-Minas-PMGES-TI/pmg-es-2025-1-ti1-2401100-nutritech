@@ -45,14 +45,20 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Não foi possível carregar os dados da ONG. Tente novamente.');
         });
 
-    const cnpjInput = document.getElementById('cnpj');
-    cnpjInput.addEventListener('input', function (e) {
-        let value = e.target.value.replace(/\D/g, '');
-        value = value.replace(/(\d{2})(\d)/, '$1.$2');
-        value = value.replace(/(\d{3})(\d)/, '$1.$2');
-        value = value.replace(/(\d{3})(\d)/, '$1/$2');
-        value = value.replace(/(\d{4})(\d)/, '$1-$2');
-        e.target.value = value;
+    // Formatações de campos
+    document.addEventListener('DOMContentLoaded', function () {
+        // Formatação do CNPJ
+        document.getElementById('cnpj').addEventListener('input', function () {
+            let val = this.value.replace(/\D/g, '');
+            val = val.slice(0, 14);
+            
+            val = val.replace(/(\d{2})(\d)/, '$1.$2');
+            val = val.replace(/(\d{3})(\d)/, '$1.$2');
+            val = val.replace(/(\d{3})(\d)/, '$1/$2');
+            val = val.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+            
+            this.value = val;
+        });
     });
 
     imageInput.addEventListener('change', function() {

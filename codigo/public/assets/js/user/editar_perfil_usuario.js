@@ -188,3 +188,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Formatações de campos
+document.addEventListener('DOMContentLoaded', function () {
+    // Formatação do CPF
+    document.getElementById('cpf').addEventListener('input', function () {
+        let val = this.value.replace(/\D/g, '');
+        val = val.slice(0, 11);
+        
+        val = val.replace(/(\d{3})(\d)/, '$1.$2');
+        val = val.replace(/(\d{3})(\d)/, '$1.$2');
+        val = val.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        
+        this.value = val;
+    });
+
+    // Formatação do telefone
+    document.getElementById('telefone').addEventListener('input', function () {
+        let val = this.value.replace(/\D/g, '');
+        val = val.slice(0, 11);
+        
+        if (val.length <= 10) {
+            // Telefone fixo: (XX) XXXX-XXXX
+            val = val.replace(/(\d{2})(\d)/, '($1) $2');
+            val = val.replace(/(\d{4})(\d)/, '$1-$2');
+        } else {
+            // Celular: (XX) XXXXX-XXXX
+            val = val.replace(/(\d{2})(\d)/, '($1) $2');
+            val = val.replace(/(\d{5})(\d)/, '$1-$2');
+        }
+        
+        this.value = val;
+    });
+});

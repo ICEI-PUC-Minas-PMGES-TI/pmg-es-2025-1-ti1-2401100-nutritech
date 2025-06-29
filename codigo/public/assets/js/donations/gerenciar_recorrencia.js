@@ -125,6 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${dia}/${mes}/${ano}`;
     }
 
+    function formatarTelefone(telefone) {
+        if (!telefone) return 'Não informado';
+        const telLimpo = String(telefone).replace(/\D/g, '');
+        if (telLimpo.length < 10 || telLimpo.length > 11) return telefone;
+        if (telLimpo.length === 11) {
+            return telLimpo.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        }
+        return telLimpo.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+    }
+
     function renderizarDadosPessoais(user) {
         const endereco = user.endereco || {};
         info.innerHTML = `
@@ -135,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <strong>Endereço:</strong> ${endereco.logradouro || ''} ${endereco.numero || ''}<br>
             <strong>Cidade:</strong> ${endereco.cidade || 'Não informado'}<br>
             <strong>Estado:</strong> ${endereco.estado || 'Não informado'}<br>
-            <strong>Telefone:</strong> ${user.telefone || 'Não informado'}<br>
+            <strong>Telefone:</strong> ${formatarTelefone(user.telefone) || 'Não informado'}<br>
             <strong>CPF:</strong> ${formatarCPF(user.cpf)}<br>
           </div>
         `;
