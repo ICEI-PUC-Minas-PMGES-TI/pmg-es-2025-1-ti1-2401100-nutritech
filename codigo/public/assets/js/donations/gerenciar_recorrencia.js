@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderizarDadosPessoais(user) {
         const endereco = user.endereco || {};
         info.innerHTML = `
-          <div class="card-pessoal">
+        <div class="card-pessoal">
             <strong>Nome:</strong> ${user.nome || 'Não informado'}<br>
             <strong>Email:</strong> ${user.email || 'Não informado'}<br>
             <strong>Data de Nascimento:</strong> ${formatarData(user.dataNascimento)}<br>
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <strong>Estado:</strong> ${endereco.estado || 'Não informado'}<br>
             <strong>Telefone:</strong> ${user.telefone || 'Não informado'}<br>
             <strong>CPF:</strong> ${formatarCPF(user.cpf)}<br>
-          </div>
+        </div>
         `;
     }
 
@@ -162,17 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             card.innerHTML = `
-              <div class="card-body rounded-pill">
+            <div class="card-body rounded-pill">
                 <h5 class="card-title">${item.recipientOngNome || 'ONG não especificada'}</h5>
                 <p class="card-text">
-                  <strong>Próxima Doação:</strong> ${formatarData(item.data)}<br>
-                  <strong>Valor:</strong> R$ ${parseFloat(item.valor).toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}<br>
-                  <strong>Pagamento:</strong> ${cardInfo}<br>
-                  <strong>Recorrência:</strong> Sim<br>
-                  <button class="btn btn-editar btn-warning rounded-pill" data-id='${item.id}'>Editar</button>
-                  <button class="btn btn-excluir btn-danger rounded-pill" data-id='${item.id}'>Cancelar Recorrência</button>
+                <strong>Próxima Doação:</strong> ${formatarData(item.data)}<br>
+                <strong>Valor:</strong> R$ ${parseFloat(item.valor).toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}<br>
+                <strong>Pagamento:</strong> ${cardInfo}<br>
+                <strong>Recorrência:</strong> Sim<br>
+                <button class="btn btn-editar btn-warning rounded-pill" data-id='${item.id}'>Editar</button>
+                <button class="btn btn-excluir btn-danger rounded-pill" data-id='${item.id}'>Cancelar Recorrência</button>
                 </p>
-              </div>
+            </div>
             `;
             lista.appendChild(card);
         });
