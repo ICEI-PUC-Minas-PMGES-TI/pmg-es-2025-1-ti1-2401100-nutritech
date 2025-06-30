@@ -236,7 +236,6 @@ Esta seção apresenta todos os detalhes da solução criada no projeto.
 
 ## Vídeo do Projeto
 
-O vídeo a seguir traz uma apresentação do problema que a equipe está tratando e a proposta de solução. ⚠️ EXEMPLO ⚠️
 
 [![Vídeo do projeto](images/video.png)](https://www.youtube.com/embed/70gGoFyGeqQ)
 
@@ -312,11 +311,6 @@ Permite ao usuário voluntário agendar um serviço
 
 ![Tela de Funcionalidade](images/agendamento-voluntariado.jpeg)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
 
 ## Estruturas de Dados
 
@@ -371,11 +365,7 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
   }
 ```
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
+
 >
 > **Orientações:**
 >
@@ -384,7 +374,7 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
 
 ## Módulos e APIs
 
-Esta seção apresenta os módulos e APIs utilizados na solução
+* API Maps - https://mapsplatform.google.com/lp/maps-apis/
 
 **Images**:
 
@@ -396,7 +386,7 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 **Scripts:**
 
-* Unpkg Mask - [https://unpkg.com](https://unpkg.com)
+
 * Bootstrap 5 - [http://getbootstrap.com/](http://getbootstrap.com/)
 
 
@@ -409,11 +399,6 @@ ONG Comida que Abraça. Comida que Abraça, 2024. Disponível em: <https://comid
 Fundação Dom Bosco. Fundação Dom Bosco, 2021. Disponível em: <https://fundacaodombosco.org>. Acesso em: data 02/04/2025
 
 
-* SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
 >
 > **Orientações**:
 >
