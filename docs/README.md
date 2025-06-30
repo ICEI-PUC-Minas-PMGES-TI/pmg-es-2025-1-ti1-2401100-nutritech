@@ -243,23 +243,9 @@ Esta seção apresenta todos os detalhes da solução criada no projeto.
 
 ## Funcionalidades
 
-Esta seção apresenta as funcionalidades da solução.Info
+Esta seção apresenta as funcionalidades da solução.
 
-##### Funcionalidade 1 - Cadastro de Usuário 
-
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
-
-* **Estrutura de dados:** [Contatos](images/Funcionalidade_Cadastro.png)
-* **Instruções de acesso:**
-  * Abra o site e clique em "cadastrar"
-  * Preencha os dados necessários na página de cadastro
-  * Em seguida, clique em cadastrar 
-  * Uma mensagem de nome "Cadastro realizado com sucesso" será exibida na tela
-* **Tela da funcionalidade**:
-
-![Tela de Funcionalidade](images/exemplo-funcionalidade.png)
-
-##### Funcionalidade 2 - Gestão de Voluntários
+##### Funcionalidade 1 - Gestão de Voluntários
 
 Permite às Ongs a gestão e atribuição de tarefas aos voluntários
 
@@ -272,7 +258,7 @@ Permite às Ongs a gestão e atribuição de tarefas aos voluntários
 
 ![Tela de Funcionalidade](images/gestao-de-voluntarios.jpeg)
 
-##### Funcionalidade 3 - Solicitação de Necessidades 
+##### Funcionalidade 2 - Solicitação de Necessidades 
 
 Permite à Ong solicitar os alimentos necessários para os doadores
 
@@ -285,7 +271,7 @@ Permite à Ong solicitar os alimentos necessários para os doadores
 
 ![Tela de Funcionalidade](images/solicitacao-necessidades.jpeg)
 
-##### Funcionalidade 4 - Gestão de Doações Recorrentes 
+##### Funcionalidade 3 - Gestão de Doações Recorrentes 
 
 Permite ao usuário acessar suas doações recorrentes
 
@@ -298,7 +284,7 @@ Permite ao usuário acessar suas doações recorrentes
 
 ![Tela de Funcionalidade](images/gestao-recorrencia.jpeg)
 
-##### Funcionalidade 5 - Agendamento de Voluntariado 
+##### Funcionalidade 4 - Agendamento de Voluntariado 
 
 Permite ao usuário voluntário agendar um serviço
 
