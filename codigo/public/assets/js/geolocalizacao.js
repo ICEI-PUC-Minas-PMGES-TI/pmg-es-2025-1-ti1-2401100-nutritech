@@ -16,7 +16,7 @@ async function loadOngs() {
     if (loadingElement) loadingElement.style.display = 'block';
 
     try {
-        const response = await fetch('http://localhost:3001/ongs');
+        const response = await fetch(window.getApiUrl('ongs'));
         if (!response.ok) {
             throw new Error('HTTP error! status: ' + response.status + ' ao buscar ONGs');
         }

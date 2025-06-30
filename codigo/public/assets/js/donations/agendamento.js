@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         const [ongResponse, userAlimentosResponse, allAlimentosResponse] = await Promise.all([
-            fetch(`http://localhost:3001/ongs/${ongId}`),
-            fetch(`http://localhost:3001/alimentos?usuarioId=${usuarioCorrente.id}`),
-            fetch(`http://localhost:3001/alimentos?status=Agendado`)
+            fetch(window.getApiUrl(`ongs/${ongId}`)),
+            fetch(window.getApiUrl(`alimentos?usuarioId=${usuarioCorrente.id}`)),
+            fetch(window.getApiUrl(`alimentos?status=Agendado`))
         ]);
 
         if (!ongResponse.ok) throw new Error(`Falha ao carregar dados da ONG. Status: ${ongResponse.status}`);
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         try {
-            const doacaoResponse = await fetch(`http://localhost:3001/alimentos/${doacaoId}`);
+            const doacaoResponse = await fetch(window.getApiUrl(`alimentos/${doacaoId}`));
             if (!doacaoResponse.ok) {
                 throw new Error('Falha ao buscar os dados da doação para atualização.');
             }
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 ongNome: ongData.nome
             };
 
-            const updateResponse = await fetch(`http://localhost:3001/alimentos/${doacaoId}`, {
+            const updateResponse = await fetch(window.getApiUrl(`alimentos/${doacaoId}`), {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(doacaoParaAtualizar)

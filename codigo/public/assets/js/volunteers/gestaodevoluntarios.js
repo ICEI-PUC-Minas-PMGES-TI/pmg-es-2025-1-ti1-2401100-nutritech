@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         return;
     }
 
-    const API_URL = `http://localhost:3001/ongs/${ongId}`;
+    const API_URL = window.getApiUrl(`ongs/${ongId}`);
 
     async function carregarVoluntarios() {
         try {

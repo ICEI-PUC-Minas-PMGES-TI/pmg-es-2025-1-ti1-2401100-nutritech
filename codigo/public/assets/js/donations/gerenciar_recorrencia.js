@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function carregarDadosUsuario(userId) {
         console.log('Carregando dados do usuário:', userId);
-        fetch(`http://localhost:3001/usuarios/${userId}`)
+        fetch(window.getApiUrl(`usuarios/${userId}`))
             .then(res => {
                 console.log('Resposta da API:', res.status, res.statusText);
                 if (!res.ok) throw new Error(`Falha ao carregar dados do usuário: ${res.status}`);
@@ -125,6 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${dia}/${mes}/${ano}`;
     }
 
+    function formatarTelefone(telefone) {
+        if (!telefone) return 'Não informado';
+        const telLimpo = String(telefone).replace(/\D/g, '');
+        if (telLimpo.length < 10 || telLimpo.length > 11) return telefone;
+        if (telLimpo.length === 11) {
+            return telLimpo.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        }
+        return telLimpo.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+    }
+
     function renderizarDadosPessoais(user) {
         const endereco = user.endereco || {};
         info.innerHTML = `
@@ -135,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <strong>Endereço:</strong> ${endereco.logradouro || ''} ${endereco.numero || ''}<br>
             <strong>Cidade:</strong> ${endereco.cidade || 'Não informado'}<br>
             <strong>Estado:</strong> ${endereco.estado || 'Não informado'}<br>
-            <strong>Telefone:</strong> ${user.telefone || 'Não informado'}<br>
+            <strong>Telefone:</strong> ${formatarTelefone(user.telefone) || 'Não informado'}<br>
             <strong>CPF:</strong> ${formatarCPF(user.cpf)}<br>
         </div>
         `;
@@ -143,8 +153,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderizarDoacoes(doacoes) {
         console.log('Renderizando doações:', doacoes);
+        console.log('Todas as doações recebidas:', doacoes.map(d => ({
+            descricao: d.descricao,
+            recorrencia: d.recorrencia,
+            valor: d.valor
+        })));
+        
         lista.innerHTML = '';
-        doacoesRecorrentes = doacoes.filter(d => d.recorrencia === true && d.categoria !== "Alimentos");
+        doacoesRecorrentes = doacoes.filter(d => {
+            const isRecorrente = d.recorrencia === true;
+            const isDinheiro = d.descricao && d.descricao.toLowerCase() === 'dinheiro';
+            console.log(`Doação: ${d.descricao}, Recorrente: ${isRecorrente}, É dinheiro: ${isDinheiro}`);
+            return isRecorrente && isDinheiro;
+        });
+        
         console.log('Doações recorrentes filtradas:', doacoesRecorrentes);
 
         if (doacoesRecorrentes.length === 0) {
@@ -278,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function atualizarUsuarioNoServidor(usuario, successMsg, errorMsg) {
-        fetch(`http://localhost:3001/usuarios/${usuario.id}`, {
+        fetch(window.getApiUrl(`usuarios/${usuario.id}`), {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

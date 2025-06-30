@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3001';
+const baseUrl = window.getApiBaseUrl();
 
 function getUrlParams() {
   const params = new URLSearchParams(window.location.search);

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        const response = await fetch('http://localhost:3001/ongs');
+        const response = await fetch(window.getApiUrl('ongs'));
         if (!response.ok) {
             throw new Error(`Erro HTTP: ${response.status} ao buscar ONGs.`);
         }

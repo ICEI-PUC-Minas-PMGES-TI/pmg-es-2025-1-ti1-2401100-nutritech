@@ -49,6 +49,11 @@ function getRelativePath(targetPath) {
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(segment => segment !== '');
     
+    // Remove o '/' inicial do targetPath se existir
+    if (targetPath.startsWith('/')) {
+        targetPath = targetPath.substring(1);
+    }
+    
     // Se estamos na raiz ou em /codigo/public/
     if (pathSegments.length <= 2 || currentPath.includes('/codigo/public/index.html')) {
         return './' + targetPath;
@@ -75,17 +80,11 @@ function getRelativePath(targetPath) {
 
 
 if (typeof window.API_URL === 'undefined') {
-  const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
-  const baseURL = isProduction ? window.location.origin : 'http://localhost:3001';
-  
-  window.API_URL = `${baseURL}/usuarios`;
+  window.API_URL = `${window.getApiUrl()}/usuarios`;
 }
 
 if (typeof window.ONGS_API_URL === 'undefined') {
-  const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
-  const baseURL = isProduction ? window.location.origin : 'http://localhost:3001';
-  
-  window.ONGS_API_URL = `${baseURL}/ongs`;
+  window.ONGS_API_URL = `${window.getApiUrl()}/ongs`;
 }
 
 const LOGIN_PAGE_FILENAME = "login.html";
@@ -105,6 +104,11 @@ function initLoginApp () {
     
     document.addEventListener('DOMContentLoaded', function () {
         updateHeaderUI();
+        
+        // Forçar atualização do botão após um pequeno delay para garantir que a página carregou
+        setTimeout(() => {
+            updateHeaderUI();
+        }, 100);
         
         const pathSegments = window.location.pathname.split('/');
         const currentPageFile = pathSegments.pop() || pathSegments.pop();
@@ -390,6 +394,38 @@ function updateHeaderUI() {
     } else {
         if (userDropdownContainer) userDropdownContainer.classList.add('d-none');
         if (userSection) userSection.classList.remove('d-none');
+        
+        // Alterar o texto do botão cadastrar baseado na página atual
+        const registerButton = document.getElementById('registerButton');
+        if (registerButton) {
+            const currentPath = window.location.pathname;
+            console.log('[DEBUG] Current path for button update:', currentPath);
+            
+            if (currentPath.includes('/ong/') || 
+                currentPath.includes('ong.html') || 
+                currentPath.includes('cadastro_ongs.html') ||
+                currentPath.includes('perfil_ong.html') ||
+                currentPath.includes('dashboard_ong.html') ||
+                currentPath.includes('editar_perfil_ong.html')) {
+                registerButton.textContent = 'Cadastrar Doador';
+                registerButton.href = getRelativePath('modulos/user/cadastro_usuario.html');
+                console.log('[DEBUG] Set button to "Cadastrar Doador"');
+            } else if (currentPath.includes('/user/') || 
+                       currentPath.includes('usuario.html') || 
+                       currentPath.includes('cadastro_usuario.html') ||
+                       currentPath.includes('perfil_usuario.html') ||
+                       currentPath.includes('editar_perfil_usuario.html')) {
+                registerButton.textContent = 'Cadastrar ONG';
+                registerButton.href = getRelativePath('modulos/ong/cadastro_ongs.html');
+                console.log('[DEBUG] Set button to "Cadastrar ONG"');
+            } else {
+                // Página padrão - mostrar opção para cadastrar usuário
+                registerButton.textContent = 'Cadastrar';
+                registerButton.href = getRelativePath('modulos/user/cadastro_usuario.html');
+                console.log('[DEBUG] Set button to default "Cadastrar"');
+            }
+        }
+        
         if (userNameDisplay) {
             userNameDisplay.textContent = 'Usuário';
             if (userNameDisplay.getAttribute('data-profile-listener-attached')) {

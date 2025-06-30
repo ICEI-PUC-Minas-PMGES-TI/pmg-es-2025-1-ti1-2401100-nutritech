@@ -27,7 +27,7 @@ function carregarJSON(caminho, erroMsg) {
 }
 
 function carregarAlimentos() {
-    carregarJSON('assets/js/valor_alimentos.json', 'Erro ao carregar o arquivo JSON')
+    carregarJSON('../../assets/js/valor_alimentos.json', 'Erro ao carregar o arquivo JSON')
         .then(data => {
             alimentos = data.alimentos.map(item => ({
                 nome: item.nome.toLowerCase(),
@@ -38,14 +38,14 @@ function carregarAlimentos() {
 }
 
 async function obterEntidadeAPI(id, type) {
-    const basePath = type === 'ong' ? 'http://localhost:3001/ongs' : 'http://localhost:3001/usuarios';
+    const basePath = type === 'ong' ? window.getApiUrl('ongs') : window.getApiUrl('usuarios');
     const res = await fetch(`${basePath}/${id}`);
     if (!res.ok) throw new Error(`Erro ao buscar ${type} ID ${id} na API`);
     return res.json();
 }
 
 async function atualizarEntidadeAPI(id, dataToUpdate, type) {
-    const basePath = type === 'ong' ? 'http://localhost:3001/ongs' : 'http://localhost:3001/usuarios';
+    const basePath = type === 'ong' ? window.getApiUrl('ongs') : window.getApiUrl('usuarios');
     const res = await fetch(`${basePath}/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
