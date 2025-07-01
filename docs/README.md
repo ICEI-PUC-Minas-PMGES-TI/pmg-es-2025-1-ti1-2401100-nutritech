@@ -4,6 +4,7 @@ Informações básicas do projeto.
 
 * **Projeto:** [Alimentação para todos]
 * **Repositório GitHub:** [Repositorio](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2401100-nutritech)
+* **Link Site publicado** (https://nutritech-platform.onrender.com/index.html)
 * **Membros da equipe:**
 
   * [Artur Neves](https://github.com/Nevez6)
